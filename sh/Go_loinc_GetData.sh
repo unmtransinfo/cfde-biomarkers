@@ -1,5 +1,9 @@
 #!/bin/bash
 ###
+# https://loinc.org/downloads/
+# LOINC 2.72 released 2022-02
+# LOINC 2.74 released 2023-02-22
+###
 DBNAME="loinc"
 DBHOST="localhost"
 
@@ -20,7 +24,7 @@ SELECT
 	displayname,
 	consumer_name
 FROM
-	loinc
+	main
 WHERE
 	class = 'CHEM'
 ORDER BY component, loinc_num
