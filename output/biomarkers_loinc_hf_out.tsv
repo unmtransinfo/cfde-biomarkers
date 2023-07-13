@@ -1,0 +1,219 @@
+loinc_code	lab_procedure_names	protein_names	encounter_id_count	patient_id_count
+1742-6	Alanine Aminotransferase; Alanine Aminotransferase / SGPT; Alanine Aminotransferase / SGPT for Hepatitis	Alanine aminotransferase; Alanine transaminase	48415900	32364963
+1920-8	Aspartate Aminotransferase; Aspartate Aminotransferase / SGOT; Aspartate Aminotransferase / SGOT for Hepatitis	Aspartate aminotransferase; Aspartate transaminase	48315780	32288172
+6768-6	Alkaline Phosphatase, Serum; Alkaline Phosphatase, Serum dup	Alkaline phosphatase	44510615	29581277
+54347-0	Albumin, Serum	Albumin; albumin	43996009	29352445
+1759-0	Albumin / Globulin Ratio; Albumin / Globulin Ratio Calculation	Albumin; albumin	14296835	9935559
+1968-7	Bilirubin Direct Quantitative, Serum	albumin; Deltab	8064570	5945529
+10839-9	Troponin; Troponin I; Troponin I, Serum/Plasma Random	Troponin I; Troponin	6361359	4790843
+3040-3	Lipase, Serum	Triacylglycerol lipase; Pancreatic lipase	5542548	4549542
+2857-1	Prostate Specific Antigen (PSA)	Kallikrein 3; P-30 antigen; Seminin	3638051	2900137
+30934-4	BNP-B Type Natriuretic Peptide; Pro-Brain Natriuretic Peptide (NTproBNP)	Natriuretic peptide; Natriuretic Peptide; Brain Natriuretic Peptide; B-type natriuretic peptide	3406832	2615209
+32673-6	CKMB; CKMB Chemical; CKMB Isoenzyme Panel; Creatine Kinase-MB	Creatine kinase	3380198	2653365
+2276-4	Ferritin, Serum Quantitative	Ferritin	2925778	2370916
+1798-8	Amylase, Serum Enzymatic Activity/Volume	Amylase; Alpha amylase	2804288	2388217
+2532-0	Lactase Dehydrogenase (LDH) Ts; Lactic Dehydrogenase (LDH); LD/LDH Total, Serum	Lactate dehydrogenase; L-lactate dehydrogenase	2570668	1704877
+14957-5	Microalbumin, Urine; Microalbumin, Urine Random	Albumin; albumin	1863642	1494208
+2324-2	GGT/GGTP (Gamma Glutamyl Transpeptidase) Serum/Plasma	Gamma glutamyl transpeptidase; Gamma-GTP	1713042	1178637
+14959-1	Microalbumin/Creatinine Ratio, Urine	Albumin; albumin	1564858	1237193
+6598-7	Troponin T, Serum/Plasma	Troponin T; Troponin	1563431	1301600
+1754-1	UA Albumin	Albumin; albumin	1389696	1062557
+1751-7	Albumin Quantitative, Serum	Albumin; albumin	1357064	798083
+29265-6	Calcium Quantitative corrected for albumin, Serum	albumin	1108807	841711
+2157-6	CK Total for CK Isoenzymes; CPK (Creatine Phospokinase); Creatine Kinase; Creatine Kinase Enzymatic Activity/Volume Serum/Plasma; Total CK	Creatine kinase	748013	564685
+2731-8	PTH (Parathyroid Hormone)	Parathyrin; Parathormone; parathyroid hormone; Parathyroid hormone	732536	561415
+20569-0	CKMB %; CKMB/CK Index; CKMB/CK Mass Index; CK Relative Index Calculation	Creatine kinase	667379	524156
+14338-8	Prealbumin; Prealbumin Serum or Plasma Quantitative	Prealbumin; albumin; Transthyretin	639920	531403
+1743-4	Alanine aminotransferase Enzymatic activity/volume Serum or Plasma With P-5'-P	Alanine aminotransferase; Alanine transaminase	459788	249948
+15081-3	Prolactin, Serum	Prolactin	457781	418019
+30239-8	Aspartate aminotransferase Enzymatic activity/volume Serum or Plasma With P-5'-P	Aspartate aminotransferase; Aspartate transaminase	450613	245544
+2472-9	IgM (Immunoglobulin M), Serum Quantitative	Immunoglobulin M	429983	348860
+10501-5	LH (Lutenizing Hormone); Lutropin, Serum/Plasma Quantitative	Interstitial cell-stimulating hormone; Luteinizing hormone	421580	369817
+61152-5	Albumin Mass/volume Serum or Plasma Bromocresol purple (BCP) Dye Binding Method	Albumin; albumin	421530	233607
+2614-6	Blood Gas Methemoglobin %; Methemoglobin; Methemoglobin by co-oximetry	Methemoglobin	368580	330477
+53833-0	Myoglobin	Myoglobin	322199	268033
+13969-1	CKMB Mass Index Quantitative Serum/Plasma	Creatine kinase	291144	251092
+2617-9	Blood Gas Methemoglobin %, Venous	Methemoglobin	243346	161684
+10886-0	Prostate Specific Antigen (PSA) Free	Kallikrein 3; P-30 antigen; Seminin	237916	200690
+33959-8	Procalcitonin Mass/volume Serum or Plasma	Procalcitonin; proCT	224234	197657
+1834-1	Alpha Fetoprotein Quantitative, Serum	Alpha-1-Fetoprotein; Alpha fetoprotein	223049	200234
+2012-3	Cancer Antigen 27-29	MUC-1	210213	126674
+53960-1	Alpha Fetoprotein Tumor Marker	Alpha-1-Fetoprotein; Alpha fetoprotein	194361	155218
+56887-3	Myoglobin, Serum	Myoglobin	149837	114047
+5912-1	CK Isoenzyme	Creatine kinase	148098	116583
+12189-7	CK Calculation	Creatine kinase	147033	93141
+3034-6	Transferrin Quantitative Serum or Plasma	Transferrin; Siderophilin	129153	108544
+2191-5	DHEAS (Dehydroepiandrosterone Sulfate) Quantitative Serum/Plasma	DHEAS	120326	112213
+2615-3	Blood Gas Methemoglobin %, Arterial	Methemoglobin	111996	94967
+42757-5	Troponin I Cardiac Quantitative Blood	Troponin I; Troponin	108477	80541
+16255-2	Troponin I Cardiac Units/volume Serum or Plasma	Troponin I; Troponin	108279	85966
+2742-5	Angiotensen -1-Converting Enzyme (ACE)	Angiotensin converting enzyme; Angiotensin I converting enzyme; Carboxycathepsin; Kininase II; Peptidase P; dipeptidase A	101096	95806
+1986-9	C-Peptide Quantitative, Serum	insulin	96778	89008
+2064-4	Ceruplasmin, Serum	Ceruloplasmin; Ferroxidase	94138	92229
+2502-3	Iron Saturation, Serum/Plasma	Transferrin	93985	76227
+1825-9	Alpha-1-Antitrypsin	antitrypsin; Alpha-1-antitrypsin; Alpha-1-protease inhibitor; Alpha-1-proteinase inhibitor; trypsin	89692	84552
+1761-6	Aldolase Enzymatic Activity/Volume, Serum	Aldolase	83384	71157
+2998-3	Vitamin B1	Vit B1	83174	76628
+1952-1	Beta-2 Microglobulin Quantitative, Serum	Beta-2-Microglobulin	81637	58846
+2237-6	Erythropoietin	Erythropoietin; Epoetin	75410	72651
+2529-6	Lactate Dehydrogenase (LDH), Body Fluid	Lactate dehydrogenase; L-lactate dehydrogenase	71227	64939
+2007-3	Cancer Antigen 15-3	CA 15-3; MUC-1	70560	47037
+1982-8	Biotinidase	Biotinidase	69892	67559
+14956-7	Microalbumin 24 hr	Albumin; albumin	64943	49072
+13967-5	Sex Hormone Binding Globulin Quantitative Serum or Plasma	Sex hormone binding globulin; Androgen binding protein; steroid binding protein	63805	57659
+30895-7	Renin	Renin; Angiotensinogenase	60165	56318
+20448-7	Insulin, Serum/Plasma Quantitative	Insulin	45147	41456
+33287-4	G6PD (Glucose-6-Phosphate Dehydrogenase) Blood	Glucose-6-Phosphate dehydrogenase; G-6-PD; G6PDH	42604	41563
+2484-4	Insulin-like Growth Factor-1, Serum/Plasma Quantitative	Insulin-like growth factor-I; IGF-1; IGF-I; Somatomedin C	36979	32154
+1805-1	Amylase, Pancreatic	Amylase; Alpha amylase; Pancr	36644	26606
+3013-0	Thyroglobulin Quantitative Serum or Plasma	Thyroglobulin	33791	25699
+16182-8	Alkaline phosphatase Isoenzymes Enzymatic activity/volume Serum or Plasma Heat Stability	Alkaline phosphatase	32714	24793
+1777-2	Alkaline Phosphatase Bone	Alkaline phosphatase; ALP-2	30686	27799
+23883-2	Inhibin A, Serum Quantitative	Inhibin A; inhibin A	29174	28429
+14801-5	Iron Saturation Molar Fraction Serum or Plasma	Transferrin	26547	21895
+2874-6	Gamma Globulin Quantitative Serum/Plasma Electrophoresis	Protein gamma	25829	20212
+1835-8	Alpha-2 Macroglobulin	Alpha-2-Macroglobulin	23715	19546
+2862-1	Albumin Quantitative, Serum Electrophoresis	Albumin; albumin	23420	18481
+1795-4	Amylase Enzymatic Activity/Volume, Body Fluid	Amylase; Alpha amylase	21801	20430
+1747-5	Albumin Quantitative, Body Fluid	Albumin; albumin	21719	18331
+6770-2	Alpha-1-Antitrypsin Phenotype	antitrypsin; Alpha-1-antitrypsin; Alpha-1-protease inhibitor; Alpha-1-proteinase inhibitor; trypsin	21488	21197
+36904-1	Inhibin A Multiple of the Median, Serum	Inhibin A; inhibin A	20005	19447
+2333-3	Gastrin, Serum	Gastrin	19899	18379
+48039-2	Fibronectin Fetal Qualitative Unspecified specimen	Fibronectin	19879	18036
+1746-7	Albumin CSF	Albumin; albumin	18692	18513
+1779-8	Alkaline Phosphatase Liver	Alkaline phosphatase; ALP-1	18623	17553
+12841-3	Prostate Specific Antigen (PSA) Free Percent	Kallikrein 3; P-30 antigen; Seminin	18144	15636
+53531-0	Microalbumin Mass/volume Urine Detection Limit <= 1.0 mg/L	Albumin; albumin	17324	15116
+2641-9	Myoglobin, Urine; Myoglobin, Urine Quantitative	Myoglobin	16707	16528
+2963-7	Human Growth Hormone	Somatotropin; Growth hormone; growth hormone	16177	14294
+2152-7	Creatine Kinase, BB	Creatine kinase	15468	13910
+38445-3	Calprotectin Stool Quantitative	Calprotectin; S100A8	15129	14056
+14804-9	Lactate Dehydrogenase (LDH) Enzymatic Activity / Volume Serum or Plasma Lactate to Pyruvate Reaction	Lactate dehydrogenase; L-lactate dehydrogenase	14429	9867
+46130-1	Prealbumin Mass/volume Serum or Plasma Nephlometry	Prealbumin; albumin; Transthyretin	13358	11747
+2638-5	Myelin Basic Protein, CSF	Myelin basic protein	13086	12998
+1992-7	Calcitonin, Serum	Calcitonin	12694	11346
+20450-3	Alpha-1-Fetoprotein (Multiple of the Median), Serum	Alpha-1-Fetoprotein; Alpha fetoprotein	12032	11878
+2155-0	Creatine Kinase, MM	Creatine kinase	11424	10587
+22674-6	Transferrin Moles/volume Serum or Plasma	Transferrin; Siderophilin	11398	9774
+30003-8	Microalbumin, Urine 24 hr	Albumin; albumin	10542	9507
+1778-0	Alkaline Phosphatase Intestine	Alkaline phosphatase	10269	9614
+12480-0	ACE (Angiotensin Converting Enzyme) CSF; Angiotensin I CSF	Angiotensin converting enzyme; Angiotensin I converting enzyme; Carboxycathepsin; Kininase II; Peptidase P; dipeptidase A	10109	9898
+2871-2	Beta Globulin Mass/volume Serum or Plasma Electrophoresis	Protein beta	9524	7160
+2842-3	Prolactin Serum or Plasma Quantitative	Prolactin	9443	8624
+20404-0	Fibronectin Fetal Qualitative Vaginal Fluid	Fibronectin	9325	8246
+75241-0	Procalcitonin Mass/volume Serum or Plasma Immunoassay	Procalcitonin; proCT	8318	8107
+53962-7	Alpha-1-Fetoprotein Tumor Marker Quantitative, Serum	Alpha-1-Fetoprotein; Alpha fetoprotein	7711	5062
+1832-5	Alpha Fetoprotein, Amnio	Alpha-1-Fetoprotein; Alpha fetoprotein	7551	7465
+2528-8	Lactate Dehydrogenase (LDH), CSF	Lactate dehydrogenase; L-lactate dehydrogenase	7094	6654
+32554-8	Thiamine Quantitative Blood	Vit B1	6199	5687
+42637-9	BNP-B Natriuretic Peptide B, Blood	Natriuretic peptide; Natriuretic Peptide; Brain Natriuretic Peptide; B-type natriuretic peptide	6161	5935
+2915-7	Renin Quantitative Plasma	Renin; renin; Angiotensinogenase	5691	4945
+23811-3	Alpha-1-Fetoprotein (Multiple of the Median) Adjusted, Serum	Alpha-1-Fetoprotein; Alpha fetoprotein	5038	4783
+1953-9	Beta-2-Microglobulin, Urine	Beta-2-Microglobulin	5005	3958
+2540-3	Lactate Dehydrogenase-2 (LDH)	Lactate dehydrogenase; L-lactate dehydrogenase	4892	4649
+2549-4	Lactate Dehydrogenase-5 (LDH)	Lactate dehydrogenase; L-lactate dehydrogenase	4882	4639
+2543-7	Lactate Dehydrogenase-3 (LDH)	Lactate dehydrogenase; L-lactate dehydrogenase	4880	4637
+2537-9	Lactate Dehydrogenase-1 (LDH)	Lactate dehydrogenase; L-lactate dehydrogenase	4879	4636
+33863-2	Cystatin C Quantitative Serum or Plasma	Cystatin C	4844	4312
+2141-0	Corticotropin Quantitative Plasma	Corticotropin; Adrenocorticotropin; Rc206	4349	3722
+15212-4	Lipase, Body Fluid	Triacylglycerol lipase; Pancreatic lipase	4292	4132
+15082-1	Methemoglobin Mass/volume Blood	Methemoglobin	4025	3823
+10835-7	Lipoprotein A, Serum/Plasma Quantitative	Lp(a)	4008	3864
+17842-6	Cancer Antigen 27-29 Quantitative, Serum	MUC-1	3940	1840
+1690-7	5 Nucleotidase, Serum	5'-Nucleotidase	3863	3187
+2470-3	Albumin Index CSF	Albumin; albumin	3793	3747
+1799-6	Amylase, Urine; Amylase, Urine Random	Amylase; Alpha amylase	3755	3017
+13983-2	Gamma Globulin/Protein Total Serum or Plasma Electrophoresis	Protein gamma	3755	2785
+15061-5	Erythropoietin Quantitative Serum/Plasma	Erythropoietin; Epoetin	3543	3250
+13992-3	Albumin/Protein Total, Urine Electrophoresis	Albumin; albumin	3415	3198
+6875-9	Cancer Antigen 15-3 Quantitative, Serum	CA 15-3; MUC-1	3358	1514
+2460-4	IgD (Immunoglobulin D), Serum Quantitative	Immunoglobulin D	3166	3015
+12805-8	Alkaline Phosphatase Isoenzymes	Alkaline phosphatase	3047	2961
+1970-3	Bilirubin, Delta	albumin; Deltab	2859	2720
+2483-6	Insulin-like Growth Factor Binding Protien 3, Serum/Plasma Quantitative	Insulin-like growth factor binding protein 3	2672	2388
+5910-5	LD/LDH Isoenzymes; LD/LDH Isoenzymes %	Lactate dehydrogenase; L-lactate dehydrogenase	2576	2299
+2357-2	Glucose-6-Phosphate dehydrogenase Enzymatic Activity/Volume Red Blood Cells	Glucose-6-Phosphate dehydrogenase; G-6-PD; G6PDH	1934	1840
+6782-7	Albumin IgG Index	Albumin; albumin	1873	1843
+49563-0	Troponin I Cardiac Quantitative Serum or Plasma Detection Limit <= 0.01 ng/mL	Troponin I; Troponin	1668	1414
+2640-1	Myoglobin, Urine Qualtitative	Myoglobin	1648	1623
+9407-8	Alpha-1 Antitrypsin, Stool	antitrypsin; Alpha-1-antitrypsin; Alpha-1-protease inhibitor; Alpha-1-proteinase inhibitor; trypsin	1637	1566
+50385-4	Alpha-1-Microglobulin.placental Vaginal Fluid (Amnisure )	Alpha-1-Microglobulin	1512	1441
+41607-3	Methemoglobin/Hemoglobin Total Mixed Venous Blood	Methemoglobin	1429	1408
+30152-3	Mannose-binding Protein Mass/volume Serum	Mannose-binding protein	1370	1296
+2338-2	Glucagon	Glucagon	1229	1185
+14803-1	Lactate Dehydrogenase (LDH) Enzymatic Activity/Vol Body Fluid Lactate to Pyruvate Reaction	Lactate dehydrogenase; L-lactate dehydrogenase	1036	919
+13989-9	Gamma Globulin/Protein Total Urine 24 hr Electrophoresis	Protein gamma	949	877
+6942-7	Albumin Quantitative, Urine Electrophoresis	Albumin; albumin	922	782
+6901-3	Insulin Free, Serum/Plasma Quantitative	Insulin	898	788
+32546-4	Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] Red Blood Cells	Glucose-6-Phosphate dehydrogenase; G-6-PD; G6PDH	782	762
+38476-8	Mullerian Inhibiting Substance, Serum/Plasma	Mullerian inhibiting substance; Mullerian inhibiting factor	747	725
+42483-8	Protein Monoclonal/Protein Total Urine Electrophoresis	M Protein; M-protein; Para protein	734	677
+15013-6	Alkaline Phosphatase Bone/Alkaline Phosphatase Total, Serum	Alkaline phosphatase; ALP-2	696	677
+15015-1	Alkaline Phosphatase Liver/Alkaline Phosphatase Total, Serum	Alkaline phosphatase; ALP-1	696	677
+14589-6	Amylase IsoEnzymes	Amylase; Alpha amylase; Isoamylase	658	638
+2639-3	Myoglobin, Serum Baseline	Myoglobin	570	557
+21365-2	Leptin, Serum/Plasma	Leptin	545	354
+41274-2	Alpha-1-Fetoprotein Interpretation, Serum	Alpha-1-Fetoprotein; Alpha fetoprotein	519	514
+12187-1	Creatine Kinase MB/Creatine Kinase Total Serum/Plasma Electrophoresis	Creatine kinase	518	472
+25907-7	Elastase pancreatic Mass/mass Stool	Pancr; Pancreatic elastase 1; Pancreatic elastase I	486	467
+14117-6	IgG Index, Serum and CSF	Albumin; albumin	443	429
+33421-9	Alkaline Phosphatase Fractionation	Alkaline phosphatase	427	421
+2099-0	Cholinesterase Enzymatic Activity/Volume Red Blood Cells	Acylcholine acylhydrolase; Butyrylcholine esterase; Choline esterase II; Pseudocholinesterase	424	381
+19171-8	Alpha-1-Fetoprotein Quantitative, Amniotic Fluid	Alpha-1-Fetoprotein; Alpha fetoprotein	406	406
+20468-5	Thiamine Quantitative Serum or Plasma	Vit B1	354	345
+15014-4	Alkaline Phosphatase Intestinal/Alkaline Phosphatase Total, Serum	Alkaline phosphatase	335	325
+15016-9	Alkaline phosphatase Placental/Alkaline phosphatase Total Serum or Plasma	Alkaline phosphatase	335	326
+15350-2	Amylase, Urine 2 hr	Amylase; Alpha amylase	287	274
+11218-5	Microalbumin Mass/volume Urine Test Strip	Albumin; albumin	283	264
+15048-2	Creatine Kinase BB/Creatine Kinase Total Serum/Plasma Electrophoresis	Creatine kinase	274	248
+15049-0	Creatine Kinase MM/Creatine Kinase Total Serum/Plasma Electrophoresis	Creatine kinase	274	248
+1800-2	Amylase, Urine 24 hr	Amylase; Alpha amylase	250	227
+33358-3	Protein Monoclonal Serum or Plasma Electrophoresis	M Protein; M-protein; Para protein	219	202
+42484-6	Protein Monoclonal/Protein Total 24 hr Urine Electrophoresis	M Protein; M-protein; Para protein	213	200
+35704-6	Adenosine deaminase Quantitative Pleural Fluid	Adenosine deaminase	201	194
+1951-3	Beta-2 Microglobulin, CSF	Beta-2-Microglobulin	193	191
+2913-2	Pyruvate Kinase	Pyruvate kinase	187	179
+14958-3	Microalbumin/Creatinine Ratio, Urine 24 hr	Albumin; albumin	164	160
+27882-0	Proinsulin Quantitative Serum or Plasma	Proinsulin; insulin	159	152
+60024-7	Lactate Dehydrogenase (LDH) Enzymatic Activity/Vol Cerebral Spinal Fluid Lactate to Pyruvate React	Lactate dehydrogenase; L-lactate dehydrogenase	154	148
+9404-5	Adenosine deaminase Quantitative Body Fluid	Adenosine deaminase	148	145
+48623-3	Bilirubin Direct, Cord Blood	albumin; Deltab	145	145
+25302-1	Alanine Aminotransferase / SGPT, Body Fluid	Alanine aminotransferase; Alanine transaminase	128	125
+3063-5	Trypsin, Fecal	Trypsin	127	123
+1919-0	Aspartate Aminotransferase / SGOT, Body Fluid	Aspartate aminotransferase; Aspartate transaminase	125	120
+2840-7	Proinsulin Mass/volume Serum or Plasma	Proinsulin; insulin	77	75
+30000-4	Microalbumin/Creatinine Ratio Urine	Albumin; albumin	66	65
+39804-0	Lipoprotein Associated Phospholipase A2 Quantitative Serum or Plasma	phospholipase A2; Lp-PLA2; Phospholipase A2; Platelet-activating factor acetylhydrolase	65	65
+2098-2	Cholinesterase Enzymatic Activity/Volume Serum or Plasma	Acylcholine acylhydrolase; Butyrylcholine esterase; Choline esterase II; Pseudocholinesterase	65	63
+27923-2	Ubiquinone 10 Quantitative Serum or Plasma	CoQ10	65	64
+35559-4	Protein monoclonal band 2 Mass/volume Serum or Plasma Electrophoresis	M Protein; M-protein; Para protein	56	53
+50796-2	Protein monoclonal band 3 Mass/volume Serum or Plasma Electrophoresis	M Protein; M-protein; Para protein	56	53
+51435-6	Protein monoclonal band 1 Mass/volume Serum or Plasma Electrophoresis	M Protein; M-protein; Para protein	56	53
+1833-3	Alpha-1-Fetoprotein ug/L CSF	Alpha-1-Fetoprotein; Alpha fetoprotein	46	31
+54457-7	Biotinidase Enzymatic activity/volume Serum or Plasma from Normal Control	Biotinidase	44	44
+26019-0	Creatine Kinase macromolecular type 1/Creatine Kinase Total Serum/Plasma	Creatine kinase	42	39
+26020-8	Creatine Kinase macromolecular type 2/Creatine Kinase Total Serum/Plasma	Creatine kinase	42	39
+2546-0	Lactate Dehydrogenase 4 (LDH) Enzymatic Activity / Volume Serum or Plasma	Lactate dehydrogenase; L-lactate dehydrogenase	36	36
+26010-9	Alkaline phosphatase Other Fractions/Alkaline phosphatase Total Serum or Plasma	Alkaline phosphatase	35	34
+17819-4	Albumin/Protein Total, Unspecified Time Urine Electrophoresis	Albumin; albumin	32	29
+17817-8	Gamma Globulin/Protein Total Unspecified time Urine Electrophoresis	Protein gamma	32	29
+38478-4	Biotinidase Qualitative, Dried Blood spot	Biotinidase	30	30
+38992-4	Amylase, Urine 24 hr Calc	Amylase; Alpha amylase	29	28
+14119-2	Lactate Dehydrogenase 1 (LDH) / Lactate Dehydrogenase 2 Enzymatic Activity Ratio Serum or Plasma	Lactate dehydrogenase; L-lactate dehydrogenase	23	23
+49551-5	CKMB (Stratus)	Creatine kinase	23	23
+15148-0	Alkaline phosphatase Enzymatic activity/volume Body Fluid	Alkaline phosphatase	21	21
+47549-1	Adenosine deaminase Quantitative Red Blood Cells	Adenosine deaminase	21	20
+2873-8	Gamma Globulin Quantitative CSF Electrophoresis	Protein gamma	20	20
+35707-9	Alkaline phosphatase Macrohepatic/Alkaline phosphatase Total Serum or Plasma	Alkaline phosphatase	17	17
+3033-8	Transcortin Quantitative Serum	Transcortin; Corticosteroid binding globulin	16	16
+49759-4	Adenosine deaminase Quantitative Peritoneal Fluid	Adenosine deaminase	14	14
+35703-8	Adenosine deaminase Quantitative Cerebral spinal Fluid	Adenosine deaminase	12	12
+43710-3	Alkaline phosphatase Heat Stable Qualitative Serum or Plasma Heat Stability	Alkaline phosphatase	5	5
+49023-5	Microalbumin Mass/time Unspecified Time Urine	Albumin; albumin	4	4
+1722-8	Adenosine deaminase Quantitative Blood	Adenosine deaminase	2	2
+25543-0	Lipase, Urine 24 hr	Triacylglycerol lipase; Pancreatic lipase	2	2
+47826-3	Adenosine deaminase Quantitative Serum or Plasma	Adenosine deaminase	2	2
+33782-4	Alpha-2-Retinol Binding Protein Quantitative Urine	Retinol binding protein	1	1
+1987-7	C-Peptide, Urine	insulin	1	1
+34711-2	Cholinesterase Qualitative Serum or Plasma	Acylcholine acylhydrolase; Butyrylcholine esterase; Choline esterase II; Pseudocholinesterase	1	1
+49231-4	Cholinesterase Enzymatic Activity/Mass Red Blood Cells	Acylcholine acylhydrolase; Butyrylcholine esterase; Choline esterase II; Pseudocholinesterase	1	1

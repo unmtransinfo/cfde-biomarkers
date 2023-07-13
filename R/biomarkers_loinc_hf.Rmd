@@ -1,5 +1,5 @@
 ---
-title: 'Human protein biomarkers, with clinical relevance inferred from LOINC terms and Cerner HealthFacts, a preliminary analysis'
+title: 'Human protein biomarkers, with clinical relevance inferred from Cerner HealthFacts via LOINC terms'
 author: "Jeremy Yang"
 output:
   html_document:
