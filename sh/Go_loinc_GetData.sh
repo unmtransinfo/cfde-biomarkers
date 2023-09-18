@@ -1,8 +1,8 @@
 #!/bin/bash
 ###
 # https://loinc.org/downloads/
-# LOINC 2.72 released 2022-02
 # LOINC 2.74 released 2023-02-22
+# LOINC 2.76 released 2023-09-18
 ###
 DBNAME="loinc"
 DBHOST="localhost"

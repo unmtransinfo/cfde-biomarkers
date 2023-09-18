@@ -1,3 +1,4 @@
+-- Query local Loinc db.
 SELECT
         main.loinc_num,
         main.shortname,

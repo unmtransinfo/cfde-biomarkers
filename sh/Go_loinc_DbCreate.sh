@@ -1,5 +1,8 @@
 #!/bin/bash
 ###
+# https://loinc.org/
+# https://loinc.org/downloads/
+###
 
 T0=$(date +%s)
 
