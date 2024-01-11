@@ -1,0 +1,47 @@
+---
+title: Human protein biomarkers, with clinical relevance inferred from Cerner RealWorldData
+  via LOINC terms
+author: "Jeremy Yang"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    number_sections: yes
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+base::date()
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+library(readr)
+library(data.table)
+library(plotly, quietly=T)
+```
+
+# Cerner RWE counts
+
+```{r}
+rwe_counts <- read_csv("cerner_rwd_data/base_counts.csv")
+setDT(rwe_counts)
+```
+
+# LOINC codes for chemical tests
+
+```{r}
+loinc_file <- "data/loinc_chem_names.tsv"
+sprintf("LOINC codes for chemical tests: %s", loinc_file)
+loinc_chem <- read_delim(loinc_file, "\t", escape_double=F)
+setDT(loinc_chem)
+sprintf("LOINC codes: %d", loinc_chem[, uniqueN(loinc_num)])
+```
+
+# Merge and keep only counts for chemical tests
+
+```{r}
+chem_counts <- merge(rwe_counts, loinc_chem, by.x="loinc_code", by.y="loinc_num", all=F)
+```

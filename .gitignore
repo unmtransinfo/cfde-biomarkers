@@ -1,3 +1,8 @@
+.RData
+.Rhistory
+cfde-biomarkers.Rproj
+data
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
