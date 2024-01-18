@@ -6,11 +6,12 @@ printf "Executing: %s\n" "$(basename $0)"
 cwd=$(pwd)
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
-DICTDIR="${NM_ROOT}/leadmine-dictionaries-20181106/Dictionaries"
+DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
+BIOCOMP_NEXTMOVE_JARFILE="$LIBDIR/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
 #
-DATADIR="$cwd/data"
+DATADIR="$cwd/loinc_data"
 CFGDIR="${DATADIR}/config"
 #
 #############################################################################
@@ -78,7 +79,7 @@ for f in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	printf "Leadmine: $(basename $f) (${dictname})\n"
 	#
 	for col in "2" "6" ; do
-		java -jar $LIBDIR/unm_biocomp_nextmove-0.0.1-SNAPSHOT-jar-with-dependencies.jar \
+		java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 			-config $f \
 			-i ${DATADIR}/loinc_chem_names.tsv \
 			-textcol $col -unquote -idcol 1 \

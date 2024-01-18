@@ -9,7 +9,7 @@ DBHOST="localhost"
 
 cwd="$(pwd)"
 
-DATADIR="${cwd}/data"
+DATADIR="${cwd}/loinc_data"
 
 sql="\
 SELECT

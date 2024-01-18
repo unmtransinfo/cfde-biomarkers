@@ -13,7 +13,7 @@ printf "Executing: %s\n" "$(basename $0)"
 
 cwd=$(pwd)
 
-DATADIR="${cwd}/data"
+DATADIR="${cwd}/loinc_data"
 TAGGER_DIR="$(cd $HOME/../app/tagger_precompiled; pwd)"
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TAGGER_DIR"
 DICT_DIR="$(cd $HOME/../data/JensenLab/data; pwd)"
