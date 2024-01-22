@@ -68,7 +68,7 @@ library(plotly, quietly=T)
 # LOINC codes for chemical tests
 
 ```{r}
-loinc_file <- "data/loinc_chem_names.tsv"
+loinc_file <- "loinc_data/loinc_chem_names.tsv"
 sprintf("LOINC codes for chemical tests: %s", loinc_file)
 loinc_chem <- read_delim(loinc_file, "\t", escape_double=F)
 setDT(loinc_chem)
@@ -82,7 +82,7 @@ NER = named entity recognition, a form of text-mining.
 ## NER on LOINC field: "component".
 
 ```{r}
-protein_NER_component_file <- "data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv"
+protein_NER_component_file <- "loinc_data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv"
 sprintf("NextMove NER for LOINC-component: %s", protein_NER_component_file)
 protein_NER_component <- read_delim(protein_NER_component_file, "\t")
 setDT(protein_NER_component)
@@ -92,7 +92,7 @@ sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER
 ## NER on LOINC field: "relatednames2".
 
 ```{r}
-protein_NER_relatednames_file <-  "data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv"
+protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv"
 sprintf("NextMove NER for LOINC-relatednames: %s", protein_NER_relatednames_file)
 protein_NER_relatednames <-  read_delim(protein_NER_relatednames_file, "\t")
 setDT(protein_NER_relatednames)
@@ -102,7 +102,7 @@ sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein
 # Cerner HealthFacts 2019 counts of encounter\_ids and patient\_ids for all LOINC codes.
 
 ```{r}
-hf_loinc_counts_file <- "data/hf_lab_loinc_counts_OUT.tsv"
+hf_loinc_counts_file <- "cerner_hf_data/hf_lab_loinc_counts_OUT.tsv"
 sprintf("Cerner HealthFacts 2019 counts for all LOINC codes: %s", protein_NER_relatednames_file)
 hf_loinc_counts <- read_delim(hf_loinc_counts_file, "\t")
 setDT(hf_loinc_counts)
@@ -117,7 +117,6 @@ Some different labs have same LOINC codes.
 hf_loinc_counts <- hf_loinc_counts[, .(
 	lab_procedure_names = paste(c(lab_procedure_name), collapse="; "),
 	lab_procedure_mnemonics = paste(c(lab_procedure_mnemonic), collapse="; "),
-	lab_procedure_groups = paste(base::unique(c(lab_procedure_group)), collapse="; "),
 	lab_super_groups = paste(base::unique(c(lab_super_group)), collapse="; "),
 	encounter_id_count = sum(encounter_id_count),
 	patient_id_count = sum(patient_id_count)
@@ -150,7 +149,7 @@ setcolorder(protein_hr_loincs_out, c("loinc_code", "lab_procedure_names", "prote
 
 ```{r}
 protein_hr_loincs_out <- protein_hr_loincs_out[order(-encounter_id_count)]
-write_delim(protein_hr_loincs_out, "data/biomarkers_loinc_hf_out.tsv", delim="\t")
+write_delim(protein_hr_loincs_out, "cerner_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
 knitr::kable(protein_hr_loincs_out[1:50], caption="Top occurring LOINCs")
 ```
 

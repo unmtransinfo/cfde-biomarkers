@@ -1,0 +1,113 @@
+---
+title: Human protein biomarkers, with clinical relevance inferred from Cerner RealWorldData
+  via LOINC terms
+author: "Jeremy Yang"
+output:
+  pdf_document:
+    toc: yes
+  html_document:
+    number_sections: yes
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+base::date()
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+library(readr)
+library(data.table)
+library(plotly, quietly=T)
+```
+
+# LOINC codes for chemical tests
+
+```{r}
+loinc_file <- "loinc_data/loinc_chem_names.tsv"
+sprintf("LOINC codes for chemical tests: %s", loinc_file)
+loinc_chem <- read_delim(loinc_file, "\t", escape_double=F)
+setDT(loinc_chem)
+sprintf("LOINC codes: %d", loinc_chem[, uniqueN(loinc_num)])
+```
+
+# NextMove LeadMine NER output using GeneAndProtein dictionary.
+
+NER = named entity recognition, a form of text-mining.
+
+## NER on LOINC field: "component".
+
+```{r}
+protein_NER_component_file <- "loinc_data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv"
+sprintf("NextMove NER for LOINC-component: %s", protein_NER_component_file)
+protein_NER_component <- read_delim(protein_NER_component_file, "\t")
+setDT(protein_NER_component)
+sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
+```
+
+## NER on LOINC field: "relatednames2".
+
+```{r}
+protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv"
+sprintf("NextMove NER for LOINC-relatednames: %s", protein_NER_relatednames_file)
+protein_NER_relatednames <-  read_delim(protein_NER_relatednames_file, "\t")
+setDT(protein_NER_relatednames)
+sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
+```
+
+# Cerner RWD counts
+
+Cerner Real World Data 2023 counts of encounter\_ids and patient\_ids for all LOINC codes.
+
+```{r}
+rwd_loinc_counts <- read_csv("cerner_rwd_data/base_counts.csv")
+setDT(rwd_loinc_counts)
+sprintf("LOINC codes in RWD encounters: %d", rwd_loinc_counts[, uniqueN(loinc_code)])
+```
+
+
+## Group lab procedures into list; aggregate on LOINC codes.
+
+Some different labs have same LOINC codes.
+
+```{r}
+rwd_loinc_counts <- rwd_loinc_counts[, .(
+	mnemonics = paste(base::unique(c(mnemonic)), collapse="; "),
+	loinc_classes = paste(base::unique(c(loincclass)), collapse="; "),
+	years = paste(sort(base::unique(c(yr))), collapse="; "),
+	encounter_id_count = sum(count_encs),
+	patient_id_count = sum(count_pts)
+	), by=c("loinc_code")]
+
+```
+
+# LOINC proteins in RWD encounters
+
+```{r}
+protein_hr_loincs_component <- merge(protein_NER_component, rwd_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
+protein_hr_loincs_relatednames <- merge(protein_NER_relatednames, rwd_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
+protein_hr_loincs <- rbind(protein_hr_loincs_component, protein_hr_loincs_relatednames)
+sprintf("LOINC codes for proteins in RWD encounters: %d", protein_hr_loincs[, uniqueN(DocName)])
+sprintf("LOINC protein names in RWD encounters: %d", protein_hr_loincs[, uniqueN(EntityText)])
+```
+
+## Group protein synonyms into list; aggregate on LOINC codes.
+
+```{r}
+protein_hr_loincs_out <- unique(protein_hr_loincs[, .(loinc_code=DocName, mnemonics, protein_name=EntityText, encounter_id_count, patient_id_count)])
+protein_hr_loincs_out <- protein_hr_loincs_out[, .(mnemonics,
+protein_names = paste(c(protein_name), collapse="; ")), by=c("loinc_code", "encounter_id_count", "patient_id_count")]
+protein_hr_loincs_out <- unique(protein_hr_loincs_out)
+setcolorder(protein_hr_loincs_out, c("loinc_code", "mnemonics", "protein_names", "encounter_id_count", "patient_id_count"))
+```
+
+# Top occurring LOINCs:
+
+```{r}
+protein_hr_loincs_out <- protein_hr_loincs_out[order(-encounter_id_count)]
+write_delim(protein_hr_loincs_out, "cerner_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
+knitr::kable(protein_hr_loincs_out[1:50], caption="Top occurring LOINCs")
+```
+
