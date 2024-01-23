@@ -67,8 +67,7 @@ setDT(rwd_loinc_counts)
 sprintf("LOINC codes in RWD encounters: %d", rwd_loinc_counts[, uniqueN(loinc_code)])
 ```
 
-
-## Group lab procedures into list; aggregate on LOINC codes.
+## Group lab procedures into list; aggregate on LOINC codes, first by year.
 
 Some different labs have same LOINC codes.
 
@@ -76,11 +75,26 @@ Some different labs have same LOINC codes.
 rwd_loinc_counts <- rwd_loinc_counts[, .(
 	mnemonics = paste(base::unique(c(mnemonic)), collapse="; "),
 	loinc_classes = paste(base::unique(c(loincclass)), collapse="; "),
-	years = paste(sort(base::unique(c(yr))), collapse="; "),
 	encounter_id_count = sum(count_encs),
 	patient_id_count = sum(count_pts)
-	), by=c("loinc_code")]
+	), by=c("loinc_code", "yr")]
+rwd_loinc_counts_by_year <- rwd_loinc_counts[, .(
+  encounters = sum(encounter_id_count)
+	), by=c("yr")]
+setorder(rwd_loinc_counts_by_year, yr)
+plot_ly(rwd_loinc_counts_by_year, x=~yr, y = ~encounters, type = "bar", name = "Labs")
+```
 
+## Combine years for totals.
+
+```{r}
+rwd_loinc_counts <- rwd_loinc_counts[, .(
+	mnemonics,
+	loinc_classes,
+	years = paste(sort(base::unique(c(yr))), collapse="; "),
+	encounter_id_count,
+	patient_id_count
+	), by=c("loinc_code")]
 ```
 
 # LOINC proteins in RWD encounters
