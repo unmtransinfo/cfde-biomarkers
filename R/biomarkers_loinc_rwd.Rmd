@@ -3,10 +3,10 @@ title: Human protein biomarkers, with clinical relevance inferred from Cerner Re
   via LOINC terms
 author: "Jeremy Yang"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     number_sections: yes
+    toc: yes
+  pdf_document:
     toc: yes
 editor_options:
   chunk_output_type: console
@@ -23,7 +23,7 @@ library(data.table)
 library(plotly, quietly=T)
 ```
 
-# LOINC codes for chemical tests
+# LOINC codes for chemical tests (class = "CHEM")
 
 ```{r}
 loinc_file <- "loinc_data/loinc_chem_names.tsv"
@@ -49,48 +49,60 @@ sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER
 
 ## NER on LOINC field: "relatednames2".
 
+How many added by this field?
+
 ```{r}
 protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv"
 sprintf("NextMove NER for LOINC-relatednames: %s", protein_NER_relatednames_file)
 protein_NER_relatednames <-  read_delim(protein_NER_relatednames_file, "\t")
 setDT(protein_NER_relatednames)
 sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
+sprintf("LOINC codes mapped via relatednames2 AND mapped via component: %d", length(intersect(protein_NER_relatednames[, DocName], protein_NER_component[, DocName])))
+sprintf("LOINC codes mapped via relatednames2 NOT mapped via component: %d", length(setdiff(protein_NER_relatednames[, DocName], protein_NER_component[, DocName])))
 ```
 
 # Cerner RWD counts
 
-Cerner Real World Data 2023 counts of encounter\_ids and patient\_ids for all LOINC codes.
+Cerner Real World Data 2023 counts of distinct encounter\_ids and patient\_ids for LOINC codes of class "CHEM". Each count is for a specific lab test, and year. There is a problem that some Cerner-coded lab tests merge to the same LOINC code, and the counts cannot be added, since there may be common patients and encounters. 
 
 ```{r}
 rwd_loinc_counts <- read_csv("cerner_rwd_data/base_counts.csv")
 setDT(rwd_loinc_counts)
+rwd_loinc_counts <- rwd_loinc_counts[, .(loinc_code, mnemonic, loincclass, yr, count_encs, count_pts)]
+rwd_loinc_counts <- unique(rwd_loinc_counts[loincclass == "CHEM"])
+setorder(rwd_loinc_counts, loinc_code, yr)
 sprintf("LOINC codes in RWD encounters: %d", rwd_loinc_counts[, uniqueN(loinc_code)])
+sprintf("Number of labs tests which merge to a common LOINC, in 2021: %d / %d", sum(duplicated(rwd_loinc_counts[yr == "2021", .(loinc_code)])), nrow(rwd_loinc_counts[yr == "2021", .(loinc_code)]))
 ```
 
 ## Group lab procedures into list; aggregate on LOINC codes, first by year.
 
-Some different labs have same LOINC codes.
+Some different labs have same LOINC codes. 
 
 ```{r}
 rwd_loinc_counts <- rwd_loinc_counts[, .(
 	mnemonics = paste(base::unique(c(mnemonic)), collapse="; "),
-	loinc_classes = paste(base::unique(c(loincclass)), collapse="; "),
+	loinc_class = "CHEM",
 	encounter_id_count = sum(count_encs),
 	patient_id_count = sum(count_pts)
 	), by=c("loinc_code", "yr")]
 rwd_loinc_counts_by_year <- rwd_loinc_counts[, .(
-  encounters = sum(encounter_id_count)
+  encounters_mean = mean(encounter_id_count),
+  patients_mean = mean(patient_id_count) 
 	), by=c("yr")]
 setorder(rwd_loinc_counts_by_year, yr)
-plot_ly(rwd_loinc_counts_by_year, x=~yr, y = ~encounters, type = "bar", name = "Labs")
+plot_ly(rwd_loinc_counts_by_year, x=~yr, y = ~encounters_mean, type = "bar", name = "mean(nEn)") %>%
+  add_trace(rwd_loinc_counts_by_year, x=~yr, y = ~patients_mean, type = "bar", name = "mean(nPt)")
 ```
 
 ## Combine years for totals.
 
+Encounter ID counts can be added for multiple years, but not patient ID counts, since there can be common ID. When added over multiple labs, encounter ID counts should be interpreted as lab counts, since a single encounter can involve multiple labs.
+
 ```{r}
 rwd_loinc_counts <- rwd_loinc_counts[, .(
 	mnemonics,
-	loinc_classes,
+	loinc_class,
 	years = paste(sort(base::unique(c(yr))), collapse="; "),
 	encounter_id_count,
 	patient_id_count

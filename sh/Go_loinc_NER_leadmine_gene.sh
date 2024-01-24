@@ -22,24 +22,22 @@ PREFIX="NM"
 ###
 # CONFIG: Create LeadMine config file:
 ###
-dicts="\
-${DICTDIR}/CFDictGeneAndProtein.cfx
-"
+dict="${DICTDIR}/CFDictGeneAndProtein.cfx"
 #
-for f in $dicts ; do
-	#
-	entitytype=$(basename $f |perl -pe 's/^(.*)\.cfx$/$1/')
-	printf "CFG: %s (%s)\n" $(basename $f) $entitytype
-	DICTNAME="${PREFIX}_$(basename $f|sed -e 's/\.cfx$//')"
-	#
-	caseSens="false"
-	minEntLen="5"
-	spelCor="false"
-	#spelCor="true"
-	maxCorDist="1"
-	minCorEntLen="5"
-	#
-	(cat <<__EOF__
+entitytype=$(basename $dict |perl -pe 's/^(.*)\.cfx$/$1/')
+printf "CFG: %s (%s)\n" $(basename $dict) $entitytype
+DICTNAME="${PREFIX}_$(basename $dict|sed -e 's/\.cfx$//')"
+#
+caseSens="false"
+minEntLen="5"
+spelCor="false"
+#spelCor="true"
+maxCorDist="1"
+minCorEntLen="5"
+#
+#  location  loinc_data/Resolvers/entrez.dict
+#
+(cat <<__EOF__
 [dictionary]
   location ${f}
   entityType ${entitytype}
@@ -49,10 +47,17 @@ for f in $dicts ; do
   maxCorrectionDistance  ${maxCorDist}
   minimumCorrectedEntityLength ${minCorEntLen}
 
+[resolver]
+  location /home/app/nextmove/dictionaries-20231222/Resolvers/entrez.dict
+  mmap true
+  validate false
+  caseSensitive false
+  entityType ${entitytype}
+  outputType Entrez
+
 __EOF__
 ) \
 	>"$CFGDIR/${DICTNAME}.cfg"
-done
 #
 ###
 #
