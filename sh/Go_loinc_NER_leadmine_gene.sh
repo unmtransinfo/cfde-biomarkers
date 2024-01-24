@@ -24,8 +24,7 @@ PREFIX="NM"
 ###
 dict="${DICTDIR}/CFDictGeneAndProtein.cfx"
 #
-entitytype=$(basename $dict |perl -pe 's/^(.*)\.cfx$/$1/')
-printf "CFG: %s (%s)\n" $(basename $dict) $entitytype
+printf "CFG: %s\n" $(basename $dict)
 DICTNAME="${PREFIX}_$(basename $dict|sed -e 's/\.cfx$//')"
 #
 caseSens="false"
@@ -36,11 +35,12 @@ maxCorDist="1"
 minCorEntLen="5"
 #
 #  location  loinc_data/Resolvers/entrez.dict
+# location /home/app/nextmove/dictionaries-20231222/Resolvers/entrez.dict
 #
 (cat <<__EOF__
 [dictionary]
-  location ${f}
-  entityType ${entitytype}
+  location ${dict}
+  entityType  GeneOrProtein
   caseSensitive ${caseSens}
   minimumEntityLength ${minEntLen}
   useSpellingCorrection ${spelCor}
@@ -48,11 +48,27 @@ minCorEntLen="5"
   minimumCorrectedEntityLength ${minCorEntLen}
 
 [resolver]
+  location /home/app/nextmove/dictionaries-20231222/Resolvers/hgnc.dict
+  mmap  true
+  validate false
+  caseSensitive  false
+  entityType  GeneOrProtein
+  outputType  HGNC
+
+[resolver]
+  location /home/app/nextmove/dictionaries-20231222/Resolvers/uniprot.dict
+  mmap  true
+  validate false
+  caseSensitive  false
+  entityType  GeneOrProtein
+  outputType  UniProt
+
+[resolver]
   location /home/app/nextmove/dictionaries-20231222/Resolvers/entrez.dict
   mmap true
   validate false
   caseSensitive false
-  entityType ${entitytype}
+  entityType  GeneOrProtein
   outputType Entrez
 
 __EOF__

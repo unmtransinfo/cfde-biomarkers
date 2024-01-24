@@ -45,6 +45,7 @@ sprintf("NextMove NER for LOINC-component: %s", protein_NER_component_file)
 protein_NER_component <- read_delim(protein_NER_component_file, "\t")
 setDT(protein_NER_component)
 sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
+sprintf("LOINC codes resolved to standard IDs: %d / %d", protein_NER_component[!is.na(ResolvedForm), uniqueN(DocName)], protein_NER_component[, uniqueN(DocName)])
 ```
 
 ## NER on LOINC field: "relatednames2".
@@ -59,6 +60,8 @@ setDT(protein_NER_relatednames)
 sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
 sprintf("LOINC codes mapped via relatednames2 AND mapped via component: %d", length(intersect(protein_NER_relatednames[, DocName], protein_NER_component[, DocName])))
 sprintf("LOINC codes mapped via relatednames2 NOT mapped via component: %d", length(setdiff(protein_NER_relatednames[, DocName], protein_NER_component[, DocName])))
+sprintf("LOINC codes resolved to standard IDs: %d / %d", protein_NER_relatednames[!is.na(ResolvedForm), uniqueN(DocName)], protein_NER_relatednames[, uniqueN(DocName)])
+
 ```
 
 # Cerner RWD counts
