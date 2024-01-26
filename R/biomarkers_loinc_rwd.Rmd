@@ -46,6 +46,9 @@ protein_NER_component <- read_delim(protein_NER_component_file, "\t")
 setDT(protein_NER_component)
 sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
 sprintf("LOINC codes resolved to standard IDs: %d / %d", protein_NER_component[!is.na(ResolvedForm), uniqueN(DocName)], protein_NER_component[, uniqueN(DocName)])
+sprintf("LOINC codes resolved to HGNC IDs: %d / %d", protein_NER_component[!is.na(ResolvedForm) & grepl("^HGNC", ResolvedForm), .(uniqueN(DocName))], protein_NER_component[, uniqueN(DocName)])
+sprintf("LOINC codes resolved to UniProt IDs: %d / %d", protein_NER_component[!is.na(ResolvedForm) & grepl("^[A-Z]\\d+$", ResolvedForm), .(uniqueN(DocName))], protein_NER_component[, uniqueN(DocName)])
+sprintf("LOINC codes resolved to Entrez (gene?) IDs: %d / %d", protein_NER_component[!is.na(ResolvedForm) & grepl("^\\d+$", ResolvedForm), .(uniqueN(DocName))], protein_NER_component[, uniqueN(DocName)])
 ```
 
 ## NER on LOINC field: "relatednames2".
