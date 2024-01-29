@@ -1,0 +1,516 @@
+loinc_code	geneOrProteinId	mnemonics	lab_count
+1751-7	HGNC:399	Albumin [Mass/volume] in Serum or Plasma	99530276
+1742-6	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma	99448917
+1759-0	HGNC:399	Albumin/Globulin [Mass Ratio] in Serum or Plasma	47030076
+1968-7	HGNC:399	Bilirubin.direct [Mass/volume] in Serum or Plasma	39076770
+3040-3	HGNC:6619	Lipase [Enzymatic activity/volume] in Serum or Plasma	36872904
+1743-4	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by With P-5'-P	15184942
+61152-5	HGNC:399	Albumin [Mass/volume] in Serum or Plasma by Bromocresol purple (BCP) dye binding method	11031598
+1744-2	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Serum or Plasma by No addition of P-5'-P	10648619
+2857-1	UNIPROT:P07288	Prostate specific Ag [Mass/volume] in Serum or Plasma	9823612
+61151-7	HGNC:399	Albumin [Mass/volume] in Serum or Plasma by Bromocresol green (BCG) dye binding method	9233502
+2276-4	UNIPROT:Q26061	Ferritin [Mass/volume] in Serum or Plasma	8445047
+14957-5	HGNC:399	Microalbumin [Mass/volume] in Urine	6172810
+2502-3	HGNC:11740	Iron saturation [Mass Fraction] in Serum or Plasma	5600674
+14959-1	HGNC:399	Microalbumin/Creatinine [Mass Ratio] in Urine	4458248
+2731-8	HGNC:9606	Parathyrin.intact [Mass/volume] in Serum or Plasma	3020605
+14338-8	HGNC:399	Prealbumin [Mass/volume] in Serum or Plasma	2754876
+2324-2	UNIPROT:P63186	Gamma glutamyl transferase [Enzymatic activity/volume] in Serum or Plasma	2406028
+3034-6	HGNC:11740	Transferrin [Mass/volume] in Serum or Plasma	2160471
+1754-1	HGNC:399	Albumin [Mass/volume] in Urine	2077739
+1747-5	HGNC:399	Albumin [Mass/volume] in Body fluid	1764137
+2874-6	UNIPROT:Q65479	Gamma globulin [Mass/volume] in Serum or Plasma by Electrophoresis	1405639
+9318-7	HGNC:399	Albumin/Creatinine [Mass Ratio] in Urine	1365878
+1916-6	HGNC:4552	Aspartate aminotransferase/Alanine aminotransferase [Enzymatic activity ratio] in Serum or Plasma	1286362
+2862-1	HGNC:399	Albumin [Mass/volume] in Serum or Plasma by Electrophoresis	1283018
+44429-9	HGNC:399	Albumin/Globulin [Mass Ratio] in Serum or Plasma by Electrophoresis	1280969
+10501-5	UNIPROT:P01231	Lutropin [Units/volume] in Serum or Plasma	1076989
+2842-3	HGNC:9445	Prolactin [Mass/volume] in Serum or Plasma	1059015
+46099-8	HGNC:399	Calcium [Mass/volume] corrected for albumin in Serum or Plasma	988146
+2639-3	HGNC:6915	Myoglobin [Mass/volume] in Serum or Plasma	987685
+1834-1	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma	774174
+20448-7	HGNC:6081	Insulin [Units/volume] in Serum or Plasma	703189
+1825-9	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma	699936
+13967-5	HGNC:10839	Sex hormone binding globulin [Moles/volume] in Serum or Plasma	624428
+76625-3	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Blood	619940
+50949-7	HGNC:399	Albumin [Presence] in Urine by Test strip	615220
+10886-0	UNIPROT:P07288	Prostate Specific Ag Free [Mass/volume] in Serum or Plasma	509922
+6875-9	UNIPROT:P15941	Cancer Ag 15-3 [Units/volume] in Serum or Plasma	493760
+20567-4	UNIPROT:Q26061	Ferritin [Mass/volume] in Serum or Plasma by Immunoassay	478926
+53962-7	HGNC:317	Alpha-1-fetoprotein.tumor marker [Mass/volume] in Serum or Plasma	459542
+46761-3	HGNC:1122	Biotinidase deficiency newborn screen interpretation	452287
+12841-3	UNIPROT:P07288	Prostate Specific Ag Free/Prostate specific Ag.total in Serum or Plasma	429179
+2742-5	HGNC:2707	Angiotensin converting enzyme [Enzymatic activity/volume] in Serum or Plasma	420194
+33358-3	UNIPROT:P54296	Protein.monoclonal [Mass/volume] in Serum or Plasma by Electrophoresis	420043
+15061-5	HGNC:3415	Erythropoietin (EPO) [Units/volume] in Serum or Plasma	410958
+17842-6	UNIPROT:Q02496	Cancer Ag 27-29 [Units/volume] in Serum or Plasma	393225
+32769-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma; Alpha 1 antitrypsin phenotyping [Interpretation] in Serum or Plasma	382692
+32769-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotyping [Interpretation] in Serum or Plasma; Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma	382692
+32769-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma	382692
+2484-4	HGNC:5464	Insulin-like growth factor-I [Mass/volume] in Serum or Plasma	345762
+3013-0	HGNC:11764	Thyroglobulin [Mass/volume] in Serum or Plasma	317568
+2064-4	HGNC:2295	Ceruloplasmin [Mass/volume] in Serum or Plasma	311912
+46130-1	HGNC:399	Prealbumin [Mass/volume] in Serum or Plasma by Nephelometry	302224
+1986-9	HGNC:6081	C peptide [Mass/volume] in Serum or Plasma	295155
+2141-0	HGNC:9201	Corticotropin [Mass/volume] in Plasma	268903
+38445-3	HGNC:10498	Calprotectin [Mass/mass] in Stool	258694
+32294-1	HGNC:399	Albumin/Creatinine [Ratio] in Urine	249529
+2357-2	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Enzymatic activity/volume] in Red Blood Cells	242980
+13983-2	UNIPROT:Q65479	Gamma globulin/Protein.total in Serum or Plasma by Electrophoresis	235150
+14958-3	HGNC:399	Microalbumin/Creatinine [Mass Ratio] in 24 hour Urine	233548
+30000-4	HGNC:399	Microalbumin/Creatinine [Ratio] in Urine	229414
+13980-8	HGNC:399	Albumin/Protein.total in Serum or Plasma by Electrophoresis	224644
+1952-1	HGNC:914	Beta-2-Microglobulin [Mass/volume] in Serum or Plasma	213603
+29265-6	HGNC:399	Calcium [Moles/volume] corrected for albumin in Serum or Plasma	202047
+30003-8	HGNC:399	Microalbumin [Mass/volume] in 24 hour Urine	188657
+2915-7	HGNC:9958	Renin [Enzymatic activity/volume] in Plasma	187409
+76631-1	HGNC:399	Albumin [Mass/volume] in Blood by Bromocresol purple (BCP) dye binding method	163918
+53833-0	HGNC:6915	Myoglobin [Mass/volume] in Blood	153950
+25907-7	HGNC:52282	Elastase.pancreatic [Mass/mass] in Stool	143810
+23811-3	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] adjusted in Serum or Plasma	142004
+32546-4	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] in Red Blood Cells	127870
+33647-9	UNIPROT:P54296	Protein.monoclonal/Protein.total in Serum or Plasma by Electrophoresis	127648
+1982-8	HGNC:1122	Biotinidase [Enzymatic activity/volume] in Serum or Plasma	125782
+11218-5	HGNC:399	Microalbumin [Mass/volume] in Urine by Test strip	118400
+14117-6	HGNC:399	IgG clearance/Albumin clearance [Ratio] in Serum and CSF	110672
+1805-1	HGNC:52282	Amylase.pancreatic [Enzymatic activity/volume] in Serum or Plasma	109518
+13992-3	HGNC:399	Albumin/Protein.total in Urine by Electrophoresis	103249
+53531-0	HGNC:399	Microalbumin [Mass/volume] in Urine by Detection limit <= 1.0 mg/L	102750
+32722-1	HGNC:6619	Lipase [Enzymatic activity/volume] in Peritoneal fluid	96882
+49936-8	HGNC:399	Calcium.ionized/Calcium.total corrected for albumin in Blood	96721
+6942-7	HGNC:399	Albumin [Mass/volume] in Urine by Electrophoresis	93676
+77148-5	HGNC:399	Albumin [Mass/volume] in Serum, Plasma or Blood by Bromocresol purple (BCP) dye binding method	89707
+20450-3	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] in Serum or Plasma	89285
+73561-3	HGNC:5464	Insulin-like growth factor-I [Z-score] in Serum or Plasma	86036
+9811-1	HGNC:1929	Chromogranin A [Mass/volume] in Serum or Plasma	82435
+77144-4	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Serum, Plasma or Blood	81897
+6796-7	HGNC:11740	Deprecated Transferrin saturation in Serum or Plasma	78383
+14801-5	HGNC:11740	Iron saturation [Molar fraction] in Serum or Plasma	77873
+26881-3	HGNC:6018	Interleukin 6 [Mass/volume] in Serum or Plasma	77090
+15087-0	HGNC:9606	Parathyrin related protein [Moles/volume] in Serum or Plasma	73246
+35741-8	UNIPROT:P07288	Prostate specific Ag [Mass/volume] in Serum or Plasma by Detection limit <= 0.01 ng/mL	71476
+83112-3	UNIPROT:P07288	Prostate specific Ag [Mass/volume] in Serum or Plasma by Immunoassay	71467
+13995-6	UNIPROT:Q65479	Gamma globulin/Protein.total in Urine by Electrophoresis	70787
+49220-7	HGNC:9445	Prolactin [Mass/volume] in Serum or Plasma by 3rd IS	67528
+1746-7	HGNC:399	Albumin [Mass/volume] in Cerebral spinal fluid	66010
+1756-6	HGNC:399	Albumin in CSF/Albumin in Serum or Plasma	65645
+35559-4	UNIPROT:P54296	Protein.monoclonal band 2 [Mass/volume] in Serum or Plasma by Electrophoresis	64737
+38478-4	HGNC:1122	Biotinidase [Presence] in DBS	62563
+51435-6	UNIPROT:P54296	Protein.monoclonal band 1 [Mass/volume] in Serum or Plasma by Electrophoresis	62162
+2963-7	HGNC:4261	Somatotropin [Mass/volume] in Serum or Plasma	61882
+13986-5	HGNC:399	Albumin/Protein.total in 24 hour Urine by Electrophoresis	61118
+10835-7	HGNC:6667	Lipoprotein a [Mass/volume] in Serum or Plasma	60228
+33863-2	HGNC:2475	Cystatin C [Mass/volume] in Serum or Plasma	58093
+1869-7	HGNC:600	Apolipoprotein A-I [Mass/volume] in Serum or Plasma	56683
+13705-9	HGNC:399	Albumin/Creatinine [Mass Ratio] in 24 hour Urine	51707
+1835-8	HGNC:7	Alpha-2-Macroglobulin [Mass/volume] in Serum or Plasma	50823
+15212-4	HGNC:6619	Lipase [Enzymatic activity/volume] in Body fluid	49072
+33288-2	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase [Presence] in DBS	48597
+6770-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Identifier] in Serum or Plasma by Immunofixation	48522
+6770-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Identifier] in Serum or Plasma by Immunofixation; Alpha 1 antitrypsin phenotyping [Identifier] in Serum or Plasma by Immunofixation	48522
+6770-2	UNIPROT:P22922	Alpha 1 antitrypsin phenotyping [Identifier] in Serum or Plasma by Immunofixation; Alpha 1 antitrypsin phenotype [Identifier] in Serum or Plasma by Immunofixation	48522
+14956-7	HGNC:399	Microalbumin [Mass/time] in 24 hour Urine	44183
+2333-3	HGNC:4164	Gastrin [Mass/volume] in Serum or Plasma	44160
+58448-2	HGNC:399	Microalbumin ug/min [Mass/time] in 24 hour Urine	43765
+43820-0	HGNC:399	Bilirubin.direct [Presence] in Serum or Plasma	43332
+24373-3	UNIPROT:Q26061	Ferritin [Mass/volume] in Blood	42796
+44913-2	UNIPROT:Q65479	Beta globulin+Gamma globulin [Mass/volume] in Serum or Plasma by Electrophoresis	42143
+16325-3	HGNC:4552	Alanine aminotransferase/Aspartate aminotransferase [Enzymatic activity ratio] in Serum or Plasma	42028
+54347-0	HGNC:399	Albumin [Moles/volume] in Serum or Plasma	41913
+48669-6	HGNC:399	Albumin and Immunoglobulin Quotient [Interpretation] in Serum and CSF	41854
+6771-0	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/volume] in Serum or Plasma by Nephelometry	40790
+1884-6	HGNC:603	Apolipoprotein B [Mass/volume] in Serum or Plasma	40608
+2638-5	HGNC:6925	Myelin basic protein [Mass/volume] in Cerebral spinal fluid	40309
+1953-9	HGNC:914	Beta-2-Microglobulin [Mass/volume] in Urine	40153
+9745-1	UNIPROT:Q65479	Gamma globulin [Mass/volume] in Urine by Electrophoresis	39743
+20568-2	HGNC:9445	Prolactin [Mass/volume] in Serum or Plasma by Immunoassay	38562
+12480-0	HGNC:2707	Angiotensin converting enzyme [Enzymatic activity/volume] in Cerebral spinal fluid	38466
+14866-8	HGNC:9606	Parathyrin.intact [Moles/volume] in Serum or Plasma	38111
+19176-7	HGNC:317	Alpha-1-Fetoprotein [Units/volume] in Serum or Plasma	36739
+2081-8	HGNC:1569	Cholecystokinin [Mass/volume] in Plasma	35783
+2641-9	HGNC:6915	Myoglobin [Mass/volume] in Urine	35510
+30894-0	HGNC:9958	Aldosterone/Renin [Ratio] in Plasma	34605
+49244-7	UNIPROT:P22922	Alpha 1 antitrypsin phenotyping [Interpretation] in Serum or Plasma Narrative	34520
+49244-7	UNIPROT:P22922	Alpha 1 antitrypsin phenotyping [Interpretation] in Serum or Plasma Narrative; Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma Narrative	34520
+49244-7	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma Narrative; Alpha 1 antitrypsin phenotyping [Interpretation] in Serum or Plasma Narrative	34520
+49244-7	UNIPROT:P22922	Alpha 1 antitrypsin phenotype [Interpretation] in Serum or Plasma Narrative	34520
+15015-1	UNIPROT:P10696	Alkaline phosphatase.liver/Alkaline phosphatase.total in Serum or Plasma	34053
+48407-1	HGNC:8602	Pregnancy associated plasma protein A [Mass/volume] in Serum or Plasma	33669
+2470-3	HGNC:399	IgG/Albumin [Mass Ratio] in Cerebral spinal fluid	32587
+13989-9	UNIPROT:Q65479	Gamma globulin/Protein.total in 24 hour Urine by Electrophoresis	32331
+1992-7	HGNC:1437	Calcitonin [Mass/volume] in Serum or Plasma	29616
+17819-4	HGNC:399	Albumin/Protein.total by Electrophoresis in Urine collected for unspecified duration	29397
+2729-2	HGNC:9606	Parathyrin related protein [Mass/volume] in Serum or Plasma	29234
+50796-2	UNIPROT:P54296	Protein.monoclonal band 3 [Mass/volume] in Serum or Plasma by Electrophoresis	28748
+35560-2	UNIPROT:P54296	Protein.monoclonal [Mass/volume] in Urine	27998
+43583-4	HGNC:6667	Lipoprotein a [Moles/volume] in Serum or Plasma	27468
+35706-1	HGNC:399	Albumin/Protein.total in Serum or Plasma	27387
+42482-0	UNIPROT:P54296	Protein.monoclonal [Mass/time] in 24 hour Urine by Electrophoresis	27137
+32123-2	HGNC:8602	Pregnancy associated plasma protein A [Multiple of the median] in Serum or Plasma	26456
+49246-2	HGNC:317	Alpha-1-Fetoprotein interpretation in Serum or Plasma Narrative	26315
+38505-4	HGNC:11764	Thyroglobulin recovery in Serum or Plasma	25875
+41274-2	HGNC:317	Alpha-1-Fetoprotein interpretation in Serum or Plasma	24515
+1753-3	HGNC:399	Albumin [Presence] in Urine	24208
+2356-4	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Presence] in Red Blood Cells	23284
+1748-3	HGNC:399	Albumin [Mass/volume] in Pleural fluid	22711
+9407-8	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/volume] in Stool	22340
+69945-4	HGNC:5469	Insulin-like growth factor binding protein 1 [Presence] in Vaginal fluid	21611
+1779-8	UNIPROT:P10696	Alkaline phosphatase.liver [Enzymatic activity/volume] in Serum or Plasma	21502
+1755-8	HGNC:399	Albumin [Mass/time] in 24 hour Urine	21430
+2640-1	HGNC:6915	Myoglobin [Presence] in Urine	21200
+14629-0	HGNC:399	Bilirubin.direct [Moles/volume] in Serum or Plasma	20772
+42906-8	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase [Enzymatic activity/volume] in DBS	20319
+42483-8	UNIPROT:P54296	Protein.monoclonal/Protein.total in Urine by Electrophoresis	18880
+6793-4	HGNC:399	Prealbumin [Mass/volume] in Serum or Plasma by Immunoassay	18862
+2572-6	HGNC:6677	Lipoprotein lipase [Enzymatic activity/volume] in Serum or Plasma	18726
+42332-7	HGNC:317	Alpha-1-Fetoprotein L3/Alpha-1-fetoprotein.total in Serum or Plasma	18572
+17817-8	UNIPROT:Q65479	Gamma globulin/Protein.total by Electrophoresis in Urine collected for unspecified duration	18281
+44293-9	HGNC:399	Albumin/Globulin [Mass Ratio] in Urine by Electrophoresis	17314
+29253-2	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] adjusted in Amniotic fluid	16721
+6901-3	HGNC:6081	Insulin Free [Units/volume] in Serum or Plasma	16494
+25303-9	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/mass] in Stool	15978
+19195-7	UNIPROT:P07288	Prostate specific Ag [Units/volume] in Serum or Plasma	15365
+29944-6	HGNC:7	Alpha-2-Macroglobulin [Mass/volume] in Unspecified specimen	14552
+29944-6	HGNC:7	Alpha-2-Macroglobulin [Mass/volume] in Unspecified specimen; Alpha-2-Macroglobulin [Mass/volume] in Specimen	14552
+29944-6	HGNC:7	Alpha-2-Macroglobulin [Mass/volume] in Specimen; Alpha-2-Macroglobulin [Mass/volume] in Unspecified specimen	14552
+29944-6	HGNC:7	Alpha-2-Macroglobulin [Mass/volume] in Specimen	14552
+76348-2	HGNC:8602	Pregnancy associated plasma protein A [Multiple of the median] adjusted in Serum or Plasma	14257
+50366-4	HGNC:9445	Prolactin monomeric/Prolactin.total in Serum or Plasma	13995
+14168-9	HGNC:10856	Palatinase [Enzymatic activity/mass] in Tissue	13646
+1942-2	HGNC:6530	Beta galactosidase [Enzymatic activity/mass] in Tissue	13519
+27882-0	HGNC:6081	Proinsulin [Moles/volume] in Serum or Plasma	12999
+1874-7	HGNC:603	Apolipoprotein B/Apolipoprotein A-I [Mass Ratio] in Serum or Plasma	12628
+29946-1	HGNC:399	Albumin [Presence] in 24 hour Urine by Electrophoresis	12212
+1749-1	HGNC:399	Albumin [Mass/volume] in Peritoneal fluid	12090
+32045-7	HGNC:9606	Parathyrin.biointact [Mass/volume] in Serum or Plasma	11920
+40661-1	UNIPROT:P54296	Protein.monoclonal [Mass/volume] in Urine by Electrophoresis	11230
+2697-1	HGNC:1043	Osteocalcin [Mass/volume] in Serum or Plasma	11225
+62255-5	HGNC:6081	Lipoprotein insulin resistance score in Serum or Plasma	10988
+49502-8	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Entitic Catalytic Activity] in Blood	10790
+83113-1	UNIPROT:P07288	Prostate Specific Ag Free [Mass/volume] in Serum or Plasma by Immunoassay	10753
+30248-9	HGNC:11763	Transferrin receptor.soluble [Mass/volume] in Serum or Plasma	10642
+83083-6	UNIPROT:P15941	Cancer Ag 15-3 [Units/volume] in Serum or Plasma by Immunoassay	9848
+35704-6	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Pleural fluid	9702
+35191-6	HGNC:399	Bilirubin.direct [Mass or Moles/volume] in Serum or Plasma	9564
+83073-7	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Serum or Plasma by Immunoassay	8818
+42484-6	UNIPROT:P54296	Protein.monoclonal/Protein.total in 24 hour Urine by Electrophoresis	8643
+53773-8	UNIPROT:Q65479	Gamma globulin [Presence] in Urine by Electrophoresis	8303
+20621-9	HGNC:399	Albumin/Creatinine [Presence] in Urine by Test strip	8179
+94400-9	UNIPROT:P54296	Protein.monoclonal [Presence] in Serum or Plasma	7968
+1832-5	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Amniotic fluid	7944
+33667-7	UNIPROT:P07288	Prostate specific Ag.protein bound [Mass/volume] in Serum or Plasma	7790
+35570-1	HGNC:9958	Renin [Mass/volume] in Plasma	7739
+3126-0	HGNC:894	Vasopressin [Mass/volume] in Serum or Plasma	7654
+3125-2	HGNC:12693	Vasoactive intestinal peptide [Mass/volume] in Serum or Plasma	7551
+27161-9	HGNC:6014	Interleukin 4 [Mass/volume] in Serum or Plasma	7530
+15060-7	HGNC:3353	Enolase.neuron specific [Mass/volume] in Serum or Plasma	7382
+15348-6	UNIPROT:P10696	Alkaline phosphatase.liver 1/Alkaline phosphatase.total in Serum or Plasma	7363
+90990-3	UNIPROT:P54296	Protein.monoclonal isotype [Identifier] in Serum or Plasma by MS.MALDI-TOF	7167
+13875-0	UNIPROT:P10696	Alkaline phosphatase.liver 2 [Enzymatic activity/volume] in Serum or Plasma	7084
+15349-4	UNIPROT:P10696	Alkaline phosphatase.liver 2/Alkaline phosphatase.total in Serum or Plasma	7084
+2083-4	HGNC:6617	Cholesterol esterase [Enzymatic activity/volume] in Serum	7028
+2942-1	HGNC:10839	Sex hormone binding globulin [Mass/volume] in Serum or Plasma	6969
+3074-2	HGNC:11892	Tumor necrosis factor.alpha [Mass/volume] in Serum or Plasma	6875
+53590-6	UNIPROT:Q65479	Gamma globulin.abnormal band/Protein.total in Serum or Plasma by Electrophoresis	6736
+15081-3	HGNC:9445	Prolactin [Units/volume] in Serum or Plasma	6703
+51437-2	UNIPROT:P54296	Protein.monoclonal band 2 [Mass/volume] in Urine by Electrophoresis	6531
+48389-1	HGNC:9445	Macroprolactin/Prolactin [Moles] in Serum or Plasma	6294
+30562-3	HGNC:399	Surfactant/Albumin [Mass Ratio] in Amniotic fluid	6226
+13629-1	HGNC:5992	Interleukin 1 beta [Mass/volume] in Serum or Plasma	6025
+32046-5	HGNC:8602	Pregnancy associated plasma protein A [Units/volume] in Serum or Plasma	5664
+33210-6	HGNC:11763	Transferrin receptor.soluble [Moles/volume] in Serum or Plasma	5583
+14177-0	HGNC:4265	Growth hormone-releasing hormone [Mass/volume] in Serum or Plasma	5414
+13874-3	UNIPROT:P10696	Alkaline phosphatase.liver 1 [Enzymatic activity/volume] in Serum or Plasma	5282
+51440-6	UNIPROT:P54296	Protein.monoclonal band 3 [Mass/volume] in Urine by Electrophoresis	5222
+12722-5	HGNC:5469	Insulin-like growth factor binding protein 1 [Mass/volume] in Serum or Plasma	4838
+31993-9	HGNC:317	Alpha-1-Fetoprotein [Presence] in Serum or Plasma	4835
+22674-6	HGNC:11740	Transferrin [Moles/volume] in Serum or Plasma	4779
+13485-8	HGNC:914	Beta-2-Microglobulin/Creatinine [Mass Ratio] in Urine	4639
+2876-1	HGNC:399	Prealbumin [Mass/volume] in Cerebral spinal fluid by Electrophoresis	4586
+25587-7	HGNC:1929	Chromogranin A [Moles/volume] in Serum or Plasma	4324
+82874-9	HGNC:10498	Calprotectin [Mass/volume] in Stool	4224
+6782-7	HGNC:399	IgG/Albumin [Mass Ratio] in Serum	4162
+83103-2	UNIPROT:P01231	Lutropin [Units/volume] in Serum or Plasma by Immunoassay	4089
+14724-9	UNIPROT:Q26061	Ferritin [Interpretation] in Blood	3890
+43740-0	HGNC:6081	Glucose/Insulin [Mass Ratio] in Serum or Plasma	3789
+12174-9	HGNC:399	Albumin/Globulin [Mass Ratio] in Body fluid	3749
+44785-4	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] (Maximum value during study) in Serum or Plasma by No addition of P-5'-P	3713
+35469-6	HGNC:11740	Transferrin.carbohydrate deficient.disialo/Transferrin.carbohydrate deficient.tetrasialo [Mass Ratio] in Serum or Plasma	3468
+2873-8	UNIPROT:Q65479	Gamma globulin [Mass/volume] in Cerebral spinal fluid by Electrophoresis	3445
+35475-3	HGNC:11740	Transferrin.carbohydrate deficient.asialo/Transferrin.carbohydrate deficient.tetrasialo [Mass Ratio] in Serum or Plasma	3410
+44294-7	HGNC:399	Albumin/Globulin [Mass Ratio] in 24 hour Urine by Electrophoresis	3407
+33939-0	HGNC:6001	Interleukin 2 [Mass/volume] in Serum or Plasma	3336
+2338-2	HGNC:4191	Glucagon [Mass/volume] in Serum or Plasma	3252
+13974-1	HGNC:399	Albumin/Protein.total in Cerebral spinal fluid by Electrophoresis	3156
+42607-2	HGNC:9445	Prolactin monomeric [Mass/volume] in Serum or Plasma	3135
+26848-2	HGNC:5962	Interleukin 10 [Mass/volume] in Serum or Plasma	3040
+13977-4	UNIPROT:Q65479	Gamma globulin/Protein.total in Cerebral spinal fluid by Electrophoresis	3036
+2721-9	HGNC:9327	Pancreatic polypeptide [Mass/volume] in Serum or Plasma	3026
+43212-0	HGNC:399	Albumin [Mass/volume] in Body fluid by Electrophoresis	2985
+2579-1	UNIPROT:P01231	Lutropin [Moles/volume] in Serum or Plasma	2947
+35672-5	HGNC:399	Bilirubin.direct/Bilirubin.total in Serum or Plasma	2894
+19171-8	HGNC:317	Alpha-1-Fetoprotein [Units/volume] in Amniotic fluid	2857
+14633-2	HGNC:6081	C peptide [Moles/volume] in Serum or Plasma	2826
+1951-3	HGNC:914	Beta-2-Microglobulin [Mass/volume] in Cerebral spinal fluid	2825
+56766-9	UNIPROT:P54296	Protein.monoclonal band 1/Protein.total in Serum or Plasma by Electrophoresis	2811
+30895-7	HGNC:9958	Renin [Units/volume] in Plasma	2765
+21365-2	HGNC:6553	Leptin [Mass/volume] in Serum or Plasma	2677
+53960-1	HGNC:317	Alpha-1-fetoprotein.tumor marker [Moles/volume] in Serum or Plasma	2650
+33822-8	HGNC:5973	Interleukin 13 [Mass/volume] in Serum or Plasma	2598
+13973-3	HGNC:399	Prealbumin/Protein.total in Cerebral spinal fluid by Electrophoresis	2546
+33938-2	HGNC:6016	Interleukin 5 [Mass/volume] in Serum or Plasma	2502
+34694-0	HGNC:12680	Vascular endothelial growth factor [Mass/volume] in Serum or Plasma	2427
+1970-3	HGNC:399	Bilirubin.delta [Mass/volume] in Serum or Plasma	2418
+30152-3	Q98TA4	Mannose-binding protein [Mass/volume] in Serum	2350
+14048-3	HGNC:52282	Elastase.pancreatic [Mass/volume] in Serum	2318
+72646-3	HGNC:399	Albumin in serum - albumin in pericardial fluid [Mass concentration difference]	2226
+43798-8	HGNC:317	Alpha-1-Fetoprotein [Presence] in Amniotic fluid	2207
+43713-7	HGNC:399	Albumin [Presence] in Body fluid	2170
+32629-8	UNIPROT:P54296	Protein.monoclonal/Protein.total in Specimen by Immunofixation	2151
+13876-8	HGNC:11740	Beta-2 transferrin [Presence] in Body fluid	2111
+47222-5	HGNC:317	Trisomy 21 risk based on maternal age+Alpha-1-Fetoprotein+Choriogonadotropin+Estriol.unconjugated [Likelihood] in Fetus	2105
+10970-2	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase [Enzymatic activity/volume] in Blood	2076
+75217-0	HGNC:1122	Biotinidase [Enzymatic activity/volume] in DBS	1818
+50610-5	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] adjusted for multiple gestations in Serum or Plasma	1773
+14437-8	HGNC:399	Albumin/Globulin [Mass Ratio] in Synovial fluid	1697
+83118-0	HGNC:12015	Thyroperoxidase IgG Ab [Units/volume] in Serum or Plasma by Immunoassay	1680
+72576-2	UNIPROT:P07288	Prostate Specific Ag Free/Prostate specific Ag.total [Pure mass fraction] in Serum or Plasma	1655
+1833-3	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Cerebral spinal fluid	1575
+70664-8	HGNC:9606	Parathyrin.intact intraoperative percent change in Serum or Plasma	1438
+73958-1	HGNC:6617	Cholesterol esterase [Enzymatic activity/volume] in DBS	1424
+30001-2	HGNC:399	Microalbumin/Creatinine [Ratio] in Urine by Test strip	1395
+30315-6	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/mass] in Small intestine Tissue	1323
+81315-4	HGNC:6530	Lactase [Enzymatic activity/mass] in Small intestine Tissue	1323
+81314-7	HGNC:10856	Palatinase [Enzymatic activity/mass] in Small intestine Tissue	1323
+81322-0	HGNC:7043	Glucan 1,4 alpha glucosidase [Enzymatic activity/mass] in Small intestine Tissue	1315
+2861-3	HGNC:399	Albumin [Mass/volume] in Cerebral spinal fluid by Electrophoresis	1301
+51441-4	HGNC:9445	Macroprolactin/Prolactin [Mass] in Serum or Plasma	1293
+43996-8	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] adjusted for diabetes+weight in Serum or Plasma	1277
+47418-9	HGNC:6619	Lipase [Enzymatic activity/volume] in Pleural fluid	1276
+14152-3	HGNC:399	Bilirubin.direct [Mass/volume] in Body fluid	1226
+47883-4	HGNC:9958	Renin [Mass/volume] in Plasma --upright	1205
+75627-0	HGNC:550	Vascular adhesion protein 1 [Mass/volume] in Serum or Plasma	1190
+2221-0	HGNC:52282	Elastase.pancreatic [Enzymatic activity/volume] in Serum	1106
+75629-6	HGNC:11916	Tumor necrosis factor receptor superfamily member 1A [Mass/volume] in Serum or Plasma	1080
+75630-4	HGNC:7155	Interstitial collagenase [Mass/volume] in Serum or Plasma	1080
+75632-0	HGNC:20389	Resistin [Mass/volume] in Serum or Plasma	1080
+2733-4	HGNC:9606	Parathyrin.N-terminal [Mass/volume] in Serum or Plasma	1077
+9405-2	HGNC:399	Albumin/Globulin [Mass Ratio] in Urine	1070
+47549-1	HGNC:186	Adenosine deaminase [Enzymatic activity/mass] in Red Blood Cells	1018
+49023-5	HGNC:399	Microalbumin [Mass/time] in Urine collected for unspecified duration	1003
+41273-4	HGNC:317	Alpha-1-Fetoprotein interpretation in Amniotic fluid	988
+57733-8	UNIPROT:P41222	Beta-trace protein [Mass/volume] in Body fluid	979
+94715-0	UNIPROT:Q65479	Gamma globulin [Mass/time] in 24 hour Urine by Electrophoresis	971
+35388-8	HGNC:6667	Cholesterol. in Lipoprotein (a) [Mass/volume] in Serum or Plasma	950
+55927-8	HGNC:6000	Interleukin 1 receptor alpha chain soluble [Mass/volume] in Serum or Plasma	929
+33287-4	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Presence] in DBS	892
+82334-4	HGNC:5981	Interleukin 17A [Mass/volume] in Serum or Plasma	886
+2485-1	HGNC:5466	Insulin-like growth factor-II [Mass/volume] in Serum or Plasma	874
+6941-9	HGNC:399	Albumin [Mass/time] in 24 hour Urine by Electrophoresis	869
+49759-4	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Peritoneal fluid	845
+29595-6	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] in Amniotic fluid	812
+57369-1	HGNC:399	Microalbumin [Mass/volume] in 12 hour Urine	808
+2961-1	HGNC:11329	Somatostatin [Mass/volume] in Plasma	791
+49853-5	HGNC:11766	Transforming growth factor beta 1 [Mass/volume] in Serum or Plasma	756
+3695-4	HGNC:6081	Insulin [Mass/volume] in Serum or Plasma	746
+48996-3	HGNC:52282	Amylase.pancreatic [Enzymatic activity/volume] in Body fluid	722
+32293-3	HGNC:399	Albumin [Mass/volume] in Specimen	704
+32293-3	HGNC:399	Albumin [Mass/volume] in Unspecified specimen; Albumin [Mass/volume] in Specimen	704
+32293-3	HGNC:399	Albumin [Mass/volume] in Unspecified specimen	704
+32293-3	HGNC:399	Albumin [Mass/volume] in Specimen; Albumin [Mass/volume] in Unspecified specimen	704
+30319-8	HGNC:6530	Beta galactosidase [Enzymatic activity/mass] in Small intestine Tissue	685
+90741-0	HGNC:9606	Parathyrin.1-84 [Mass/volume] in Serum or Plasma by Immunoassay	667
+83099-2	HGNC:6563	Galectin 3 [Mass/volume] in Serum or Plasma by Immunoassay	640
+29899-2	UNIPROT:Q65479	Gamma globulin [Presence] in 24 hour Urine	616
+66853-3	HGNC:7218	Myeloperoxidase [Moles/volume] in Plasma	586
+1708-7	UNIPROT:Q51758	Acetylcholinesterase [Enzymatic activity/volume] in Amniotic fluid	573
+14049-1	HGNC:3229	Epidermal growth factor [Mass/volume] in Serum or Plasma	540
+48663-9	UNIPROT:P36222	YKL-40 [Mass/volume] in Serum	540
+75628-8	HGNC:12680	Vascular endothelial growth factor A [Mass/volume] in Serum or Plasma	540
+35703-8	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Cerebral spinal fluid	534
+76483-7	HGNC:600	Apolipoprotein A-I [Moles/volume] in Serum or Plasma	532
+2325-9	UNIPROT:P63186	Gamma glutamyl transferase/Aspartate aminotransferase [Enzymatic activity ratio] in Serum or Plasma	522
+42902-7	HGNC:52282	Elastase.pancreatic [Presence] in Stool	460
+14674-6	HGNC:9201	Corticotropin [Moles/volume] in Plasma	438
+48495-6	HGNC:11740	Transferrin.carbohydrate deficient/Transferrin.total in Serum or Plasma	434
+53529-4	HGNC:399	Microalbumin [Mass/volume] in Body fluid by Detection limit <= 1.0 mg/L	404
+53922-1	HGNC:11764	Thyroglobulin [Mass/volume] in Tissue fine needle aspirate	389
+63549-0	HGNC:399	Albumin in serum - albumin in peritoneal fluid [Mass concentration difference]	383
+44932-2	UNIPROT:P54296	Protein.monoclonal band 2/Protein.total in Serum or Plasma by Electrophoresis	377
+13452-8	HGNC:11740	Iron/Transferrin [Mass Ratio] in Serum or Plasma	369
+51190-7	HGNC:399	Albumin [Mass/volume] in 24 hour Urine by Electrophoresis	365
+2730-0	HGNC:9606	Parathyrin.C-terminal [Mass/volume] in Serum or Plasma	362
+15079-7	UNIPROT:P01231	Lutropin [Units/volume] in Urine	351
+1815-0	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/mass] in Tissue	345
+11207-8	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Body fluid	344
+57371-7	HGNC:3353	Enolase.neuron specific [Mass/volume] in Serum or Plasma by Immunoassay	341
+30106-9	UNIPROT:Q51758	Acetylcholinesterase [Presence] in Amniotic fluid	322
+2312-7	UNIPROT:O44126	Galactose 1 phosphate [Mass/volume] in Red Blood Cells	319
+51693-0	HGNC:399	Albumin [Mass/volume] in Pericardial fluid	317
+93493-5	HGNC:5006	3-Hydroxy-3-Methylglutaryl-coenzyme A reductase IgG Ab [Units/volume] in Serum by Immunoassay	312
+6890-8	UNIPROT:Q65479	Gamma globulin [Mass/volume] in 24 hour Urine	304
+46429-7	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/mass] in 24 hour Stool	292
+44050-3	HGNC:4458	Glucose phosphate isomerase [Enzymatic activity/mass] in Red Blood Cells	281
+14723-1	UNIPROT:Q26061	Ferritin [Moles/volume] in Serum or Plasma	273
+33879-8	UNIPROT:P54296	Protein.monoclonal [Mass/volume] in Specimen by Immunofixation	270
+9404-5	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Body fluid	264
+78987-5	HGNC:894	Provasopressin.C-terminal [Moles/volume] in Serum or Plasma by Immunoassay	244
+45338-1	HGNC:6081	Proinsulin/Insulin [Ratio] in Serum or Plasma	239
+44422-4	HGNC:6008	Interleukin 2 receptor alpha chain soluble [Units/volume] in Serum or Plasma	232
+33360-9	UNIPROT:O44126	Galactose 1 phosphate [Mass/mass] in Red Blood Cells	227
+24082-0	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase [Enzymatic activity/mass] in Red Blood Cells	220
+72577-0	UNIPROT:P54296	Protein.monoclonal/Protein.total [Pure mass fraction] in 24 hour Urine by Electrophoresis	214
+14714-0	HGNC:3415	Erythropoietin (EPO) [Moles/volume] in Serum or Plasma	206
+49585-3	HGNC:317	Alpha-1-Fetoprotein multiple of the median cutoff [Multiple of the median] in Serum or Plasma	205
+2840-7	HGNC:6081	Proinsulin [Mass/volume] in Serum or Plasma	204
+2732-6	HGNC:9606	Parathyrin.mid molecule [Mass/volume] in Serum or Plasma	202
+48623-3	HGNC:399	Bilirubin.direct [Mass/volume] in Cord blood	202
+12949-4	HGNC:11740	Transferrin.carbohydrate deficient [Mass/volume] in Serum or Plasma	195
+49228-0	HGNC:4982	Porphobilinogen deaminase [Enzymatic activity/mass] in Red Blood Cells	193
+49230-6	UNIPROT:Q51758	Acetylcholinesterase [Enzymatic activity/mass] in Red Blood Cells	184
+62488-2	HGNC:12405	Ova1 test [Presence] in Serum	176
+3033-8	HGNC:1540	Transcortin [Mass/volume] in Serum	175
+35219-5	HGNC:9606	Parathyrin.intact [Mass or Moles/volume] in Serum or Plasma	165
+76615-4	HGNC:6617	Lysosomal acid lipase [Enzymatic activity/mass] in Fibroblast by 4-MU-palmitate substrate	162
+13660-6	UNIPROT:P27429	Gonadotropin releasing hormone [Mass/volume] in Serum or Plasma	157
+53920-5	HGNC:11764	Thyroglobulin [Mass/volume] in Lymph node fine needle aspirate	153
+68960-4	HGNC:6915	Myoglobin [Presence] in 24 hour Urine	145
+1829-1	UNIPROT:P22922	Alpha 1 antitrypsin SS [Mass/volume] in Serum or Plasma	134
+1830-9	UNIPROT:P22922	Alpha 1 antitrypsin SZ [Mass/volume] in Serum or Plasma	134
+1831-7	UNIPROT:P22922	Alpha 1 antitrypsin ZZ [Mass/volume] in Serum or Plasma	134
+14120-0	UNIPROT:P07288	Deprecated Prostate Specific Ag Free/Prostate specific Ag.total in Serum or Plasma	131
+56906-1	HGNC:399	Bilirubin.direct [Mass/volume] in Peritoneal fluid	128
+21059-1	HGNC:399	Albumin [Mass/volume] in 24 hour Urine	124
+49760-2	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Pericardial fluid	114
+94718-4	HGNC:2761	Alpha defensins 1+2+3 [Presence] in Synovial fluid by Immunoassay	110
+53530-2	HGNC:399	Microalbumin [Mass/volume] in 24 hour Urine by Detection limit <= 1.0 mg/L	109
+49002-9	HGNC:399	Albumin [Mass/time] in Urine collected for unspecified duration	107
+2290-5	UNIPROT:P01231	Follitropin/Lutropin [Molar ratio] in Serum or Plasma	100
+14796-7	HGNC:6081	Insulin [Moles/volume] in Serum or Plasma	95
+62419-7	HGNC:6563	Galectin 3 [Mass/volume] in Serum or Plasma	95
+53961-9	HGNC:317	Alpha-1-fetoprotein.tumor marker [Units/volume] in Serum or Plasma	93
+38926-2	HGNC:9445	Macroprolactin [Mass/volume] in Serum or Plasma	92
+1752-5	HGNC:399	Albumin [Mass/volume] in Synovial fluid	89
+12810-8	HGNC:4982	Porphobilinogen deaminase [Enzymatic activity/volume] in Blood	79
+43858-0	HGNC:11740	Beta-2 transferrin [Presence] in Specimen	79
+78984-2	HGNC:9445	Macroprolactin/Prolactin in Serum or Plasma	79
+53532-8	HGNC:399	Microalbumin [Mass/time] in 24 hour Urine by Detection limit <= 1.0 mg/L	78
+43998-4	HGNC:317	Alpha-1-Fetoprotein [Multiple of the median] adjusted for diabetes in Serum or Plasma	74
+46699-5	HGNC:3680	Fibroblast growth factor 23 [Units/volume] in Plasma	73
+17818-6	UNIPROT:Q65479	Gamma globulin/Protein.total in Body fluid by Electrophoresis	72
+95233-3	HGNC:399	Microalbumin/Creatinine Qualitative in Urine by Test strip	71
+59835-9	HGNC:9606	Parathyrin.intact [Mass/volume] in Body fluid	70
+55827-0	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/volume] in DBS	67
+30169-7	HGNC:1929	Chromogranin A [Units/volume] in Serum or Plasma by Immunoassay	64
+38492-5	HGNC:5464	Insulin-like growth factor-I [Units/volume] in Serum or Plasma	63
+76479-5	UNIPROT:Q51758	Acetylcholinesterase [Interpretation] in Amniotic fluid Narrative	62
+40599-3	HGNC:399	Albumin [Mass/volume] in Peritoneal dialysis fluid	59
+49013-6	HGNC:1929	Pancreastatin [Mass/volume] in Serum or Plasma	58
+54457-7	HGNC:1122	Biotinidase [Enzymatic activity/volume] in Serum or Plasma from Normal control	56
+18271-7	UNIPROT:P22922	Alpha 1 antitrypsin fecal clearance in 24 hour	54
+33018-3	UNIPROT:P54296	Protein.monoclonal [Units/volume] in Serum or Plasma by Electrophoresis	52
+1816-8	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/volume] in Leukocytes	50
+51831-6	HGNC:11740	Beta-2 transferrin [Mass/volume] in Body fluid	50
+2237-6	HGNC:3415	Erythropoietin (EPO) [Mass/volume] in Serum or Plasma	48
+49925-1	HGNC:4057	Glucose-6-Phosphate dehydrogenase [Enzymatic activity/mass] in Red Blood Cells by Glock and McLean	48
+2813-4	HGNC:395	Porphobilinogen synthase [Enzymatic activity/volume] in Red Blood Cells	47
+24096-0	UNIPROT:P34059	N-Acetylgalactosamine-6-Sulfatase [Enzymatic activity/mass] in Leukocytes	44
+6685-2	HGNC:603	Deprecated Apolipoprotein B/Apolipoprotein A-I [Mass ratio] in Serum or Plasma	40
+74637-0	UNIPROT:P54296	Protein.monoclonal band 2 [Mass/time] in 24 hour Urine by Electrophoresis	40
+24061-4	HGNC:6530	Beta galactosidase [Enzymatic activity/mass] in Leukocytes	39
+90420-1	HGNC:11740	Transferrin.carbohydrate deficient.trisialo/Transferrin.carbohydrate deficient.tetrasialo [Mass Ratio] in Serum or Plasma	39
+69951-2	HGNC:52282	Amylase.pancreatic/Creatinine [Ratio] in Urine	37
+72600-0	HGNC:399	Albumin/Protein.total [Pure mass fraction] in Body fluid by Electrophoresis	34
+27944-8	HGNC:6081	C peptide [Mass/time] in 24 hour Urine	34
+1722-8	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Blood	32
+47275-3	HGNC:10500	S100 calcium binding protein B [Mass/volume] in Serum	32
+50792-1	UNIPROT:P54296	Protein.monoclonal band 3/Protein.total in Serum or Plasma by Electrophoresis	32
+15072-2	HGNC:4164	Gastrin [Moles/volume] in Serum or Plasma	31
+10888-6	HGNC:6619	Lipase [Enzymatic activity/volume] in Urine	30
+24078-8	HGNC:713	Cerebroside sulfatase [Enzymatic activity/mass] in Leukocytes	30
+47828-9	HGNC:13633	Adiponectin [Mass/volume] in Serum or Plasma	29
+9831-9	UNIPROT:Q65479	Gamma globulin [Mass/time] in 24 hour Urine	29
+30160-6	HGNC:6893	Tau protein [Mass/volume] in Cerebral spinal fluid	28
+62310-8	HGNC:4115	Galactosylceramidase [Enzymatic activity/volume] in DBS	28
+62316-5	HGNC:11120	Acid sphingomyelinase [Enzymatic activity/volume] in DBS	28
+44802-7	HGNC:3353	Enolase.neuron specific [Mass/volume] in Cerebral spinal fluid	27
+55920-3	HGNC:6081	C peptide [Mass/volume] in 24 hour Urine	27
+13462-7	HGNC:603	Apolipoprotein A-I/Apolipoprotein B [Mass Ratio] in Serum or Plasma	26
+2007-3	UNIPROT:P15941	Cancer Ag 15-3 [Presence] in Serum or Plasma	26
+24086-1	HGNC:10818	Heparan-N-sulfatase [Enzymatic activity/mass] in Leukocytes	26
+55916-1	HGNC:6530	Beta galactosidase [Enzymatic activity/volume] in DBS	25
+60243-3	HGNC:7176	Matrix metallopeptidase 9 [Mass/volume] in Serum	25
+24084-6	HGNC:4115	Galactosylceramidase [Enzymatic activity/mass] in Leukocytes	24
+76481-1	UNIPROT:P22922	Alpha 1 antitrypsin [Moles/volume] in Serum or Plasma	24
+24094-5	HGNC:714	N-Acetylgalactosamine-4-Sulfatase [Enzymatic activity/mass] in Leukocytes	22
+55934-4	HGNC:6619	Lipase [Enzymatic activity/volume] in Dialysis fluid	22
+1697-2	UNIPROT:O60037	6-Phosphogluconate dehydrogenase [Enzymatic activity/volume] in Red Blood Cells	21
+47826-3	HGNC:186	Adenosine deaminase [Enzymatic activity/volume] in Serum or Plasma	21
+89324-8	HGNC:6081	Insulin intact [Units/volume] in Serum by LC/MS/MS	19
+2012-3	UNIPROT:Q02496	Cancer Ag 27-29 [Presence] in Serum or Plasma	19
+23825-3	HGNC:4878	Beta-N-acetylhexosaminidase.A/Beta-n-acetylhexosaminidase.total in Leukocytes	17
+2812-6	HGNC:4982	Porphobilinogen deaminase [Enzymatic activity/volume] in Red Blood Cells	17
+29238-3	HGNC:6081	Insulin [Units/volume] in Body fluid	17
+10558-5	HGNC:399	Albumin [Moles/volume] in Semen	16
+1956-2	HGNC:4878	Beta-N-acetylhexosaminidase.A [Enzymatic activity/volume] in Serum or Plasma	15
+92845-7	HGNC:6081	Insulin resistance score in Serum by Calculated.CardioIQ	15
+17858-2	UNIPROT:P63186	Gamma glutamyl transferase [Enzymatic activity/volume] in Body fluid	15
+1745-9	HGNC:399	Albumin [Mass/volume] in Amniotic fluid	14
+33858-2	HGNC:4261	Somatotropin [Units/volume] in Serum or Plasma	14
+56905-3	HGNC:399	Bilirubin.direct [Mass/volume] in Pleural fluid	14
+9340-1	HGNC:603	Apolipoprotein B/Apolipoprotein A-I [Percentile]	14
+33780-8	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase phenotype [Type] in Blood	14
+12914-8	HGNC:4878	Beta-N-acetylhexosaminidase.A/Beta-n-acetylhexosaminidase.total in Serum or Plasma	12
+2314-3	UNIPROT:O44126	Galactose 1 phosphate uridyl transferase [Enzymatic activity/volume] in Red Blood Cells	12
+51436-4	UNIPROT:P54296	Protein.monoclonal [Mass/volume] in 24 hour Urine by Electrophoresis	12
+41027-4	HGNC:6893	Tau protein/Amyloid beta 42 peptide [Ratio] in Cerebral spinal fluid	11
+72260-3	HGNC:6893	Phosphorylated tau 181 [Mass/volume] in Cerebral spinal fluid by Immunoassay	11
+13873-5	HGNC:399	Albumin.glycated/Albumin.total in Serum or Plasma	9
+24051-5	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/mass] in Leukocytes	9
+47053-4	HGNC:3353	Enolase.neuron specific [Mass/volume] in Cerebral spinal fluid by Immunoassay	9
+34438-2	HGNC:613	Apolipoprotein E phenotype [Identifier] in Blood	8
+40857-5	HGNC:399	Prealbumin [Mass/volume] in Urine	8
+4655-7	HGNC:6018	Interleukin 6 [Units/volume] in Serum or Plasma	8
+42726-0	HGNC:713	Cerebroside sulfatase [Enzymatic activity/volume] in 24 hour Urine	8
+78693-9	HGNC:3013	Dihydrothymine/Creatinine [Molar ratio] in Urine	8
+30244-8	UNIPROT:Q51758	Acetylcholinesterase [Enzymatic activity/volume] in Blood	7
+54390-0	HGNC:3680	Fibroblast growth factor 23.intact [Mass/volume] in Serum or Plasma	6
+29156-7	UNIPROT:P01231	Lutropin [Units/volume] in 24 hour Urine	6
+16454-1	HGNC:6530	Beta galactosidase [Enzymatic activity/volume] in Blood	5
+2104-8	HGNC:2440	Choriomammotropin [Mass/volume] in Serum	5
+22749-6	HGNC:52282	Amylase.pancreatic [Enzymatic activity/volume] in Urine	5
+32302-2	HGNC:914	Beta-2-Microglobulin [Moles/volume] in Urine	5
+54348-8	HGNC:317	Alpha-1-Fetoprotein [Mass/volume] in Cord blood	5
+1880-4	HGNC:616	Beta 2 glycoprotein 1 [Mass/volume] in Serum or Plasma	5
+12284-6	HGNC:4265	Growth hormone-releasing hormone [Units/volume] in Serum or Plasma	4
+3039-5	HGNC:6619	Lipase [Enzymatic activity/volume] in Amniotic fluid	4
+49596-0	HGNC:12591	Uroporphyrinogen decarboxylase [Units/volume] in Red Blood Cells	4
+1881-2	HGNC:6667	Apolipoprotein LPA [Mass/volume] in Serum or Plasma	4
+67568-6	HGNC:11529	Circulating tumor cells.breast [#/volume] in Blood	4
+11066-8	HGNC:12592	Uroporphyrinogen III synthase [Enzymatic activity/volume] in Red Blood Cells	3
+12216-8	HGNC:4164	Deprecated Gastrin [Mass/volume] in Serum or Plasma	3
+1757-4	HGNC:399	Albumin renal clearance in 24 hour Urine and Serum or Plasma	3
+1758-2	HGNC:399	Albumin.glycated [Mass/volume] in Serum or Plasma	3
+21328-0	HGNC:4878	Beta-N-acetylhexosaminidase A and B [Interpretation] in Blood	3
+2326-7	HGNC:4270	Gastric inhibitory polypeptide [Mass/volume] in Plasma	3
+2971-0	HGNC:11517	Substance P [Mass/volume] in Serum or Plasma	3
+62418-9	HGNC:6081	Glucose/Insulin [Ratio] in Serum or Plasma	3
+80979-8	HGNC:3951	Frataxin [Mass/volume] in Blood	3
+88106-0	HGNC:9606	Parathyrin.intact [Mass/volume] in Tissue fine needle aspirate	3
+17499-5	UNIPROT:Q65479	Gamma globulin [Mass/volume] in Body fluid by Electrophoresis	3
+59563-7	UNIPROT:P54296	Protein.monoclonal band 4 [Mass/volume] in Urine by Electrophoresis	3
+14433-7	HGNC:399	Albumin/Globulin [Mass Ratio] in Cerebral spinal fluid	2
+1814-3	HGNC:7043	Acid alpha glucosidase [Enzymatic activity/volume] in Semen	2
+2353-1	HGNC:4458	Glucose phosphate isomerase [Enzymatic activity/volume] in Serum	2
+25302-1	HGNC:4552	Alanine aminotransferase [Enzymatic activity/volume] in Body fluid	2
+2933-0	HGNC:10607	Secretin [Mass/volume] in Plasma	2
+40603-3	UNIPROT:P22922	Alpha 1 antitrypsin [Presence] in Serum or Plasma by Immunoelectrophoresis	2
+74990-3	UNIPROT:P22922	Alpha 1 antitrypsin [Mass/time] in 24 hour Stool	2
+76482-9	HGNC:603	Apolipoprotein B [Moles/volume] in Serum or Plasma	2
+1987-7	HGNC:6081	C peptide [Mass/volume] in Urine	2
+76665-9	HGNC:20775	Protein [Mass/volume] in Cerebral spinal fluid --1st tube	2
+12916-3	HGNC:395	Porphobilinogen synthase [Enzymatic activity/volume] in Blood	1
+3018-9	HGNC:12298	Thyrotropin releasing hormone [Mass/volume] in Plasma	1
+2063-6	HGNC:713	Cerebroside sulfatase [Enzymatic activity/volume] in Leukocytes	1
+38485-9	UNIPROT:O44126	Galactose 1 phosphate [Moles/mass] in Red Blood Cells	1
+51439-8	UNIPROT:P54296	Protein.monoclonal band 3 [Mass/volume] in 24 hour Urine by Electrophoresis	1

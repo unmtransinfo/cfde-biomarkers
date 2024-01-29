@@ -3,10 +3,10 @@ title: Human protein biomarkers, with clinical relevance inferred from Cerner He
   via LOINC terms
 author: "Jeremy Yang"
 output:
-  pdf_document:
-    toc: yes
   html_document:
     number_sections: yes
+    toc: yes
+  pdf_document:
     toc: yes
 editor_options:
   chunk_output_type: console
