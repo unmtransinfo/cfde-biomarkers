@@ -131,7 +131,7 @@ sprintf("LOINC protein names in RWD encounters: %d", protein_hr_loincs[, uniqueN
 ```{r}
 protein_hr_loincs_out <- unique(protein_hr_loincs[, .(loinc_code=DocName, geneOrProteinId = ResolvedForm, mnemonics, protein_name=EntityText, lab_count)])
 protein_hr_loincs_out <- protein_hr_loincs_out[, .(mnemonics, geneOrProteinId,
-protein_names = paste(c(protein_name), collapse="; ")), by=c("loinc_code", "lab_count")]
+protein_names = paste(sort(unique(c(protein_name))), collapse="; ")), by=c("loinc_code", "lab_count")]
 protein_hr_loincs_out <- unique(protein_hr_loincs_out)
 setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "mnemonics", "protein_names", "lab_count"))
 ```

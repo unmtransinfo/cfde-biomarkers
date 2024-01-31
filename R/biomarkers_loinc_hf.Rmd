@@ -5,7 +5,7 @@ author: "Jeremy Yang"
 output:
   html_document:
     number_sections: yes
-    toc: yes
+    toc: no
   pdf_document:
     toc: yes
 editor_options:
@@ -40,18 +40,13 @@ The [FDA Biomarker Qualification Program](https://www.fda.gov/drugs/biomarker-qu
 
 This analysis is concerned with ___molecular___ biomarkers only.
 
-
 # Workflow
 
 * Download [LOINC](https://loinc.org/) codes.
-
 * Build local LOINC PostgreSql db. Query for chemical biomarkers, to include proteins.
-
 * Named Entity Recognition for genes/proteins with [NextMove](https://www.nextmovesoftware.com/) Leadmine in selected fields
 of LOINC.
-
 * Query Cerner HealthFacts 2019 (licensed at UNM) to find encounter_id and patient_id counts for all LOINC codes, for clinically relevant biomarkers (not just theoretical).
-
 * Join HF and NER outputs to generate initial list of clinically relevant molecular biomarker candidates.
 
 ```{r echo=FALSE}
@@ -61,6 +56,7 @@ base::date()
 
 ```{r setup, echo=FALSE, message=FALSE}
 library(readr)
+library(stringr)
 library(data.table)
 library(plotly, quietly=T)
 ```
@@ -131,18 +127,36 @@ hf_loinc_counts <- hf_loinc_counts[, .(
 protein_hr_loincs_component <- merge(protein_NER_component, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
 protein_hr_loincs_relatednames <- merge(protein_NER_relatednames, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
 protein_hr_loincs <- rbind(protein_hr_loincs_component, protein_hr_loincs_relatednames)
-sprintf("LOINC codes for proteins in HF encounters: %d", protein_hr_loincs[, uniqueN(DocName)])
-sprintf("LOINC protein names in HF encounters: %d", protein_hr_loincs[, uniqueN(EntityText)])
+sprintf("LOINC codes for proteins: %d", protein_hr_loincs[, uniqueN(DocName)])
+sprintf("Protein names: %d", protein_hr_loincs[, uniqueN(EntityText)])
+sprintf("GeneOrProtein IDs: %d", protein_hr_loincs[, uniqueN(ResolvedForm)])
+```
+
+Build LOINC to gene-or-protein ID mapping.
+
+```{r}
+loinc2geneOrProteinId <- unique(protein_hr_loincs[!is.na(ResolvedForm), .(loinc_code=DocName, geneOrProteinId = ResolvedForm)])
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(geneOrProteinId, "^(\\d+)$", "ENSG\\1")] #Need leading zeroes
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(geneOrProteinId, "^([A-Z]\\d+)$", "UNIPROT:\\1")]
+setorder(loinc2geneOrProteinId, "loinc_code", "geneOrProteinId")
+loinc2geneOrProteinId <- loinc2geneOrProteinId[!grepl("^ENSG", geneOrProteinId)] #For now ignore ENSGs.
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := first(geneOrProteinId), by = c("loinc_code")]
 ```
 
 ## Group protein synonyms into list; aggregate on LOINC codes.
 
 ```{r}
-protein_hr_loincs_out <- unique(protein_hr_loincs[, .(loinc_code=DocName, lab_procedure_names, protein_name=EntityText, encounter_id_count, patient_id_count)])
-protein_hr_loincs_out <- protein_hr_loincs_out[, .(lab_procedure_names,
-protein_names = paste(c(protein_name), collapse="; ")), by=c("loinc_code", "encounter_id_count", "patient_id_count")]
+protein_hr_loincs_out <- unique(protein_hr_loincs[, .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  encounter_id_count, patient_id_count)])
+protein_hr_loincs_out <- merge(protein_hr_loincs_out, loinc2geneOrProteinId, by="loinc_code", all=F)
+protein_hr_loincs_out <- protein_hr_loincs_out[, .(
+  protein_names = paste(sort(unique(c(protein_name))), collapse="; ")), 
+  by=c("loinc_code",  "lab_procedure_names", "geneOrProteinId", "encounter_id_count", "patient_id_count")]
 protein_hr_loincs_out <- unique(protein_hr_loincs_out)
-setcolorder(protein_hr_loincs_out, c("loinc_code", "lab_procedure_names", "protein_names", "encounter_id_count", "patient_id_count"))
+setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "lab_procedure_names", "protein_names", "encounter_id_count", "patient_id_count"))
 ```
 
 # Top occurring LOINCs:
@@ -150,22 +164,8 @@ setcolorder(protein_hr_loincs_out, c("loinc_code", "lab_procedure_names", "prote
 ```{r}
 protein_hr_loincs_out <- protein_hr_loincs_out[order(-encounter_id_count)]
 write_delim(protein_hr_loincs_out, "cerner_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
-knitr::kable(protein_hr_loincs_out[1:50], caption="Top occurring LOINCs")
+knitr::kable(protein_hr_loincs_out[1:50], caption=sprintf("LOINCs ranked by occurence: %d LOINCs, %d geneOrProteinIds", protein_hr_loincs_out[, uniqueN(loinc_code)], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
 ```
 
-# Discussion
 
-The preliminary results include 218 distinct LOINC codes associated with human
-proteins (and genes) and thus potential molecular biomarkers. However, only 99
-distinct LOINC codes are associated with 10 thousand or more clinical encounters
-(in comparison, the most commonly recorded LOINC code (Alanine aminotransferase)
-is associated with 48 million clinical encounters). In addition, distinct LOINC codes can map to
-the same protein (e.g., Albumin), thus the number of distinct molecular biomarkers (proteins),
-137, is less than the number of LOINC codes. However, these results strongly indicate
-that proteomic molecular biomarkers of clinical relevance can be identified by
-this approach, integrated with other entities and datasets, and provide added
-value to IDG and CFDE. It should be noted that although clinical relevance is emphasized
-by this analysis, biomarkers which lack such relevance according to existing
-EHRs may nevertheless offer high value for research, and achieve clinical relevance in future,
-and can also be identified via this approach.
 

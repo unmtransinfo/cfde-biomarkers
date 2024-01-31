@@ -1,7 +1,9 @@
 .RData
 .Rhistory
-cfde-biomarkers.Rproj
-data
+*.Rproj
+*.pdf
+*.out
+*data
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
