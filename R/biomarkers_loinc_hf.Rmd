@@ -34,11 +34,7 @@ G-protein coupled receptors, ion channels, and protein kinases.
 
 ## Biomarkers
 
-The [FDA Biomarker Qualification Program](https://www.fda.gov/drugs/biomarker-qualification-program/about-biomarkers-and-qualification), via its Biomarkers, EndpointS and other Tools [BEST](https://www.ncbi.nlm.nih.gov/books/NBK326791/) glossary, defines biomarker thus:
-
-	[A] defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure or intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers.
-
-This analysis is concerned with ___molecular___ biomarkers only.
+The [FDA Biomarker Qualification Program](https://www.fda.gov/drugs/biomarker-qualification-program/about-biomarkers-and-qualification), via its Biomarkers, EndpointS and other Tools [BEST](https://www.ncbi.nlm.nih.gov/books/NBK326791/) glossary, defines biomarker thus: "[A] defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure or intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers." This analysis is concerned with ___molecular___ biomarkers only.
 
 # Workflow
 
@@ -95,17 +91,17 @@ setDT(protein_NER_relatednames)
 sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
 ```
 
-# Cerner HealthFacts 2019 counts of encounter\_ids and patient\_ids for all LOINC codes.
+# Cerner HealthFacts 2019 counts of encounter\_ids and patient\_ids for all lab procedures, with LOINC codes.
 
 ```{r}
 hf_loinc_counts_file <- "cerner_hf_data/hf_lab_loinc_counts_OUT.tsv"
-sprintf("Cerner HealthFacts 2019 counts for all LOINC codes: %s", protein_NER_relatednames_file)
+sprintf("Cerner HealthFacts 2019 counts for labs, with LOINC codes: %s", hf_loinc_counts_file)
 hf_loinc_counts <- read_delim(hf_loinc_counts_file, "\t")
 setDT(hf_loinc_counts)
-sprintf("LOINC codes in HF encounters: %d", hf_loinc_counts[, uniqueN(loinc_code)])
+sprintf("Lab procedure IDs: %d; LOINC codes: %d", hf_loinc_counts[, uniqueN(lab_procedure_id)], hf_loinc_counts[, uniqueN(loinc_code)])
 ```
 
-## Group lab procedures into list; aggregate on LOINC codes.
+## Group lab procedures into list; aggregate on LOINC codes; discard Cerner lab procedure IDs.
 
 Some different labs have same LOINC codes.
 
@@ -119,7 +115,6 @@ hf_loinc_counts <- hf_loinc_counts[, .(
 	), by=c("loinc_code")]
 
 ```
-
 
 # LOINC proteins in HF encounters
 

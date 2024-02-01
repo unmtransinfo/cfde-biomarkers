@@ -404,7 +404,7 @@ biomarkers (not just theoretical).</li>
 <li>Join HF and NER outputs to generate initial list of clinically
 relevant molecular biomarker candidates.</li>
 </ul>
-<pre><code>## [1] &quot;Wed Jan 31 13:55:37 2024&quot;</code></pre>
+<pre><code>## [1] &quot;Thu Feb  1 09:24:14 2024&quot;</code></pre>
 </div>
 <div id="loinc-codes-for-chemical-tests" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> LOINC codes for
@@ -429,14 +429,16 @@ output using GeneAndProtein dictionary.</h1>
 <pre><code>## [1] &quot;LOINC codes mapped via relatednames2 text to NER proteins: 1874&quot;</code></pre>
 </div>
 </div>
-<div id="cerner-healthfacts-2019-counts-of-encounter_ids-and-patient_ids-for-all-loinc-codes." class="section level1" number="5">
+<div id="cerner-healthfacts-2019-counts-of-encounter_ids-and-patient_ids-for-all-lab-procedures-with-loinc-codes." class="section level1" number="5">
 <h1><span class="header-section-number">5</span> Cerner HealthFacts 2019
-counts of encounter_ids and patient_ids for all LOINC codes.</h1>
-<pre><code>## [1] &quot;Cerner HealthFacts 2019 counts for all LOINC codes: loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes in HF encounters: 5076&quot;</code></pre>
-<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes." class="section level2" number="5.1">
+counts of encounter_ids and patient_ids for all lab procedures, with
+LOINC codes.</h1>
+<pre><code>## [1] &quot;Cerner HealthFacts 2019 counts for labs, with LOINC codes: cerner_hf_data/hf_lab_loinc_counts_OUT.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;Lab procedure IDs: 5666; LOINC codes: 5076&quot;</code></pre>
+<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes-discard-cerner-lab-procedure-ids." class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> Group lab procedures
-into list; aggregate on LOINC codes.</h2>
+into list; aggregate on LOINC codes; discard Cerner lab procedure
+IDs.</h2>
 <p>Some different labs have same LOINC codes.</p>
 </div>
 </div>
@@ -456,7 +458,8 @@ synonyms into list; aggregate on LOINC codes.</h2>
 <h1><span class="header-section-number">7</span> Top occurring
 LOINCs:</h1>
 <table>
-<caption>Top occurring LOINCs 50 / 129</caption>
+<caption>LOINCs ranked by occurence: 129 LOINCs, 45
+geneOrProteinIds</caption>
 <colgroup>
 <col width="3%" />
 <col width="5%" />
@@ -479,8 +482,8 @@ LOINCs:</h1>
 <tr class="odd">
 <td align="left">1742-6</td>
 <td align="left">HGNC:4552</td>
-<td align="left">Alanine Aminotransferase; Alanine Aminotransferase /
-SGPT; Alanine Aminotransferase / SGPT for Hepatitis</td>
+<td align="left">Alanine Aminotransferase / SGPT; Alanine
+Aminotransferase; Alanine Aminotransferase / SGPT for Hepatitis</td>
 <td align="left">Alanine aminotransferase; Alanine transaminase</td>
 <td align="right">48415900</td>
 <td align="right">32364963</td>
@@ -537,7 +540,7 @@ Calculation</td>
 <tr class="even">
 <td align="left">14957-5</td>
 <td align="left">HGNC:399</td>
-<td align="left">Microalbumin, Urine; Microalbumin, Urine Random</td>
+<td align="left">Microalbumin, Urine Random; Microalbumin, Urine</td>
 <td align="left">albumin; Albumin</td>
 <td align="right">1863642</td>
 <td align="right">1494208</td>
