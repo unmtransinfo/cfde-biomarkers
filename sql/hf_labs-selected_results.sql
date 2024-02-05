@@ -1,6 +1,6 @@
 -- For selected LOINC codes, and date range, retrieve results for analysis of empirical distributions.
 --
-SELECT
+SELECT DISTINCT
 	fe.encounter_id,
 	fe.admitted_dt_tm,
 	dlp.lab_procedure_id,
@@ -24,8 +24,9 @@ JOIN
 JOIN
 	hf_d_unit du ON du.unit_id = flp.result_units_id
 WHERE
---	DATE_PART('year',  fe.admitted_dt_tm) = 2018	AND 
-    dlp.loinc_code IN (
+--	DATE_PART('year',  fe.admitted_dt_tm) = 2018
+--	AND 
+	dlp.loinc_code IN (
 	'1697-2',
 	'1708-7',
 	'1722-8',

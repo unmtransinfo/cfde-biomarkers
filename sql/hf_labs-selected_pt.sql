@@ -1,29 +1,30 @@
 -- For selected LOINC codes, and date range, retrieve patient metadata for stratification and precision analysis of empirical associations.
 --
-SELECT
+SELECT DISTINCT
 	fe.encounter_id,
 	fe.admitted_dt_tm,
 	dlp.lab_procedure_id,
 	dlp.loinc_code,
 	fe.patient_type_id,
-	dpt.patient_type_desc
-	fp.gender,
-	fp.race,
-	fp.ethnicity,
+	dpt.patient_type_desc,
+	dp.gender,
+	dp.race,
+	dp.ethnicity,
 	fe.age_in_years
 FROM
 	hf_f_lab_procedure flp
+JOIN
+	hf_d_lab_procedure dlp ON dlp.lab_procedure_id = flp.detail_lab_procedure_id
 JOIN
 	hf_f_encounter fe ON fe.encounter_id = flp.encounter_id
 JOIN
 	hf_d_patient dp ON dp.patient_id = fe.patient_id
 JOIN
-	hf_f_patient fp ON fp.patient_id = fe.patient_id
-JOIN
 	hf_d_patient_type dpt ON fe.patient_type_id = dpt.patient_type_id
 WHERE
-	DATE_PART('year',  fe.admitted_dt_tm) = 2022
-	AND dlp.loinc_code IN (
+--	DATE_PART('year',  fe.admitted_dt_tm) = 2018
+--	AND
+	dlp.loinc_code IN (
 	'1697-2',
 	'1708-7',
 	'1722-8',

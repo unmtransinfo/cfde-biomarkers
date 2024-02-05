@@ -1,7 +1,7 @@
 -- For selected LOINC codes, and date range, retrieve diagnoses for analysis of empirical associations.
 -- Only 'Final' diagnoses.
 --
-SELECT
+SELECT DISTINCT
 	fe.encounter_id,
 	fe.admitted_dt_tm,
 	dlp.lab_procedure_id,
@@ -25,8 +25,7 @@ JOIN
 	hf_d_diagnosis_type ddt ON fd.diagnosis_type_id = ddt.diagnosis_type_id
 WHERE
 	ddt.diagnosis_type_display = 'Final'
-WHERE
-	DATE_PART('year',  fe.admitted_dt_tm) = 2022
+--	AND DATE_PART('year',  fe.admitted_dt_tm) = 2018
 	AND dlp.loinc_code IN (
 	'1697-2',
 	'1708-7',
