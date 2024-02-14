@@ -1,0 +1,52 @@
+---
+title: "Cerner HealthFacts: Laboratory molecular biomarker patient metadata"
+output: html_notebook
+---
+
+```{r include=F}
+library(readr)
+library(data.table)
+library(plotly, quietly=T)
+```
+Read data file for sample, representative year, due to size constraints.
+
+```{r}
+y <- 2016
+fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_%d.tsv", y)
+hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime()))
+setDT(hf_pt)
+head(hf_pt)
+```
+
+```{r}
+message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")))
+```
+
+```{r}
+message(sprintf("Encounters (%d): %s", y, hf_pt[, uniqueN(encounter_id)]))
+message(sprintf("Lab_procedures (%d): %s", y, hf_pt[, uniqueN(lab_procedure_id)]))
+```
+
+```{r}
+table(hf_pt[, gender])
+```
+
+```{r}
+table(hf_pt[, patient_type_desc])
+```
+
+```{r}
+hf_pt_counts <- hf_pt[, .(n_encounter = .N), by="lab_procedure_id"]
+```
+
+```{r}
+hf2loinc <- read_delim("cerner_hf_data/hf2loinc.tsv", delim = "\t",
+	col_types = cols(.default = col_character()))
+hf_pt_counts <- merge(hf_pt_counts, hf2loinc, by="lab_procedure_id", how="left")
+hf_pt_counts <- hf_pt_counts[order(-n_encounter)]
+head(hf_pt_counts[, .(lab_procedure_id, loinc_code, lab_procedure_mnemonic, lab_procedure_group, n_encounter)], 50)
+```
+
+```{r}
+plot_ly(x = hf_pt[, age_in_years], type = "histogram")
+```
