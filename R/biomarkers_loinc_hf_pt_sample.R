@@ -11,7 +11,7 @@ library(data.table)
 fpath_in <- "cerner_hf_data/hf_labs-selected_pt_OUT.tsv"
 message(sprintf("Input: %s", fpath_in))
 
-hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime()))
+hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), age_in_years = col_integer()))
 setDT(hf_pt)
 head(hf_pt)
 message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")))
@@ -20,6 +20,7 @@ hf_pt[, admitted_year := year(admitted_dt_tm)]
 hf_pt <- hf_pt[admitted_year > 1999] #Earlier probably spurious.
 yr_min <- hf_pt[, min(admitted_year)]
 yr_max <- hf_pt[, max(admitted_year)]
+hf_pt <- hf_pt[age_in_years > 0 & age_in_years < 90] #Extremes probably spurious.
 
 nrow_all <- nrow(hf_pt)
 size_all <- object.size(hf_pt)

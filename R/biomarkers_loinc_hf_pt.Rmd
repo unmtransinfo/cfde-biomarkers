@@ -13,7 +13,7 @@ Read data file for sample, representative year, due to size constraints.
 ```{r}
 y <- 2016
 fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_%d.tsv", y)
-hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime()))
+hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), age_in_years = col_integer()))
 setDT(hf_pt)
 head(hf_pt)
 ```
