@@ -10,7 +10,8 @@ library(readr)
 library(data.table)
 library(plotly, quietly=T)
 ```
-Read data file for sample, representative year, due to size constraints.
+
+## Read data file for sample, representative year, due to size constraints.
 
 ```{r}
 y <- 2016
@@ -57,5 +58,12 @@ knitr::kable(hf_pt_counts[1:50, .(lab_procedure_id, loinc_code, lab_procedure_mn
 ```
 
 ```{r}
-plot_ly(x = hf_pt[, age_in_years], type = "histogram")
+fig <- plot_ly(alpha = 0.8) %>% 
+	add_histogram(x = hf_pt[gender == "Female", age_in_years], name = "Female", marker = list(color = "deeppink")) %>%
+	add_histogram(x = hf_pt[gender == "Male", age_in_years], name = "Male", marker = list(color = "skyblue")) %>%
+	layout(barmode = "group",
+				 title = sprintf("Histogram of encounter count by age, gender (year: %d)", y),
+         xaxis = list(title = "Age", zeroline = F),
+         yaxis = list(title = "Encounters", zeroline = F))
+fig
 ```
