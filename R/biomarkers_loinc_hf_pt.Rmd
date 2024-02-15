@@ -1,6 +1,8 @@
 ---
-title: "Cerner HealthFacts: Laboratory molecular biomarker patient metadata"
-output: html_notebook
+title: 'Cerner HealthFacts: Laboratory molecular biomarker patient metadata'
+output:
+  html_document:
+    df_print: paged
 ---
 
 ```{r include=F}
@@ -28,11 +30,18 @@ message(sprintf("Lab_procedures (%d): %s", y, hf_pt[, uniqueN(lab_procedure_id)]
 ```
 
 ```{r}
-table(hf_pt[, gender])
+tbl <- data.table(table(hf_pt[, gender]))
+names(tbl) <- c("Gender", "n_encounter")
+tbl <- tbl[order(-n_encounter)]
+knitr::kable(tbl)
 ```
 
 ```{r}
-table(hf_pt[, patient_type_desc])
+tbl <- table(hf_pt[, patient_type_desc])
+tbl <- data.table(tbl)
+names(tbl) <- c("Patient_type", "n_encounter")
+tbl <- tbl[order(-n_encounter)]
+knitr::kable(tbl)
 ```
 
 ```{r}
@@ -44,7 +53,7 @@ hf2loinc <- read_delim("cerner_hf_data/hf2loinc.tsv", delim = "\t",
 	col_types = cols(.default = col_character()))
 hf_pt_counts <- merge(hf_pt_counts, hf2loinc, by="lab_procedure_id", how="left")
 hf_pt_counts <- hf_pt_counts[order(-n_encounter)]
-head(hf_pt_counts[, .(lab_procedure_id, loinc_code, lab_procedure_mnemonic, lab_procedure_group, n_encounter)], 50)
+knitr::kable(hf_pt_counts[1:50, .(lab_procedure_id, loinc_code, lab_procedure_mnemonic, lab_procedure_group, n_encounter)])
 ```
 
 ```{r}
