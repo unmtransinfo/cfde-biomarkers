@@ -41,6 +41,11 @@ knitr::kable(unique(hf_results[, .(lab_procedure_id, lab_procedure_mnemonic, lab
 psa_ids <- unique(hf_results[grepl("PSA", lab_procedure_name, ignore.case=T), lab_procedure_id])
 knitr::kable(unique(hf_results[lab_procedure_id %in% psa_ids, .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name)]))
 ```
+```{r}
+hf_results[unit_display == "NULL", unit_display := NA]
+hf_results[unit_desc == "NULL", unit_desc := NA]
+knitr::kable(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & !is.na(unit_display), .(lab_procedure_id, lab_procedure_mnemonic, numeric_result, unit_display, unit_desc)][sample(1:1e4, 50)])
+```
 
 ## PSA value analysis
 
