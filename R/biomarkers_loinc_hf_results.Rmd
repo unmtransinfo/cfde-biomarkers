@@ -1,0 +1,53 @@
+---
+title: 'Cerner HealthFacts: Laboratory molecular biomarker results analysis'
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r include=F}
+library(readr)
+library(data.table)
+library(plotly)
+```
+
+## Read data file for sample, representative year, due to size constraints.
+
+```{r}
+y <- 2016
+fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_results_OUT_%d.tsv.gz", y)
+hf_results <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), numeric_result = col_double(), normal_range_low = col_double(), normal_range_high = col_double()))
+setDT(hf_results)
+head(hf_results)
+```
+
+```{r}
+message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
+```
+
+```{r}
+message(sprintf("Encounters: %s", hf_results[, uniqueN(encounter_id)]))
+message(sprintf("accession: %s", hf_results[, uniqueN(accession)]))
+message(sprintf("Lab_procedures: %s", hf_results[, uniqueN(lab_procedure_id)]))
+message(sprintf("Result_units: %s", hf_results[, uniqueN(result_units_id)]))
+```
+```{r}
+knitr::kable(unique(hf_results[, .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name)][order(lab_procedure_name)]))
+```
+
+## Find and focus on results for PSA (prostate specific antigen)
+
+```{r}
+psa_ids <- unique(hf_results[grepl("PSA", lab_procedure_name, ignore.case=T), lab_procedure_id])
+knitr::kable(unique(hf_results[lab_procedure_id %in% psa_ids, .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name)]))
+```
+
+## PSA value analysis
+
+```{r}
+fig <- plot_ly(alpha = 0.8) %>% 
+	add_histogram(x = hf_results[lab_procedure_id == "1237", numeric_result], name = "PSA", marker = list(color = "deeppink"))
+fig
+```
+
+

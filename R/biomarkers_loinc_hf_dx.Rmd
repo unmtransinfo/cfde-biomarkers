@@ -1,0 +1,67 @@
+---
+title: 'Cerner HealthFacts: Laboratory molecular biomarker diagnoses associations'
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r include=F}
+library(readr)
+library(data.table)
+library(plotly)
+```
+
+## Read data file for sample, representative year, due to size constraints.
+
+```{r}
+y <- 2016
+fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_dx_OUT_%d.tsv", y)
+hf_dx <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime()))
+setDT(hf_dx)
+head(hf_dx)
+```
+
+```{r}
+message(sprintf("Columns: %s", paste(names(hf_dx), collapse=", ")) )
+```
+
+```{r}
+message(sprintf("Encounters: %s", hf_dx[, uniqueN(encounter_id)]))
+message(sprintf("Lab_procedures: %s", hf_dx[, uniqueN(lab_procedure_id)]))
+message(sprintf("Diagnoses: %s", hf_dx[, uniqueN(diagnosis_id)]))
+```
+
+## Dx types
+
+```{r}
+tbl <- data.table(table(hf_dx[, diagnosis_type]))
+names(tbl) <- c("Dx_type", "n_encounter")
+tbl <- tbl[order(-n_encounter)]
+knitr::kable(tbl)
+```
+
+## Dx counts
+
+```{r}
+hf_dx_counts <- hf_dx[, .(n_encounter = .N), by="diagnosis_id"]
+```
+
+## Dx descriptions
+
+```{r}
+dxs <- unique(hf_dx[, .(diagnosis_id, diagnosis_code, diagnosis_description)][order(diagnosis_code, diagnosis_id)])
+```
+
+## Merge counts and descriptions
+
+```{r}
+hf_dx_counts <- merge(hf_dx_counts, dxs, by="diagnosis_id", how="left")
+hf_dx_counts <- hf_dx_counts[, .(diagnosis_id, diagnosis_code, diagnosis_description, n_encounter)]
+```
+
+## Top occurring dx
+
+```{r}
+hf_dx_counts <- hf_dx_counts[order(-n_encounter)]
+knitr::kable(hf_dx_counts[1:50])
+```
