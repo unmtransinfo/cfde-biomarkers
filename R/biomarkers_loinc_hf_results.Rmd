@@ -47,11 +47,35 @@ hf_results[unit_desc == "NULL", unit_desc := NA]
 knitr::kable(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & !is.na(unit_display), .(lab_procedure_id, lab_procedure_mnemonic, numeric_result, unit_display, unit_desc)][sample(1:1e4, 50)])
 ```
 
+## PSA units analysis
+
+ng/mL predominant, so we keep only those.
+
+```{r}
+psa_units <- unique(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result), .(unit_display, unit_desc)])
+knitr::kable(psa_units)
+table(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result), unit_display])
+```
+
+
 ## PSA value analysis
+```{r}
+hf_results_psa <- hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & unit_display == "ng/mL"]
+sprintf("Lab procedure: %s, \"%s\"; values: %d; units: %s; min: %.1f; max: %.1f", hf_results_psa[, lab_procedure_mnemonic][1], hf_results_psa[, lab_procedure_name][1], hf_results_psa[, .N], unique(hf_results_psa[, unit_display]), min(hf_results_psa[, numeric_result]), max(hf_results_psa[, numeric_result]))
+```
+
+## Consider quantiles, and remove outlier values as likely spurious.
+
+```{r}
+q <- quantile(hf_results_psa[, numeric_result], probs = c(seq(0, .9, .1), seq(.91, .99, .01), seq(.991, 1, .001)))
+psa_sane_max <- q["99%"]
+hf_results_psa <- hf_results_psa[numeric_result <= psa_sane_max & numeric_result > 0]
+data.table(percentiles = names(q), values = q)
+```
 
 ```{r}
 fig <- plot_ly(alpha = 0.8) %>% 
-	add_histogram(x = hf_results[lab_procedure_id == "1237", numeric_result], name = "PSA", marker = list(color = "deeppink"))
+	add_histogram(x = hf_results_psa[, numeric_result], name = "PSA", marker = list(color = "deeppink"))
 fig
 ```
 
