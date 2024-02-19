@@ -5,6 +5,7 @@ SELECT DISTINCT
 	fe.admitted_dt_tm,
 	dlp.lab_procedure_id,
 	dlp.loinc_code,
+	fe.patient_id,
 	fe.patient_type_id,
 	dpt.patient_type_desc,
 	dp.gender,
@@ -22,7 +23,7 @@ JOIN
 JOIN
 	hf_d_patient_type dpt ON fe.patient_type_id = dpt.patient_type_id
 WHERE
---	DATE_PART('year',  fe.admitted_dt_tm) = 2018
+--	DATE_PART('year',  fe.admitted_dt_tm) = 2016
 --	AND
 	dlp.loinc_code IN (
 	'1697-2',
