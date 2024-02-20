@@ -51,8 +51,6 @@ write_delim(hf_eid2pid, fpath_eid2pid_out, "\t")
 #
 fpath_ptdata_out <- str_replace(fpath_in, "\\.tsv",  sprintf("_ptdata_%d.tsv", y))
 message(sprintf("Output: %s", fpath_ptdata_out))
-hf_ptdata <- unique(hf_ptdata[, .(patient_id, patient_type_id, patient_type_desc, gender, race, ethnicity, admitted_year, age_in_years)])
-hf_ptdata[, yob := admitted_year - age_in_years]
-hf_ptdata[, c("admitted_year", "age_in_years") := NULL]
+hf_ptdata <- unique(hf_pt[, .(patient_id, patient_type_id, patient_type_desc, gender, race, ethnicity, admitted_year, age_in_years)])
 write_delim(hf_ptdata, fpath_ptdata_out, "\t")
 
