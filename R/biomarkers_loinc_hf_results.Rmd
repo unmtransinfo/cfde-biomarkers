@@ -79,4 +79,52 @@ fig <- plot_ly(alpha = 0.8) %>%
 fig
 ```
 
+## Merge patient metadata for stratification.
 
+Ignore non-gendered in this study.
+
+```{r}
+ptdata <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character(), admitted_year = col_integer(), age_in_years = col_integer()))
+setDT(ptdata)
+ptdata <- ptdata[gender == "Male" | gender == "Female"]
+tbl <- table(ptdata[, .(race, gender)])
+tbl <- data.table(as.data.frame.matrix(tbl), keep.rownames = T)
+names(tbl) <- c("Race", "Female", "Male")
+tbl <- rbind(tbl, list("TOTAL", tbl[, sum(Female)], tbl[, sum(Male)]))
+tbl[, Fpct := 100 * Female / tbl[Race != "TOTAL", sum(Female)]]
+tbl[, Mpct := 100 * Male / tbl[Race != "TOTAL", sum(Male)]]
+tbl <- tbl[, .(Race, Female, Fpct, Male, Mpct)]
+write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_race-gender-counts-table.tsv", y), delim = "\t")
+knitr::kable(tbl, digits = 1, format = "html", format.args = list(big.mark = ","))
+```
+
+```{r}
+eid2pid <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_eid2pid_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character()))
+setDT(eid2pid)
+```
+
+## Consider only male, stratify by age
+
+```{r}
+hf_results_psa <- merge(hf_results_psa, eid2pid, by="encounter_id", all.x=T, all.y=F)
+hf_results_psa <- merge(hf_results_psa, ptdata[, .(patient_id, gender, age_in_years)], by="patient_id", all.x=T, all.y=F)
+hf_results_psa <- hf_results_psa[gender == "Male" & !is.na(patient_id) & numeric_result <= 8.0]
+```
+
+## Histograms by age group
+
+```{r}
+fig <- plot_ly(alpha = 0.8) %>% 
+	add_histogram(x = hf_results_psa[age_in_years < 40, numeric_result], name = "Age<40") %>%
+	add_histogram(x = hf_results_psa[age_in_years >= 40 & age_in_years < 50, numeric_result], name = "40<=Age<50") %>%
+	add_histogram(x = hf_results_psa[age_in_years >= 50 & age_in_years < 60, numeric_result], name = "50<=Age<60") %>%
+	add_histogram(x = hf_results_psa[age_in_years >= 60 & age_in_years < 70, numeric_result], name = "60<=Age<70") %>%
+	add_histogram(x = hf_results_psa[age_in_years >= 70 & age_in_years < 80, numeric_result], name = "70<=Age<80") %>%
+	add_histogram(x = hf_results_psa[age_in_years >= 80, numeric_result], name = "80<=Age") %>%
+layout(barmode = "stack",
+				 title = sprintf("Histogram of PSA by age group, male only (year: %d)", y),
+         xaxis = list(title = "PSA (ng/mL)", zeroline = F),
+         yaxis = list(title = "Encounters", zeroline = F),
+			 legend = list(x = 0.8, y = 0.9))
+fig
+```
