@@ -98,7 +98,7 @@ rwd_loinc_counts_by_year <- rwd_loinc_counts[, .(
 setorder(rwd_loinc_counts_by_year, yr)
 plot_ly(rwd_loinc_counts_by_year, x=~yr, y = ~encounters_mean, type = "bar", name = "mean(nEncounters)") %>%
   add_trace(rwd_loinc_counts_by_year, x=~yr, y = ~patients_mean, type = "bar", name = "mean(nPatients)") %>%
-  layout(title = "Mean encounter and patient counts for LOINC labs by year",
+  layout(title = "Mean encounter and patient counts for LOINC labs by year<br>(Cerner RealWorldData)",
          xaxis = list(title="", tick0 = 1, dtick=1, tickangle = 45), yaxis = list(title="N"), legend = list(x = .1, y = .9))
 ```
 

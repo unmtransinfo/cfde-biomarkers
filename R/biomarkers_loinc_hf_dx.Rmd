@@ -40,6 +40,15 @@ tbl <- tbl[order(-n_encounter)]
 knitr::kable(tbl)
 ```
 
+## ICD-10 preferred
+
+For selected year, if ICD-10 predominant, select only those.
+
+```{r}
+hf_dx <- hf_dx[diagnosis_type == "ICD10-CM"]
+```
+
+
 ## Dx counts
 
 ```{r}
@@ -55,7 +64,7 @@ dxs <- unique(hf_dx[, .(diagnosis_id, diagnosis_code, diagnosis_description)][or
 ## Merge counts and descriptions
 
 ```{r}
-hf_dx_counts <- merge(hf_dx_counts, dxs, by="diagnosis_id", how="left")
+hf_dx_counts <- merge(hf_dx_counts, dxs, by="diagnosis_id", all.x=T, all.y=F)
 hf_dx_counts <- hf_dx_counts[, .(diagnosis_id, diagnosis_code, diagnosis_description, n_encounter)]
 ```
 
@@ -63,5 +72,6 @@ hf_dx_counts <- hf_dx_counts[, .(diagnosis_id, diagnosis_code, diagnosis_descrip
 
 ```{r}
 hf_dx_counts <- hf_dx_counts[order(-n_encounter)]
+write_delim(hf_dx_counts, sprintf("cerner_hf_data/hf_labs-selected_dx_OUT_%d_counts.tsv", y), delim="\t")
 knitr::kable(hf_dx_counts[1:50])
 ```
