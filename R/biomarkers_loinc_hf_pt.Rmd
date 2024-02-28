@@ -64,6 +64,7 @@ fig <- plot_ly(alpha = 0.8) %>%
 	layout(barmode = "group",
 				 title = sprintf("Histogram of encounter count by age, gender (year: %d)", y),
          xaxis = list(title = "Age", zeroline = F),
-         yaxis = list(title = "Encounters", zeroline = F))
+         yaxis = list(title = "Encounters", zeroline = F),
+				 legend = list(x = .8, y = .9))
 fig
 ```
