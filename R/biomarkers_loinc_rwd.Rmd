@@ -126,27 +126,39 @@ sprintf("LOINC codes for proteins in RWD encounters: %d", protein_hr_loincs[, un
 sprintf("LOINC protein names in RWD encounters: %d", protein_hr_loincs[, uniqueN(EntityText)])
 ```
 
+## Rename columns. 
+For now, remove data without resolved protein IDs. And the few Ensembl IDs, pending clarification on ENSG vs ENSP.
+
+```{r}
+protein_hr_loincs_out <- unique(protein_hr_loincs[, .(loinc_code=DocName, geneOrProteinId = ResolvedForm, loinc_names = mnemonics, geneOrProteinName=EntityText, lab_count)])
+protein_hr_loincs_out <- protein_hr_loincs_out[!is.na(geneOrProteinId)]
+protein_hr_loincs_out <- protein_hr_loincs_out[!grepl("^\\d+$", geneOrProteinId)]
+protein_hr_loincs_out <- protein_hr_loincs_out[, geneOrProteinId := str_replace(geneOrProteinId, "^([A-Z]\\d+)$", "UNIPROT:\\1")]
+```
+
+## Save file of LOINC-to-molecule mappings from RWD encounters
+
+```{r}
+loinc2chem_rwd_file <- "loinc_data/loinc2chem_rwd.tsv"
+loinc2chem_rwd <- unique(protein_hr_loincs_out[!is.na(geneOrProteinId), .(loinc_code, loinc_name = str_replace(loinc_names, ";.*$", ""), geneOrProteinId, geneOrProteinName)])
+write_delim(loinc2chem_rwd, loinc2chem_rwd_file, delim="\t")
+```
+
 ## Group protein synonyms into list; aggregate on LOINC codes.
 
 ```{r}
-protein_hr_loincs_out <- unique(protein_hr_loincs[, .(loinc_code=DocName, geneOrProteinId = ResolvedForm, mnemonics, protein_name=EntityText, lab_count)])
-protein_hr_loincs_out <- protein_hr_loincs_out[, .(mnemonics, geneOrProteinId,
-protein_names = paste(sort(unique(c(protein_name))), collapse="; ")), by=c("loinc_code", "lab_count")]
+protein_hr_loincs_out <- protein_hr_loincs_out[, .(loinc_names, geneOrProteinId, geneOrProteinNames = paste(sort(unique(c(geneOrProteinName))), collapse="; ")), by=c("loinc_code", "lab_count")]
 protein_hr_loincs_out <- unique(protein_hr_loincs_out)
-setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "mnemonics", "protein_names", "lab_count"))
+setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "loinc_names", "geneOrProteinNames", "lab_count"))
 ```
 
 # Top occurring LOINCs
 
-For now, remove data without resolved protein IDs. And the few Ensembl IDs, pending clarification on ENSG vs ENSP.
 
 ```{r}
-protein_hr_loincs_out <- protein_hr_loincs_out[!is.na(geneOrProteinId)]
-protein_hr_loincs_out <- protein_hr_loincs_out[!grepl("^\\d+$", geneOrProteinId)]
-protein_hr_loincs_out <- protein_hr_loincs_out[, geneOrProteinId := str_replace(geneOrProteinId, "^([A-Z]\\d+)$", "UNIPROT:\\1")]
 protein_hr_loincs_out <- protein_hr_loincs_out[, .(
   geneOrProteinId = first(geneOrProteinId),
-	mnemonics,
+	loinc_names,
 	lab_count = sum(lab_count)
 	), by=c("loinc_code")]
 protein_hr_loincs_out <- unique(protein_hr_loincs_out[order(-lab_count)])
