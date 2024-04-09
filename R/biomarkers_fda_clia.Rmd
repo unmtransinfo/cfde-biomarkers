@@ -1,0 +1,83 @@
+---
+title: Biomarkers from FDA CLIA approved and classified lab tests
+author: "Jeremy Yang"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+base::date()
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+library(readr)
+library(stringr)
+library(data.table)
+library(plotly, quietly=T)
+```
+
+# FDA CLIA Detail file
+
+```{r}
+clia_detail_file <- "fda_clia_data/clia_detail.tsv"
+sprintf("FDA CLIA DETAIL file: %s", clia_detail_file)
+clia_detail <- read_delim(clia_detail_file, "\t", escape_double=F)
+setDT(clia_detail)
+sprintf("DOCUMENT_NUMBERs: %d; TEST_SYSTEM_IDs: %d; ANALYTE_IDs: %d", clia_detail[, uniqueN(DOCUMENT_NUMBER)], clia_detail[, uniqueN(TEST_SYSTEM_ID)], clia_detail[, uniqueN(ANALYTE_ID)])
+```
+
+# NextMove LeadMine NER output using GeneAndProtein dictionary.
+
+```{r}
+clia_detail_ner_gp_file <- "fda_clia_data/clia_detail_gene_or_protein_leadmine.tsv"
+sprintf("CLIA DETAIL Gene-Protein-NER file: %s", clia_detail_ner_gp_file)
+clia_detail_ner_gp <- read_delim(clia_detail_ner_gp_file, "\t", escape_double=F)
+setDT(clia_detail_ner_gp)
+clia_detail_ner_gp <- clia_detail_ner_gp[, .(AnalyteId = DocName, OriginalText, EntityText, GeneOrProteinId = ResolvedForm)]
+clia_detail_ner_gp <- clia_detail_ner_gp[, GeneOrProteinId := str_replace(GeneOrProteinId, "^([A-Z]\\d+)$", "UNIPROT:\\1")]
+sprintf("Analytes resolved to standard gene-or-protein IDs: %d / %d", clia_detail_ner_gp[!is.na(GeneOrProteinId), uniqueN(AnalyteId)], clia_detail_ner_gp[, uniqueN(AnalyteId)])
+sprintf("Analytes resolved to HGNC IDs: %d / %d", clia_detail_ner_gp[!is.na(GeneOrProteinId) & grepl("^HGNC", GeneOrProteinId), uniqueN(AnalyteId)], clia_detail_ner_gp[, uniqueN(AnalyteId)])
+sprintf("Analytes resolved to UniProt IDs: %d / %d", clia_detail_ner_gp[!is.na(GeneOrProteinId) & grepl("^UNIPROT:", GeneOrProteinId), uniqueN(AnalyteId)], clia_detail_ner_gp[, uniqueN(AnalyteId)])
+sprintf("Analytes resolved to Entrez (gene?) IDs: %d / %d", clia_detail_ner_gp[!is.na(GeneOrProteinId) & grepl("^\\d+$", GeneOrProteinId), uniqueN(AnalyteId)], clia_detail_ner_gp[, uniqueN(AnalyteId)])
+clia_detail_ner_gp <- clia_detail_ner_gp[!is.na(GeneOrProteinId)] #Delete unmapped records
+clia_detail_ner_gp <- clia_detail_ner_gp[!grepl("^\\d+$", GeneOrProteinId)] #Ignore (too few) NCBI IDs
+clia_detail_ner_gp <- unique(clia_detail_ner_gp[order(AnalyteId)])
+```
+
+## Documents, Tests, and Analytes
+
+Note that DocNum to Test to Analyte relationships are many-to-many.
+
+```{r}
+clia_doc2test2analyte <- unique(clia_detail[, .(DOCUMENT_NUMBER, TEST_SYSTEM_ID, ANALYTE_ID, ANALYTE_NAME, DATE_EFFECTIVE)])[order(DOCUMENT_NUMBER, ANALYTE_ID, TEST_SYSTEM_ID, DATE_EFFECTIVE)]
+knitr::kable(clia_doc2test2analyte[grepl("prostat.*antigen", ANALYTE_NAME, ignore.case=T)])
+```
+
+## Merge NER with analyte metadata (names), save file
+
+```{r}
+clia_detail_ner_gp <- merge(clia_detail_ner_gp, unique(clia_detail[, .(ANALYTE_ID, ANALYTE_NAME)]), by.x="AnalyteId", by.y="ANALYTE_ID")
+clia_detail_ner_gp <- clia_detail_ner_gp[, .(AnalyteId, AnalyteName = ANALYTE_NAME, OriginalText, EntityText, GeneOrProteinId)]
+clia_detail_ner_gp_outfile <- "fda_clia_data/clia_detail_GeneAndProtein_leadmine.tsv"
+write_delim(clia_detail_ner_gp, clia_detail_ner_gp_outfile, delim="\t")
+```
+
+# NextMove LeadMine NER output using Chemical dictionary.
+
+```{r}
+clia_detail_ner_chem_file <- "fda_clia_data/clia_detail_chem_leadmine.tsv"
+sprintf("CLIA DETAIL Chemical-NER file: %s", clia_detail_ner_chem_file)
+clia_detail_ner_chem <- read_delim(clia_detail_ner_chem_file, "\t", escape_double=F)
+setDT(clia_detail_ner_chem)
+clia_detail_ner_chem <- clia_detail_ner_chem[, .(AnalyteId = DocName, OriginalText, EntityText, SMILES = ResolvedForm)]
+sprintf("Analytes resolved to SMILES IDs: %d / %d", clia_detail_ner_chem[!is.na(SMILES), uniqueN(AnalyteId)], clia_detail_ner_chem[, uniqueN(AnalyteId)])
+clia_detail_ner_chem <- clia_detail_ner_chem[!is.na(SMILES)] #Delete unmapped records
+clia_detail_ner_chem <- unique(clia_detail_ner_chem[order(AnalyteId)])
+```
