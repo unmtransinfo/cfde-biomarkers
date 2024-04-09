@@ -157,6 +157,22 @@ nthreads="4"
 # 8. "SPECIALTY_ID"
 # 9. "COMPLEXITY"
 # 10. "DATE_EFFECTIVE"
+#
+echo "Chemical NER (ANALYTE_TEXTs)..."
+#
+dictname=$(basename $CFGFILE |perl -pe 's/^(.*)\.cfg$/$1/')
+#
+col="7"
+idcol="6"
+java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
+	-config ${CFGFILE} \
+	-i ${DATADIR}/clia_detail.tsv \
+	-textcol $col -unquote -idcol $idcol \
+	-o ${DATADIR}/clia_detail_${dictname}_leadmine.tsv \
+	-v
+#
+#
+#
 ###
 # clia_cdc.tsv cols:
 # 1. "ID"
@@ -171,24 +187,8 @@ nthreads="4"
 # 10. "Complexity"
 # 11. "Date_Effective"
 #
-echo "Chemical NER (descriptions)..."
-#
-dictname=$(basename $CFGFILE |perl -pe 's/^(.*)\.cfg$/$1/')
-#
-col="7"
-idcol="1"
-java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
-	-config ${CFGFILE} \
-	-i ${DATADIR}/clia_detail.tsv \
-	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/clia_detail_${dictname}_leadmine.tsv \
-	-v
-#
-#
-#
-#
 col="8"
-idcol="2"
+idcol="7"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
 	-i ${DATADIR}/clia_cdc.tsv \
