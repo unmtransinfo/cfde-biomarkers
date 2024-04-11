@@ -11,6 +11,16 @@ editor_options:
   chunk_output_type: console
 ---
 
+FDA CLIA files are downloaded [here](https://www.fda.gov/medical-devices/medical-device-databases/clinical-laboratory-improvement-amendments-download-data).
+
+Regarding the document numbers, "either the 510(k), PMA, HDE or 510(k) exempt number", it appears the codes starting with 'K' are 510(k)s, the codes starting with 'P' are PMAs (Pre-market approval), the codes starting with 'CR' are document numbers.
+
+Examples:
+
+ * [CR190560](https://www.accessdata.fda.gov/Scripts/cdrh/cfdocs/cfClia/Results.cfm?start_search=1&Document_Number=CR190560&SortColumn=ded)
+ * [K124056](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K124056)
+ * [P000021S045](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpma/pma.cfm?id=P000021S045)
+
 ```{r echo=FALSE}
 knitr::opts_chunk$set(echo=FALSE, message=FALSE)
 base::date()
@@ -21,9 +31,12 @@ library(readr)
 library(stringr)
 library(data.table)
 library(plotly, quietly=T)
+library(rcdk)
 ```
 
 # FDA CLIA Detail file
+
+
 
 ```{r}
 clia_detail_file <- "fda_clia_data/clia_detail.tsv"
@@ -49,6 +62,7 @@ sprintf("Analytes resolved to Entrez (gene?) IDs: %d / %d", clia_detail_ner_gp[!
 clia_detail_ner_gp <- clia_detail_ner_gp[!is.na(GeneOrProteinId)] #Delete unmapped records
 clia_detail_ner_gp <- clia_detail_ner_gp[!grepl("^\\d+$", GeneOrProteinId)] #Ignore (too few) NCBI IDs
 clia_detail_ner_gp <- unique(clia_detail_ner_gp[order(AnalyteId)])
+knitr::kable(clia_detail_ner_gp)
 ```
 
 ## Documents, Tests, and Analytes
@@ -57,7 +71,7 @@ Note that DocNum to Test to Analyte relationships are many-to-many.
 
 ```{r}
 clia_doc2test2analyte <- unique(clia_detail[, .(DOCUMENT_NUMBER, TEST_SYSTEM_ID, ANALYTE_ID, ANALYTE_NAME, DATE_EFFECTIVE)])[order(DOCUMENT_NUMBER, ANALYTE_ID, TEST_SYSTEM_ID, DATE_EFFECTIVE)]
-knitr::kable(clia_doc2test2analyte[grepl("prostat.*antigen", ANALYTE_NAME, ignore.case=T)])
+knitr::kable(clia_doc2test2analyte[grepl("prostat.*antigen", ANALYTE_NAME, ignore.case=T)][sample(.N, 20)], caption = "Sample of 'prostat.*antigen' matches")
 ```
 
 ## Merge NER with analyte metadata (names), save file
@@ -80,4 +94,37 @@ clia_detail_ner_chem <- clia_detail_ner_chem[, .(AnalyteId = DocName, OriginalTe
 sprintf("Analytes resolved to SMILES IDs: %d / %d", clia_detail_ner_chem[!is.na(SMILES), uniqueN(AnalyteId)], clia_detail_ner_chem[, uniqueN(AnalyteId)])
 clia_detail_ner_chem <- clia_detail_ner_chem[!is.na(SMILES)] #Delete unmapped records
 clia_detail_ner_chem <- unique(clia_detail_ner_chem[order(AnalyteId)])
+knitr::kable(clia_detail_ner_chem[sample(.N, 20)], caption = "Sample of NER-resolved chemicals")
 ```
+
+# View molecules with CDK
+
+```{r}
+depictor <- get.depictor(style='cow', width=1000, height=1000, fillToFit=T)
+mols <- parse.smiles(clia_detail_ner_chem[sample(.N, 20)][["SMILES"]])
+#view.molecule.2d(mols, depictor=depictor) #Not working, java.lang.NoSuchMethodError: <init>
+img <- view.image.2d(mols[[1]], depictor=depictor)
+plot(NA, xlim=c(0, nrow(img)), ylim=c(0, ncol(img)), xlab="", ylab="", xaxt="n", yaxt="n")
+rasterImage(img, 0, 0, nrow(img), ncol(img))
+```
+
+```{r}
+depictor <- get.depictor(style='cow')
+img_w <- 640
+img_h <- 400
+n_row <- 5
+n_col <- 7
+moldata <- clia_detail_ner_chem[sample(nrow(clia_detail_ner_chem), n_row*n_col)] #random sample
+plot(c(0,1e3), c(0,1e3), pch=1, col="white", axes=FALSE, xlab="", ylab="")
+title(main=sprintf("CLIA sample compounds (%d/%d)", nrow(moldata), nrow(clia_detail_ner_chem[!is.na(SMILES)])), line = -3, sub="Depicted with RCDK", cex.main=2)
+plot.window(xlim=c(0, img_w*n_col), ylim=c(0, img_h*n_row), asp=1.0)
+for (i in 1:n_row) {
+  for (j in 1:n_col) {
+    mol <- parse.smiles(moldata[(i-1)*n_row+(j), SMILES])
+    img <- view.image.2d(mol[[1]], depictor=depictor)
+    rasimg <- rasterImage(img, xleft=(j-1)*img_w, xright=j*img_w, ybottom=(i-2)*img_h, ytop=(i-1)*img_h)
+  }
+}
+rasimg
+```
+
