@@ -1,0 +1,134 @@
+AnalyteId	AnalyteName	OriginalText	EntityText	GeneOrProteinId
+5	albumin	albumin	albumin	HGNC:399
+12	Alanine aminotransferase (ALT) (SGPT)	Alanine aminotransferase	Alanine aminotransferase	HGNC:4552
+15	Haptoglobin	Haptoglobin	Haptoglobin	HGNC:5141
+28	Prolactin	Prolactin	Prolactin	HGNC:9445
+50	HLA-A	HLA-A	HLA-A	HGNC:4931
+51	HLA-B	HLA-B	HLA-B	HGNC:4932
+94	Antithrombin III (ATIII)	Antithrombin III	Antithrombin III	HGNC:775
+94	Antithrombin III (ATIII)	ATIII	ATIII	HGNC:775
+95	Anti-thyroid peroxidase (TPO) antibodies	thyroid peroxidase	thyroid peroxidase	HGNC:12015
+96	Anti-thyroglobulin antibodies	thyroglobulin	thyroglobulin	HGNC:11764
+97	von Willebrand Factor	von Willebrand Factor	von Willebrand Factor	HGNC:12726
+105	Prostatic acid phosphatase (PAP)	Prostatic acid phosphatase	Prostatic acid phosphatase	HGNC:125
+108	Parathyroid hormone - intact	Parathyroid hormone	Parathyroid hormone	HGNC:9606
+109	Complement C3	Complement C3	Complement C3	HGNC:1318
+129	Apolipoprotein B	Apolipoprotein B	Apolipoprotein B	HGNC:603
+133	Ferritin	Ferritin	Ferritin	UNIPROT:Q26061
+152	Lipoprotein(a) (Lp(a))	Lipoprotein(a)	Lipoprotein(a)	HGNC:6667
+152	Lipoprotein(a) (Lp(a))	Lp(a)	Lp(a)	HGNC:6667
+155	Myoglobin	Myoglobin	Myoglobin	HGNC:6915
+163	Thyroglobulin	Thyroglobulin	Thyroglobulin	HGNC:11764
+176	Apolipoprotein A1	Apolipoprotein A1	Apolipoprotein A1	HGNC:600
+177	Glucose-6-Phosphate Dehydrogenase (G-6-PD)	Glucose-6-Phosphate Dehydrogenase	Glucose-6-Phosphate Dehydrogenase	HGNC:4057
+187	C-reactive protein (CRP)	C-reactive protein	C-reactive protein	HGNC:2367
+201	Parathyroid hormone, whole	Parathyroid hormone	Parathyroid hormone	HGNC:9606
+204	Cancer antigen 15-3 (CA 15-3)	Cancer antigen 15-3	Cancer antigen 15-3	UNIPROT:P15941
+204	Cancer antigen 15-3 (CA 15-3)	CA 15-3	CA 15-3	UNIPROT:P15941
+211	Transferrin, carbohydrate-deficient	Transferrin	Transferrin	HGNC:11740
+214	Transferrin	Transferrin	Transferrin	HGNC:11740
+215	Alpha-1-antitrypsin	Alpha-1-antitrypsin	Alpha-1-antitrypsin	HGNC:8941
+216	Alpha-2-macroglobulin	Alpha-2-macroglobulin	Alpha-2-macroglobulin	HGNC:7
+217	Transferrin receptor (TFR)	Transferrin receptor	Transferrin receptor	HGNC:11763
+220	Transferrin, urine	Transferrin	Transferrin	HGNC:11740
+221	Plasminogen	Plasminogen	Plasminogen	HGNC:9071
+224	Alpha-2-antiplasmin	Alpha-2-antiplasmin	Alpha-2-antiplasmin	HGNC:9075
+228	Activated partial thromboplastin time (APTT)	thromboplastin	thromboplastin	UNIPROT:P13726
+230	Thrombin time	Thrombin	Thrombin	UNIPROT:P84122
+255	Anti-myeloperoxidase (MPO) antibodies	myeloperoxidase	myeloperoxidase	HGNC:7218
+273	Protein S, free	Protein S	Protein S	HGNC:9456
+279	Adrenocorticotropic hormone (ACTH)	Adrenocorticotropic hormone	Adrenocorticotropic hormone	HGNC:9201
+281	Albumin, urinary	Albumin	Albumin	HGNC:399
+295	Cystatin C	Cystatin C	Cystatin C	HGNC:2475
+299	Osteocalcin	Osteocalcin	Osteocalcin	HGNC:1043
+301	Ceruloplasmin	Ceruloplasmin	Ceruloplasmin	HGNC:2295
+328	Anti-proteinase-3 (Pr-3) antibodies	proteinase-3	proteinase-3	HGNC:9495
+339	Biotinidase	Biotinidase	Biotinidase	HGNC:1122
+343	Carcinoembryonic antigen (CEA)	Carcinoembryonic antigen	Carcinoembryonic antigen	UNIPROT:P06731
+344	Insulin	Insulin	Insulin	HGNC:6081
+351	Renin	Renin	Renin	HGNC:9958
+361	Protein S	Protein S	Protein S	HGNC:9456
+379	Anti-B2 glycoprotein I (apolipoprotein H) (B2 GPI)	apolipoprotein H	apolipoprotein H	HGNC:616
+417	von Willebrand factor (ristocetin cofactor)	von Willebrand factor	von Willebrand factor	HGNC:12726
+428	Erythropoietin	Erythropoietin	Erythropoietin	HGNC:3415
+432	Sex hormone binding globulin	Sex hormone binding globulin	Sex hormone binding globulin	HGNC:10839
+440	Calcitonin	Calcitonin	Calcitonin	HGNC:1437
+485	Anti-nuclear pore glycoprotein 210 (GP210)	GP210	GP210	HGNC:30052
+491	Cytochrome P450 2C19 (CYP2C19) genotype	Cytochrome P450 2C19	Cytochrome P450 2C19	UNIPROT:P33261
+491	Cytochrome P450 2C19 (CYP2C19) genotype	CYP2C19	CYP2C19	HGNC:2621
+492	Cytochrome P450 2D6 (CYP2D6) genotype	CYP2D6	CYP2D6	HGNC:2625
+496	Thrombin/antithrombin III complex (TAT)	Thrombin	Thrombin	UNIPROT:P84122
+496	Thrombin/antithrombin III complex (TAT)	antithrombin III	antithrombin III	HGNC:775
+589	CD4 protein	CD4 protein	CD4 protein	HGNC:1678
+598	Reptilase time	Reptilase	Reptilase	UNIPROT:P04971
+622	Complement C5	Complement C5	Complement C5	HGNC:1331
+629	Hemopexin	Hemopexin	Hemopexin	HGNC:5171
+665	Gastrin	Gastrin	Gastrin	HGNC:4164
+669	Insulin-like growth factor-II (IGF-II)	IGF-II	IGF-II	HGNC:5466
+682	Albumin/globulin (A/G) ratio	Albumin	Albumin	HGNC:399
+686	Catalase, urine	Catalase	Catalase	HGNC:1516
+698	Reptilase clotting time (russell viper venom)	Reptilase	Reptilase	UNIPROT:P04971
+702	Nuclear matrix protein 22 (NMP22)	NMP22	NMP22	UNIPROT:Q14980
+719	Isocitric dehydrogenase	Isocitric dehydrogenase	Isocitric dehydrogenase	HGNC:5384
+752	Parathyroid hormone - mid-molecule (PTH-M)	Parathyroid hormone	Parathyroid hormone	HGNC:9606
+753	Glucagon	Glucagon	Glucagon	HGNC:4191
+755	Parathyroid hormone - C-terminal	Parathyroid hormone	Parathyroid hormone	HGNC:9606
+756	Beta-thromboglobulin	Beta-thromboglobulin	Beta-thromboglobulin	HGNC:9240
+757	Factor IX antigen	Factor IX	Factor IX	HGNC:3551
+773	Glucose-6-phosphate dehydrogenase fractions	Glucose-6-phosphate dehydrogenase	Glucose-6-phosphate dehydrogenase	HGNC:4057
+804	Albumin, glycated	Albumin	Albumin	HGNC:399
+827	Surfactant/albumin ratio	albumin	albumin	HGNC:399
+830	Interleukin-2 receptor (IL-2R)	Interleukin-2	Interleukin-2	HGNC:6001
+841	CFTR (cystic fibrosis transmembrane conductance regulator) mutations	cystic fibrosis transmembrane conductance regulator	cystic fibrosis transmembrane conductance regulator	HGNC:1884
+844	Glucose-6-phosphate dehydrogenase (G-6-PDH)	Glucose-6-phosphate dehydrogenase	Glucose-6-phosphate dehydrogenase	HGNC:4057
+848	Anti-nuclear body protein SP100 antibodies	SP100	SP100	HGNC:11206
+849	Myeloperoxidase (MPO)	Myeloperoxidase	Myeloperoxidase	HGNC:7218
+852	UDP glucuronosyltransferase 1A1 (UGT1A1) genotype	UGT1A1	UGT1A1	HGNC:12530
+876	Soluble mesothelin related peptide	mesothelin	mesothelin	HGNC:7371
+879	Insulin-like growth factor bind. protein1 (IGFBP-1)	Insulin-like growth factor	Insulin-like growth factor	UNIPROT:P22618
+884	Insulin autoantibodies (IAA)	Insulin	Insulin	HGNC:6081
+888	Vitamin K epoxide reductase complex subunit I (VKORC1) (genotype)	VKORC1	VKORC1	HGNC:23663
+889	Cytochrome P450 2C9 (CYP2C9) genotype	Cytochrome P450 2C9	Cytochrome P450 2C9	UNIPROT:P11712
+889	Cytochrome P450 2C9 (CYP2C9) genotype	CYP2C9	CYP2C9	HGNC:2623
+935	Methylenetetrahydrofolate reductase gene (MTHFR) (genotype)	Methylenetetrahydrofolate reductase	Methylenetetrahydrofolate reductase	HGNC:7436
+935	Methylenetetrahydrofolate reductase gene (MTHFR) (genotype)	MTHFR	MTHFR	HGNC:7436
+962	Galectin-3	Galectin-3	Galectin-3	HGNC:6563
+974	Early growth response 1 gene (EGR1)	Early growth response 1	Early growth response 1	HGNC:3238
+984	ST2 protein	ST2 protein	ST2 protein	UNIPROT:Q06520
+1008	Epidermal growth factor receptor (EGFR) mutations	Epidermal growth factor receptor	Epidermal growth factor receptor	HGNC:3236
+1036	PD-L1, programmed death ligand 1	PD-L1	PD-L1	HGNC:17635
+1040	Factor VII	Factor VII	Factor VII	HGNC:3544
+1042	Factor IX	Factor IX	Factor IX	HGNC:3551
+1045	PDGFRB	PDGFRB	PDGFRB	HGNC:8804
+1049	Aquaporin-4 autoantibody (AQP4Ab)	Aquaporin-4	Aquaporin-4	HGNC:637
+1058	Anti-Mullerian Hormone (AMH)	Anti-Mullerian Hormone	Anti-Mullerian Hormone	HGNC:464
+1069	Leucine-rich repeat kinase 2 (LRRK2) gene	LRRK2	LRRK2	HGNC:18618
+1070	Apolipoprotein E (APOE) gene	Apolipoprotein E	Apolipoprotein E	HGNC:613
+1074	SERPINA1 gene	SERPINA1	SERPINA1	HGNC:8941
+1094	Ubiquitin C-terminal hydrolase-L1	Ubiquitin C-terminal hydrolase-L1	Ubiquitin C-terminal hydrolase-L1	HGNC:12513
+1095	Glial fibrillary acidic protein	Glial fibrillary acidic protein	Glial fibrillary acidic protein	HGNC:4235
+1104	Anti-HMGCR	HMGCR	HMGCR	HGNC:5006
+1123	Cytochrome P450 3A5 (CYP3A5) genotype	CYP3A5	CYP3A5	HGNC:2638
+1124	Solute carrier organic anion transporter family member 1B1 (SLCO1B1) genotype	Solute carrier organic anion transporter family member 1B1	Solute carrier organic anion transporter family member 1B1	HGNC:10959
+1124	Solute carrier organic anion transporter family member 1B1 (SLCO1B1) genotype	SLCO1B1	SLCO1B1	HGNC:10959
+1125	Dihydropyrimidine dehydrogenase (DPYD) genotype	Dihydropyrimidine dehydrogenase	Dihydropyrimidine dehydrogenase	HGNC:3012
+1137	MUTYH gene	MUTYH	MUTYH	HGNC:7527
+1149	HLA-A DNA allele typing	HLA-A	HLA-A	HGNC:4931
+1151	HLA-B DNA allele typing	HLA-B	HLA-B	HGNC:4932
+1153	HLA-C DNA allele typing	HLA-C	HLA-C	HGNC:4933
+1155	HLA-DQ DNA allele typing (HLA-DQA1, HLA-DQB2)	HLA-DQA1	HLA-DQA1	HGNC:4942
+1155	HLA-DQ DNA allele typing (HLA-DQA1, HLA-DQB2)	HLA-DQB2	HLA-DQB2	HGNC:4945
+1157	HLA-DR DNA allele typing (HLA-DRB1, HLA-DRB2, HLA-DRB3, HLA-DRB4, HLA-DRB5)	HLA-DRB1	HLA-DRB1	HGNC:4948
+1157	HLA-DR DNA allele typing (HLA-DRB1, HLA-DRB2, HLA-DRB3, HLA-DRB4, HLA-DRB5)	HLA-DRB2	HLA-DRB2	HGNC:4950
+1157	HLA-DR DNA allele typing (HLA-DRB1, HLA-DRB2, HLA-DRB3, HLA-DRB4, HLA-DRB5)	HLA-DRB3	HLA-DRB3	HGNC:4951
+1157	HLA-DR DNA allele typing (HLA-DRB1, HLA-DRB2, HLA-DRB3, HLA-DRB4, HLA-DRB5)	HLA-DRB4	HLA-DRB4	HGNC:4952
+1157	HLA-DR DNA allele typing (HLA-DRB1, HLA-DRB2, HLA-DRB3, HLA-DRB4, HLA-DRB5)	HLA-DRB5	HLA-DRB5	HGNC:4953
+1188	PIK3CA (phosphatidylinositol-3-kinase catalytic subunit alpha)	PIK3CA	PIK3CA	HGNC:8975
+1193	HLA-DP DNA allele typing (HLA-DPA1, HLA-DPB1)	HLA-DPA1	HLA-DPA1	HGNC:4938
+1193	HLA-DP DNA allele typing (HLA-DPA1, HLA-DPB1)	HLA-DPB1	HLA-DPB1	HGNC:4940
+1237	von Willebrand factor activity	von Willebrand factor	von Willebrand factor	HGNC:12726
+1243	Lethal Factor	Lethal Factor	Lethal Factor	UNIPROT:P15917
+1244	Placental growth factor (PlGF)	Placental growth factor	Placental growth factor	HGNC:8893
+1251	PDGFRA (Platelet-derived growth factor receptor A)	PDGFRA	PDGFRA	HGNC:8803
+1258	Chromogranin A	Chromogranin A	Chromogranin A	HGNC:1929
+1263	ADAMTS13	ADAMTS13	ADAMTS13	HGNC:1366
