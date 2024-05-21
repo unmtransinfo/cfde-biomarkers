@@ -127,7 +127,7 @@ sprintf("Protein names: %d", protein_hr_loincs[, uniqueN(EntityText)])
 sprintf("GeneOrProtein IDs: %d", protein_hr_loincs[, uniqueN(ResolvedForm)])
 ```
 
-Build LOINC to gene-or-protein ID mapping.
+Build LOINC to gene-or-protein ID mapping. Save to file.
 
 ```{r}
 loinc2geneOrProteinId <- unique(protein_hr_loincs[!is.na(ResolvedForm), .(loinc_code=DocName, geneOrProteinId = ResolvedForm)])
@@ -136,6 +136,7 @@ loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(
 setorder(loinc2geneOrProteinId, "loinc_code", "geneOrProteinId")
 loinc2geneOrProteinId <- loinc2geneOrProteinId[!grepl("^ENSG", geneOrProteinId)] #For now ignore ENSGs.
 loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := first(geneOrProteinId), by = c("loinc_code")]
+write_delim(loinc2geneOrProteinId, "loinc_data/loinc2gp.tsv", delim="\t")
 ```
 
 ## Group protein synonyms into list; aggregate on LOINC codes.

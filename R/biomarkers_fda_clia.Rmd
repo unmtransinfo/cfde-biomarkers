@@ -15,6 +15,8 @@ FDA CLIA files are downloaded [here](https://www.fda.gov/medical-devices/medical
 
 Regarding the document numbers, "either the 510(k), PMA, HDE or 510(k) exempt number", it appears the codes starting with 'K' are 510(k)s, the codes starting with 'P' are PMAs (Pre-market approval), the codes starting with 'CR' are document numbers.
 
+The analytes are an explicit, structured field, with an ID and name. But what are the tests for? Where are the clinical conditions which the tests are supposed to indicate? Do we need to process the referenced documents?
+
 Examples:
 
  * [CR190560](https://www.accessdata.fda.gov/Scripts/cdrh/cfdocs/cfClia/Results.cfm?start_search=1&Document_Number=CR190560&SortColumn=ded)
@@ -35,8 +37,6 @@ library(rcdk)
 ```
 
 # FDA CLIA Detail file
-
-
 
 ```{r}
 clia_detail_file <- "fda_clia_data/clia_detail.tsv"

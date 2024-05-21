@@ -1,0 +1,53 @@
+---
+title: "FDA CLIA genes and proteins mapped to Cerner LOINC codes"
+author: "Jeremy Yang"
+date: '`r Sys.Date()`'
+output: html_document
+---
+
+```{r echo=FALSE, message=FALSE}
+knitr::opts_chunk$set(echo = F, message = F)
+base::date()
+library(readr)
+library(stringr)
+library(data.table)
+library(plotly, quietly=T)
+```
+
+## Read FDA-CLIA genes and proteins file
+
+Mapped to IDs by NextMove Leadmine.
+
+```{r}
+clia_gp_file <- "output/clia_detail_GeneAndProtein_leadmine.tsv"
+clia_gp <- read_delim(clia_gp_file, delim = "\t", escape_double=F, col_types = cols(.default = col_character()))
+setDT(clia_gp)
+sprintf("HGNC gene IDs: %d; UniProt protein IDs: %d; Total: %d", clia_gp[grepl("^HGNC", GeneOrProteinId), .N], clia_gp[grepl("^UNIPROT", GeneOrProteinId), .N], clia_gp[, .N])
+clia_gp <- unique(clia_gp[, .(geneOrProteinId = GeneOrProteinId, EntityText)])
+```
+
+## Read LOINC genes and proteins
+
+Mapped to IDs by NextMove Leadmine.
+
+```{r}
+loinc2gp_file <- "loinc_data/loinc2gp.tsv"
+loinc2gp <- read_delim(loinc2gp_file, delim = "\t", escape_double=F, col_types = cols(.default = col_character()))
+setDT(loinc2gp)
+```
+
+## Merge to map LOINC codes (from Cerner) to GeneOrProteinIds (from FDA-CLIA).
+
+The results are LOINC codes which map to FDA- approved or categorized tests for molecular (GeneOrProtein) biomarkers.
+
+```{r}
+clia_gp2loinc <- unique(merge(clia_gp, loinc2gp, by = "geneOrProteinId", all.x=T, all.y=T))
+sprintf("GeneOrProteinIds: %d; LOINC codes: %d", clia_gp2loinc[, uniqueN(geneOrProteinId)], clia_gp2loinc[, uniqueN(loinc_code)])
+clia_gp2loinc <- clia_gp2loinc[!is.na(loinc_code)]
+clia_gp2loinc <- clia_gp2loinc[, .(EntityText = first(EntityText)), by = .(loinc_code, geneOrProteinId)][order(geneOrProteinId, loinc_code)]
+sprintf("GeneOrProteinIds: %d; LOINC codes: %d", clia_gp2loinc[, uniqueN(geneOrProteinId)], clia_gp2loinc[, uniqueN(loinc_code)])
+```
+
+```{r}
+knitr::kable(clia_gp2loinc)
+```
