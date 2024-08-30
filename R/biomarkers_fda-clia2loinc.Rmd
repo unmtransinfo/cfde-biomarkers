@@ -20,7 +20,7 @@ Mapped to IDs by NextMove Leadmine.
 
 ```{r}
 clia_gp_file <- "output/clia_detail_GeneAndProtein_leadmine.tsv"
-clia_gp <- read_delim(clia_gp_file, delim = "\t", escape_double=F, col_types = cols(.default = col_character()))
+clia_gp <- read_delim(clia_gp_file, delim = "\t", escape_double=F, col_types = cols(.default = col_character(), AnalyteId = col_integer()))
 setDT(clia_gp)
 sprintf("HGNC gene IDs: %d; UniProt protein IDs: %d; Total: %d", clia_gp[grepl("^HGNC", GeneOrProteinId), .N], clia_gp[grepl("^UNIPROT", GeneOrProteinId), .N], clia_gp[, .N])
 clia_gp <- unique(clia_gp[, .(geneOrProteinId = GeneOrProteinId, EntityText)])

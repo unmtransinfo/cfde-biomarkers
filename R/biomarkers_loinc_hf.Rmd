@@ -163,5 +163,38 @@ write_delim(protein_hr_loincs_out, "cerner_hf_data/biomarkers_loinc_hf_out.tsv",
 knitr::kable(protein_hr_loincs_out[1:50], caption=sprintf("LOINCs ranked by occurence: %d LOINCs, %d geneOrProteinIds", protein_hr_loincs_out[, uniqueN(loinc_code)], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
 ```
 
+# LOINCs for biomarkers of particular interest
 
+* PSA (Prostate specific antigen)
+* Troponin
+* CEA (Carcinoembryonic antigen)
 
+```{r}
+protein_hr_loincs_psa <- unique(protein_hr_loincs[grepl("Kallikrein", OriginalText, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_psa)
+```
+
+```{r}
+protein_hr_loincs_troponin <- unique(protein_hr_loincs[grepl("Troponin", OriginalText, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_troponin)
+```
+
+```{r}
+protein_hr_loincs_cea <- unique(protein_hr_loincs[grepl("Carcinoembryonic", lab_procedure_names, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_cea)
+```

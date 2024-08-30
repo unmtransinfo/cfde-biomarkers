@@ -7,9 +7,9 @@ cwd=$(pwd)
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
 DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
-BIOCOMP_NEXTMOVE_JARFILE="$LIBDIR/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
+BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
 #
 DATADIR="$cwd/loinc_data"
 CFGDIR="${DATADIR}/config"
@@ -29,8 +29,8 @@ DICTNAME="${PREFIX}_$(basename $dict|sed -e 's/\.cfx$//')"
 #
 caseSens="false"
 minEntLen="5"
-spelCor="false"
-#spelCor="true"
+#spelCor="false"
+spelCor="true"
 maxCorDist="1"
 minCorEntLen="5"
 #

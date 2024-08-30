@@ -16,8 +16,13 @@ library(plotly)
 ```{r}
 y <- 2016
 fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_results_OUT_%d.tsv.gz", y)
-hf_results <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), numeric_result = col_double(), normal_range_low = col_double(), normal_range_high = col_double()))
+#hf_results <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), numeric_result = col_double(), normal_range_low = col_double(), normal_range_high = col_double()))
+hf_results <- read_delim("cerner_hf_data/hf_labs-selected_results_OUT_2016.tsv.gz", delim = "\t", escape_double = FALSE,  trim_ws = TRUE, col_types = cols(encounter_id = col_character()))
 setDT(hf_results)
+hf_results <- hf_results[, numeric_result := as.numeric(numeric_result)]
+hf_results <- hf_results[, normal_range_low := as.numeric(normal_range_low)]
+hf_results <- hf_results[, normal_range_high := as.numeric(normal_range_high)]
+hf_results <- hf_results[, admitted_dt_tm := as.Date(admitted_dt_tm)]
 head(hf_results)
 ```
 
@@ -41,6 +46,7 @@ knitr::kable(unique(hf_results[, .(lab_procedure_id, lab_procedure_mnemonic, lab
 psa_ids <- unique(hf_results[grepl("PSA", lab_procedure_name, ignore.case=T), lab_procedure_id])
 knitr::kable(unique(hf_results[lab_procedure_id %in% psa_ids, .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name)]))
 ```
+
 ```{r}
 hf_results[unit_display == "NULL", unit_display := NA]
 hf_results[unit_desc == "NULL", unit_desc := NA]
