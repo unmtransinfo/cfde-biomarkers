@@ -31,13 +31,25 @@ message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
 ```
 
 ```{r}
-message(sprintf("Encounters: %s", hf_results[, uniqueN(encounter_id)]))
-message(sprintf("accession: %s", hf_results[, uniqueN(accession)]))
-message(sprintf("Lab_procedures: %s", hf_results[, uniqueN(lab_procedure_id)]))
-message(sprintf("Result_units: %s", hf_results[, uniqueN(result_units_id)]))
+message(sprintf("ENCOUNTERs: %s", hf_results[, uniqueN(encounter_id)]))
+message(sprintf("ACCESSIONs: %s", hf_results[, uniqueN(accession)]))
+message(sprintf("LAB_PROCEDURE_IDs: %s", hf_results[, uniqueN(lab_procedure_id)]))
+message(sprintf("LOINC_CODEs: %s", hf_results[, uniqueN(loinc_code)]))
+message(sprintf("RESULT_UNIT_IDs: %s", hf_results[, uniqueN(result_units_id)]))
 ```
+Map LOINC codes to GeneOrProtein IDs.
+
 ```{r}
-knitr::kable(unique(hf_results[, .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name)][order(lab_procedure_name)]))
+loinc2gp <- read_delim("loinc_data/loinc2gp.tsv", delim="\t", escape_double=F,  trim_ws=T, col_types=cols(loinc_code = col_character()))
+setDT(loinc2gp)
+hf_results <- merge(hf_results, loinc2gp, by="loinc_code", all.x=T, all.y=F)
+message(sprintf("GeneOrProtein_IDs: %s", hf_results[, uniqueN(geneOrProteinId)]))
+```
+
+
+```{r}
+loinc2gp_results <- unique(hf_results[!is.na(geneOrProteinId), .(lab_procedure_id, lab_procedure_mnemonic, lab_procedure_name, geneOrProteinId)])
+knitr::kable(loinc2gp_results[, .(lab_procedure_id, lab_procedure_mnemonic, geneOrProteinId)][order(lab_procedure_mnemonic)])
 ```
 
 ## Find and focus on results for PSA (prostate specific antigen)
@@ -55,18 +67,23 @@ knitr::kable(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & !i
 
 ## PSA units analysis
 
-ng/mL predominant, so we keep only those.
-
 ```{r}
 psa_units <- unique(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result), .(unit_display, unit_desc)])
+tbl <- table(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result), unit_display])
+psa_units <- merge(psa_units, data.table(tbl), by.x="unit_display", by.y="V1")
+psa_units <- psa_units[order(-N)]
 knitr::kable(psa_units)
-table(hf_results[lab_procedure_id == "1237" & !is.na(numeric_result), unit_display])
+psa_units_preferred <- psa_units[["unit_display"]][1]
+message(sprintf("PSA units (preferred): %s", psa_units_preferred))
 ```
 
 
 ## PSA value analysis
+
+Keep only results with predominant units. To do: harmonize via unit conversion as possible.
+
 ```{r}
-hf_results_psa <- hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & unit_display == "ng/mL"]
+hf_results_psa <- hf_results[lab_procedure_id == "1237" & !is.na(numeric_result) & unit_display == psa_units_preferred]
 sprintf("Lab procedure: %s, \"%s\"; values: %d; units: %s; min: %.1f; max: %.1f", hf_results_psa[, lab_procedure_mnemonic][1], hf_results_psa[, lab_procedure_name][1], hf_results_psa[, .N], unique(hf_results_psa[, unit_display]), min(hf_results_psa[, numeric_result]), max(hf_results_psa[, numeric_result]))
 ```
 
@@ -134,3 +151,14 @@ layout(barmode = "stack",
 			 legend = list(x = 0.8, y = 0.9))
 fig
 ```
+
+Compute sample mean and variance, for each lab, and each strata.
+
+```{r}
+message(sprintf("PSA units: %s; mean: %.2f; variance: %.2f",
+								psa_units_preferred,
+								mean(hf_results_psa[["numeric_result"]], na.rm=T),
+								var(hf_results_psa[["numeric_result"]], na.rm=T)
+								))
+```
+

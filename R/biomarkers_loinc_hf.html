@@ -384,10 +384,12 @@ ion channels, and protein kinases.</li>
 <p>The <a href="https://www.fda.gov/drugs/biomarker-qualification-program/about-biomarkers-and-qualification">FDA
 Biomarker Qualification Program</a>, via its Biomarkers, EndpointS and
 other Tools <a href="https://www.ncbi.nlm.nih.gov/books/NBK326791/">BEST</a> glossary,
-defines biomarker thus:</p>
-<pre><code>[A] defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure or intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers.</code></pre>
-<p>This analysis is concerned with <strong><em>molecular</em></strong>
-biomarkers only.</p>
+defines biomarker thus: “[A] defined characteristic that is measured as
+an indicator of normal biological processes, pathogenic processes, or
+responses to an exposure or intervention, including therapeutic
+interventions. Molecular, histologic, radiographic, or physiologic
+characteristics are types of biomarkers.” This analysis is concerned
+with <strong><em>molecular</em></strong> biomarkers only.</p>
 </div>
 </div>
 <div id="workflow" class="section level1" number="2">
@@ -404,7 +406,7 @@ biomarkers (not just theoretical).</li>
 <li>Join HF and NER outputs to generate initial list of clinically
 relevant molecular biomarker candidates.</li>
 </ul>
-<pre><code>## [1] &quot;Thu Feb  1 09:24:14 2024&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Sep  3 09:39:14 2024&quot;</code></pre>
 </div>
 <div id="loinc-codes-for-chemical-tests" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> LOINC codes for
@@ -448,7 +450,7 @@ encounters</h1>
 <pre><code>## [1] &quot;LOINC codes for proteins: 218&quot;</code></pre>
 <pre><code>## [1] &quot;Protein names: 137&quot;</code></pre>
 <pre><code>## [1] &quot;GeneOrProtein IDs: 70&quot;</code></pre>
-<p>Build LOINC to gene-or-protein ID mapping.</p>
+<p>Build LOINC to gene-or-protein ID mapping. Save to file.</p>
 <div id="group-protein-synonyms-into-list-aggregate-on-loinc-codes." class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Group protein
 synonyms into list; aggregate on LOINC codes.</h2>
@@ -898,6 +900,29 @@ Alpha-1-proteinase inhibitor; antitrypsin; trypsin</td>
 </tr>
 </tbody>
 </table>
+</div>
+<div id="loincs-for-biomarkers-of-particular-interest" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> LOINCs for biomarkers
+of particular interest</h1>
+<ul>
+<li>PSA (Prostate specific antigen)</li>
+<li>Troponin</li>
+<li>CEA (Carcinoembryonic antigen)</li>
+</ul>
+<pre><code>##    loinc_code                          lab_procedure_names protein_name ResolvedForm encounter_id_count patient_id_count
+##        &lt;char&gt;                                       &lt;char&gt;       &lt;char&gt;       &lt;char&gt;              &lt;num&gt;            &lt;num&gt;
+## 1:    10886-0         Prostate Specific Antigen (PSA) Free Kallikrein 3         &lt;NA&gt;             237916           200690
+## 2:    12841-3 Prostate Specific Antigen (PSA) Free Percent Kallikrein 3         &lt;NA&gt;              18144            15636
+## 3:     2857-1              Prostate Specific Antigen (PSA) Kallikrein 3         &lt;NA&gt;            3638051          2900137</code></pre>
+<pre><code>##    loinc_code                                                           lab_procedure_names protein_name ResolvedForm encounter_id_count patient_id_count
+##        &lt;char&gt;                                                                        &lt;char&gt;       &lt;char&gt;       &lt;char&gt;              &lt;num&gt;            &lt;num&gt;
+## 1:    10839-9                         Troponin; Troponin I; Troponin I, Serum/Plasma Random   Troponin I         &lt;NA&gt;            6361359          4790843
+## 2:    16255-2                               Troponin I Cardiac Units/volume Serum or Plasma   Troponin I         &lt;NA&gt;             108279            85966
+## 3:    42757-5                                         Troponin I Cardiac Quantitative Blood   Troponin I         &lt;NA&gt;             108477            80541
+## 4:    49563-0 Troponin I Cardiac Quantitative Serum or Plasma Detection Limit &lt;= 0.01 ng/mL   Troponin I         &lt;NA&gt;               1668             1414
+## 5:     6598-7                                                      Troponin T, Serum/Plasma   Troponin T         &lt;NA&gt;            1563431          1301600
+## 6:    10839-9                         Troponin; Troponin I; Troponin I, Serum/Plasma Random     Troponin         &lt;NA&gt;            6361359          4790843</code></pre>
+<pre><code>## Empty data.table (0 rows and 6 cols): loinc_code,lab_procedure_names,protein_name,ResolvedForm,encounter_id_count,patient_id_count</code></pre>
 </div>
 
 

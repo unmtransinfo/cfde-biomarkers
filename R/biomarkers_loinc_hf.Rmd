@@ -136,6 +136,7 @@ loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(
 setorder(loinc2geneOrProteinId, "loinc_code", "geneOrProteinId")
 loinc2geneOrProteinId <- loinc2geneOrProteinId[!grepl("^ENSG", geneOrProteinId)] #For now ignore ENSGs.
 loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := first(geneOrProteinId), by = c("loinc_code")]
+loinc2geneOrProteinId <- unique(loinc2geneOrProteinId)
 write_delim(loinc2geneOrProteinId, "loinc_data/loinc2gp.tsv", delim="\t")
 ```
 
