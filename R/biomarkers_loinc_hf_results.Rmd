@@ -110,16 +110,46 @@ Ignore non-gendered in this study.
 ptdata <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character(), admitted_year = col_integer(), age_in_years = col_integer()))
 setDT(ptdata)
 ptdata <- ptdata[gender == "Male" | gender == "Female"]
-tbl <- table(ptdata[, .(race, gender)])
+#tbl <- table(ptdata[, .(race, gender)])
+#tbl <- data.table(as.data.frame.matrix(tbl), keep.rownames = T)
+#names(tbl) <- c("Race", "Female", "Male")
+#tbl <- rbind(tbl, list("TOTAL", tbl[, sum(Female)], tbl[, sum(Male)]))
+#tbl[, Fpct := 100 * Female / tbl[Race != "TOTAL", sum(Female)]]
+#tbl[, Mpct := 100 * Male / tbl[Race != "TOTAL", sum(Male)]]
+#tbl <- tbl[, .(Race, Female, Fpct, Male, Mpct)]
+#write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_race-gender-counts-table.tsv", y), delim = "\t")
+#knitr::kable(tbl, digits = 1, format = "html", format.args = list(big.mark = ","))
+```
+
+Create "Agerange" column (decades).
+
+```{r}
+ptdata[, agerange := fifelse(age_in_years<10, "0-9", 
+                       fifelse(age_in_years<20, "10-19", 
+                       fifelse(age_in_years<30, "20-29",
+                       fifelse(age_in_years<40, "30-39",
+                       fifelse(age_in_years<50, "40-49",
+                       fifelse(age_in_years<60, "50-59",
+                       fifelse(age_in_years<70, "60-69",
+                       fifelse(age_in_years<80, "70-79",
+                       fifelse(age_in_years<90, "80-89",
+                       fifelse(age_in_years<100, "90-99", "100+"
+                               ))))))))))]
+```
+
+
+```{r}
+tbl <- table(ptdata[, .(agerange, gender)])
 tbl <- data.table(as.data.frame.matrix(tbl), keep.rownames = T)
-names(tbl) <- c("Race", "Female", "Male")
+names(tbl) <- c("Agerange", "Female", "Male")
 tbl <- rbind(tbl, list("TOTAL", tbl[, sum(Female)], tbl[, sum(Male)]))
-tbl[, Fpct := 100 * Female / tbl[Race != "TOTAL", sum(Female)]]
-tbl[, Mpct := 100 * Male / tbl[Race != "TOTAL", sum(Male)]]
-tbl <- tbl[, .(Race, Female, Fpct, Male, Mpct)]
-write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_race-gender-counts-table.tsv", y), delim = "\t")
+tbl[, Fpct := 100 * Female / tbl[Agerange != "TOTAL", sum(Female)]]
+tbl[, Mpct := 100 * Male / tbl[Agerange != "TOTAL", sum(Male)]]
+tbl <- tbl[, .(Agerange, Female, Fpct, Male, Mpct)]
+write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_agerange-gender-counts-table.tsv", y), delim = "\t")
 knitr::kable(tbl, digits = 1, format = "html", format.args = list(big.mark = ","))
 ```
+
 
 ```{r}
 eid2pid <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_eid2pid_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character()))
@@ -130,7 +160,7 @@ setDT(eid2pid)
 
 ```{r}
 hf_results_psa <- merge(hf_results_psa, eid2pid, by="encounter_id", all.x=T, all.y=F)
-hf_results_psa <- merge(hf_results_psa, ptdata[, .(patient_id, gender, age_in_years)], by="patient_id", all.x=T, all.y=F)
+hf_results_psa <- merge(hf_results_psa, ptdata[, .(patient_id, gender, agerange)], by="patient_id", all.x=T, all.y=F)
 hf_results_psa <- hf_results_psa[gender == "Male" & !is.na(patient_id) & numeric_result <= 8.0]
 ```
 
@@ -138,14 +168,14 @@ hf_results_psa <- hf_results_psa[gender == "Male" & !is.na(patient_id) & numeric
 
 ```{r}
 fig <- plot_ly(alpha = 0.8) %>% 
-	add_histogram(x = hf_results_psa[age_in_years < 40, numeric_result], name = "Age<40") %>%
-	add_histogram(x = hf_results_psa[age_in_years >= 40 & age_in_years < 50, numeric_result], name = "40<=Age<50") %>%
-	add_histogram(x = hf_results_psa[age_in_years >= 50 & age_in_years < 60, numeric_result], name = "50<=Age<60") %>%
-	add_histogram(x = hf_results_psa[age_in_years >= 60 & age_in_years < 70, numeric_result], name = "60<=Age<70") %>%
-	add_histogram(x = hf_results_psa[age_in_years >= 70 & age_in_years < 80, numeric_result], name = "70<=Age<80") %>%
-	add_histogram(x = hf_results_psa[age_in_years >= 80, numeric_result], name = "80<=Age") %>%
+	add_histogram(x = hf_results_psa[agerange %in% c("0-9", "10-19", "21-29", "31-39"), numeric_result], name = "Under40yrs") %>%
+	add_histogram(x = hf_results_psa[agerange == "40-49", numeric_result], name = "40-49yrs") %>%
+	add_histogram(x = hf_results_psa[agerange == "50-59", numeric_result], name = "50-59yrs") %>%
+	add_histogram(x = hf_results_psa[agerange == "60-69", numeric_result], name = "60-69yrs") %>%
+	add_histogram(x = hf_results_psa[agerange == "70-79", numeric_result], name = "70-79yrs") %>%
+	add_histogram(x = hf_results_psa[agerange %in% c("80-89", "90-99", "100+"), numeric_result], name = "80+yrs") %>%
 layout(barmode = "stack",
-				 title = sprintf("Histogram of PSA by age group, male only (year: %d)", y),
+				 title = sprintf("Histogram of PSA by age-range, male only (year: %d)", y),
          xaxis = list(title = "PSA (ng/mL)", zeroline = F),
          yaxis = list(title = "Encounters", zeroline = F),
 			 legend = list(x = 0.8, y = 0.9))
@@ -160,5 +190,22 @@ message(sprintf("PSA units: %s; mean: %.2f; variance: %.2f",
 								mean(hf_results_psa[["numeric_result"]], na.rm=T),
 								var(hf_results_psa[["numeric_result"]], na.rm=T)
 								))
+```
+
+Add patient sex and agerange to results dataset.
+Remove patient_id, encounter_id, age, and race to enhance deidentification.
+Remove other unused columns to save space.
+Remove ptdata rows with duplicate patient_id (though different data)
+
+```{r}
+hf_results <- merge(hf_results, eid2pid, by="encounter_id", all.x=T, all.y=F)
+ptdata <- ptdata[!duplicated(ptdata[["patient_id"]])]
+hf_results <- hf_results[!is.na(patient_id)]
+hf_results <- merge(hf_results, ptdata[, .(patient_id, gender, agerange)], by="patient_id", all.x=T, all.y=F)
+hf_results[, ':='(encounter_id=NULL, patient_id=NULL, lab_procedure_id=NULL, accession=NULL, admitted_dt_tm=NULL, normal_range_low=NULL, normal_range_high=NULL)]
+message(sprintf("OUTPUT: lines: %d; LOINC_CODEs: %d; GENEORPROTEIN_IDs: %d", nrow(hf_results), hf_results[, uniqueN(loinc_code)], hf_results[, uniqueN(geneOrProteinId)]))
+ofile <- "cerner_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
+message(sprintf("OUTPUT: writing to %s", nrow(hf_results), ofile))
+write_delim(hf_results, ofile, delim="\t")
 ```
 
