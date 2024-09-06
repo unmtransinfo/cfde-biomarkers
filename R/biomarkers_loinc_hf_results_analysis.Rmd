@@ -1,0 +1,60 @@
+---
+title: 'Cerner HealthFacts: Laboratory molecular biomarker results analysis'
+output:
+  html_document:
+    df_print: paged
+---
+
+```{r include=F}
+library(readr)
+library(data.table)
+library(plotly)
+```
+
+## Read data file for sample, representative year[s], due to size constraints.
+
+
+```{r}
+ifile <- "cerner_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
+hf_results <- read_delim(ifile, "\t", escape_double=F)
+setDT(hf_results)
+message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
+```
+
+Remove rows missing essential values: gender, units
+
+```{r}
+hf_results <- hf_results[!is.na(gender)]
+hf_results <- hf_results[!is.na(unit_display)]
+hf_results <- hf_results[unit_display != "Not Mapped"]
+message(sprintf("COUNTS: rows (lab results): %d; LOINC_CODEs: %d; GENEORPROTEIN_IDs: %d", nrow(hf_results), hf_results[, uniqueN(loinc_code)], hf_results[, uniqueN(geneOrProteinId)]))
+message(sprintf("ADMITTED_YEARs: %s; \nGENDERs: %s; \nAGERANGEs: %s; \nUNITs: %s", 
+                paste(unique(hf_results[["admitted_year"]]), collapse=", "),
+                paste(unique(hf_results[["gender"]]), collapse=", "),
+                paste(sort(unique(hf_results[["agerange"]])), collapse=", "),
+                paste(sort(unique(hf_results[["unit_display"]])), collapse=", ")
+                ))
+```
+
+For each GeneOrProtein ID, determine most common unit, generate summary statistics (mean, variance).
+
+```{r}
+gpids <- sort(unique(hf_results[["geneOrProteinId"]]))
+for (gpid in gpids) {
+  hf_results_this <- hf_results[geneOrProteinId == gpid]
+  message(sprintf("%s: data: %d", gpid, hf_results_this[, .N]))
+  message(sprintf("%s: labs: %s", gpid, paste(unique(hf_results_this[["lab_procedure_mnemonic"]]), collapse=", ")))
+  message(sprintf("%s: units: %s", gpid, paste(unique(hf_results_this[["unit_display"]]), collapse=", ")))
+  tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
+  units_preferred <- tbl[["V1"]][1]
+  message(sprintf("%s: preferred units: %s (rowcount: %d)", gpid, units_preferred, tbl[["N"]][1]))
+  hf_results_this <- hf_results_this[unit_display == units_preferred]
+  message(sprintf("%s: units: %s; mean: %.2f; variance: %.2f",
+								gpid,
+                units_preferred,
+								mean(hf_results_this[["numeric_result"]], na.rm=T),
+								var(hf_results_this[["numeric_result"]], na.rm=T)
+								))
+  }
+```
+
