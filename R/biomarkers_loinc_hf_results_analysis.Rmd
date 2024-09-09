@@ -40,21 +40,22 @@ For each GeneOrProtein ID, determine most common unit, generate summary statisti
 
 ```{r}
 gpids <- sort(unique(hf_results[["geneOrProteinId"]]))
-for (gpid in gpids) {
+report_dt <- data.table(gpid = gpids, labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, var = NaN)
+for (i in 1:length(gpids)) {
+  gpid <- report_dt$gpid[i]
   hf_results_this <- hf_results[geneOrProteinId == gpid]
-  message(sprintf("%s: data: %d", gpid, hf_results_this[, .N]))
-  message(sprintf("%s: labs: %s", gpid, paste(unique(hf_results_this[["lab_procedure_mnemonic"]]), collapse=", ")))
-  message(sprintf("%s: units: %s", gpid, paste(unique(hf_results_this[["unit_display"]]), collapse=", ")))
+  report_dt$labs[i] <- paste(unique(hf_results_this[["lab_procedure_mnemonic"]]), collapse=", ")
+  report_dt$valcount[i] <- hf_results_this[, .N]
   tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
   units_preferred <- tbl[["V1"]][1]
-  message(sprintf("%s: preferred units: %s (rowcount: %d)", gpid, units_preferred, tbl[["N"]][1]))
+  report_dt$units[i] <- paste(unique(hf_results_this[["unit_display"]]), collapse=", ")
+  report_dt$pref_units[i] <- units_preferred
+  report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
   hf_results_this <- hf_results_this[unit_display == units_preferred]
-  message(sprintf("%s: units: %s; mean: %.2f; variance: %.2f",
-								gpid,
-                units_preferred,
-								mean(hf_results_this[["numeric_result"]], na.rm=T),
-								var(hf_results_this[["numeric_result"]], na.rm=T)
-								))
-  }
+  report_dt$mean[i] <- mean(hf_results_this[["numeric_result"]], na.rm=T)
+  report_dt$var[i] <- var(hf_results_this[["numeric_result"]], na.rm=T)
+}
+write_delim(report_dt, "cerner_hf_data/results_analysis_report.tsv", "\t")
+knitr::kable(report_dt)
 ```
 
