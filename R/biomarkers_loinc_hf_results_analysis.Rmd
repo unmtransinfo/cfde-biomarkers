@@ -73,7 +73,8 @@ for (i in 1:nrow(report_dt)) {
   tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
   units_preferred <- tbl[["V1"]][1]
   hf_results_this <- hf_results_this[unit_display == units_preferred]
-  plots[[i_plot]] <- plot_ly(type="histogram", x = hf_results_this[["numeric_result"]], name=gpid)
+  plots[[i_plot]] <- plot_ly(type="histogram", x = hf_results_this[["numeric_result"]], name=sprintf("%d. %s", i_plot, gpid)) %>%
+    layout(title = list(text=sprintf("%d. %s", i_plot, gpid), y=0.9, x=0.5, xanchor="center", yanchor="top"))
 }
 subplot(plots, nrows = 12) %>%
    layout(title="Molecular biomarker EHR lab value histograms")
