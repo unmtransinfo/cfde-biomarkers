@@ -61,33 +61,66 @@ report_dt <- report_dt[order(-pref_units_valcount)]
 knitr::kable(report_dt)
 ```
 
-Plots. Here we do a sample to avoid RStudio-freeze. See biomarkers_loinc_hf_results_analysis.R for full set.
+Plots. Here we do a sample to avoid RStudio-freeze. See biomarkers_loinc_hf_results_analysis.R for larger set.
 
 ```{r}
 plots <- list()
 i_plot <- 0
-#for (i in 1:nrow(report_dt)) {
-for (i in 10:21) {
-  i_plot <- i_plot + 1
-  gpid <- report_dt$gpid[i]
+for (gpid in sample(report_dt$gpid, length(report_dt$gpid))) {
   hf_results_this <- hf_results[geneOrProteinId == gpid]
   tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
   units_preferred <- tbl[["V1"]][1]
   hf_results_this <- hf_results_this[unit_display == units_preferred]
+  values <- hf_results_this[["numeric_result"]]
+  message(sprintf("%s; N = %d", gpid, length(values)))
+  if (length(values)<1000) { next; } 
+  i_plot <- i_plot + 1
   tbl <- data.table(table(hf_results_this[["lab_procedure_mnemonic"]]))[order(-N)]
   lpmnemonic_preferred <- tbl[["V1"]][1]
-  values <- hf_results_this[["numeric_result"]]
-  plotname <- sprintf("%d. %s (%s)<br>%s", i_plot, gpid, units_preferred, lpmnemonic_preferred)
   # Remove extreme and likely spurious values
   qtl <- quantile(values, probs = seq(0, 1, .05))
+  values <- hf_results_this[numeric_result>qtl[["5%"]] & numeric_result<qtl[["95%"]]][["numeric_result"]]
+  plotname <- sprintf("%d. %s (%s)<br>%s<br>N = %d", i_plot, gpid, units_preferred, lpmnemonic_preferred, length(values))
   plots[[i_plot]] <- plot_ly(type="histogram", x = values, name=plotname) %>%
-    layout(name=plotname,
-           xaxis = list(range = list(qtl[["5%"]], qtl[["95%"]])),
+    layout(xaxis = list(range = list(qtl[["5%"]], qtl[["95%"]])),
            annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
                 yanchor="bottom", xanchor="center", align="center",
                 font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
+  if (i_plot >= 6) { break; }
 }
-subplot(plots, nrows=4) %>%
+subplot(plots, nrows=2) %>%
    layout(title="Molecular biomarker EHR lab value histograms", showlegend=F)
 ```
+
+Some plots with issues.
+
+```{r}
+gpids <- c("HGNC:6619", "HGNC:317")
+plots <- list()
+i_plot <- 0
+for (gpid in gpids) {
+  hf_results_this <- hf_results[geneOrProteinId == gpid]
+  tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
+  units_preferred <- tbl[["V1"]][1]
+  hf_results_this <- hf_results_this[unit_display == units_preferred]
+  values <- hf_results_this[["numeric_result"]]
+  message(sprintf("%s; N = %d", gpid, length(values)))
+  if (length(values)<1000) { next; } 
+  i_plot <- i_plot + 1
+  tbl <- data.table(table(hf_results_this[["lab_procedure_mnemonic"]]))[order(-N)]
+  lpmnemonic_preferred <- tbl[["V1"]][1]
+  # Remove extreme and likely spurious values
+  qtl <- quantile(values, probs = seq(0, 1, .05))
+  values <- hf_results_this[numeric_result>qtl[["5%"]] & numeric_result<qtl[["95%"]]][["numeric_result"]]
+  plotname <- sprintf("%d. %s (%s)<br>%s<br>N = %d", i_plot, gpid, units_preferred, lpmnemonic_preferred, length(values))
+  plots[[i_plot]] <- plot_ly(type="histogram", x = values, name=plotname) %>%
+    layout(xaxis = list(range = list(qtl[["5%"]], qtl[["95%"]])),
+        annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
+            yanchor="bottom", xanchor="center", align="center",
+            font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
+}
+subplot(plots, nrows=2) %>%
+   layout(title="Molecular biomarker EHR lab value histograms", showlegend=F)
+```
+
 
