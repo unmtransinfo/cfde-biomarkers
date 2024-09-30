@@ -81,9 +81,18 @@ Analyte IDs can be mapped to CLIA documents via detail file.
 ```{r}
 clia_detail_ner_gp <- merge(clia_detail_ner_gp, unique(clia_detail[, .(ANALYTE_ID, ANALYTE_NAME)]), by.x="AnalyteId", by.y="ANALYTE_ID")
 clia_detail_ner_gp <- clia_detail_ner_gp[, .(AnalyteId, AnalyteName = ANALYTE_NAME, OriginalText, EntityText, GeneOrProteinId)]
-clia_detail_ner_gp_outfile <- "output/clia_detail_GeneAndProtein_leadmine.tsv"
+clia_detail_ner_gp_outfile <- "output/clia_detail_GeneOrProtein.tsv"
 write_delim(clia_detail_ner_gp, clia_detail_ner_gp_outfile, delim="\t")
 ```
+
+# Generate mapping file of GeneOrProtein analytes to CLIA documents and tests.
+
+```{r}
+clia_doc2test2analyte_this <- unique(merge(clia_doc2test2analyte, clia_detail_ner_gp[, .(AnalyteId)], by.x="ANALYTE_ID", by.y="AnalyteId", all.x=F, all.y=F, sort=T))
+clia_doc2test2analyte_outfile <- "output/clia_doc2test2analyte.tsv"
+write_delim(clia_doc2test2analyte_this, clia_doc2test2analyte_outfile, delim="\t")
+```
+
 
 # NextMove LeadMine NER output using Chemical dictionary.
 
@@ -96,7 +105,7 @@ clia_detail_ner_chem <- clia_detail_ner_chem[, .(AnalyteId = DocName, OriginalTe
 sprintf("Analytes resolved to SMILES IDs: %d / %d", clia_detail_ner_chem[!is.na(SMILES), uniqueN(AnalyteId)], clia_detail_ner_chem[, uniqueN(AnalyteId)])
 clia_detail_ner_chem <- clia_detail_ner_chem[!is.na(SMILES)] #Delete unmapped records
 clia_detail_ner_chem <- unique(clia_detail_ner_chem[order(AnalyteId)])
-clia_detail_ner_chem_outfile <- "output/clia_detail_chem_leadmine.tsv"
+clia_detail_ner_chem_outfile <- "output/clia_detail_chemicals.tsv"
 write_delim(clia_detail_ner_chem, clia_detail_ner_chem_outfile, delim="\t")
 knitr::kable(clia_detail_ner_chem[sample(.N, 20)], caption = "Sample of NER-resolved chemicals")
 ```
