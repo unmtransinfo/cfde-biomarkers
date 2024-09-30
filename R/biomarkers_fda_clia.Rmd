@@ -76,6 +76,8 @@ knitr::kable(clia_doc2test2analyte[grepl("prostat.*antigen", ANALYTE_NAME, ignor
 
 ## Merge NER with analyte metadata (names), save file
 
+Analyte IDs can be mapped to CLIA documents via detail file.
+
 ```{r}
 clia_detail_ner_gp <- merge(clia_detail_ner_gp, unique(clia_detail[, .(ANALYTE_ID, ANALYTE_NAME)]), by.x="AnalyteId", by.y="ANALYTE_ID")
 clia_detail_ner_gp <- clia_detail_ner_gp[, .(AnalyteId, AnalyteName = ANALYTE_NAME, OriginalText, EntityText, GeneOrProteinId)]
@@ -99,7 +101,7 @@ write_delim(clia_detail_ner_chem, clia_detail_ner_chem_outfile, delim="\t")
 knitr::kable(clia_detail_ner_chem[sample(.N, 20)], caption = "Sample of NER-resolved chemicals")
 ```
 
-# View molecules with CDK
+# View (small) molecules with CDK
 
 ```{r}
 depictor <- get.depictor(style='cow', width=1000, height=1000, fillToFit=T)

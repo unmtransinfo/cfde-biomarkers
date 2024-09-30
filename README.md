@@ -2,7 +2,7 @@
 
 __CFDE Biomarkers partnership project__
 
-For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinically relevant molecular biomarkers, using the Cerner HealthFacts and RealWorldData databases, containing deidentified EHR data, including LOINC codes for laboratory tests.  Named entity recognition (NER) associates LOINC terms with biomolecules and particularly genes and proteins, an initial focus of this study.
+For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinically relevant molecular biomarkers, using the Cerner HealthFacts and RealWorldData databases, containing deidentified EHR data, including LOINC codes for laboratory tests.  Named entity recognition (NER) associates LOINC terms with biomolecules and particularly genes and proteins, an initial focus of this study.  A complementary effort focuses on the FDA Clinical Laboratory Improvement Amendments (CLIA), which refers to an FDA regulatory process whereby lab tests are approved and categorized for clinical use, many of which are specificially related to analytes which are molecular biomarkers.
 
 ## Workflow
 
@@ -35,3 +35,4 @@ For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinical
  * [LOINC](https://loinc.org/) | [Learn](https://loinc.org/learn/) | [Downloads](https://loinc.org/downloads/)
  * [Cerner Research Data](https://www.cerner.com/ap/en/solutions/data-research)
  * [BEST (Biomarkers, EndpointS, and other Tools) Resource](https://www.ncbi.nlm.nih.gov/books/NBK326791/)
+ * [FDA CLIA](https://www.fda.gov/medical-devices/ivd-regulatory-assistance/clinical-laboratory-improvement-amendments-clia) FDA Clinical Laboratory Improvement Amendments (CLIA)

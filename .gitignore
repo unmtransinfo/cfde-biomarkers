@@ -2,8 +2,11 @@
 .Rhistory
 *.Rproj
 *.pdf
+*.tex
+*.html
 *.out
 *data
+output/
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
