@@ -1,0 +1,133 @@
+---
+title: Biomarkers from FDA CLIA approved and classified lab tests
+author: "Jeremy Yang"
+output:
+  html_document: 
+    number_sections: yes
+    toc: yes
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+FDA CLIA files are downloaded [here](https://www.fda.gov/medical-devices/medical-device-databases/clinical-laboratory-improvement-amendments-download-data).
+
+Regarding the document numbers, "either the 510(k), PMA, HDE or 510(k) exempt number", it appears the codes starting with 'K' are 510(k)s, the codes starting with 'P' are PMAs (Pre-market approval), the codes starting with 'CR' are document numbers.
+
+The analytes are an explicit, structured field, with an ID and name. But what are the tests for? Where are the clinical conditions which the tests are supposed to indicate? Do we need to process the referenced documents?
+
+Examples:
+
+ * [CR190560](https://www.accessdata.fda.gov/Scripts/cdrh/cfdocs/cfClia/Results.cfm?start_search=1&Document_Number=CR190560&SortColumn=ded)
+ * [K124056](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfPMN/pmn.cfm?ID=K124056)
+ * [P000021S045](https://www.accessdata.fda.gov/scripts/cdrh/cfdocs/cfpma/pma.cfm?id=P000021S045)
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+base::date()
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+library(readr)
+library(stringr)
+library(data.table)
+library(plotly, quietly=T)
+library(rcdk)
+```
+
+# FDA CLIA Detail file
+
+```{r}
+clia_detail_file <- "fda_clia_data/clia_detail.tsv"
+sprintf("FDA CLIA DETAIL file: %s", clia_detail_file)
+clia_detail <- read_delim(clia_detail_file, "\t", escape_double=F)
+setDT(clia_detail)
+sprintf("DOCUMENT_NUMBERs: %d; TEST_SYSTEM_IDs: %d; ANALYTE_IDs: %d", clia_detail[, uniqueN(DOCUMENT_NUMBER)], clia_detail[, uniqueN(TEST_SYSTEM_ID)], clia_detail[, uniqueN(ANALYTE_ID)])
+```
+
+
+## Documents, Tests, and Analytes
+
+Note that DocNum to Test to Analyte relationships are many-to-many.
+
+```{r}
+clia_doc2test2analyte <- unique(clia_detail[, .(DOCUMENT_NUMBER, TEST_SYSTEM_ID, ANALYTE_ID, ANALYTE_NAME, DATE_EFFECTIVE)])[order(DOCUMENT_NUMBER, ANALYTE_ID, TEST_SYSTEM_ID, DATE_EFFECTIVE)]
+knitr::kable(clia_doc2test2analyte[grepl("Opiate", ANALYTE_NAME, ignore.case=T)][sample(.N, 20)], caption = "Sample of 'Opiate' matches")
+```
+
+# NextMove LeadMine NER output using Chemical dictionary.
+
+```{r}
+clia_detail_ner_chem_file <- "fda_clia_data/clia_detail_chem_leadmine.tsv"
+sprintf("CLIA DETAIL Chemical-NER file: %s", clia_detail_ner_chem_file)
+clia_detail_ner_chem <- read_delim(clia_detail_ner_chem_file, "\t", escape_double=F)
+setDT(clia_detail_ner_chem)
+clia_detail_ner_chem <- clia_detail_ner_chem[, .(AnalyteId = DocName, OriginalText, EntityText, SMILES = ResolvedForm)]
+sprintf("Analytes resolved to SMILES IDs: %d / %d", clia_detail_ner_chem[!is.na(SMILES), uniqueN(AnalyteId)], clia_detail_ner_chem[, uniqueN(AnalyteId)])
+clia_detail_ner_chem <- clia_detail_ner_chem[!is.na(SMILES)] #Delete unmapped records
+clia_detail_ner_chem <- unique(clia_detail_ner_chem[order(AnalyteId)])
+clia_detail_ner_chem_outfile <- "output/clia_detail_chemicals.tsv"
+write_delim(clia_detail_ner_chem, clia_detail_ner_chem_outfile, delim="\t")
+knitr::kable(clia_detail_ner_chem[sample(.N, 20)], caption = "Sample of NER-resolved chemicals")
+```
+
+## Merge NER with analyte metadata (names), save file
+
+Analyte IDs can be mapped to CLIA documents via detail file.
+
+```{r}
+clia_detail_ner_chem <- merge(clia_detail_ner_chem, unique(clia_detail[, .(ANALYTE_ID, ANALYTE_NAME)]), by.x="AnalyteId", by.y="ANALYTE_ID")
+clia_detail_ner_chem <- clia_detail_ner_chem[, .(AnalyteId, AnalyteName = ANALYTE_NAME, OriginalText, EntityText, SMILES)]
+clia_detail_ner_chem <- clia_detail_ner_chem[, .(OriginalText = first(OriginalText), EntityText = first(EntityText)), by = .(AnalyteId, AnalyteName, SMILES)]
+clia_detail_ner_chem_outfile <- "output/clia_detail_chem.tsv"
+write_delim(clia_detail_ner_chem, clia_detail_ner_chem_outfile, delim="\t")
+```
+
+# Generate mapping file of GeneOrProtein analytes to CLIA documents and tests.
+
+```{r}
+clia_doc2test2analyte_this <- unique(merge(clia_doc2test2analyte, clia_detail_ner_chem[, .(AnalyteId)], by.x="ANALYTE_ID", by.y="AnalyteId", all.x=F, all.y=F, sort=T))
+clia_doc2test2analyte_outfile <- "output/clia_doc2test2analyte_chem.tsv"
+write_delim(clia_doc2test2analyte_this, clia_doc2test2analyte_outfile, delim="\t")
+```
+
+
+
+# View (small) molecules with CDK
+
+```{r}
+depictor <- get.depictor(style='cow', width=1000, height=1000, fillToFit=T)
+clia_detail_ner_chem_sample <- clia_detail_ner_chem[!is.na(SMILES)][sample(.N, 32)]
+mols <- parse.smiles(clia_detail_ner_chem_sample[["SMILES"]])
+for (i in 1:nrow(clia_detail_ner_chem_sample)) {
+  set.property(mols[[i]], "title", clia_detail_ner_chem_sample[["EntityText"]][[i]])
+}
+#view.molecule.2d(mols, depictor=depictor) #Not working, java.lang.NoSuchMethodError: <init>
+img <- view.image.2d(mols[[1]], depictor=depictor)
+plot(NA, xlim=c(0, nrow(img)), ylim=c(0, ncol(img)), axes=F, xlab="", ylab="")
+rasterImage(img, 0, 0, nrow(img), ncol(img))
+get.properties(mols[[1]])$title
+```
+
+
+```{r}
+depictor <- get.depictor(style='cow', width=100, height=100, fillToFit=T)
+img_w <- 1600
+img_h <- 800
+n_row <- 4
+n_col <- 8
+moldata <- clia_detail_ner_chem_sample
+plot(c(0, 1e3), c(0, 1e3), pch=1, col="white", axes=F, xlab="", ylab="")
+title(line = -3, sub=sprintf("CLIA sample compounds (%d/%d)", nrow(moldata), nrow(clia_detail_ner_chem)), cex.main=2)
+plot.window(xlim=c(0, img_w*n_col), ylim=c(0, img_h*n_row), asp=1.0)
+for (i in 1:n_row) {
+  for (j in 1:n_col) {
+    mol <- parse.smiles(moldata[(i-1)*n_row+(j), SMILES])
+    img <- view.image.2d(mol[[1]], depictor=depictor)
+    rasimg <- rasterImage(img, xleft=(j-1)*img_w, xright=j*img_w, ybottom=(i-2)*img_h, ytop=(i-1)*img_h)
+  }
+}
+sprintf("Chemicals depicted: %s", paste(clia_detail_ner_chem_sample[["EntityText"]], collapse=", "))
+```
+
