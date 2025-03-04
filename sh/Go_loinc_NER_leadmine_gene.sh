@@ -4,6 +4,16 @@
 printf "Executing: %s\n" "$(basename $0)"
 #
 cwd=$(pwd)
+DATADIR="$cwd/loinc_data"
+#
+# LOINC release:
+if [ -f "${DATADIR}/loinc_release.txt" ]; then
+	LOINC_RELEASE=$(cat ${DATADIR}/loinc_release.txt)
+else
+	printf "ERROR: not found: ${DATADIR}/loinc_release.txt\n"
+	exit
+fi
+printf "LOINC release: ${LOINC_RELEASE}\n"
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
 DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
@@ -11,7 +21,6 @@ DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
 BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
 #
-DATADIR="$cwd/loinc_data"
 CFGDIR="${DATADIR}/config"
 #
 #############################################################################
@@ -85,11 +94,11 @@ nthreads="4"
 # 3.	class,
 # 4.	definitiondescription,
 # 5.	status,
-# 6.	relatednames2,
-# 7.	shortname,
-# 8.	long_common_name,
-# 9.	displayname,
-# 10.	consumer_name
+# 6.	shortname,
+# 7.	long_common_name,
+# 8.	displayname,
+# 9.	consumer_name,
+# 10.	relatedname
 #
 #
 echo "Gene+protein NER (descriptions)..."
@@ -99,7 +108,7 @@ for f in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	dictname=$(basename $f |perl -pe 's/^(.*)\.cfg$/$1/')
 	printf "Leadmine: $(basename $f) (${dictname})\n"
 	#
-	for col in "2" "6" ; do
+	for col in "2" "10" ; do
 		java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 			-config $f \
 			-i ${DATADIR}/loinc_chem_names.tsv \

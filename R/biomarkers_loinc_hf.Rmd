@@ -1,5 +1,5 @@
 ---
-title: Human protein biomarkers, with clinical relevance inferred from Cerner HealthFacts
+title: Human protein biomarkers, with clinical relevance inferred from Oracle HealthFacts
   via LOINC terms
 author: "Jeremy Yang"
 output:
@@ -20,9 +20,9 @@ and thereby, the IDG Pharos/TCRD database.
 
 * [LOINC](https://loinc.org/) _(Logical Observation Identifiers Names and Codes)_
 is developed and maintained by the [Regenstrief Institute](https://www.regenstrief.org/)  and widely used for encoding clinical lab records in EHR systems.
-* [Cerner HealthFacts](https://www.cerner.com/ap/en/solutions/data-research)
+* [Oracle HealthFacts](https://www.oracle.com/health/population-health/real-world-data/)
 contains over 42 million US patient records from the previous two decades,
-with lab results encoded with LOINC.
+with lab results encoded with LOINC. Formerly from Cerner, acquired by Oracle in 2021.
 * [NextMove](https://www.nextmovesoftware.com/) Leadmine is a leading
 text mining software system providing named entity recognition (NER) for chemical
 and biomedical entities via domain-intelligent term dictionaries, with error
@@ -42,7 +42,7 @@ The [FDA Biomarker Qualification Program](https://www.fda.gov/drugs/biomarker-qu
 * Build local LOINC PostgreSql db. Query for chemical biomarkers, to include proteins.
 * Named Entity Recognition for genes/proteins with [NextMove](https://www.nextmovesoftware.com/) Leadmine in selected fields
 of LOINC.
-* Query Cerner HealthFacts 2019 (licensed at UNM) to find encounter_id and patient_id counts for all LOINC codes, for clinically relevant biomarkers (not just theoretical).
+* Query Oracle HealthFacts 2019 (licensed at UNM) to find encounter_id and patient_id counts for all LOINC codes, for clinically relevant biomarkers (not just theoretical).
 * Join HF and NER outputs to generate initial list of clinically relevant molecular biomarker candidates.
 
 ```{r echo=FALSE}
@@ -55,6 +55,13 @@ library(readr)
 library(stringr)
 library(data.table)
 library(plotly, quietly=T)
+```
+
+# LOINC version
+
+```{r}
+LOINC_RELEASE <- trimws(read_file("loinc_data/loinc_release.txt"))
+message(sprintf("LOINC_RELEASE: %s", LOINC_RELEASE))
 ```
 
 # LOINC codes for chemical tests
@@ -81,29 +88,29 @@ setDT(protein_NER_component)
 sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
 ```
 
-## NER on LOINC field: "relatednames2".
+## NER on LOINC field: "relatednames".
 
 ```{r}
-protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv"
+protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_10_NM_CFDictGeneAndProtein_leadmine.tsv"
 sprintf("NextMove NER for LOINC-relatednames: %s", protein_NER_relatednames_file)
 protein_NER_relatednames <-  read_delim(protein_NER_relatednames_file, "\t")
 setDT(protein_NER_relatednames)
-sprintf("LOINC codes mapped via relatednames2 text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
+sprintf("LOINC codes mapped via relatednames text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
 ```
 
-# Cerner HealthFacts 2019 counts of encounter\_ids and patient\_ids for all lab procedures, with LOINC codes.
+# Oracle HealthFacts 2019 counts of encounter\_ids and patient\_ids for all lab procedures, with LOINC codes.
 
 ```{r}
 hf_loinc_counts_file <- "cerner_hf_data/hf_lab_loinc_counts_OUT.tsv"
-sprintf("Cerner HealthFacts 2019 counts for labs, with LOINC codes: %s", hf_loinc_counts_file)
+sprintf("Oracle HealthFacts 2019 counts for labs, with LOINC codes: %s", hf_loinc_counts_file)
 hf_loinc_counts <- read_delim(hf_loinc_counts_file, "\t")
 setDT(hf_loinc_counts)
 sprintf("Lab procedure IDs: %d; LOINC codes: %d", hf_loinc_counts[, uniqueN(lab_procedure_id)], hf_loinc_counts[, uniqueN(loinc_code)])
 ```
 
-## Group lab procedures into list; aggregate on LOINC codes; discard Cerner lab procedure IDs.
+## Group lab procedures into list; aggregate on LOINC codes.
 
-Some different labs have same LOINC codes.
+Some different labs have same LOINC codes. Discarding lab procedures IDs.
 
 ```{r}
 hf_loinc_counts <- hf_loinc_counts[, .(

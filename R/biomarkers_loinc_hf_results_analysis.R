@@ -1,6 +1,6 @@
 #!/usr/bin/env Rscript
 #
-# 'Cerner HealthFacts: Laboratory molecular biomarker results analysis'
+# 'Oracle HealthFacts: Laboratory molecular biomarker results analysis'
 ###
 
 
@@ -84,7 +84,7 @@ for (gpid in report_dt$gpid) {
 }
 message(sprintf("Plot count: %d / %d (%d skipped)", i_plot, length(report_dt$gpid), length(report_dt$gpid)-i_plot))
 fig <- subplot(plots, nrows=6) %>%
-   layout(title="Molecular biomarker Cerner-EHR lab value histograms (5-95 %ile)", showlegend=F)
+   layout(title="Molecular biomarker Oracle-EHR lab value histograms (5-95 %ile)", showlegend=F)
 
 ofile_html <- "output/fig.html"
 message(sprintf("Output HTML file: %s", ofile_html))

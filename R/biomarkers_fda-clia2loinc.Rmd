@@ -1,5 +1,5 @@
 ---
-title: "FDA CLIA genes and proteins mapped to Cerner LOINC codes"
+title: "FDA CLIA genes and proteins mapped to Oracle LOINC codes"
 author: "Jeremy Yang"
 date: '`r Sys.Date()`'
 output: html_document
@@ -36,7 +36,7 @@ loinc2gp <- read_delim(loinc2gp_file, delim = "\t", escape_double=F, col_types =
 setDT(loinc2gp)
 ```
 
-## Merge to map LOINC codes (from Cerner) to GeneOrProteinIds (from FDA-CLIA).
+## Merge to map LOINC codes (from Oracle) to GeneOrProteinIds (from FDA-CLIA).
 
 The results are LOINC codes which map to FDA- approved or categorized tests for molecular (GeneOrProtein) biomarkers.
 

@@ -1,5 +1,5 @@
 ---
-title: 'Cerner HealthFacts: Laboratory molecular biomarker results analysis'
+title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis'
 output:
   html_document:
     df_print: paged

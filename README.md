@@ -2,7 +2,7 @@
 
 __CFDE Biomarkers partnership project__
 
-For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinically relevant molecular biomarkers, using the Cerner HealthFacts and RealWorldData databases, containing deidentified EHR data, including LOINC codes for laboratory tests.  Named entity recognition (NER) associates LOINC terms with biomolecules and particularly genes and proteins, an initial focus of this study.  A complementary effort focuses on the FDA Clinical Laboratory Improvement Amendments (CLIA), which refers to an FDA regulatory process whereby lab tests are approved and categorized for clinical use, many of which are specificially related to analytes which are molecular biomarkers.
+For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinically relevant molecular biomarkers, using the Oracle HealthFacts and Real-World Data databases, containing deidentified EHR data, including LOINC codes for laboratory tests.  Named entity recognition (NER) associates LOINC terms with biomolecules and particularly genes and proteins, an initial focus of this study.  A complementary effort focuses on the FDA Clinical Laboratory Improvement Amendments (CLIA), which refers to an FDA regulatory process whereby lab tests are approved and categorized for clinical use, many of which are specificially related to analytes which are molecular biomarkers.
 
 ## Workflow
 
@@ -13,7 +13,7 @@ For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinical
  * [Go\_loinc\_NER\_tagger\_gene.sh](sh/Go_loinc_NER_tagger_gene.sh) - NER for genes using [JensenLab Tagger](https://github.com/larsjuhljensen/tagger).
  * [Go\_loinc\_NER\_leadmine\_gene.sh](sh/Go_loinc_NER_leadmine_gene.sh) - NER for genes using [NextMove Leadmine](https://nextmovesoftware.com/).
  * [Go\_hf\_labs.sh](sh/Go_hf_labs.sh),
- * [hf\_lab\_loinc\_counts.sql](sql/hf_lab_loinc_counts.sql) - Query Cerner db for labs.
+ * [hf\_lab\_loinc\_counts.sql](sql/hf_lab_loinc_counts.sql) - Query db for labs.
  * [biomarkers\_loinc\_hf.Rmd](R/biomarkers_loinc_hf.Rmd)
    * Generate list of clinically relevant molecular biomarker candidates.
    * Count encounters and patients for all LOINC codes (chemical).
@@ -33,6 +33,6 @@ For the Biomarkers project, the UNM-IDG Team is developing a dataset of clinical
 
  * [CFDE Biomarkers Project](https://github.com/biomarker-ontology/biomarker-partnership)
  * [LOINC](https://loinc.org/) | [Learn](https://loinc.org/learn/) | [Downloads](https://loinc.org/downloads/)
- * [Cerner Research Data](https://www.cerner.com/ap/en/solutions/data-research)
+ * [Oracle Health real-world data](https://www.oracle.com/health/population-health/real-world-data/)
  * [BEST (Biomarkers, EndpointS, and other Tools) Resource](https://www.ncbi.nlm.nih.gov/books/NBK326791/)
  * [FDA CLIA](https://www.fda.gov/medical-devices/ivd-regulatory-assistance/clinical-laboratory-improvement-amendments-clia) FDA Clinical Laboratory Improvement Amendments (CLIA)

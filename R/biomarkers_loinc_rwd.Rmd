@@ -1,5 +1,5 @@
 ---
-title: Human protein biomarkers, with clinical relevance inferred from Cerner RealWorldData
+title: Human protein biomarkers, with clinical relevance inferred from Oracle RealWorldData
   via LOINC terms
 author: "Jeremy Yang"
 output:
@@ -68,9 +68,9 @@ sprintf("LOINC codes resolved to standard IDs: %d / %d", protein_NER_relatedname
 
 ```
 
-# Cerner RWD counts
+# Oracle RWD counts
 
-Cerner Real World Data 2023 counts of distinct encounter\_ids and patient\_ids for LOINC codes of class "CHEM". Each count is for a specific lab test, and year. Some different labs have same LOINC codes, i.e. some Cerner-coded lab tests merge to the same LOINC code. Also, the counts cannot be added, since there may be common patients and encounters. 
+Oracle Real World Data 2023 counts of distinct encounter\_ids and patient\_ids for LOINC codes of class "CHEM". Each count is for a specific lab test, and year. Some different labs have same LOINC codes, i.e. some Oracle-coded lab tests merge to the same LOINC code. Also, the counts cannot be added, since there may be common patients and encounters. 
 
 ```{r}
 rwd_loinc_counts <- read_csv("cerner_rwd_data/base_counts.csv")
@@ -87,7 +87,7 @@ sprintf("Number of labs tests which merge to a common LOINC, in representative y
 ```{r}
 rwd_loinc_counts <- rwd_loinc_counts[, .(
 	mnemonics = paste(base::unique(c(mnemonic)), collapse="; "),
-	loinc_class = "CHEM",
+	loincclass = "CHEM",
 	encounter_id_count = sum(count_encs),
 	patient_id_count = sum(count_pts)
 	), by=c("loinc_code", "yr")]
@@ -98,7 +98,7 @@ rwd_loinc_counts_by_year <- rwd_loinc_counts[, .(
 setorder(rwd_loinc_counts_by_year, yr)
 plot_ly(rwd_loinc_counts_by_year, x=~yr, y = ~encounters_mean, type = "bar", name = "mean(nEncounters)") %>%
   add_trace(rwd_loinc_counts_by_year, x=~yr, y = ~patients_mean, type = "bar", name = "mean(nPatients)") %>%
-  layout(title = "Mean encounter and patient counts for LOINC labs by year<br>(Cerner RealWorldData)",
+  layout(title = "Mean encounter and patient counts for LOINC labs by year<br>(Oracle RealWorldData)",
          xaxis = list(title="", tick0 = 1, dtick=1, tickangle = 45), yaxis = list(title="N"), legend = list(x = .1, y = .9))
 ```
 
@@ -109,7 +109,7 @@ Encounter ID counts can be added for multiple years, but not patient ID counts, 
 ```{r}
 rwd_loinc_counts <- rwd_loinc_counts[, .(
 	mnemonics,
-	loinc_class,
+	loincclass,
 	years = paste(sort(base::unique(c(yr))), collapse="; "),
 	lab_count = sum(encounter_id_count)
 	), by=c("loinc_code")]

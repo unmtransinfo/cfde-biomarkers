@@ -12,7 +12,7 @@
 <meta name="author" content="Jeremy Yang" />
 
 
-<title>Human protein biomarkers, with clinical relevance inferred from Cerner HealthFacts via LOINC terms</title>
+<title>Human protein biomarkers, with clinical relevance inferred from Oracle HealthFacts via LOINC terms</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -350,7 +350,7 @@ display: none;
 
 
 <h1 class="title toc-ignore">Human protein biomarkers, with clinical
-relevance inferred from Cerner HealthFacts via LOINC terms</h1>
+relevance inferred from Oracle HealthFacts via LOINC terms</h1>
 <h4 class="author">Jeremy Yang</h4>
 
 </div>
@@ -365,9 +365,10 @@ genes), and thereby, the IDG Pharos/TCRD database.</p>
 <li><a href="https://loinc.org/">LOINC</a> <em>(Logical Observation
 Identifiers Names and Codes)</em> is developed and maintained by the <a href="https://www.regenstrief.org/">Regenstrief Institute</a> and widely
 used for encoding clinical lab records in EHR systems.</li>
-<li><a href="https://www.cerner.com/ap/en/solutions/data-research">Cerner
+<li><a href="https://www.oracle.com/health/population-health/real-world-data/">Oracle
 HealthFacts</a> contains over 42 million US patient records from the
-previous two decades, with lab results encoded with LOINC.</li>
+previous two decades, with lab results encoded with LOINC. Formerly from
+Cerner, acquired by Oracle in 2021.</li>
 <li><a href="https://www.nextmovesoftware.com/">NextMove</a> Leadmine is
 a leading text mining software system providing named entity recognition
 (NER) for chemical and biomedical entities via domain-intelligent term
@@ -400,74 +401,77 @@ with <strong><em>molecular</em></strong> biomarkers only.</p>
 include proteins.</li>
 <li>Named Entity Recognition for genes/proteins with <a href="https://www.nextmovesoftware.com/">NextMove</a> Leadmine in
 selected fields of LOINC.</li>
-<li>Query Cerner HealthFacts 2019 (licensed at UNM) to find encounter_id
+<li>Query Oracle HealthFacts 2019 (licensed at UNM) to find encounter_id
 and patient_id counts for all LOINC codes, for clinically relevant
 biomarkers (not just theoretical).</li>
 <li>Join HF and NER outputs to generate initial list of clinically
 relevant molecular biomarker candidates.</li>
 </ul>
-<pre><code>## [1] &quot;Wed Sep  4 08:04:21 2024&quot;</code></pre>
+<pre><code>## [1] &quot;Tue Mar  4 13:52:18 2025&quot;</code></pre>
 </div>
-<div id="loinc-codes-for-chemical-tests" class="section level1" number="3">
-<h1><span class="header-section-number">3</span> LOINC codes for
+<div id="loinc-version" class="section level1" number="3">
+<h1><span class="header-section-number">3</span> LOINC version</h1>
+</div>
+<div id="loinc-codes-for-chemical-tests" class="section level1" number="4">
+<h1><span class="header-section-number">4</span> LOINC codes for
 chemical tests</h1>
 <pre><code>## [1] &quot;LOINC codes for chemical tests: loinc_data/loinc_chem_names.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes: 10606&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes: 1981&quot;</code></pre>
 </div>
-<div id="nextmove-leadmine-ner-output-using-geneandprotein-dictionary." class="section level1" number="4">
-<h1><span class="header-section-number">4</span> NextMove LeadMine NER
+<div id="nextmove-leadmine-ner-output-using-geneandprotein-dictionary." class="section level1" number="5">
+<h1><span class="header-section-number">5</span> NextMove LeadMine NER
 output using GeneAndProtein dictionary.</h1>
 <p>NER = named entity recognition, a form of text-mining.</p>
-<div id="ner-on-loinc-field-component." class="section level2" number="4.1">
-<h2><span class="header-section-number">4.1</span> NER on LOINC field:
+<div id="ner-on-loinc-field-component." class="section level2" number="5.1">
+<h2><span class="header-section-number">5.1</span> NER on LOINC field:
 “component”.</h2>
 <pre><code>## [1] &quot;NextMove NER for LOINC-component: loinc_data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes mapped via component text to NER proteins: 1878&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes mapped via component text to NER proteins: 805&quot;</code></pre>
 </div>
-<div id="ner-on-loinc-field-relatednames2." class="section level2" number="4.2">
-<h2><span class="header-section-number">4.2</span> NER on LOINC field:
-“relatednames2”.</h2>
-<pre><code>## [1] &quot;NextMove NER for LOINC-relatednames: loinc_data/loinc_chem_names_6_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes mapped via relatednames2 text to NER proteins: 1874&quot;</code></pre>
+<div id="ner-on-loinc-field-relatednames." class="section level2" number="5.2">
+<h2><span class="header-section-number">5.2</span> NER on LOINC field:
+“relatednames”.</h2>
+<pre><code>## [1] &quot;NextMove NER for LOINC-relatednames: loinc_data/loinc_chem_names_10_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes mapped via relatednames text to NER proteins: 614&quot;</code></pre>
 </div>
 </div>
-<div id="cerner-healthfacts-2019-counts-of-encounter_ids-and-patient_ids-for-all-lab-procedures-with-loinc-codes." class="section level1" number="5">
-<h1><span class="header-section-number">5</span> Cerner HealthFacts 2019
+<div id="oracle-healthfacts-2019-counts-of-encounter_ids-and-patient_ids-for-all-lab-procedures-with-loinc-codes." class="section level1" number="6">
+<h1><span class="header-section-number">6</span> Oracle HealthFacts 2019
 counts of encounter_ids and patient_ids for all lab procedures, with
 LOINC codes.</h1>
-<pre><code>## [1] &quot;Cerner HealthFacts 2019 counts for labs, with LOINC codes: cerner_hf_data/hf_lab_loinc_counts_OUT.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;Oracle HealthFacts 2019 counts for labs, with LOINC codes: cerner_hf_data/hf_lab_loinc_counts_OUT.tsv&quot;</code></pre>
 <pre><code>## [1] &quot;Lab procedure IDs: 5666; LOINC codes: 5076&quot;</code></pre>
-<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes-discard-cerner-lab-procedure-ids." class="section level2" number="5.1">
-<h2><span class="header-section-number">5.1</span> Group lab procedures
+<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes-discard-cerner-lab-procedure-ids." class="section level2" number="6.1">
+<h2><span class="header-section-number">6.1</span> Group lab procedures
 into list; aggregate on LOINC codes; discard Cerner lab procedure
 IDs.</h2>
 <p>Some different labs have same LOINC codes.</p>
 </div>
 </div>
-<div id="loinc-proteins-in-hf-encounters" class="section level1" number="6">
-<h1><span class="header-section-number">6</span> LOINC proteins in HF
+<div id="loinc-proteins-in-hf-encounters" class="section level1" number="7">
+<h1><span class="header-section-number">7</span> LOINC proteins in HF
 encounters</h1>
-<pre><code>## [1] &quot;LOINC codes for proteins: 218&quot;</code></pre>
-<pre><code>## [1] &quot;Protein names: 137&quot;</code></pre>
-<pre><code>## [1] &quot;GeneOrProtein IDs: 70&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes for proteins: 56&quot;</code></pre>
+<pre><code>## [1] &quot;Protein names: 81&quot;</code></pre>
+<pre><code>## [1] &quot;GeneOrProtein IDs: 52&quot;</code></pre>
 <p>Build LOINC to gene-or-protein ID mapping. Save to file.</p>
-<div id="group-protein-synonyms-into-list-aggregate-on-loinc-codes." class="section level2" number="6.1">
-<h2><span class="header-section-number">6.1</span> Group protein
+<div id="group-protein-synonyms-into-list-aggregate-on-loinc-codes." class="section level2" number="7.1">
+<h2><span class="header-section-number">7.1</span> Group protein
 synonyms into list; aggregate on LOINC codes.</h2>
 </div>
 </div>
-<div id="top-occurring-loincs" class="section level1" number="7">
-<h1><span class="header-section-number">7</span> Top occurring
+<div id="top-occurring-loincs" class="section level1" number="8">
+<h1><span class="header-section-number">8</span> Top occurring
 LOINCs:</h1>
-<table>
-<caption>LOINCs ranked by occurence: 129 LOINCs, 45
+<table style="width:100%;">
+<caption>LOINCs ranked by occurence: 23 LOINCs, 19
 geneOrProteinIds</caption>
 <colgroup>
 <col width="3%" />
 <col width="5%" />
-<col width="36%" />
-<col width="42%" />
-<col width="6%" />
+<col width="27%" />
+<col width="52%" />
+<col width="5%" />
 <col width="5%" />
 </colgroup>
 <thead>
@@ -482,105 +486,6 @@ geneOrProteinIds</caption>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left">1742-6</td>
-<td align="left">HGNC:4552</td>
-<td align="left">Alanine Aminotransferase / SGPT; Alanine
-Aminotransferase; Alanine Aminotransferase / SGPT for Hepatitis</td>
-<td align="left">Alanine aminotransferase; Alanine transaminase</td>
-<td align="right">48415900</td>
-<td align="right">32364963</td>
-</tr>
-<tr class="even">
-<td align="left">54347-0</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin, Serum</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">43996009</td>
-<td align="right">29352445</td>
-</tr>
-<tr class="odd">
-<td align="left">1759-0</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin / Globulin Ratio; Albumin / Globulin Ratio
-Calculation</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">14296835</td>
-<td align="right">9935559</td>
-</tr>
-<tr class="even">
-<td align="left">1968-7</td>
-<td align="left">HGNC:399</td>
-<td align="left">Bilirubin Direct Quantitative, Serum</td>
-<td align="left">albumin; Deltab</td>
-<td align="right">8064570</td>
-<td align="right">5945529</td>
-</tr>
-<tr class="odd">
-<td align="left">3040-3</td>
-<td align="left">HGNC:6619</td>
-<td align="left">Lipase, Serum</td>
-<td align="left">Pancreatic lipase; Triacylglycerol lipase</td>
-<td align="right">5542548</td>
-<td align="right">4549542</td>
-</tr>
-<tr class="even">
-<td align="left">2857-1</td>
-<td align="left">UNIPROT:P07288</td>
-<td align="left">Prostate Specific Antigen (PSA)</td>
-<td align="left">Kallikrein 3; P-30 antigen; Seminin</td>
-<td align="right">3638051</td>
-<td align="right">2900137</td>
-</tr>
-<tr class="odd">
-<td align="left">2276-4</td>
-<td align="left">UNIPROT:Q26061</td>
-<td align="left">Ferritin, Serum Quantitative</td>
-<td align="left">Ferritin</td>
-<td align="right">2925778</td>
-<td align="right">2370916</td>
-</tr>
-<tr class="even">
-<td align="left">14957-5</td>
-<td align="left">HGNC:399</td>
-<td align="left">Microalbumin, Urine Random; Microalbumin, Urine</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">1863642</td>
-<td align="right">1494208</td>
-</tr>
-<tr class="odd">
-<td align="left">2324-2</td>
-<td align="left">UNIPROT:P63186</td>
-<td align="left">GGT/GGTP (Gamma Glutamyl Transpeptidase)
-Serum/Plasma</td>
-<td align="left">Gamma glutamyl transpeptidase; Gamma-GTP</td>
-<td align="right">1713042</td>
-<td align="right">1178637</td>
-</tr>
-<tr class="even">
-<td align="left">14959-1</td>
-<td align="left">HGNC:399</td>
-<td align="left">Microalbumin/Creatinine Ratio, Urine</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">1564858</td>
-<td align="right">1237193</td>
-</tr>
-<tr class="odd">
-<td align="left">1754-1</td>
-<td align="left">HGNC:399</td>
-<td align="left">UA Albumin</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">1389696</td>
-<td align="right">1062557</td>
-</tr>
-<tr class="even">
-<td align="left">1751-7</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin Quantitative, Serum</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">1357064</td>
-<td align="right">798083</td>
-</tr>
-<tr class="odd">
 <td align="left">29265-6</td>
 <td align="left">HGNC:399</td>
 <td align="left">Calcium Quantitative corrected for albumin, Serum</td>
@@ -589,196 +494,29 @@ Serum/Plasma</td>
 <td align="right">841711</td>
 </tr>
 <tr class="even">
-<td align="left">2731-8</td>
-<td align="left">HGNC:9606</td>
-<td align="left">PTH (Parathyroid Hormone)</td>
-<td align="left">Parathormone; Parathyrin; parathyroid hormone;
-Parathyroid hormone</td>
-<td align="right">732536</td>
-<td align="right">561415</td>
-</tr>
-<tr class="odd">
-<td align="left">14338-8</td>
-<td align="left">HGNC:12405</td>
-<td align="left">Prealbumin; Prealbumin Serum or Plasma
-Quantitative</td>
-<td align="left">albumin; Prealbumin; Transthyretin</td>
-<td align="right">639920</td>
-<td align="right">531403</td>
-</tr>
-<tr class="even">
 <td align="left">1743-4</td>
 <td align="left">HGNC:4552</td>
 <td align="left">Alanine aminotransferase Enzymatic activity/volume
 Serum or Plasma With P-5’-P</td>
-<td align="left">Alanine aminotransferase; Alanine transaminase</td>
+<td align="left">Alanine aminotransferase</td>
 <td align="right">459788</td>
 <td align="right">249948</td>
 </tr>
 <tr class="odd">
-<td align="left">15081-3</td>
-<td align="left">HGNC:9445</td>
-<td align="left">Prolactin, Serum</td>
-<td align="left">Prolactin</td>
-<td align="right">457781</td>
-<td align="right">418019</td>
+<td align="left">46769-6</td>
+<td align="left">HGNC:20442</td>
+<td align="left">Cystic Fibrosis Newborn Screen Interpretation</td>
+<td align="left">fibrosis</td>
+<td align="right">103292</td>
+<td align="right">100417</td>
 </tr>
 <tr class="even">
-<td align="left">10501-5</td>
-<td align="left">UNIPROT:P01231</td>
-<td align="left">LH (Lutenizing Hormone); Lutropin, Serum/Plasma
-Quantitative</td>
-<td align="left">Interstitial cell-stimulating hormone; Luteinizing
-hormone</td>
-<td align="right">421580</td>
-<td align="right">369817</td>
-</tr>
-<tr class="odd">
-<td align="left">61152-5</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin Mass/volume Serum or Plasma Bromocresol purple
-(BCP) Dye Binding Method</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">421530</td>
-<td align="right">233607</td>
-</tr>
-<tr class="even">
-<td align="left">53833-0</td>
-<td align="left">HGNC:6915</td>
-<td align="left">Myoglobin</td>
-<td align="left">Myoglobin</td>
-<td align="right">322199</td>
-<td align="right">268033</td>
-</tr>
-<tr class="odd">
-<td align="left">10886-0</td>
-<td align="left">UNIPROT:P07288</td>
-<td align="left">Prostate Specific Antigen (PSA) Free</td>
-<td align="left">Kallikrein 3; P-30 antigen; Seminin</td>
-<td align="right">237916</td>
-<td align="right">200690</td>
-</tr>
-<tr class="even">
-<td align="left">1834-1</td>
-<td align="left">HGNC:317</td>
-<td align="left">Alpha Fetoprotein Quantitative, Serum</td>
-<td align="left">Alpha fetoprotein; Alpha-1-Fetoprotein</td>
-<td align="right">223049</td>
-<td align="right">200234</td>
-</tr>
-<tr class="odd">
-<td align="left">2012-3</td>
-<td align="left">UNIPROT:Q02496</td>
-<td align="left">Cancer Antigen 27-29</td>
-<td align="left">MUC-1</td>
-<td align="right">210213</td>
-<td align="right">126674</td>
-</tr>
-<tr class="even">
-<td align="left">53960-1</td>
-<td align="left">HGNC:317</td>
-<td align="left">Alpha Fetoprotein Tumor Marker</td>
-<td align="left">Alpha fetoprotein; Alpha-1-Fetoprotein</td>
-<td align="right">194361</td>
-<td align="right">155218</td>
-</tr>
-<tr class="odd">
-<td align="left">56887-3</td>
-<td align="left">HGNC:6915</td>
-<td align="left">Myoglobin, Serum</td>
-<td align="left">Myoglobin</td>
-<td align="right">149837</td>
-<td align="right">114047</td>
-</tr>
-<tr class="even">
-<td align="left">3034-6</td>
-<td align="left">HGNC:11740</td>
-<td align="left">Transferrin Quantitative Serum or Plasma</td>
-<td align="left">Siderophilin; Transferrin</td>
-<td align="right">129153</td>
-<td align="right">108544</td>
-</tr>
-<tr class="odd">
-<td align="left">2742-5</td>
-<td align="left">HGNC:2707</td>
-<td align="left">Angiotensen -1-Converting Enzyme (ACE)</td>
-<td align="left">Angiotensin converting enzyme; Angiotensin I converting
-enzyme; Carboxycathepsin; dipeptidase A; Kininase II; Peptidase P</td>
-<td align="right">101096</td>
-<td align="right">95806</td>
-</tr>
-<tr class="even">
-<td align="left">1986-9</td>
-<td align="left">HGNC:6081</td>
-<td align="left">C-Peptide Quantitative, Serum</td>
-<td align="left">insulin</td>
-<td align="right">96778</td>
-<td align="right">89008</td>
-</tr>
-<tr class="odd">
-<td align="left">2064-4</td>
-<td align="left">HGNC:2295</td>
-<td align="left">Ceruplasmin, Serum</td>
-<td align="left">Ceruloplasmin; Ferroxidase</td>
-<td align="right">94138</td>
-<td align="right">92229</td>
-</tr>
-<tr class="even">
-<td align="left">2502-3</td>
-<td align="left">HGNC:11740</td>
-<td align="left">Iron Saturation, Serum/Plasma</td>
-<td align="left">Transferrin</td>
-<td align="right">93985</td>
-<td align="right">76227</td>
-</tr>
-<tr class="odd">
-<td align="left">1825-9</td>
-<td align="left">HGNC:8941</td>
-<td align="left">Alpha-1-Antitrypsin</td>
-<td align="left">Alpha-1-antitrypsin; Alpha-1-protease inhibitor;
-Alpha-1-proteinase inhibitor; antitrypsin; trypsin</td>
-<td align="right">89692</td>
-<td align="right">84552</td>
-</tr>
-<tr class="even">
-<td align="left">1952-1</td>
-<td align="left">HGNC:914</td>
-<td align="left">Beta-2 Microglobulin Quantitative, Serum</td>
-<td align="left">Beta-2-Microglobulin</td>
-<td align="right">81637</td>
-<td align="right">58846</td>
-</tr>
-<tr class="odd">
-<td align="left">2237-6</td>
-<td align="left">HGNC:3415</td>
-<td align="left">Erythropoietin</td>
-<td align="left">Epoetin; Erythropoietin</td>
-<td align="right">75410</td>
-<td align="right">72651</td>
-</tr>
-<tr class="even">
-<td align="left">2007-3</td>
-<td align="left">UNIPROT:P15941</td>
-<td align="left">Cancer Antigen 15-3</td>
-<td align="left">CA 15-3; MUC-1</td>
-<td align="right">70560</td>
-<td align="right">47037</td>
-</tr>
-<tr class="odd">
-<td align="left">1982-8</td>
-<td align="left">HGNC:1122</td>
-<td align="left">Biotinidase</td>
-<td align="left">Biotinidase</td>
-<td align="right">69892</td>
-<td align="right">67559</td>
-</tr>
-<tr class="even">
-<td align="left">14956-7</td>
-<td align="left">HGNC:399</td>
-<td align="left">Microalbumin 24 hr</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">64943</td>
-<td align="right">49072</td>
+<td align="left">10466-1</td>
+<td align="left">Q9VIW3</td>
+<td align="left">Anion Gap 3, Serum</td>
+<td align="left">AnGAP</td>
+<td align="right">91893</td>
+<td align="right">48933</td>
 </tr>
 <tr class="odd">
 <td align="left">13967-5</td>
@@ -786,59 +524,27 @@ Alpha-1-proteinase inhibitor; antitrypsin; trypsin</td>
 <td align="left">Sex Hormone Binding Globulin Quantitative Serum or
 Plasma</td>
 <td align="left">Androgen binding protein; Sex hormone binding globulin;
-steroid binding protein</td>
+Sex steroid binding protein; steroid; Testosterone/estradiol binding
+globulin</td>
 <td align="right">63805</td>
 <td align="right">57659</td>
 </tr>
 <tr class="even">
-<td align="left">30895-7</td>
-<td align="left">HGNC:9958</td>
-<td align="left">Renin</td>
-<td align="left">Angiotensinogenase; Renin</td>
-<td align="right">60165</td>
-<td align="right">56318</td>
+<td align="left">35365-6</td>
+<td align="left">UNIPROT:P53580</td>
+<td align="left">Vitamin D+Metabolites Quantitative Serum or Plasma</td>
+<td align="left">metab</td>
+<td align="right">35429</td>
+<td align="right">28847</td>
 </tr>
 <tr class="odd">
-<td align="left">20448-7</td>
-<td align="left">HGNC:6081</td>
-<td align="left">Insulin, Serum/Plasma Quantitative</td>
-<td align="left">Insulin</td>
-<td align="right">45147</td>
-<td align="right">41456</td>
-</tr>
-<tr class="even">
-<td align="left">33287-4</td>
-<td align="left">HGNC:4057</td>
-<td align="left">G6PD (Glucose-6-Phosphate Dehydrogenase) Blood</td>
-<td align="left">G-6-PD; G6PDH; Glucose-6-Phosphate dehydrogenase</td>
-<td align="right">42604</td>
-<td align="right">41563</td>
-</tr>
-<tr class="odd">
-<td align="left">2484-4</td>
-<td align="left">HGNC:5464</td>
-<td align="left">Insulin-like Growth Factor-1, Serum/Plasma
-Quantitative</td>
-<td align="left">IGF-1; IGF-I; Insulin-like growth factor-I; Somatomedin
-C</td>
-<td align="right">36979</td>
-<td align="right">32154</td>
-</tr>
-<tr class="even">
-<td align="left">1805-1</td>
-<td align="left">HGNC:52282</td>
-<td align="left">Amylase, Pancreatic</td>
-<td align="left">Alpha amylase; Amylase; Pancr</td>
-<td align="right">36644</td>
-<td align="right">26606</td>
-</tr>
-<tr class="odd">
-<td align="left">3013-0</td>
-<td align="left">HGNC:11764</td>
-<td align="left">Thyroglobulin Quantitative Serum or Plasma</td>
-<td align="left">Thyroglobulin</td>
-<td align="right">33791</td>
-<td align="right">25699</td>
+<td align="left">11064-3</td>
+<td align="left">HGNC:7468</td>
+<td align="left">Blood Urea Nitrogen Group Serum Post Dialysis; Blood
+Urea Nitrogen, Serum Post Dialysis</td>
+<td align="left">nitrogen</td>
+<td align="right">31372</td>
+<td align="right">14064</td>
 </tr>
 <tr class="even">
 <td align="left">14801-5</td>
@@ -849,15 +555,6 @@ C</td>
 <td align="right">21895</td>
 </tr>
 <tr class="odd">
-<td align="left">2874-6</td>
-<td align="left">UNIPROT:Q65479</td>
-<td align="left">Gamma Globulin Quantitative Serum/Plasma
-Electrophoresis</td>
-<td align="left">Protein gamma</td>
-<td align="right">25829</td>
-<td align="right">20212</td>
-</tr>
-<tr class="even">
 <td align="left">1835-8</td>
 <td align="left">HGNC:7</td>
 <td align="left">Alpha-2 Macroglobulin</td>
@@ -865,63 +562,356 @@ Electrophoresis</td>
 <td align="right">23715</td>
 <td align="right">19546</td>
 </tr>
-<tr class="odd">
-<td align="left">2862-1</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin Quantitative, Serum Electrophoresis</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">23420</td>
-<td align="right">18481</td>
-</tr>
 <tr class="even">
-<td align="left">1747-5</td>
-<td align="left">HGNC:399</td>
-<td align="left">Albumin Quantitative, Body Fluid</td>
-<td align="left">albumin; Albumin</td>
-<td align="right">21719</td>
-<td align="right">18331</td>
+<td align="left">10334-1</td>
+<td align="left">Q8WXI7</td>
+<td align="left">Cancer Antigen 125 Quantitative, Serum</td>
+<td align="left">Ag 125; Ag125; antigen 125; CA 125</td>
+<td align="right">23012</td>
+<td align="right">13103</td>
 </tr>
 <tr class="odd">
-<td align="left">6770-2</td>
-<td align="left">HGNC:8941</td>
-<td align="left">Alpha-1-Antitrypsin Phenotype</td>
-<td align="left">Alpha-1-antitrypsin; Alpha-1-protease inhibitor;
-Alpha-1-proteinase inhibitor; antitrypsin; trypsin</td>
-<td align="right">21488</td>
-<td align="right">21197</td>
+<td align="left">12480-0</td>
+<td align="left">HGNC:2707</td>
+<td align="left">ACE (Angiotensin Converting Enzyme) CSF; Angiotensin I
+CSF</td>
+<td align="left">Angio; Angiotensin converting enzyme; Angiotensin I
+converting enzyme; Carboxycathepsin; Dipeptidylcarboxypeptidase;
+Kininase II; Peptidase P; Peptidyl dipeptidase A</td>
+<td align="right">10109</td>
+<td align="right">9898</td>
 </tr>
 <tr class="even">
-<td align="left">2333-3</td>
-<td align="left">HGNC:4164</td>
-<td align="left">Gastrin, Serum</td>
-<td align="left">Gastrin</td>
-<td align="right">19899</td>
-<td align="right">18379</td>
+<td align="left">12967-6</td>
+<td align="left">HGNC:7468</td>
+<td align="left">Urea Nitrogen, Urine 24 hr</td>
+<td align="left">nitrogen</td>
+<td align="right">7108</td>
+<td align="right">6686</td>
+</tr>
+<tr class="odd">
+<td align="left">48803-1</td>
+<td align="left">HGNC:20694</td>
+<td align="left">Neural Tube Defect Risk, Fetus</td>
+<td align="left">Neural; spina</td>
+<td align="right">6491</td>
+<td align="right">6243</td>
+</tr>
+<tr class="even">
+<td align="left">17842-6</td>
+<td align="left">B5RDF1</td>
+<td align="left">Cancer Antigen 27-29 Quantitative, Serum</td>
+<td align="left">Ag 27-29; AG CA 27; Ag27-29; CA 27-29; MUC-1</td>
+<td align="right">3940</td>
+<td align="right">1840</td>
+</tr>
+<tr class="odd">
+<td align="left">2483-6</td>
+<td align="left">HGNC:5472</td>
+<td align="left">Insulin-like Growth Factor Binding Protien 3,
+Serum/Plasma Quantitative</td>
+<td align="left">IGF BP3; Insulin-like growth factor binding protein
+3</td>
+<td align="right">2672</td>
+<td align="right">2388</td>
+</tr>
+<tr class="even">
+<td align="left">30152-3</td>
+<td align="left">Q98TA4</td>
+<td align="left">Mannose-binding Protein Mass/volume Serum</td>
+<td align="left">Mannan Binding Lectin; Mannose; Mannose-binding
+protein</td>
+<td align="right">1370</td>
+<td align="right">1296</td>
+</tr>
+<tr class="odd">
+<td align="left">38476-8</td>
+<td align="left">HGNC:464</td>
+<td align="left">Mullerian Inhibiting Substance, Serum/Plasma</td>
+<td align="left">Anti Mullerian hormone; Mullerian inhibiting factor;
+Mullerian inhibiting substance</td>
+<td align="right">747</td>
+<td align="right">725</td>
+</tr>
+<tr class="even">
+<td align="left">15013-6</td>
+<td align="left">UNIPROT:P81800</td>
+<td align="left">Alkaline Phosphatase Bone/Alkaline Phosphatase Total,
+Serum</td>
+<td align="left">Alkaline phosphatase; ALP-2; BALPase</td>
+<td align="right">696</td>
+<td align="right">677</td>
+</tr>
+<tr class="odd">
+<td align="left">14117-6</td>
+<td align="left">HGNC:399</td>
+<td align="left">IgG Index, Serum and CSF</td>
+<td align="left">Albumin</td>
+<td align="right">443</td>
+<td align="right">429</td>
+</tr>
+<tr class="even">
+<td align="left">54457-7</td>
+<td align="left">HGNC:1122</td>
+<td align="left">Biotinidase Enzymatic activity/volume Serum or Plasma
+from Normal Control</td>
+<td align="left">Biotinidase</td>
+<td align="right">44</td>
+<td align="right">44</td>
+</tr>
+<tr class="odd">
+<td align="left">1722-8</td>
+<td align="left">HGNC:186</td>
+<td align="left">Adenosine deaminase Quantitative Blood</td>
+<td align="left">Adenosine deaminase</td>
+<td align="right">2</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">48794-2</td>
+<td align="left">HGNC:20442</td>
+<td align="left">Fibrosis Stage</td>
+<td align="left">Fibrosis</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">48795-9</td>
+<td align="left">HGNC:20442</td>
+<td align="left">Fibrosis Score</td>
+<td align="left">fibrosis</td>
+<td align="right">1</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
+</tr>
+<tr class="even">
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="left">NA</td>
+<td align="right">NA</td>
+<td align="right">NA</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="loincs-for-biomarkers-of-particular-interest" class="section level1" number="8">
-<h1><span class="header-section-number">8</span> LOINCs for biomarkers
+<div id="loincs-for-biomarkers-of-particular-interest" class="section level1" number="9">
+<h1><span class="header-section-number">9</span> LOINCs for biomarkers
 of particular interest</h1>
 <ul>
 <li>PSA (Prostate specific antigen)</li>
 <li>Troponin</li>
 <li>CEA (Carcinoembryonic antigen)</li>
 </ul>
-<pre><code>##    loinc_code                          lab_procedure_names protein_name ResolvedForm encounter_id_count patient_id_count
-##        &lt;char&gt;                                       &lt;char&gt;       &lt;char&gt;       &lt;char&gt;              &lt;num&gt;            &lt;num&gt;
-## 1:    10886-0         Prostate Specific Antigen (PSA) Free Kallikrein 3         &lt;NA&gt;             237916           200690
-## 2:    12841-3 Prostate Specific Antigen (PSA) Free Percent Kallikrein 3         &lt;NA&gt;              18144            15636
-## 3:     2857-1              Prostate Specific Antigen (PSA) Kallikrein 3         &lt;NA&gt;            3638051          2900137</code></pre>
-<pre><code>##    loinc_code                                                           lab_procedure_names protein_name ResolvedForm encounter_id_count patient_id_count
-##        &lt;char&gt;                                                                        &lt;char&gt;       &lt;char&gt;       &lt;char&gt;              &lt;num&gt;            &lt;num&gt;
-## 1:    10839-9                         Troponin; Troponin I; Troponin I, Serum/Plasma Random   Troponin I         &lt;NA&gt;            6361359          4790843
-## 2:    16255-2                               Troponin I Cardiac Units/volume Serum or Plasma   Troponin I         &lt;NA&gt;             108279            85966
-## 3:    42757-5                                         Troponin I Cardiac Quantitative Blood   Troponin I         &lt;NA&gt;             108477            80541
-## 4:    49563-0 Troponin I Cardiac Quantitative Serum or Plasma Detection Limit &lt;= 0.01 ng/mL   Troponin I         &lt;NA&gt;               1668             1414
-## 5:     6598-7                                                      Troponin T, Serum/Plasma   Troponin T         &lt;NA&gt;            1563431          1301600
-## 6:    10839-9                         Troponin; Troponin I; Troponin I, Serum/Plasma Random     Troponin         &lt;NA&gt;            6361359          4790843</code></pre>
+<pre><code>## Empty data.table (0 rows and 6 cols): loinc_code,lab_procedure_names,protein_name,ResolvedForm,encounter_id_count,patient_id_count</code></pre>
+<pre><code>## Empty data.table (0 rows and 6 cols): loinc_code,lab_procedure_names,protein_name,ResolvedForm,encounter_id_count,patient_id_count</code></pre>
 <pre><code>## Empty data.table (0 rows and 6 cols): loinc_code,lab_procedure_names,protein_name,ResolvedForm,encounter_id_count,patient_id_count</code></pre>
 </div>
 

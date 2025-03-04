@@ -7,8 +7,7 @@ import pandas as pd
 logging.basicConfig(format='%(levelname)s:%(message)s', level=(logging.DEBUG))
 
 @click.command()
-@click.option("-i", "--input_file", required=True,
-type=click.Path(file_okay=True, dir_okay=False, exists=True), help="Input CSV|TSV file.")
+@click.option("-i", "--input_file", required=True, type=click.Path(file_okay=True, dir_okay=False, exists=True), help="Input CSV|TSV file.")
 @click.option("--tsv", default=False, help="Input TSV flag (default is CSV)")
 
 def main(input_file, tsv):
@@ -17,6 +16,7 @@ def main(input_file, tsv):
     click.echo("ERROR: no input_file.")
 
   df_in = pd.read_csv(input_file, sep=("\t" if tsv else ","), low_memory=False)
+  logging.info(f"Input rows: {df_in.shape[0]}")
   buff  = io.StringIO()
   #df_in.info(buff)
   #logging.info(buff.getvalue())
@@ -29,7 +29,7 @@ def main(input_file, tsv):
   #logging.info(buff.getvalue())
 
   # Split field on semicolons into separate rows indexed by LOINC_NUM.
-  s = df_out['RELATEDNAMES2'].str.split(f"\s*;\s*").apply(pd.Series, 1).stack()
+  s = df_out['RELATEDNAMES2'].str.split(r"\s*;\s*").apply(pd.Series).stack()
   s.index = s.index.droplevel(-1) # to line up with df's index
   s.name = 'RELATEDNAME' # needs a name to join
   del df_out['RELATEDNAMES2']

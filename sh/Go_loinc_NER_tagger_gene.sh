@@ -12,8 +12,17 @@ T0=$(date +%s)
 printf "Executing: %s\n" "$(basename $0)"
 
 cwd=$(pwd)
-
 DATADIR="${cwd}/loinc_data"
+#
+# LOINC release:
+if [ -f "${DATADIR}/loinc_release.txt" ]; then
+	LOINC_RELEASE=$(cat ${DATADIR}/loinc_release.txt)
+else
+	printf "ERROR: not found: ${DATADIR}/loinc_release.txt\n"
+	exit
+fi
+printf "LOINC release: ${LOINC_RELEASE}\n"
+#
 TAGGER_DIR="$(cd $HOME/../app/tagger_precompiled; pwd)"
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TAGGER_DIR"
 DICT_DIR="$(cd $HOME/../data/JensenLab/data; pwd)"
@@ -68,11 +77,11 @@ cat ${ifile} \
 n_ent=$(cat $ofile |wc -l)
 printf "Entities in field \"${coltag}\": ${n_ent}\n"
 ###
-coltag="relatednames2"
+coltag="relatednames"
 ofile="$DATADIR/loinc_chem_names_${coltag}_tagger_target_matches.tsv"
 cat ${ifile} \
 	|sed -e 's/^/:/' \
-	|awk -F '\t' '{print $1 "\t" $5 "\t\t\t" $6}' \
+	|awk -F '\t' '{print $1 "\t" $5 "\t\t\t" $10}' \
 	| ${TAGGER_EXE} \
 	--threads=16 \
 	--entities=$DICT_DIR/human_entities.tsv \
