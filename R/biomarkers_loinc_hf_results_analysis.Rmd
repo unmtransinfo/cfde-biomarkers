@@ -15,7 +15,7 @@ library(plotly)
 
 
 ```{r}
-ifile <- "cerner_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
+ifile <- "oracle_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
 hf_results <- read_delim(ifile, "\t", escape_double=F)
 setDT(hf_results)
 message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
@@ -56,7 +56,7 @@ for (i in 1:length(gpids)) {
   report_dt$mean[i] <- mean(hf_results_this[["numeric_result"]], na.rm=T)
   report_dt$sd[i] <- sd(hf_results_this[["numeric_result"]], na.rm=T)
 }
-write_delim(report_dt, "cerner_hf_data/results_analysis_report.tsv", "\t")
+write_delim(report_dt, "oracle_hf_data/results_analysis_report.tsv", "\t")
 report_dt <- report_dt[order(-pref_units_valcount)]
 knitr::kable(report_dt)
 ```

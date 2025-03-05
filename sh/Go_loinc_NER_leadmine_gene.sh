@@ -4,16 +4,16 @@
 printf "Executing: %s\n" "$(basename $0)"
 #
 cwd=$(pwd)
-DATADIR="$cwd/loinc_data"
 #
 # LOINC release:
-if [ -f "${DATADIR}/loinc_release.txt" ]; then
-	LOINC_RELEASE=$(cat ${DATADIR}/loinc_release.txt)
+if [ -f "${cwd}/LATEST_RELEASE_LOINC.txt" ]; then
+	LOINC_RELEASE=$(cat ${cwd}/LATEST_RELEASE_LOINC.txt)
 else
-	printf "ERROR: not found: ${DATADIR}/loinc_release.txt\n"
+	printf "ERROR: not found: ${cwd}/LATEST_RELEASE_LOINC.txt\n"
 	exit
 fi
 printf "LOINC release: ${LOINC_RELEASE}\n"
+DATADIR="$cwd/loinc_data/v${LOINC_RELEASE}"
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
 DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
@@ -22,6 +22,9 @@ LIBDIR="$(cd $HOME/../app/lib; pwd)"
 BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
 #
 CFGDIR="${DATADIR}/config"
+if [ ! -e ${CFGDIR} ]; then
+	mkdir ${CFGDIR}
+fi
 #
 #############################################################################
 # GeneAndProtein dictionaries and config files.
@@ -103,19 +106,28 @@ nthreads="4"
 #
 echo "Gene+protein NER (descriptions)..."
 #
-for f in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
+for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	#
-	dictname=$(basename $f |perl -pe 's/^(.*)\.cfg$/$1/')
-	printf "Leadmine: $(basename $f) (${dictname})\n"
+	dictname=$(basename $cfgfile |perl -pe 's/^(.*)\.cfg$/$1/')
+	printf "Leadmine: $(basename $cfgfile) (${dictname})\n"
 	#
-	for col in "2" "10" ; do
-		java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
-			-config $f \
-			-i ${DATADIR}/loinc_chem_names.tsv \
-			-textcol $col -unquote -idcol 1 \
-			-o ${DATADIR}/loinc_chem_names_${col}_${dictname}_leadmine.tsv \
-			-v
-	done
+	col="2"
+	colname="component"
+	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
+		-config $cfgfile \
+		-i ${DATADIR}/loinc_chem_names.tsv \
+		-textcol $col -unquote -idcol 1 \
+		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+		-v
+	#
+	col="10"
+	colname="relatedname"
+	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
+		-config $cfgfile \
+		-i ${DATADIR}/loinc_chem_names.tsv \
+		-textcol $col -unquote -idcol 1 \
+		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+		-v
 	#
 done
 #

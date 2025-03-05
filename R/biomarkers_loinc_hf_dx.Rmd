@@ -15,7 +15,7 @@ library(plotly)
 
 ```{r}
 y <- 2016
-fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_dx_OUT_%d.tsv", y)
+fpath_in <- sprintf("oracle_hf_data/hf_labs-selected_dx_OUT_%d.tsv", y)
 hf_dx <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime()))
 setDT(hf_dx)
 head(hf_dx)
@@ -72,6 +72,6 @@ hf_dx_counts <- hf_dx_counts[, .(diagnosis_id, diagnosis_code, diagnosis_descrip
 
 ```{r}
 hf_dx_counts <- hf_dx_counts[order(-n_encounter)]
-write_delim(hf_dx_counts, sprintf("cerner_hf_data/hf_labs-selected_dx_OUT_%d_counts.tsv", y), delim="\t")
+write_delim(hf_dx_counts, sprintf("oracle_hf_data/hf_labs-selected_dx_OUT_%d_counts.tsv", y), delim="\t")
 knitr::kable(hf_dx_counts[1:50])
 ```

@@ -407,7 +407,7 @@ biomarkers (not just theoretical).</li>
 <li>Join HF and NER outputs to generate initial list of clinically
 relevant molecular biomarker candidates.</li>
 </ul>
-<pre><code>## [1] &quot;Tue Mar  4 13:52:18 2025&quot;</code></pre>
+<pre><code>## [1] &quot;Wed Mar  5 13:28:30 2025&quot;</code></pre>
 </div>
 <div id="loinc-version" class="section level1" number="3">
 <h1><span class="header-section-number">3</span> LOINC version</h1>
@@ -415,8 +415,8 @@ relevant molecular biomarker candidates.</li>
 <div id="loinc-codes-for-chemical-tests" class="section level1" number="4">
 <h1><span class="header-section-number">4</span> LOINC codes for
 chemical tests</h1>
-<pre><code>## [1] &quot;LOINC codes for chemical tests: loinc_data/loinc_chem_names.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes: 1981&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes for chemical tests: loinc_data/v2.74/loinc_chem_names.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes: 1985&quot;</code></pre>
 </div>
 <div id="nextmove-leadmine-ner-output-using-geneandprotein-dictionary." class="section level1" number="5">
 <h1><span class="header-section-number">5</span> NextMove LeadMine NER
@@ -425,35 +425,35 @@ output using GeneAndProtein dictionary.</h1>
 <div id="ner-on-loinc-field-component." class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> NER on LOINC field:
 “component”.</h2>
-<pre><code>## [1] &quot;NextMove NER for LOINC-component: loinc_data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes mapped via component text to NER proteins: 805&quot;</code></pre>
+<pre><code>## [1] &quot;NextMove NER for LOINC-component: loinc_data/v2.74/loinc_chem_names_component_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes mapped via component text to NER proteins: 806&quot;</code></pre>
 </div>
-<div id="ner-on-loinc-field-relatednames." class="section level2" number="5.2">
+<div id="ner-on-loinc-field-relatedname." class="section level2" number="5.2">
 <h2><span class="header-section-number">5.2</span> NER on LOINC field:
-“relatednames”.</h2>
-<pre><code>## [1] &quot;NextMove NER for LOINC-relatednames: loinc_data/loinc_chem_names_10_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
-<pre><code>## [1] &quot;LOINC codes mapped via relatednames text to NER proteins: 614&quot;</code></pre>
+“relatedname”.</h2>
+<pre><code>## [1] &quot;NextMove NER for LOINC-relatedname: loinc_data/v2.74/loinc_chem_names_relatedname_NM_CFDictGeneAndProtein_leadmine.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes mapped via relatedname text to NER proteins: 607&quot;</code></pre>
 </div>
 </div>
 <div id="oracle-healthfacts-2019-counts-of-encounter_ids-and-patient_ids-for-all-lab-procedures-with-loinc-codes." class="section level1" number="6">
 <h1><span class="header-section-number">6</span> Oracle HealthFacts 2019
 counts of encounter_ids and patient_ids for all lab procedures, with
 LOINC codes.</h1>
-<pre><code>## [1] &quot;Oracle HealthFacts 2019 counts for labs, with LOINC codes: cerner_hf_data/hf_lab_loinc_counts_OUT.tsv&quot;</code></pre>
+<pre><code>## [1] &quot;Oracle HealthFacts 2019 counts for labs, with LOINC codes: oracle_hf_data/hf_lab_loinc_counts_OUT.tsv&quot;</code></pre>
 <pre><code>## [1] &quot;Lab procedure IDs: 5666; LOINC codes: 5076&quot;</code></pre>
-<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes-discard-cerner-lab-procedure-ids." class="section level2" number="6.1">
+<div id="group-lab-procedures-into-list-aggregate-on-loinc-codes." class="section level2" number="6.1">
 <h2><span class="header-section-number">6.1</span> Group lab procedures
-into list; aggregate on LOINC codes; discard Cerner lab procedure
-IDs.</h2>
-<p>Some different labs have same LOINC codes.</p>
+into list; aggregate on LOINC codes.</h2>
+<p>Some different labs have same LOINC codes. Discarding lab procedures
+IDs.</p>
 </div>
 </div>
 <div id="loinc-proteins-in-hf-encounters" class="section level1" number="7">
 <h1><span class="header-section-number">7</span> LOINC proteins in HF
 encounters</h1>
-<pre><code>## [1] &quot;LOINC codes for proteins: 56&quot;</code></pre>
-<pre><code>## [1] &quot;Protein names: 81&quot;</code></pre>
-<pre><code>## [1] &quot;GeneOrProtein IDs: 52&quot;</code></pre>
+<pre><code>## [1] &quot;LOINC codes for proteins: 64&quot;</code></pre>
+<pre><code>## [1] &quot;Protein names: 93&quot;</code></pre>
+<pre><code>## [1] &quot;GeneOrProtein IDs: 57&quot;</code></pre>
 <p>Build LOINC to gene-or-protein ID mapping. Save to file.</p>
 <div id="group-protein-synonyms-into-list-aggregate-on-loinc-codes." class="section level2" number="7.1">
 <h2><span class="header-section-number">7.1</span> Group protein
@@ -464,7 +464,7 @@ synonyms into list; aggregate on LOINC codes.</h2>
 <h1><span class="header-section-number">8</span> Top occurring
 LOINCs:</h1>
 <table style="width:100%;">
-<caption>LOINCs ranked by occurence: 23 LOINCs, 19
+<caption>LOINCs ranked by occurence: 25 LOINCs, 21
 geneOrProteinIds</caption>
 <colgroup>
 <col width="3%" />
@@ -503,12 +503,30 @@ Serum or Plasma With P-5’-P</td>
 <td align="right">249948</td>
 </tr>
 <tr class="odd">
+<td align="left">10501-5</td>
+<td align="left">UNIPROT:P01231</td>
+<td align="left">LH (Lutenizing Hormone); Lutropin, Serum/Plasma
+Quantitative</td>
+<td align="left">Interstitial cell-stimulating hormone; Interstitual
+cell stimulating hormone; Luteinizing hormone; Lutropin</td>
+<td align="right">421580</td>
+<td align="right">369817</td>
+</tr>
+<tr class="even">
 <td align="left">46769-6</td>
 <td align="left">HGNC:20442</td>
 <td align="left">Cystic Fibrosis Newborn Screen Interpretation</td>
 <td align="left">fibrosis</td>
 <td align="right">103292</td>
 <td align="right">100417</td>
+</tr>
+<tr class="odd">
+<td align="left">2064-4</td>
+<td align="left">HGNC:2295</td>
+<td align="left">Ceruplasmin, Serum</td>
+<td align="left">Caeruloplasmin; Ceruloplasmin; Ferroxidase</td>
+<td align="right">94138</td>
+<td align="right">92229</td>
 </tr>
 <tr class="even">
 <td align="left">10466-1</td>
@@ -682,22 +700,6 @@ from Normal Control</td>
 <td align="left">fibrosis</td>
 <td align="right">1</td>
 <td align="right">1</td>
-</tr>
-<tr class="even">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
-</tr>
-<tr class="odd">
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="left">NA</td>
-<td align="right">NA</td>
-<td align="right">NA</td>
 </tr>
 <tr class="even">
 <td align="left">NA</td>

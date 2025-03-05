@@ -5,12 +5,24 @@
 # LOINC 2.76 released 2023-09-18
 # LOINC 2.80 released 2025-02-26
 ###
-DBNAME="loinc"
 DBHOST="localhost"
 
 cwd="$(pwd)"
 
-DATADIR="${cwd}/loinc_data"
+# LOINC release:
+if [ -f "${cwd}/LATEST_RELEASE_LOINC.txt" ]; then
+	LOINC_RELEASE=$(cat ${cwd}/LATEST_RELEASE_LOINC.txt)
+else
+	printf "ERROR: not found: ${cwd}/LATEST_RELEASE_LOINC.txt\n"
+	exit
+fi
+printf "LOINC release: ${LOINC_RELEASE}\n"
+LOINC_VER=$(echo $LOINC_RELEASE |sed 's/\.//g')
+
+DBNAME="loinc_${LOINC_VER}"
+printf "DBNAME: ${DBNAME}\n"
+
+DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
 
 sql="\
 SELECT
@@ -32,7 +44,12 @@ WHERE
 ORDER BY component, loinc_num
 "
 #
-psql -P pager=off -qAF $'\t' -h $DBHOST -d $DBNAME -c "${sql}" |sed '$d' \
-	>$DATADIR/loinc_chem_names.tsv
+psql -e -P pager=off -qAF $'\t' -h $DBHOST -d $DBNAME -c "${sql}" \
+	-o $DATADIR/loinc_chem_names.tsv
 #
-# Split relatednames2 into separate rows.
+perl -ne 'print if eof' $DATADIR/loinc_chem_names.tsv
+# Remove last line with rowcount.
+perl -i -ne 'print unless eof' $DATADIR/loinc_chem_names.tsv
+#
+printf "Rows: %d\n" $[$(cat $DATADIR/loinc_chem_names.tsv |wc -l) - 1]
+#

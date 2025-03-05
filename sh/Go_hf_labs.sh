@@ -5,7 +5,10 @@
 
 cwd=$(pwd)
 
+DATADIR="${cwd}/oracle_hf_data"
+
 # Define db credentials, ssh tunnel config.
+# DBHOST,DBPORT,DBNAME,TUNNELPORT
 . ${HOME}/.healthfactsrc
 
 #
@@ -13,7 +16,7 @@ ${cwd}/sh/runsql_pg_hf.sh -t -v \
 	-h $DBHOST -z $DBPORT -n $DBNAME \
 	-y localhost -x $TUNNELPORT \
 	-f ${cwd}/sql/hf_lab_loinc_counts.sql \
-	>${cwd}/data/hf_lab_loinc_counts_OUT.tsv
+	>${DATADIR}/hf_lab_loinc_counts_OUT.tsv
 #
 ###
 # Alternate method, directly via psql on db server:

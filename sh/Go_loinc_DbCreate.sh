@@ -7,7 +7,6 @@
 T0=$(date +%s)
 
 cwd=$(pwd)
-DATADIR="${cwd}/loinc_data"
 
 # LOINC release:
 if [ -f "${cwd}/LATEST_RELEASE_LOINC.txt" ]; then
@@ -17,6 +16,9 @@ else
 	exit
 fi
 printf "LOINC release: ${LOINC_RELEASE}\n"
+#
+DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
+#
 printf "${LOINC_RELEASE}\n" >${DATADIR}/loinc_release.txt
 #
 DBNAME="loinc"

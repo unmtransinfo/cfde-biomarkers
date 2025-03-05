@@ -15,7 +15,7 @@ library(plotly, quietly=T)
 
 ```{r}
 y <- 2016
-fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_%d.tsv", y)
+fpath_in <- sprintf("oracle_hf_data/hf_labs-selected_pt_OUT_%d.tsv", y)
 hf_pt <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), age_in_years = col_integer()))
 setDT(hf_pt)
 head(hf_pt)
@@ -50,7 +50,7 @@ hf_pt_counts <- hf_pt[, .(n_encounter = .N), by="lab_procedure_id"]
 ```
 
 ```{r}
-hf2loinc <- read_delim("cerner_hf_data/hf2loinc.tsv", delim = "\t",
+hf2loinc <- read_delim("oracle_hf_data/hf2loinc.tsv", delim = "\t",
 	col_types = cols(.default = col_character()))
 hf_pt_counts <- merge(hf_pt_counts, hf2loinc, by="lab_procedure_id", how="left")
 hf_pt_counts <- hf_pt_counts[order(-n_encounter)]

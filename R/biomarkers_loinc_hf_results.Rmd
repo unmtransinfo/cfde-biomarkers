@@ -15,9 +15,9 @@ library(plotly)
 
 ```{r}
 y <- 2016
-fpath_in <- sprintf("cerner_hf_data/hf_labs-selected_results_OUT_%d.tsv.gz", y)
+fpath_in <- sprintf("oracle_hf_data/hf_labs-selected_results_OUT_%d.tsv.gz", y)
 #hf_results <- read_delim(fpath_in, delim = "\t", col_types = cols(.default = col_character(), admitted_dt_tm = col_datetime(), numeric_result = col_double(), normal_range_low = col_double(), normal_range_high = col_double()))
-hf_results <- read_delim("cerner_hf_data/hf_labs-selected_results_OUT_2016.tsv.gz", delim = "\t", escape_double = FALSE,  trim_ws = TRUE, col_types = cols(encounter_id = col_character()))
+hf_results <- read_delim("oracle_hf_data/hf_labs-selected_results_OUT_2016.tsv.gz", delim = "\t", escape_double = FALSE,  trim_ws = TRUE, col_types = cols(encounter_id = col_character()))
 setDT(hf_results)
 hf_results <- hf_results[, numeric_result := as.numeric(numeric_result)]
 hf_results <- hf_results[, normal_range_low := as.numeric(normal_range_low)]
@@ -107,7 +107,7 @@ fig
 Ignore non-gendered in this study.
 
 ```{r}
-ptdata <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character(), admitted_year = col_integer(), age_in_years = col_integer()))
+ptdata <- read_delim(sprintf("oracle_hf_data/hf_labs-selected_pt_OUT_ptdata_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character(), admitted_year = col_integer(), age_in_years = col_integer()))
 setDT(ptdata)
 ptdata <- ptdata[gender == "Male" | gender == "Female"]
 #tbl <- table(ptdata[, .(race, gender)])
@@ -117,7 +117,7 @@ ptdata <- ptdata[gender == "Male" | gender == "Female"]
 #tbl[, Fpct := 100 * Female / tbl[Race != "TOTAL", sum(Female)]]
 #tbl[, Mpct := 100 * Male / tbl[Race != "TOTAL", sum(Male)]]
 #tbl <- tbl[, .(Race, Female, Fpct, Male, Mpct)]
-#write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_race-gender-counts-table.tsv", y), delim = "\t")
+#write_delim(tbl, sprintf("oracle_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_race-gender-counts-table.tsv", y), delim = "\t")
 #knitr::kable(tbl, digits = 1, format = "html", format.args = list(big.mark = ","))
 ```
 
@@ -146,13 +146,13 @@ tbl <- rbind(tbl, list("TOTAL", tbl[, sum(Female)], tbl[, sum(Male)]))
 tbl[, Fpct := 100 * Female / tbl[Agerange != "TOTAL", sum(Female)]]
 tbl[, Mpct := 100 * Male / tbl[Agerange != "TOTAL", sum(Male)]]
 tbl <- tbl[, .(Agerange, Female, Fpct, Male, Mpct)]
-write_delim(tbl, sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_agerange-gender-counts-table.tsv", y), delim = "\t")
+write_delim(tbl, sprintf("oracle_hf_data/hf_labs-selected_pt_OUT_ptdata_%d_agerange-gender-counts-table.tsv", y), delim = "\t")
 knitr::kable(tbl, digits = 1, format = "html", format.args = list(big.mark = ","))
 ```
 
 
 ```{r}
-eid2pid <- read_delim(sprintf("cerner_hf_data/hf_labs-selected_pt_OUT_eid2pid_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character()))
+eid2pid <- read_delim(sprintf("oracle_hf_data/hf_labs-selected_pt_OUT_eid2pid_%d.tsv.gz", y), delim = "\t", col_types = cols(.default = col_character()))
 setDT(eid2pid)
 ```
 
@@ -204,7 +204,7 @@ hf_results <- hf_results[!is.na(patient_id)]
 hf_results <- merge(hf_results, ptdata[, .(patient_id, gender, agerange)], by="patient_id", all.x=T, all.y=F)
 hf_results[, ':='(encounter_id=NULL, patient_id=NULL, lab_procedure_id=NULL, accession=NULL, admitted_dt_tm=NULL, normal_range_low=NULL, normal_range_high=NULL)]
 message(sprintf("OUTPUT: lines: %d; LOINC_CODEs: %d; GENEORPROTEIN_IDs: %d", nrow(hf_results), hf_results[, uniqueN(loinc_code)], hf_results[, uniqueN(geneOrProteinId)]))
-ofile <- "cerner_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
+ofile <- "oracle_hf_data/hf_labs-selected_results_sex-agerange_OUT.tsv.gz"
 message(sprintf("OUTPUT: writing to %s", nrow(hf_results), ofile))
 write_delim(hf_results, ofile, delim="\t")
 ```

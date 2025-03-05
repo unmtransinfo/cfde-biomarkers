@@ -60,14 +60,15 @@ library(plotly, quietly=T)
 # LOINC version
 
 ```{r}
-LOINC_RELEASE <- trimws(read_file("loinc_data/loinc_release.txt"))
-message(sprintf("LOINC_RELEASE: %s", LOINC_RELEASE))
+LOINC_RELEASE <- trimws(read_file("LATEST_RELEASE_LOINC.txt"))
+DATADIR <- sprintf("loinc_data/v%s", LOINC_RELEASE)
+sprintf("LOINC_RELEASE: %s", LOINC_RELEASE)
 ```
 
 # LOINC codes for chemical tests
 
 ```{r}
-loinc_file <- "loinc_data/loinc_chem_names.tsv"
+loinc_file <- sprintf("%s/loinc_chem_names.tsv", DATADIR)
 sprintf("LOINC codes for chemical tests: %s", loinc_file)
 loinc_chem <- read_delim(loinc_file, "\t", escape_double=F)
 setDT(loinc_chem)
@@ -81,27 +82,27 @@ NER = named entity recognition, a form of text-mining.
 ## NER on LOINC field: "component".
 
 ```{r}
-protein_NER_component_file <- "loinc_data/loinc_chem_names_2_NM_CFDictGeneAndProtein_leadmine.tsv"
+protein_NER_component_file <- sprintf("%s/loinc_chem_names_component_NM_CFDictGeneAndProtein_leadmine.tsv", DATADIR)
 sprintf("NextMove NER for LOINC-component: %s", protein_NER_component_file)
 protein_NER_component <- read_delim(protein_NER_component_file, "\t")
 setDT(protein_NER_component)
 sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
 ```
 
-## NER on LOINC field: "relatednames".
+## NER on LOINC field: "relatedname".
 
 ```{r}
-protein_NER_relatednames_file <-  "loinc_data/loinc_chem_names_10_NM_CFDictGeneAndProtein_leadmine.tsv"
-sprintf("NextMove NER for LOINC-relatednames: %s", protein_NER_relatednames_file)
-protein_NER_relatednames <-  read_delim(protein_NER_relatednames_file, "\t")
-setDT(protein_NER_relatednames)
-sprintf("LOINC codes mapped via relatednames text to NER proteins: %d", protein_NER_relatednames[, uniqueN(DocName)])
+protein_NER_relatedname_file <-  sprintf("%s/loinc_chem_names_relatedname_NM_CFDictGeneAndProtein_leadmine.tsv", DATADIR)
+sprintf("NextMove NER for LOINC-relatedname: %s", protein_NER_relatedname_file)
+protein_NER_relatedname <-  read_delim(protein_NER_relatedname_file, "\t")
+setDT(protein_NER_relatedname)
+sprintf("LOINC codes mapped via relatedname text to NER proteins: %d", protein_NER_relatedname[, uniqueN(DocName)])
 ```
 
 # Oracle HealthFacts 2019 counts of encounter\_ids and patient\_ids for all lab procedures, with LOINC codes.
 
 ```{r}
-hf_loinc_counts_file <- "cerner_hf_data/hf_lab_loinc_counts_OUT.tsv"
+hf_loinc_counts_file <- "oracle_hf_data/hf_lab_loinc_counts_OUT.tsv"
 sprintf("Oracle HealthFacts 2019 counts for labs, with LOINC codes: %s", hf_loinc_counts_file)
 hf_loinc_counts <- read_delim(hf_loinc_counts_file, "\t")
 setDT(hf_loinc_counts)
@@ -127,8 +128,9 @@ hf_loinc_counts <- hf_loinc_counts[, .(
 
 ```{r}
 protein_hr_loincs_component <- merge(protein_NER_component, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
-protein_hr_loincs_relatednames <- merge(protein_NER_relatednames, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
-protein_hr_loincs <- rbind(protein_hr_loincs_component, protein_hr_loincs_relatednames)
+protein_hr_loincs_relatedname <- merge(protein_NER_relatedname, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
+protein_hr_loincs <- rbind(protein_hr_loincs_component, protein_hr_loincs_relatedname)
+protein_hr_loincs <- unique(protein_hr_loincs)
 sprintf("LOINC codes for proteins: %d", protein_hr_loincs[, uniqueN(DocName)])
 sprintf("Protein names: %d", protein_hr_loincs[, uniqueN(EntityText)])
 sprintf("GeneOrProtein IDs: %d", protein_hr_loincs[, uniqueN(ResolvedForm)])
@@ -144,7 +146,7 @@ setorder(loinc2geneOrProteinId, "loinc_code", "geneOrProteinId")
 loinc2geneOrProteinId <- loinc2geneOrProteinId[!grepl("^ENSG", geneOrProteinId)] #For now ignore ENSGs.
 loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := first(geneOrProteinId), by = c("loinc_code")]
 loinc2geneOrProteinId <- unique(loinc2geneOrProteinId)
-write_delim(loinc2geneOrProteinId, "loinc_data/loinc2gp.tsv", delim="\t")
+write_delim(loinc2geneOrProteinId, sprintf("%s/loinc2gp.tsv", DATADIR), delim="\t")
 ```
 
 ## Group protein synonyms into list; aggregate on LOINC codes.
@@ -167,8 +169,8 @@ setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "lab_proce
 
 ```{r}
 protein_hr_loincs_out <- protein_hr_loincs_out[order(-encounter_id_count)]
-write_delim(protein_hr_loincs_out, "cerner_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
-knitr::kable(protein_hr_loincs_out[1:50], caption=sprintf("LOINCs ranked by occurence: %d LOINCs, %d geneOrProteinIds", protein_hr_loincs_out[, uniqueN(loinc_code)], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
+write_delim(protein_hr_loincs_out, "oracle_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
+knitr::kable(protein_hr_loincs_out[1:min(50, nrow(protein_hr_loincs_out))], caption=sprintf("LOINCs ranked by occurence: %d LOINCs, %d geneOrProteinIds", protein_hr_loincs_out[, uniqueN(loinc_code)], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
 ```
 
 # LOINCs for biomarkers of particular interest

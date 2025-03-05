@@ -73,7 +73,7 @@ sprintf("LOINC codes resolved to standard IDs: %d / %d", protein_NER_relatedname
 Oracle Real World Data 2023 counts of distinct encounter\_ids and patient\_ids for LOINC codes of class "CHEM". Each count is for a specific lab test, and year. Some different labs have same LOINC codes, i.e. some Oracle-coded lab tests merge to the same LOINC code. Also, the counts cannot be added, since there may be common patients and encounters. 
 
 ```{r}
-rwd_loinc_counts <- read_csv("cerner_rwd_data/base_counts.csv")
+rwd_loinc_counts <- read_csv("oracle_rwd_data/base_counts.csv")
 setDT(rwd_loinc_counts)
 rwd_loinc_counts <- rwd_loinc_counts[, .(loinc_code, mnemonic, loincclass, yr, count_encs, count_pts)]
 rwd_loinc_counts <- unique(rwd_loinc_counts[loincclass == "CHEM"])
@@ -162,7 +162,7 @@ protein_hr_loincs_out <- protein_hr_loincs_out[, .(
 	lab_count = sum(lab_count)
 	), by=c("loinc_code")]
 protein_hr_loincs_out <- unique(protein_hr_loincs_out[order(-lab_count)])
-write_delim(protein_hr_loincs_out, "cerner_rwd_data/biomarkers_loinc_rwd_out.tsv", delim="\t")
+write_delim(protein_hr_loincs_out, "oracle_rwd_data/biomarkers_loinc_rwd_out.tsv", delim="\t")
 knitr::kable(protein_hr_loincs_out[1:50], caption=sprintf("Top occurring LOINCs (top %d / %d, with %d unique gene-protein IDs)", 50, protein_hr_loincs_out[, .N], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
 ```
 

@@ -12,16 +12,16 @@ T0=$(date +%s)
 printf "Executing: %s\n" "$(basename $0)"
 
 cwd=$(pwd)
-DATADIR="${cwd}/loinc_data"
 #
 # LOINC release:
-if [ -f "${DATADIR}/loinc_release.txt" ]; then
-	LOINC_RELEASE=$(cat ${DATADIR}/loinc_release.txt)
+if [ -f "${cwd}/LATEST_RELEASE_LOINC.txt" ]; then
+	LOINC_RELEASE=$(cat ${cwd}/LATEST_RELEASE_LOINC.txt)
 else
-	printf "ERROR: not found: ${DATADIR}/loinc_release.txt\n"
+	printf "ERROR: not found: ${cwd}/LATEST_RELEASE_LOINC.txt\n"
 	exit
 fi
 printf "LOINC release: ${LOINC_RELEASE}\n"
+DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
 #
 TAGGER_DIR="$(cd $HOME/../app/tagger_precompiled; pwd)"
 LD_LIBRARY_PATH="$LD_LIBRARY_PATH:$TAGGER_DIR"
@@ -52,11 +52,11 @@ echo "9606" >$DATADIR/human_types.tsv
 # 3.	class,
 # 4.	definitiondescription,
 # 5.	status,
-# 6.	relatednames2,
-# 7.	shortname,
-# 8.	long_common_name,
-# 9.	displayname,
-# 10.	consumer_name
+# 6.	shortname,
+# 7.	long_common_name,
+# 8.	displayname,
+# 9.	consumer_name,
+# 10.	relatedname
 #
 # NER on columns 2 (component) and 6 (relatednames2).
 ###
@@ -77,7 +77,7 @@ cat ${ifile} \
 n_ent=$(cat $ofile |wc -l)
 printf "Entities in field \"${coltag}\": ${n_ent}\n"
 ###
-coltag="relatednames"
+coltag="relatedname"
 ofile="$DATADIR/loinc_chem_names_${coltag}_tagger_target_matches.tsv"
 cat ${ifile} \
 	|sed -e 's/^/:/' \
