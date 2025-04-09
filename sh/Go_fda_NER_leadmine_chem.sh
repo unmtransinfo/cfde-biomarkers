@@ -6,10 +6,12 @@ printf "Executing: %s\n" "$(basename $0)"
 cwd=$(pwd)
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
-DICTDIR="${NM_ROOT}/dictionaries-20231222"
+#DICTDIR="${NM_ROOT}/dictionaries-20231222"
+DICTDIR="${NM_ROOT}/dictionaries-20250331"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
-BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
+#BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
+BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.4-SNAPSHOT-jar-with-dependencies.jar"
 #
 DATADIR="$cwd/fda_clia_data"
 CFGDIR="${DATADIR}/config"

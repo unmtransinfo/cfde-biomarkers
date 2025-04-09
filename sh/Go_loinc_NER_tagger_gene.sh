@@ -58,9 +58,10 @@ echo "9606" >$DATADIR/human_types.tsv
 # 9.	consumer_name,
 # 10.	relatedname
 #
-# NER on columns 2 (component) and 6 (relatednames2).
+# NER on columns 2 (component), 7 (long_common_name), and 10 (relatedname).
 ###
 ifile="${DATADIR}/loinc_chem_names.tsv"
+###
 coltag="component"
 ofile="$DATADIR/loinc_chem_names_${coltag}_tagger_target_matches.tsv"
 cat ${ifile} \
@@ -73,10 +74,24 @@ cat ${ifile} \
 	--types=$DATADIR/human_types.tsv \
 	--stopwords=$DATADIR/tagger_global.tsv \
 	--out-matches=$ofile
-#
 n_ent=$(cat $ofile |wc -l)
 printf "Entities in field \"${coltag}\": ${n_ent}\n"
-###
+#
+coltag="long_common_name"
+ofile="$DATADIR/loinc_chem_names_${coltag}_tagger_target_matches.tsv"
+cat ${ifile} \
+	|sed -e 's/^/:/' \
+	|awk -F '\t' '{print $1 "\t" $5 "\t\t\t" $7}' \
+	| ${TAGGER_EXE} \
+	--threads=16 \
+	--entities=$DICT_DIR/human_entities.tsv \
+	--names=$DICT_DIR/human_names.tsv \
+	--types=$DATADIR/human_types.tsv \
+	--stopwords=$DATADIR/tagger_global.tsv \
+	--out-matches=$ofile
+n_ent=$(cat $ofile |wc -l)
+printf "Entities in field \"${coltag}\": ${n_ent}\n"
+#
 coltag="relatedname"
 ofile="$DATADIR/loinc_chem_names_${coltag}_tagger_target_matches.tsv"
 cat ${ifile} \
@@ -89,7 +104,6 @@ cat ${ifile} \
 	--types=$DATADIR/human_types.tsv \
 	--stopwords=$DATADIR/tagger_global.tsv \
 	--out-matches=$ofile
-#
 n_ent=$(cat $ofile |wc -l)
 printf "Entities in field \"${coltag}\": ${n_ent}\n"
 #

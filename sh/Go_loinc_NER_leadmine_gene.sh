@@ -16,10 +16,12 @@ printf "LOINC release: ${LOINC_RELEASE}\n"
 DATADIR="$cwd/loinc_data/v${LOINC_RELEASE}"
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
-DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
+#DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
+DICTDIR="${NM_ROOT}/dictionaries-20250331/Dictionaries"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
-BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
+#BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
+BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.4-SNAPSHOT-jar-with-dependencies.jar"
 #
 CFGDIR="${DATADIR}/config"
 if [ ! -e ${CFGDIR} ]; then
@@ -104,7 +106,6 @@ nthreads="4"
 # 10.	relatedname
 #
 #
-echo "Gene+protein NER (descriptions)..."
 #
 for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	#
@@ -113,6 +114,7 @@ for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	#
 	col="2"
 	colname="component"
+	echo "Gene+protein NER (${colname})..."
 	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 		-config $cfgfile \
 		-i ${DATADIR}/loinc_chem_names.tsv \
@@ -120,8 +122,30 @@ for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
 		-v
 	#
+	col="4"
+	colname="definitiondescription"
+	echo "Gene+protein NER (${colname})..."
+	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
+		-config $cfgfile \
+		-i ${DATADIR}/loinc_chem_names.tsv \
+		-textcol $col -unquote -idcol 1 \
+		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+		-v
+	#
+	col="7"
+	colname="long_common_name"
+	echo "Gene+protein NER (${colname})..."
+	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
+		-config $cfgfile \
+		-i ${DATADIR}/loinc_chem_names.tsv \
+		-textcol $col -unquote -idcol 1 \
+		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+		-v
+	#
+	#
 	col="10"
 	colname="relatedname"
+	echo "Gene+protein NER (${colname})..."
 	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 		-config $cfgfile \
 		-i ${DATADIR}/loinc_chem_names.tsv \

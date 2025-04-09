@@ -40,7 +40,7 @@ message(sprintf("RESULT_UNIT_IDs: %s", hf_results[, uniqueN(result_units_id)]))
 Map LOINC codes to GeneOrProtein IDs.
 
 ```{r}
-loinc2gp <- read_delim("loinc_data/loinc2gp.tsv", delim="\t", escape_double=F,  trim_ws=T, col_types=cols(loinc_code = col_character()))
+loinc2gp <- read_delim("loinc_data/v2.80/loinc2gp.tsv", delim="\t", escape_double=F,  trim_ws=T, col_types=cols(loinc_code = col_character()))
 setDT(loinc2gp)
 hf_results <- merge(hf_results, loinc2gp, by="loinc_code", all.x=T, all.y=F)
 message(sprintf("GeneOrProtein_IDs: %s", hf_results[, uniqueN(geneOrProteinId)]))
@@ -190,6 +190,11 @@ message(sprintf("PSA units: %s; mean: %.2f; variance: %.2f",
 								mean(hf_results_psa[["numeric_result"]], na.rm=T),
 								var(hf_results_psa[["numeric_result"]], na.rm=T)
 								))
+```
+Save plot to file.
+
+```{r}
+save_image(fig, "output/psa_stratified_plot.svg")
 ```
 
 Add patient sex and agerange to results dataset.

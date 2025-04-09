@@ -16,12 +16,13 @@ else
 	exit
 fi
 printf "LOINC release: ${LOINC_RELEASE}\n"
+LOINC_VER=$(echo $LOINC_RELEASE |sed 's/\.//g')
 #
 DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
 #
 printf "${LOINC_RELEASE}\n" >${DATADIR}/loinc_release.txt
 #
-DBNAME="loinc"
+DBNAME="loinc_${LOINC_VER}"
 DBDIR=$(cd $HOME/../data/LOINC/v${LOINC_RELEASE}; pwd)
 #
 if [ ! -e "${DBDIR}" ]; then
@@ -31,7 +32,7 @@ fi
 #
 loinc_csvfile="${DBDIR}/LoincTable/Loinc.csv"
 #
-relatednames_tsvfile="/tmp/relatedname.tsv"
+relatednames_tsvfile="$DATADIR/relatednames.tsv"
 ${cwd}/python/relatednames_table.py \
 	-i /home/data/LOINC/v${LOINC_RELEASE}/LoincTable/Loinc.csv \
 	>$relatednames_tsvfile
