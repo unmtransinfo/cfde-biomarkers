@@ -1,13 +1,11 @@
-# FDA CLIA Database
+# FDA CLIA Data
 
-## FDA Clinical Laboratory Improvement Amendments (CLIA) Database
-
-### Overview
+## Overview
 
 The Clinical Laboratory Improvement Amendments (CLIA) of 1988 provide the authority for certification and oversight of clinical labs and lab testing. Clinical labs are required to have the appropriate certificate granted by CLIA before accepting human samples for testing. The Center for Medicare & Medicaid Services (CMS), the FDA, and the CDC are responsible for administering the CLIA program. CMS is responsible for issuing lab certificates and enforcing regulatory lab compliance. The FDA reviews requests for CLIA waiver applications and is responsible for categorizing tests based on complexity (FDA CLIA database). The CDC develops technical standards and guidelines for improving the quality of lab tests.
 
 
-### FDA CLIA Database
+## FDA CLIA Database
 
 The FDA CLIA database contains records of all commercially marketed lab tests that have been categorized by CLIA. The database is updated monthly and can be searched by a variety of filters, such as Test System/Manufacturer, Analyte Name, Complexity, Specialty, and Date of Categorization. The categorization of tests prior to February 2000 was conducted by the CDC and has since been done by the FDA.
 
@@ -32,7 +30,7 @@ The available CLIA data for download includes a file of in vitro test systems ca
 
 For more detailed information about the categorized tests, such as the applicant contact details, FDA 510(k) submission information, and a summary letter of the FDA’s decision, you will need to visit the FDA database page. The downloadable CLIA data files are formatted to provide a more concise overview of the approved test system. While the files may not offer extensive details, I believe they remain a reliable source for gathering information on thousands of analytes, many of which are used across hundreds if not thousands of test systems. 
 
-In total, the 100,770 downloadable CLIA test system records cover approximately 1,183 distinct analytes. The word “approximately” is used because, due to my limited chemistry and medical knowledge, I am unsure if analytes — such as “Cystacin C” and “Cystatin C” —refer to different proteins or if typographical errors occurred during data entry. This is one example of potential discrepancies, and I cannot yet confirm whether more exist. 
+In total, the 100,770 downloadable CLIA test system records cover approximately 1,183 distinct analytes. This is an approximation due to various analyte naming conventions used and data entry errors. 
 
 
 ### Table 1: 25 Most Present Biomarker Analytes in CLIA Records (as of 3/18/25)
@@ -79,10 +77,10 @@ CFDE Biomarkers Poster 2025 - https://docs.google.com/presentation/d/1yUaHy-weiE
 | benzodiazepines                                  | 1567        |
 | barbiturates                                     | 1528        |
 | methadone                                        | 1496        |
-| **glucose monitoring devices**                   | **1440**    |
+| ==glucose monitoring devices==                   | ==1440==    |
 | methamphetamines                                 | 1432        |
 | opiates                                          | 1308        |
-| **urine hcg by visual color comparison tests**   | **1118**    |
+| ==urine hcg by visual color comparison tests==   | ==1118==    |
 | tricyclic antidepressants                        | 1067        |
 | methylenedioxymethamphetamine                    | 1058        |
 | ldl cholesterol                                  | 1057        |
@@ -97,10 +95,10 @@ CFDE Biomarkers Poster 2025 - https://docs.google.com/presentation/d/1yUaHy-weiE
 | propoxyphene                                     | 829         |
 | urea (bun)                                       | 828         |
 | creatinine                                       | 817         |
-| cholesterol                                      | 793         |
+| ==cholesterol==                                  | ==793==     |
 | triglycerides                                    | 743         |
 
-> **Highlighted rows** in Table 2 denote analytes removed from Table 1 for not meeting biomarker criteria or being too broad.
+> ==Highlighted rows== in Table 2 denote analytes removed from Table 1 for not meeting biomarker criteria or being too broad.
 
 ---
 
@@ -123,3 +121,12 @@ CFDE Biomarkers Poster 2025 - https://docs.google.com/presentation/d/1yUaHy-weiE
 
 ### Example Data Format
 
+## Workflow
+
+- Download CLIA FDA and CDC files from last two links above, or use run_CLIA_sql.sh.
+- Create postgresql database for CLIA data or use existing database.
+- Change filepaths and uncomment for postgresql database instance, and run run_CLIA_sql.sh.
+- run_CLIA_sql.sh should: 
+    1. execute CLIA_tables.sql, creating tables of analytes by occurrence
+    2. run NER using leadmine to identify gene and protein analytes, 
+    3. create new tables of recognized gene and proteins using CLIA_NER.sql.
