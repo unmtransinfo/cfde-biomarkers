@@ -1,0 +1,55 @@
+loinc_code	lab_procedure_mnemonic	lab_procedure_name	lab_procedure_group
+2857-1	PSA	Prostate Specific Antigen (PSA)	PSA Test
+10886-0	PSA Free	Prostate Specific Antigen (PSA) Free	PSA Test
+12841-3	PSA	PSA Free %	PSA Test
+10839-9	Troponin I	Troponin I	Troponin Test
+6598-7	Troponin T S/Pl	Troponin T, Serum/Plasma	Troponin Test
+42757-5	Troponin I Bld Quant	Troponin I Cardiac Quantitative Blood	Troponin Test
+1742-6	ALT/SGPT	Alanine Aminotransferase / SGPT	ALT Test
+1743-4	ALT SerPl w P-5'-P cCnc	Alanine aminotransferase Enzymatic activity/volume Serum or Plasma With P-5'-P	ALT Test
+1798-8	Amylase, Serum	Amylase, Serum Enzymatic Activity/Volume	Amylase Test
+30522-7	C-Reactive Protein, Highly Sensitive	C-Reactive Protein, Highly Sensitive	CRP Test
+7916-0	C-Reactive Protein	C-Reactive Protein	CRP Test
+1988-5	C-Reactive Protein Quant	C-Reactive Protein Quantitative, Serum	CRP Test
+2157-6	Creatine Kinase	Creatine Kinase	CK Test
+5912-1	CK Isoenzyme	CK Isoenzyme	CK Test
+20569-0	CK Rel Index	CK Relative Index Calculation	CK Test
+3040-3	Lipase, Serum	Lipase, Serum	Lipase Test
+2324-2	GGT/GGTP	GGT/GGTP (Gamma Glutamyl Transpeptidase) Serum/Plasma	GGT Test
+2039-6	CEA, Serum	CEA (Carcinoembryonic Antigen) Quantitative, Serum	Cancer Antigen Test
+2006-5	CA 125	Cancer Antigen, CA 125	Cancer Antigen Test
+2012-3	CA 27-29	Cancer Antigen 27-29	Cancer Antigen Test
+2009-9	CA 19-9	Cancer Antigen 19-9	Cancer Antigen Test
+2007-3	CA 15-3	Cancer Antigen 15-3	Cancer Antigen Test
+10334-1	CA 125 Quant	Cancer Antigen 125 Quantitative, Serum	Cancer Antigen Test
+17842-6	CA 27-29 Quant	Cancer Antigen 27-29 Quantitative, Serum	Cancer Antigen Test
+5176-3	H pylori AB IgG	Helicobacter pylori Antibody IgG	H pylori Test
+6420-4	H pylori AB IgA	Helicobacter pylori Antibody IgA	H pylori Test
+7900-4	H pylori AB	Helicobacter pylori Antibody	H pylori Test
+5195-3	Hep B Surface AG (HBSAG)	Hepatitis B Surface Antigen (HBSAG)	Hepatitis B Test
+58452-4	Hep B Surface AG (HBSAG) Qnt	Hepatitis B Surface Antigen (HBSAG) Quantitative	Hepatitis B Test
+5193-8	Hep B Surface AB Ser EIA Quant	Hepatitis B Surface Antibody Quantitative Serum Immunoassay	Hepatitis B Test
+22316-4	Hep B Core AB (Anti HBc)Tot	Hepatitis B Core Antibody (Anti HBc) Total	Hepatitis B Test
+31204-1	Hep B Core AB (Anti HBc)IgM	Hepatitis B Core Antibody (Anti HBc) IgM	Hepatitis B Test
+32019-2	Hep B surface AB Titer Ser	Hepatitis B Surface Antibody Titer Serum	Hepatitis B Test
+16935-9	Hep B Surface AB	Hepatitis B Surface Antibody	Hepatitis B Test
+5185-4	Hep B Core IgM Ser EIA Quant	Hepatitis B Core Antibody IgM Quantitative Serum Immunoassay	Hepatitis B Test
+29615-2	Hep B DNA Quantitative VrlLd	Hepatitis B DNA Quantitative Viral Load copies/mL	Hepatitis B Test
+49600-0	Hep B DNA Quantitative VrlLd log10IU/mL	Hepatitis B DNA Quantitative Viral Load log 10 IU/mL	Hepatitis B Test
+16935-9	Hep B Surface AB Ser	Hepatitis B Surface Antibody Serum	Hepatitis B Test
+11258-1	Hep B DNA Ser Quant	Hepatitis B DNA Quantitative Serum	Hepatitis B Test
+42595-9	Hep B DNA SerPl PCR aCnc	Hepatitis B Virus DNA Viral Load Serum or Plasma Probe and Target Amplification Method	Hepatitis B Test
+48398-2	Hep B DNA SerPl PCR Log IU	Hepatitis B Virus DNA Viral Load Log IU Serum or Plasma Probe and Target Amplification Method	Hepatitis B Test
+5198-7	Hep C AB EIA Index	Hepatitis C Antibody EIA Index	Hepatitis C Test
+48159-8	Hep C Signal C/O Ratio	Hepatitis C Signal Cutoff Ratio	Hepatitis C Test
+49376-7	Hep C RNA Quant IU/mL	Hepatitis C RNA Quantitative Viral Load IU/mL	Hepatitis C Test
+49380-9	Hep C RNA Quant Probe	Hepatitis C RNA Quantitative Probe	Hepatitis C Test
+22327-1	Hep C AB (Anti HCV)	Hepatitis C Antibody (Anti HCV)	Hepatitis C Test
+38180-6	Hep C RNA SerPl PCR-Log IU	Hepatitis C RNA Log Units/Volume Viral Load PCR Serum/Plasma	Hepatitis C Test
+47252-2	Hep C RNA SerPl PCR-Log	Hepatitis C RNA Log Viral Load PCR Serum/Plasma	Hepatitis C Test
+11011-4	Hep C RNA SerPl PCR Quant	Hepatitis C RNA Quantitative Viral load PCR Serum/Plasma	Hepatitis C Test
+49372-6	Hep C RNA Unspec PCR LogCnt	Hepatitis C Virus RNA Viral Load Log Copies Unspecified Specimen Probe Target Amplification Method	Hepatitis C Test
+49376-7	Hep C Probe Quant	Hepatitis C Probe Quantitative (NR)	Hepatitis C Test
+20416-4	Hep C RNA Quant+Genotype	Hepatitis C RNA Quantitative and Genotype	Hepatitis C Test
+5012-0	Hep C RNA Ql PCR	Hepatitis C RNA PCR Qualitative	Hepatitis C Test
+49380-9	Hep C RNA Quant copies/mL	Hepatitis C RNA Quantitative Viral Load copies/mL	Hepatitis C Test
