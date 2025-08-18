@@ -17,7 +17,7 @@ def main(ifile, ofile, lpg, csv, raw, lpg_all):
   """This program generates SQL for HF lab results, for LOINC codes specified via input lookup table formated thus:
 
 loinc_code,lab_procedure_mnemonic,lab_procedure_name,lab_procedure_group
-        ."""
+"""
   df_in = pd.read_csv(ifile, sep=("," if csv else "\t"), dtype=str)
   logging.info(f"Input rows: {df_in.shape[0]}")
   logging.info(f"Input columns: {df_in.columns}")
@@ -34,7 +34,8 @@ loinc_code,lab_procedure_mnemonic,lab_procedure_name,lab_procedure_group
     loinc_codes = df_in["loinc_code"].to_list()
     lpg = ",".join(lpgs)
   else:
-    click.echo("ERROR: required: --lab_procedure_group or --lpg_all")
+    logging.error("required: --lab_procedure_group or --lpg_all")
+    sys.exit()
 
   loinc_codes_sql = "'"+("','".join(loinc_codes))+"'"
   logging.info(f"For lab_procedure_group \"{lpg}\", loinc_code values: {loinc_codes}")

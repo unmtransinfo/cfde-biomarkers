@@ -15,7 +15,7 @@ library(plotly)
 
 
 ```{r}
-ifile <- "oracle_hf_data/hf_labs2sql_all_raw_out.csv"
+ifile <- "oracle_hf_data/hf_labs-selected_results_agg-Troponin_FULL-2018_OUT.tsv"
 hf_results <- read_delim(ifile, "\t", escape_double=F)
 setDT(hf_results)
 message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
