@@ -21,6 +21,40 @@ setDT(hf_results)
 message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
 ```
 
+```{r}
+lab_procedure_mnemonic_this <- "Troponin I"
+hf_results_this <- hf_results[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, sd = NaN)
+i <- 1
+report_dt$labs[i] <- paste(unique(hf_results_this[["lab_procedure_mnemonic"]]), collapse=", ")
+report_dt$valcount[i] <- hf_results_this[, .N]
+tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
+units_preferred <- tbl[["V1"]][1]
+report_dt$units[i] <- paste(unique(hf_results_this[["unit_display"]]), collapse=", ")
+report_dt$pref_units[i] <- units_preferred
+report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
+hf_results_this <- hf_results_this[unit_display == units_preferred]
+report_dt$mean[i] <- mean(hf_results_this[["numeric_result"]], na.rm=T)
+report_dt$sd[i] <- sd(hf_results_this[["numeric_result"]], na.rm=T)
+
+#write_delim(report_dt, "oracle_hf_data/results_analysis_report.tsv", "\t")
+report_dt <- report_dt[order(-pref_units_valcount)]
+knitr::kable(report_dt)
+```
+```{r}
+values <- hf_results_this[["numeric_result"]]
+message(sprintf("%s; N = %d", lab_procedure_mnemonic_this, length(values)))
+# Remove extreme and likely spurious values
+qtl <- quantile(values, probs = seq(0, 1, .05))
+values <- hf_results_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
+plotname <- sprintf("%s (%s)<br>N = %d", lab_procedure_mnemonic_this, units_preferred, length(values))
+p <- plot_ly(type="histogram", x = values, name=plotname) %>%
+    layout(xaxis = list(range = list(qtl[["10%"]], qtl[["90%"]])),
+           annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
+                yanchor="bottom", xanchor="center", align="center",
+                font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
+p
+```
 
 
 
