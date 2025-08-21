@@ -1,6 +1,8 @@
 -- For selected LOINC codes, analysis of empirical distributions.
 -- Troponin codes: '10839-9','6598-7','42757-5','16255-2','49563-0'
-SELECT
+CREATE TABLE jjyang.hf_f_lab_troponin_2018
+AS
+SELECT DISTINCT
 	fe.encounter_id,
 	fe.admitted_dt_tm,
 	dlp.loinc_code,
@@ -9,10 +11,6 @@ SELECT
         dlp.lab_procedure_mnemonic,        
 	du.unit_display,
 	flp.numeric_result
---	ROUND(STDDEV(flp.numeric_result)::NUMERIC, 2) psa_stddev,
---	ROUND(AVG(flp.numeric_result)::NUMERIC, 2) psa_mean,
---	ROUND(STDDEV(flp.numeric_result)::NUMERIC, 2) psa_stddev,
---        COUNT(flp.numeric_result) n
 FROM
 	public.hf_f_lab_procedure flp
 JOIN
@@ -28,9 +26,4 @@ WHERE
         AND du.unit_display IS NOT NULL
         AND du.unit_display != 'NULL'
         AND du.unit_display IN ('ng/dL', 'ng/mL', 'ug/mL')
---        AND du.unit_display IN ('ng/dL', 'ng/mL', 'ug/mL', '%')
--- GROUP BY
---	dlp.lab_procedure_id,
---        dlp.lab_procedure_mnemonic,       
---	du.unit_display
 	;
