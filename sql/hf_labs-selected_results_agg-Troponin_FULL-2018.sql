@@ -3,8 +3,11 @@
 CREATE TABLE jjyang.hf_f_lab_troponin_2018
 AS
 SELECT DISTINCT
+	fe.patient_id,
 	fe.encounter_id,
 	fe.admitted_dt_tm,
+	fe.age_in_years,
+	fe.patient_type_id,
 	dlp.loinc_code,
 	flp.accession,
         dlp.lab_procedure_id,
