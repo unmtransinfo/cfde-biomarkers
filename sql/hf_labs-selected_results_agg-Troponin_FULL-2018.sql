@@ -7,6 +7,7 @@ SELECT DISTINCT
 	fe.encounter_id,
 	fe.admitted_dt_tm,
 	fe.age_in_years,
+	fe.age_in_days,
 	fe.patient_type_id,
 	dlp.loinc_code,
 	flp.accession,

@@ -15,38 +15,39 @@ library(plotly)
 
 
 ```{r}
-ifile <- "oracle_hf_data/hf_labs-selected_results_agg-Troponin_FULL-2018_OUT.tsv"
-hf_results <- read_delim(ifile, "\t", escape_double=F)
-setDT(hf_results)
-message(sprintf("Columns: %s", paste(names(hf_results), collapse=", ")) )
+ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_out.tsv"
+hf_lab <- read_delim(ifile, "\t", escape_double=F)
+setDT(hf_lab)
+sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
+sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
 ```
 
 ```{r}
 lab_procedure_mnemonic_this <- "Troponin I"
-hf_results_this <- hf_results[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
 report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, sd = NaN)
 i <- 1
-report_dt$labs[i] <- paste(unique(hf_results_this[["lab_procedure_mnemonic"]]), collapse=", ")
-report_dt$valcount[i] <- hf_results_this[, .N]
-tbl <- data.table(table(hf_results_this[["unit_display"]]))[order(-N)]
+report_dt$labs[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
+report_dt$valcount[i] <- hf_lab_this[, .N]
+tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
 units_preferred <- tbl[["V1"]][1]
-report_dt$units[i] <- paste(unique(hf_results_this[["unit_display"]]), collapse=", ")
+report_dt$units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
 report_dt$pref_units[i] <- units_preferred
 report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
-hf_results_this <- hf_results_this[unit_display == units_preferred]
-report_dt$mean[i] <- mean(hf_results_this[["numeric_result"]], na.rm=T)
-report_dt$sd[i] <- sd(hf_results_this[["numeric_result"]], na.rm=T)
+hf_lab_this <- hf_lab_this[unit_display == units_preferred]
+report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
+report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
 
 #write_delim(report_dt, "oracle_hf_data/results_analysis_report.tsv", "\t")
 report_dt <- report_dt[order(-pref_units_valcount)]
 knitr::kable(report_dt)
 ```
 ```{r}
-values <- hf_results_this[["numeric_result"]]
+values <- hf_lab_this[["numeric_result"]]
 message(sprintf("%s; N = %d", lab_procedure_mnemonic_this, length(values)))
 # Remove extreme and likely spurious values
 qtl <- quantile(values, probs = seq(0, 1, .05))
-values <- hf_results_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
+values <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
 plotname <- sprintf("%s (%s)<br>N = %d", lab_procedure_mnemonic_this, units_preferred, length(values))
 p <- plot_ly(type="histogram", x = values, name=plotname) %>%
     layout(xaxis = list(range = list(qtl[["10%"]], qtl[["90%"]])),
@@ -57,6 +58,51 @@ p
 ```
 
 
+```{r}
+ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_patients_out.tsv"
+hf_pt <- read_delim(ifile, "\t", escape_double=F)
+setDT(hf_pt)
+message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")) )
+```
+
+## Patient cohort descriptive statistics
+
+```{r}
+sprintf("Patients: %s", hf_pt[, uniqueN(patient_id)])
+tbl <- data.table(table(hf_pt[, gender]))
+names(tbl) <- c("Gender", "n_pt")
+tbl <- tbl[order(-n_pt)]
+knitr::kable(tbl)
+```
+
+```{r}
+tbl <- table(hf_pt[, patient_type_desc])
+tbl <- data.table(tbl)
+names(tbl) <- c("Patient_type", "n_pt")
+tbl <- tbl[order(-n_pt)]
+knitr::kable(tbl)
+```
 
 
+```{r}
+tbl <- table(hf_pt[, race])
+tbl <- data.table(tbl)
+names(tbl) <- c("Race", "n_pt")
+tbl <- tbl[order(-n_pt)]
+knitr::kable(tbl)
+```
+
+## Age distribution
+
+```{r}
+fig <- plot_ly(alpha = 0.8) %>% 
+	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
+	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
+	layout(barmode = "group",
+				 title = sprintf("Histogram of patient count by age, gender"),
+         xaxis = list(title = "Age", zeroline = F),
+         yaxis = list(title = "Patients", zeroline = F),
+				 legend = list(x = .8, y = .9))
+fig
+```
 
