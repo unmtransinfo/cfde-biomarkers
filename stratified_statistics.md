@@ -57,10 +57,7 @@ variables of primary and initial interest: age, sex, race.
  8. Develop set of diagnostic ICD codes to be exclusion criteria, defining a
 normal patient criteria.
 
- 9. Generate descriptive statistics on the patient cohort. Filter the
-initial patient cohort using the exclusion criteria, to generate the normal
-patient cohort. Re-generate descriptive statistics for the stratification
-variables of interest.
+ 9. Retrieve all exclusion criteria diagnoses for the initial patient cohort.  Filter the initial patient cohort using the exclusion criteria, to generate the normal patient cohort. Re-generate descriptive statistics for the stratification variables of interest.
 
  10. Define stratification ranges. Probably age ranges by decade [0-9],
 [10-19], [20-29], ... [80-89], 90+. Generate patient ID sets for each

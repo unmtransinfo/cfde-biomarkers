@@ -5,7 +5,7 @@ output:
     df_print: paged
 ---
 
-```{r include=F}
+```{r echo=F, include=F}
 library(readr)
 library(data.table)
 library(plotly)
@@ -14,15 +14,15 @@ library(plotly)
 ## Read data file for sample, representative year[s], due to size constraints.
 
 
-```{r}
+```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_out.tsv"
-hf_lab <- read_delim(ifile, "\t", escape_double=F)
+hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F)
 setDT(hf_lab)
 sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
 sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
 ```
 
-```{r}
+```{r echo=F}
 lab_procedure_mnemonic_this <- "Troponin I"
 hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
 report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, sd = NaN)
@@ -42,14 +42,26 @@ report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
 report_dt <- report_dt[order(-pref_units_valcount)]
 knitr::kable(report_dt)
 ```
-```{r}
+```{r echo=F}
 values <- hf_lab_this[["numeric_result"]]
-message(sprintf("%s; N = %d", lab_procedure_mnemonic_this, length(values)))
+sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values))
+qtl <- quantile(values, probs = seq(0, 1, .1))
+writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+```
+
 # Remove extreme and likely spurious values
-qtl <- quantile(values, probs = seq(0, 1, .05))
+
+```{r echo=F}
 values <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
+sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values))
+qtl <- quantile(values, probs = seq(0, 1, .1))
+writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+```
+
+
+```{r echo=F}
 plotname <- sprintf("%s (%s)<br>N = %d", lab_procedure_mnemonic_this, units_preferred, length(values))
-p <- plot_ly(type="histogram", x = values, name=plotname) %>%
+p <- plot_ly(type="histogram", x = values, name=plotname, xbins = list(size = 0.01)) %>%
     layout(xaxis = list(range = list(qtl[["10%"]], qtl[["90%"]])),
            annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
                 yanchor="bottom", xanchor="center", align="center",
@@ -58,16 +70,16 @@ p
 ```
 
 
-```{r}
+```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_patients_out.tsv"
-hf_pt <- read_delim(ifile, "\t", escape_double=F)
+hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F)
 setDT(hf_pt)
 message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")) )
 ```
 
 ## Patient cohort descriptive statistics
 
-```{r}
+```{r echo=F}
 sprintf("Patients: %s", hf_pt[, uniqueN(patient_id)])
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
@@ -75,7 +87,7 @@ tbl <- tbl[order(-n_pt)]
 knitr::kable(tbl)
 ```
 
-```{r}
+```{r echo=F}
 tbl <- table(hf_pt[, patient_type_desc])
 tbl <- data.table(tbl)
 names(tbl) <- c("Patient_type", "n_pt")
@@ -84,7 +96,7 @@ knitr::kable(tbl)
 ```
 
 
-```{r}
+```{r echo=F}
 tbl <- table(hf_pt[, race])
 tbl <- data.table(tbl)
 names(tbl) <- c("Race", "n_pt")
@@ -94,15 +106,22 @@ knitr::kable(tbl)
 
 ## Age distribution
 
-```{r}
-fig <- plot_ly(alpha = 0.8) %>% 
+```{r echo=F}
+values <- hf_pt[!is.na(age_mid_year), age_mid_year]
+sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f", length(values), min(values), max(values), mean(values), median(values))
+qtl <- quantile(values, probs = seq(0, 1, .1))
+writeLines(sprintf("Age_mid_year: %4s-ile: %9.1f", names(qtl), qtl))
+```
+
+```{r echo=F}
+fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
 	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
 				 title = sprintf("Histogram of patient count by age, gender"),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
-				 legend = list(x = .8, y = .9))
+				 legend = list(x = .2, y = .7))
 fig
 ```
 
