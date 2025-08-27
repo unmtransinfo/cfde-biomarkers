@@ -80,7 +80,16 @@ message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")) )
 ## Patient cohort descriptive statistics
 
 ```{r echo=F}
-sprintf("Patients: %s", hf_pt[, uniqueN(patient_id)])
+sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", hf_pt[, .N], hf_pt[exclusion_flag==F, .N], 100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N])
+tbl <- data.table(table(hf_pt[, gender]))
+names(tbl) <- c("Gender", "n_pt")
+tbl <- tbl[order(-n_pt)]
+knitr::kable(tbl)
+```
+## Exclude patients based on exclusion criteria (diagnosis related to heart disease)
+
+```{r echo=F}
+hf_pt <- hf_pt[exclusion_flag==F]
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
