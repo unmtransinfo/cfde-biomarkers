@@ -1,6 +1,7 @@
 ---
 title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis'
 output:
+  pdf_document: default
   html_document:
     df_print: paged
 ---
@@ -22,10 +23,18 @@ sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
 sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
 ```
 
+## Define biomarker of interest.
+
 ```{r echo=F}
 lab_procedure_mnemonic_this <- "Troponin I"
+message(sprintf("Biomarker of interest: %s", lab_procedure_mnemonic_this))
+```
+
+## Select dataset for biomarker of interest.
+
+```{r echo=F}
 hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
-report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, sd = NaN)
+report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
 i <- 1
 report_dt$labs[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
 report_dt$valcount[i] <- hf_lab_this[, .N]
@@ -36,6 +45,7 @@ report_dt$pref_units[i] <- units_preferred
 report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
 hf_lab_this <- hf_lab_this[unit_display == units_preferred]
 report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
+report_dt$median[i] <- median(hf_lab_this[["numeric_result"]], na.rm=T)
 report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
 
 #write_delim(report_dt, "oracle_hf_data/results_analysis_report.tsv", "\t")
@@ -44,18 +54,20 @@ knitr::kable(report_dt)
 ```
 ```{r echo=F}
 values <- hf_lab_this[["numeric_result"]]
-sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values))
+sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values))
 qtl <- quantile(values, probs = seq(0, 1, .1))
-writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+#writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
 ```
 
 # Remove extreme and likely spurious values
 
 ```{r echo=F}
 values <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
-sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values))
+sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values))
 qtl <- quantile(values, probs = seq(0, 1, .1))
-writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+#writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
+knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
 ```
 
 
@@ -74,17 +86,20 @@ p
 ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_patients_out.tsv"
 hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F)
 setDT(hf_pt)
-message(sprintf("Columns: %s", paste(names(hf_pt), collapse=", ")) )
+sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 ```
 
 ## Patient cohort descriptive statistics
 
 ```{r echo=F}
-sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", hf_pt[, .N], hf_pt[exclusion_flag==F, .N], 100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N])
+sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
+        hf_pt[, .N], 
+        hf_pt[exclusion_flag==F, .N], 
+        100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N])
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl)
+knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, pre-exclusion, Gender distribution", lab_procedure_mnemonic_this))
 ```
 ## Exclude patients based on exclusion criteria (diagnosis related to heart disease)
 
@@ -93,7 +108,7 @@ hf_pt <- hf_pt[exclusion_flag==F]
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl)
+knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Gender distribution", lab_procedure_mnemonic_this))
 ```
 
 ```{r echo=F}
@@ -101,7 +116,7 @@ tbl <- table(hf_pt[, patient_type_desc])
 tbl <- data.table(tbl)
 names(tbl) <- c("Patient_type", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl)
+knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Patient_type distribution", lab_procedure_mnemonic_this))
 ```
 
 
@@ -110,16 +125,28 @@ tbl <- table(hf_pt[, race])
 tbl <- data.table(tbl)
 names(tbl) <- c("Race", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl)
+knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Race distribution", lab_procedure_mnemonic_this))
 ```
 
 ## Age distribution
 
 ```{r echo=F}
 values <- hf_pt[!is.na(age_mid_year), age_mid_year]
-sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f", length(values), min(values), max(values), mean(values), median(values))
+sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f; sd = %.1f", length(values), min(values), max(values), mean(values), median(values), sd(values))
 qtl <- quantile(values, probs = seq(0, 1, .1))
-writeLines(sprintf("Age_mid_year: %4s-ile: %9.1f", names(qtl), qtl))
+knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf(" %s cohort, Age_mid_year: distribution percentiles", lab_procedure_mnemonic_this))
+```
+## Remove patients with unknown gender or age
+
+```{r echo=F}
+sprintf("Excluding patients with unknown gender: %d / %d (%.1f%%) excluded",  
+        hf_pt[gender != "Female" & gender != "Male", .N],
+        hf_pt[, .N], 100 * hf_pt[gender != "Female" & gender != "Male", .N] / hf_pt[, .N])
+sprintf("Excluding patients with unknown agegroup: %d / %d (%.1f%%) excluded", 
+        hf_pt[agegroup == "Unknown", .N], 
+        hf_pt[, .N], 100 * hf_pt[agegroup == "Unknown", .N] / hf_pt[, .N])
+hf_pt <- hf_pt[gender == "Female" | gender == "Male"]
+hf_pt <- hf_pt[agegroup != "Unknown"]
 ```
 
 ```{r echo=F}
@@ -127,10 +154,51 @@ fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>%
 	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("Histogram of patient count by age, gender"),
+				 title = sprintf("%s cohort: Histogram of patient count by age, gender", lab_procedure_mnemonic_this),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
 fig
+```
+
+## Stratified statistics and  distributions
+
+Initially, for sex and age-group.
+First merge lab value table with stratification variables.
+
+```{r echo=F}
+hf_lab_pt_this <- merge(hf_lab_this, hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
+```
+
+
+```{r echo=F}
+hf_lab_pt_this[, gender := as.factor(gender)]
+hf_lab_pt_this[, agegroup := as.factor(agegroup)]
+hf_lab_pt_this[, unit_display := as.factor(unit_display)]
+n_agegroup <- length(levels(hf_lab_pt_this[, agegroup]))
+report_stratstat <- data.table(i = 1:(2*n_agegroup), sex = "", agegroup = "", valcount = NaN, units = "", mean = NaN, median = NaN, sd = NaN)
+i <- 0L
+for (a in levels(hf_lab_pt_this[, agegroup])) {
+  for (g in levels(hf_lab_pt_this[, gender])) {
+    i <- i + 1
+    ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
+    #message(sprintf("Agegroup: %s; Gender: %s; N = %d", a, g, length(ptid_this)))
+    values <- hf_lab_pt_this[agegroup == a & gender == g, numeric_result]
+    units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
+    if (length(levels(units))>1) {
+      message(sprintf("WARNING: multiple units: %s", paste(levels(units), collapse = "; ")))
+      report_stratstat$units[i] <- paste(levels(units), collapse = "; ")
+    } else {
+      report_stratstat$units[i] <- levels(units)[1]
+    }
+    report_stratstat$valcount[i] <- length(values)
+    report_stratstat$sex[i] <- g
+    report_stratstat$agegroup[i] <- a
+    report_stratstat$mean[i] <- mean(values, na.rm=T)
+    report_stratstat$median[i] <- median(values, na.rm=T)
+    report_stratstat$sd[i] <- sd(values, na.rm=T)
+  }
+}
+knitr::kable(report_stratstat, caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lab_procedure_mnemonic_this))
 ```
 
