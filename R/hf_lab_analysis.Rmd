@@ -1,18 +1,19 @@
 ---
-title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis'
+title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis: Troponin biomarkers'
 output:
-  pdf_document: default
   html_document:
     df_print: paged
+  pdf_document: default
 ---
 
 ```{r echo=F, include=F}
 library(readr)
 library(data.table)
 library(plotly)
+library(kableExtra)
 ```
 
-## Read data file for sample, representative year[s], due to size constraints.
+## Read data file.
 
 
 ```{r echo=F}
@@ -23,41 +24,58 @@ sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
 sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
 ```
 
-## Define biomarker of interest.
-
+## Tests in this dataset.
 ```{r echo=F}
-lab_procedure_mnemonic_this <- "Troponin I"
-message(sprintf("Biomarker of interest: %s", lab_procedure_mnemonic_this))
+hf_lab[, lab_procedure_mnemonic := as.factor(lab_procedure_mnemonic)]
+tbl <- data.table(table(hf_lab[, lab_procedure_mnemonic]))
+names(tbl) <- c("Lab", "N")
+tbl <- tbl[order(-N)]
+data.table(tbl) %>% kbl() %>%
+  kable_styling(c("striped", "hover"), full_width = F, position = "left") %>%
+  footnote(general_title = "Title:", general = "Lab tests in dataset, with value counts")
 ```
 
-## Select dataset for biomarker of interest.
+## Define biomarker[s] of interest.
 
 ```{r echo=F}
-hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
-report_dt <- data.table(i = c(1), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
-i <- 1
-report_dt$labs[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
-report_dt$valcount[i] <- hf_lab_this[, .N]
-tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
-units_preferred <- tbl[["V1"]][1]
-report_dt$units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
-report_dt$pref_units[i] <- units_preferred
-report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
-hf_lab_this <- hf_lab_this[unit_display == units_preferred]
-report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
-report_dt$median[i] <- median(hf_lab_this[["numeric_result"]], na.rm=T)
-report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
+boi <- c("Troponin I", "Troponin T S/Pl")
+for (lab_procedure_mnemonic_this in boi) {
+  message(sprintf("Biomarker of interest: \"%s\"", lab_procedure_mnemonic_this))
+}
+```
 
-#write_delim(report_dt, "oracle_hf_data/results_analysis_report.tsv", "\t")
-report_dt <- report_dt[order(-pref_units_valcount)]
-knitr::kable(report_dt)
+## Select dataset for biomarker[s] of interest.
+
+```{r echo=F}
+report_dt <- data.table(i = 1:length(boi), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
+i <- 0L
+for (lab_procedure_mnemonic_this in boi) {
+  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+  i <- i + 1
+  report_dt$labs[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
+  report_dt$valcount[i] <- hf_lab_this[, .N]
+  tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
+  units_preferred <- tbl[["V1"]][1]
+  report_dt$units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
+  report_dt$pref_units[i] <- units_preferred
+  report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
+  hf_lab_this <- hf_lab_this[unit_display == units_preferred]
+  report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
+  report_dt$median[i] <- median(hf_lab_this[["numeric_result"]], na.rm=T)
+  report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
+}
+report_dt %>% kbl() %>%
+    kable_styling(c("striped", "hover"), full_width = F, position = "left") %>%
+    footnote(general_title = "Title: ", general = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)))
 ```
 ```{r echo=F}
-values <- hf_lab_this[["numeric_result"]]
-sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values))
-qtl <- quantile(values, probs = seq(0, 1, .1))
-#writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
-knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
+for (lab_procedure_mnemonic_this in boi) {
+  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+  values <- hf_lab_this[["numeric_result"]]
+  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values)))
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
+}
 ```
 
 # Remove extreme and likely spurious values
@@ -199,6 +217,7 @@ for (a in levels(hf_lab_pt_this[, agegroup])) {
     report_stratstat$sd[i] <- sd(values, na.rm=T)
   }
 }
+write_delim(report_stratstat, "oracle_hf_data/stratified_stats_Troponin_I_report.tsv", "\t")
 knitr::kable(report_stratstat, caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lab_procedure_mnemonic_this))
 ```
 

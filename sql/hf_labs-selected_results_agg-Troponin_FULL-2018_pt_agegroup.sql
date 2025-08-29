@@ -21,6 +21,8 @@ SELECT
         jp.agegroup
 FROM
         jjyang.hf_f_lab_troponin_2018_patients jp
+WHERE
+        jp.exclusion_flag = FALSE
 GROUP BY
         jp.agegroup
 ORDER BY
