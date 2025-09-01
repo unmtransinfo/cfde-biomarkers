@@ -30,73 +30,103 @@ hf_lab[, lab_procedure_mnemonic := as.factor(lab_procedure_mnemonic)]
 tbl <- data.table(table(hf_lab[, lab_procedure_mnemonic]))
 names(tbl) <- c("Lab", "N")
 tbl <- tbl[order(-N)]
-data.table(tbl) %>% kbl() %>%
-  kable_styling(c("striped", "hover"), full_width = F, position = "left") %>%
-  footnote(general_title = "Title:", general = "Lab tests in dataset, with value counts")
+data.table(tbl) %>% 
+  kbl(caption = "Lab tests in dataset, with value counts") %>%
+  kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 
 ## Define biomarker[s] of interest.
 
 ```{r echo=F}
-boi <- c("Troponin I", "Troponin T S/Pl")
-for (lab_procedure_mnemonic_this in boi) {
-  message(sprintf("Biomarker of interest: \"%s\"", lab_procedure_mnemonic_this))
+boi <- list("Troponin I" = NULL, "Troponin T S/Pl" = NULL)
+for (lpm in names(boi)) {
+  message(sprintf("Biomarker of interest: \"%s\"", lpm))
 }
 ```
 
 ## Select dataset for biomarker[s] of interest.
 
 ```{r echo=F}
-report_dt <- data.table(i = 1:length(boi), labs = "", valcount = NaN, units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
+report_dt <- data.table(i = 1:length(boi), lab = "", valcount = NaN, all_units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
 i <- 0L
-for (lab_procedure_mnemonic_this in boi) {
-  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+for (lpm in names(boi)) {
+  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lpm]
   i <- i + 1
-  report_dt$labs[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
+  report_dt$lab[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
   report_dt$valcount[i] <- hf_lab_this[, .N]
   tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
   units_preferred <- tbl[["V1"]][1]
-  report_dt$units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
+  report_dt$all_units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
   report_dt$pref_units[i] <- units_preferred
   report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
   hf_lab_this <- hf_lab_this[unit_display == units_preferred]
   report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
   report_dt$median[i] <- median(hf_lab_this[["numeric_result"]], na.rm=T)
   report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
+  boi[[lpm]] <- hf_lab_this
 }
-report_dt %>% kbl() %>%
-    kable_styling(c("striped", "hover"), full_width = F, position = "left") %>%
-    footnote(general_title = "Title: ", general = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)))
+report_dt[, .(lab, pref_units, pref_units_valcount, mean, median, sd)] %>% 
+  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), digits=2, align = "lccccc", col.names = c("lab", "units", "N", "mean", "median", "sd")) %>%
+    kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
-```{r echo=F}
-for (lab_procedure_mnemonic_this in boi) {
-  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lab_procedure_mnemonic_this]
+```{r echo=F, results='asis'}
+for (lpm in names(boi)) {
+  #hf_lab_this <- hf_lab[lab_procedure_mnemonic == lpm]
+  hf_lab_this <- boi[[lpm]]
   values <- hf_lab_this[["numeric_result"]]
-  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values)))
+  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
   qtl <- quantile(values, probs = seq(0, 1, .1))
-  knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
+  print(
+  data.table(percentiles = names(qtl), values = qtl) %>%
+  kbl(caption = sprintf("%s: distribution percentiles", lpm), align = "cc") %>%
+  kable_styling(full_width = F)
+  )
 }
 ```
 
 # Remove extreme and likely spurious values
 
 ```{r echo=F}
-values <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]][["numeric_result"]]
-sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lab_procedure_mnemonic_this, length(values), min(values), max(values), mean(values), median(values), sd(values))
-qtl <- quantile(values, probs = seq(0, 1, .1))
-#writeLines(sprintf("%s %4s-ile: %9.1f", lab_procedure_mnemonic_this, names(qtl), qtl))
-knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf("%s: distribution percentiles", lab_procedure_mnemonic_this))
+for (lpm in names(boi)) {
+  hf_lab_this <- boi[[lpm]]
+  values <- hf_lab_this[, numeric_result]
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  hf_lab_this <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]]
+  values <- hf_lab_this[, numeric_result]
+  boi[[lpm]] <- hf_lab_this
+  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  data.table(percentiles = names(qtl), values = qtl) %>% 
+    kbl(caption = sprintf("%s: distribution percentiles", lpm)) %>%
+    kable_styling(full_width = F)
+}
 ```
 
 
 ```{r echo=F}
-plotname <- sprintf("%s (%s)<br>N = %d", lab_procedure_mnemonic_this, units_preferred, length(values))
-p <- plot_ly(type="histogram", x = values, name=plotname, xbins = list(size = 0.01)) %>%
+plots <- list()
+i <- 0L
+for (lpm in names(boi)) {
+  values <- boi[[lpm]][, numeric_result]
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  plotname <- sprintf("%s (%s)<br>N = %d", lpm, units_preferred, length(values))
+  p <- plot_ly(type="histogram", x = values, name=plotname, xbins = list(size = 0.01)) %>%
     layout(xaxis = list(range = list(qtl[["10%"]], qtl[["90%"]])),
            annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
                 yanchor="bottom", xanchor="center", align="center",
                 font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
-p
+  i <- i + 1
+  plots[[i]] <- p
+}
+subplot(plots, nrows=1, shareX=F, shareY=T, titleX=T, titleY=T, margin=0.03) %>%
+  layout(title="",
+         annotations = list(x=c(0, 0.5, 0, 0.5), y=c(0.9, 0.9, 0.4, 0.4), 
+                            xanchor = "left",
+                            text = paste0(gsymbs, "<br>", gnames), showarrow = F,
+                            xref = "paper", yref = "paper"),
+         margin = list(t = 60),
+         font = list(family = "Arial", size = 14), showlegend = F)
+
 ```
 
 
@@ -117,7 +147,9 @@ sprintf("Patients: %d; Not-excluded: %d (%.1f%%)",
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, pre-exclusion, Gender distribution", lab_procedure_mnemonic_this))
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, pre-exclusion, Gender distribution", paste(collapse=", ", names(boi)))) %>%
+  kable_styling(full_width = F)
 ```
 ## Exclude patients based on exclusion criteria (diagnosis related to heart disease)
 
@@ -126,7 +158,9 @@ hf_pt <- hf_pt[exclusion_flag==F]
 tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Gender distribution", lab_procedure_mnemonic_this))
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", "))) %>%
+  kable_styling(full_width = F)
 ```
 
 ```{r echo=F}
@@ -134,7 +168,9 @@ tbl <- table(hf_pt[, patient_type_desc])
 tbl <- data.table(tbl)
 names(tbl) <- c("Patient_type", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Patient_type distribution", lab_procedure_mnemonic_this))
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Patient_type distribution", paste(names(boi), collapse=", "))) %>%
+  kable_styling(full_width = F)
 ```
 
 
@@ -143,7 +179,9 @@ tbl <- table(hf_pt[, race])
 tbl <- data.table(tbl)
 names(tbl) <- c("Race", "n_pt")
 tbl <- tbl[order(-n_pt)]
-knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Race distribution", lab_procedure_mnemonic_this))
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Race distribution", paste(names(boi), collapse=", "))) %>%
+  kable_styling(full_width = F)
 ```
 
 ## Age distribution
@@ -152,7 +190,9 @@ knitr::kable(tbl, align = "lc", caption = sprintf("%s cohort, Race distribution"
 values <- hf_pt[!is.na(age_mid_year), age_mid_year]
 sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f; sd = %.1f", length(values), min(values), max(values), mean(values), median(values), sd(values))
 qtl <- quantile(values, probs = seq(0, 1, .1))
-knitr::kable(data.table(percentiles = names(qtl), values = qtl), align = "cc", caption = sprintf(" %s cohort, Age_mid_year: distribution percentiles", lab_procedure_mnemonic_this))
+data.table(percentiles = names(qtl), values = qtl) %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Age_mid_year: distribution percentiles", paste(names(boi), collapse=", ")), digits=1) %>%
+  kable_styling(full_width = F)
 ```
 ## Remove patients with unknown gender or age
 
@@ -172,7 +212,7 @@ fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>%
 	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("%s cohort: Histogram of patient count by age, gender", lab_procedure_mnemonic_this),
+				 title = sprintf("Labs: (%s) cohort: Histogram of patient count by age, gender", paste(names(boi), collapse=", ")),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
@@ -218,6 +258,8 @@ for (a in levels(hf_lab_pt_this[, agegroup])) {
   }
 }
 write_delim(report_stratstat, "oracle_hf_data/stratified_stats_Troponin_I_report.tsv", "\t")
-knitr::kable(report_stratstat, caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lab_procedure_mnemonic_this))
+report_stratstat %>%
+  kbl(caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lab_procedure_mnemonic_this)) %>%
+  kable_styling(full_width = F)
 ```
 
