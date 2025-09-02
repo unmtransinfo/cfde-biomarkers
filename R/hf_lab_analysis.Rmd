@@ -31,7 +31,7 @@ tbl <- data.table(table(hf_lab[, lab_procedure_mnemonic]))
 names(tbl) <- c("Lab", "N")
 tbl <- tbl[order(-N)]
 data.table(tbl) %>% 
-  kbl(caption = "Lab tests in dataset, with value counts") %>%
+  kbl(caption = "Lab tests in dataset, with value counts", booktabs=T) %>%
   kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 
@@ -44,7 +44,7 @@ for (lpm in names(boi)) {
 }
 ```
 
-## Select dataset for biomarker[s] of interest.
+## Describe dataset[s] for biomarker[s] of interest.
 
 ```{r echo=F}
 report_dt <- data.table(i = 1:length(boi), lab = "", valcount = NaN, all_units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
@@ -66,7 +66,7 @@ for (lpm in names(boi)) {
   boi[[lpm]] <- hf_lab_this
 }
 report_dt[, .(lab, pref_units, pref_units_valcount, mean, median, sd)] %>% 
-  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), digits=2, align = "lccccc", col.names = c("lab", "units", "N", "mean", "median", "sd")) %>%
+  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lccccc", col.names = c("lab", "units", "N", "mean", "median", "sd")) %>%
     kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 ```{r echo=F, results='asis'}
@@ -78,27 +78,31 @@ for (lpm in names(boi)) {
   qtl <- quantile(values, probs = seq(0, 1, .1))
   print(
   data.table(percentiles = names(qtl), values = qtl) %>%
-  kbl(caption = sprintf("%s: distribution percentiles", lpm), align = "cc") %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("%s: distribution percentiles", lpm), booktabs=T, align = "cc") %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
   )
 }
 ```
 
-# Remove extreme and likely spurious values
+# Remove extreme and likely non-healthy or spurious values.
+
+Although exclusion criteria are designed to filter for healthy patients with normal physiological lab values, removing extreme values can further filter to the same purpose.
 
 ```{r echo=F}
 for (lpm in names(boi)) {
   hf_lab_this <- boi[[lpm]]
   values <- hf_lab_this[, numeric_result]
-  qtl <- quantile(values, probs = seq(0, 1, .1))
+  n_before <- length(values)
+  qtl <- quantile(values, probs = seq(0, 1, .05))
   hf_lab_this <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]]
   values <- hf_lab_this[, numeric_result]
+  message(sprintf("%s: Extreme values removed: %d / %d (%.2f%%)", lpm, n_before-length(values), n_before, 100 * (n_before-length(values))/n_before))
   boi[[lpm]] <- hf_lab_this
   message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
   qtl <- quantile(values, probs = seq(0, 1, .1))
   data.table(percentiles = names(qtl), values = qtl) %>% 
-    kbl(caption = sprintf("%s: distribution percentiles", lpm)) %>%
-    kable_styling(full_width = F)
+    kbl(caption = sprintf("%s: distribution percentiles", lpm), booktabs=T) %>%
+    kable_styling(c("striped", "hover"), full_width = F, position="left")
 }
 ```
 
@@ -108,25 +112,20 @@ plots <- list()
 i <- 0L
 for (lpm in names(boi)) {
   values <- boi[[lpm]][, numeric_result]
-  qtl <- quantile(values, probs = seq(0, 1, .1))
+  boi[[lpm]][, unit_display := as.factor(unit_display)]
+  units_preferred <- levels(boi[[lpm]][, unit_display])[1]
   plotname <- sprintf("%s (%s)<br>N = %d", lpm, units_preferred, length(values))
   p <- plot_ly(type="histogram", x = values, name=plotname, xbins = list(size = 0.01)) %>%
-    layout(xaxis = list(range = list(qtl[["10%"]], qtl[["90%"]])),
-           annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
+    layout(annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
                 yanchor="bottom", xanchor="center", align="center",
                 font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
   i <- i + 1
   plots[[i]] <- p
 }
 subplot(plots, nrows=1, shareX=F, shareY=T, titleX=T, titleY=T, margin=0.03) %>%
-  layout(title="",
-         annotations = list(x=c(0, 0.5, 0, 0.5), y=c(0.9, 0.9, 0.4, 0.4), 
-                            xanchor = "left",
-                            text = paste0(gsymbs, "<br>", gnames), showarrow = F,
-                            xref = "paper", yref = "paper"),
+  layout(title=sprintf("Distributions: %s", paste(collapse=", ", names(boi))),
          margin = list(t = 60),
-         font = list(family = "Arial", size = 14), showlegend = F)
-
+         font = list(family = "Arial", size = 14), showlegend = T)
 ```
 
 
@@ -139,6 +138,21 @@ sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 
 ## Patient cohort descriptive statistics
 
+### Remove patients with unknown gender or age
+
+```{r echo=F}
+sprintf("Excluding patients with unknown gender: %d / %d (%.3f%%) excluded",  
+        hf_pt[gender != "Female" & gender != "Male", .N],
+        hf_pt[, .N], 100 * hf_pt[gender != "Female" & gender != "Male", .N] / hf_pt[, .N])
+sprintf("Excluding patients with unknown agegroup: %d / %d (%.3f%%) excluded", 
+        hf_pt[agegroup == "Unknown", .N], 
+        hf_pt[, .N], 100 * hf_pt[agegroup == "Unknown", .N] / hf_pt[, .N])
+hf_pt <- hf_pt[gender == "Female" | gender == "Male"]
+hf_pt <- hf_pt[agegroup != "Unknown"]
+```
+
+### Before and after applying exclusion criteria (diagnosis related to heart disease).
+
 ```{r echo=F}
 sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
         hf_pt[, .N], 
@@ -148,10 +162,9 @@ tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
 tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, pre-exclusion, Gender distribution", paste(collapse=", ", names(boi)))) %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("Labs: (%s) cohort, pre-exclusion, Gender distribution", paste(collapse=", ", names(boi))), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
-## Exclude patients based on exclusion criteria (diagnosis related to heart disease)
 
 ```{r echo=F}
 hf_pt <- hf_pt[exclusion_flag==F]
@@ -159,9 +172,12 @@ tbl <- data.table(table(hf_pt[, gender]))
 names(tbl) <- c("Gender", "n_pt")
 tbl <- tbl[order(-n_pt)]
 tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", "))) %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
+## Patient type
+
+Note that patient type depends on the encounter, so a single patient can be multiple patient types for different encounters.
 
 ```{r echo=F}
 tbl <- table(hf_pt[, patient_type_desc])
@@ -169,10 +185,11 @@ tbl <- data.table(tbl)
 names(tbl) <- c("Patient_type", "n_pt")
 tbl <- tbl[order(-n_pt)]
 tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, Patient_type distribution", paste(names(boi), collapse=", "))) %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("Labs: (%s) cohort, Patient_type distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
+## Race
 
 ```{r echo=F}
 tbl <- table(hf_pt[, race])
@@ -180,8 +197,8 @@ tbl <- data.table(tbl)
 names(tbl) <- c("Race", "n_pt")
 tbl <- tbl[order(-n_pt)]
 tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, Race distribution", paste(names(boi), collapse=", "))) %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("Labs: (%s) cohort, Race distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
 ## Age distribution
@@ -191,21 +208,11 @@ values <- hf_pt[!is.na(age_mid_year), age_mid_year]
 sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f; sd = %.1f", length(values), min(values), max(values), mean(values), median(values), sd(values))
 qtl <- quantile(values, probs = seq(0, 1, .1))
 data.table(percentiles = names(qtl), values = qtl) %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, Age_mid_year: distribution percentiles", paste(names(boi), collapse=", ")), digits=1) %>%
-  kable_styling(full_width = F)
+  kbl(caption = sprintf("Labs: (%s) cohort, Age_mid_year: distribution percentiles", paste(names(boi), collapse=", ")), booktabs=T, digits=1) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
-## Remove patients with unknown gender or age
 
-```{r echo=F}
-sprintf("Excluding patients with unknown gender: %d / %d (%.1f%%) excluded",  
-        hf_pt[gender != "Female" & gender != "Male", .N],
-        hf_pt[, .N], 100 * hf_pt[gender != "Female" & gender != "Male", .N] / hf_pt[, .N])
-sprintf("Excluding patients with unknown agegroup: %d / %d (%.1f%%) excluded", 
-        hf_pt[agegroup == "Unknown", .N], 
-        hf_pt[, .N], 100 * hf_pt[agegroup == "Unknown", .N] / hf_pt[, .N])
-hf_pt <- hf_pt[gender == "Female" | gender == "Male"]
-hf_pt <- hf_pt[agegroup != "Unknown"]
-```
+
 
 ```{r echo=F}
 fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
@@ -222,44 +229,50 @@ fig
 ## Stratified statistics and  distributions
 
 Initially, for sex and age-group.
-First merge lab value table with stratification variables.
+First merge lab value table[s] with stratification variables.
 
 ```{r echo=F}
-hf_lab_pt_this <- merge(hf_lab_this, hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
+for (lpm in names(boi)) {
+  boi[[lpm]] <- merge(boi[[lpm]], hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
+}
+#hf_lab_pt_this <- merge(hf_lab_this, hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
 ```
 
 
 ```{r echo=F}
-hf_lab_pt_this[, gender := as.factor(gender)]
-hf_lab_pt_this[, agegroup := as.factor(agegroup)]
-hf_lab_pt_this[, unit_display := as.factor(unit_display)]
-n_agegroup <- length(levels(hf_lab_pt_this[, agegroup]))
-report_stratstat <- data.table(i = 1:(2*n_agegroup), sex = "", agegroup = "", valcount = NaN, units = "", mean = NaN, median = NaN, sd = NaN)
-i <- 0L
-for (a in levels(hf_lab_pt_this[, agegroup])) {
-  for (g in levels(hf_lab_pt_this[, gender])) {
-    i <- i + 1
-    ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
-    #message(sprintf("Agegroup: %s; Gender: %s; N = %d", a, g, length(ptid_this)))
-    values <- hf_lab_pt_this[agegroup == a & gender == g, numeric_result]
-    units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
-    if (length(levels(units))>1) {
-      message(sprintf("WARNING: multiple units: %s", paste(levels(units), collapse = "; ")))
-      report_stratstat$units[i] <- paste(levels(units), collapse = "; ")
-    } else {
-      report_stratstat$units[i] <- levels(units)[1]
+for (lpm in names(boi)) {
+  hf_lab_pt_this <- boi[[lpm]]
+  hf_lab_pt_this[, gender := as.factor(gender)]
+  hf_lab_pt_this[, agegroup := as.factor(agegroup)]
+  hf_lab_pt_this[, unit_display := as.factor(unit_display)]
+  n_agegroup <- length(levels(hf_lab_pt_this[, agegroup]))
+  report_stratstat <- data.table(i = 1:(2*n_agegroup), sex = "", agegroup = "", valcount = NaN, units = "", mean = NaN, median = NaN, sd = NaN)
+  i <- 0L
+  for (a in levels(hf_lab_pt_this[, agegroup])) {
+    for (g in levels(hf_lab_pt_this[, gender])) {
+      i <- i + 1
+      ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
+      #message(sprintf("Agegroup: %s; Gender: %s; N = %d", a, g, length(ptid_this)))
+      values <- hf_lab_pt_this[agegroup == a & gender == g, numeric_result]
+      units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
+      if (length(levels(units))>1) {
+        message(sprintf("WARNING: multiple units: %s", paste(levels(units), collapse = "; ")))
+        report_stratstat$units[i] <- paste(levels(units), collapse = "; ")
+      } else {
+        report_stratstat$units[i] <- levels(units)[1]
+      }
+      report_stratstat$valcount[i] <- length(values)
+      report_stratstat$sex[i] <- g
+      report_stratstat$agegroup[i] <- a
+      report_stratstat$mean[i] <- mean(values, na.rm=T)
+      report_stratstat$median[i] <- median(values, na.rm=T)
+      report_stratstat$sd[i] <- sd(values, na.rm=T)
     }
-    report_stratstat$valcount[i] <- length(values)
-    report_stratstat$sex[i] <- g
-    report_stratstat$agegroup[i] <- a
-    report_stratstat$mean[i] <- mean(values, na.rm=T)
-    report_stratstat$median[i] <- median(values, na.rm=T)
-    report_stratstat$sd[i] <- sd(values, na.rm=T)
   }
+  #write_delim(report_stratstat, sprintf("oracle_hf_data/stratified_stats_%s_report.tsv", lpm), "\t")
+  report_stratstat %>%
+    kbl(caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lpm), booktabs=T) %>%
+    kable_styling(c("striped", "hover"), full_width = F, position="left")
 }
-write_delim(report_stratstat, "oracle_hf_data/stratified_stats_Troponin_I_report.tsv", "\t")
-report_stratstat %>%
-  kbl(caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lab_procedure_mnemonic_this)) %>%
-  kable_styling(full_width = F)
 ```
 
