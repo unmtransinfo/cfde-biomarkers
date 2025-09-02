@@ -27,8 +27,12 @@ sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, 
 ## Tests in this dataset.
 ```{r echo=F}
 hf_lab[, lab_procedure_mnemonic := as.factor(lab_procedure_mnemonic)]
+hf_lab[, unit_display := as.factor(unit_display)]
 tbl <- data.table(table(hf_lab[, lab_procedure_mnemonic]))
 names(tbl) <- c("Lab", "N")
+tbl2 <- hf_lab[, .(units = paste(collapse=", ", unique(unit_display))),  by=lab_procedure_mnemonic]
+tbl <- merge(tbl, tbl2, by.x="Lab", by.y="lab_procedure_mnemonic")
+tbl <- tbl[, .(Lab, units, N)]
 tbl <- tbl[order(-N)]
 data.table(tbl) %>% 
   kbl(caption = "Lab tests in dataset, with value counts", booktabs=T) %>%
@@ -39,8 +43,10 @@ data.table(tbl) %>%
 
 ```{r echo=F}
 boi <- list("Troponin I" = NULL, "Troponin T S/Pl" = NULL)
+i <- 0L
 for (lpm in names(boi)) {
-  message(sprintf("Biomarker of interest: \"%s\"", lpm))
+  i <- i + 1
+  message(sprintf("%d. Biomarker of interest: \"%s\"", i, lpm))
 }
 ```
 
@@ -65,13 +71,12 @@ for (lpm in names(boi)) {
   report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
   boi[[lpm]] <- hf_lab_this
 }
-report_dt[, .(lab, pref_units, pref_units_valcount, mean, median, sd)] %>% 
-  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lccccc", col.names = c("lab", "units", "N", "mean", "median", "sd")) %>%
+report_dt[, .(lab, pref_units, mean, median, sd, pref_units_valcount)] %>% 
+  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lccccc", col.names = c("lab", "units", "mean", "median", "sd", "n")) %>%
     kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 ```{r echo=F, results='asis'}
 for (lpm in names(boi)) {
-  #hf_lab_this <- hf_lab[lab_procedure_mnemonic == lpm]
   hf_lab_this <- boi[[lpm]]
   values <- hf_lab_this[["numeric_result"]]
   message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
@@ -230,38 +235,42 @@ fig
 
 Initially, for sex and age-group.
 First merge lab value table[s] with stratification variables.
+Most common unit of measurement preferred, and if sufficient, others ignored.
 
 ```{r echo=F}
 for (lpm in names(boi)) {
   boi[[lpm]] <- merge(boi[[lpm]], hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
 }
-#hf_lab_pt_this <- merge(hf_lab_this, hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
 ```
 
 
-```{r echo=F}
+```{r echo=F,message=F}
+hf_pt[, agegroup := as.factor(agegroup)]
+n_agegroup <- length(levels(hf_pt[, agegroup]))
+report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, median = NaN, sd = NaN, n = NaN)
+i <- 0L
 for (lpm in names(boi)) {
   hf_lab_pt_this <- boi[[lpm]]
   hf_lab_pt_this[, gender := as.factor(gender)]
   hf_lab_pt_this[, agegroup := as.factor(agegroup)]
   hf_lab_pt_this[, unit_display := as.factor(unit_display)]
-  n_agegroup <- length(levels(hf_lab_pt_this[, agegroup]))
-  report_stratstat <- data.table(i = 1:(2*n_agegroup), sex = "", agegroup = "", valcount = NaN, units = "", mean = NaN, median = NaN, sd = NaN)
-  i <- 0L
   for (a in levels(hf_lab_pt_this[, agegroup])) {
     for (g in levels(hf_lab_pt_this[, gender])) {
       i <- i + 1
+      report_stratstat$lab[i] <- lpm
       ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
-      #message(sprintf("Agegroup: %s; Gender: %s; N = %d", a, g, length(ptid_this)))
-      values <- hf_lab_pt_this[agegroup == a & gender == g, numeric_result]
+      #message(sprintf("%d. agegroup: %s; gender: %s; N = %d", i, a, g, length(ptid_this)))
       units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
       if (length(levels(units))>1) {
-        message(sprintf("WARNING: multiple units: %s", paste(levels(units), collapse = "; ")))
-        report_stratstat$units[i] <- paste(levels(units), collapse = "; ")
+        message(sprintf("WARNING: (a=%s, g=%s) multiple units: (%s); units_preferred: %s", a, g, paste(levels(units), collapse = ", "), units_preferred))
+        tbl <- data.table(table(hf_lab_pt_this[agegroup ==a & gender == g, unit_display]))[order(-N)]
+        units_preferred <- tbl[["V1"]][1]
       } else {
-        report_stratstat$units[i] <- levels(units)[1]
+        units_preferred <- levels(units)[1]
       }
-      report_stratstat$valcount[i] <- length(values)
+      report_stratstat$units[i] <- units_preferred
+      values <- hf_lab_pt_this[agegroup == a & gender == g & unit_display == units_preferred, numeric_result]
+      report_stratstat$n[i] <- length(values)
       report_stratstat$sex[i] <- g
       report_stratstat$agegroup[i] <- a
       report_stratstat$mean[i] <- mean(values, na.rm=T)
@@ -269,10 +278,13 @@ for (lpm in names(boi)) {
       report_stratstat$sd[i] <- sd(values, na.rm=T)
     }
   }
-  #write_delim(report_stratstat, sprintf("oracle_hf_data/stratified_stats_%s_report.tsv", lpm), "\t")
-  report_stratstat %>%
-    kbl(caption = sprintf("%s: Normal-physiological healthy patient cohort, stratified statistics", lpm), booktabs=T) %>%
-    kable_styling(c("striped", "hover"), full_width = F, position="left")
 }
+report_stratstat <- report_stratstat[!is.na(lab) & n>0]
+#write_delim(report_stratstat, sprintf("oracle_hf_data/stratified_stats_report.tsv"), "\t")
+report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n)] %>%
+  kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
+  pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
+  kable_styling(c("striped", "hover"), full_width = T, position="left") %>%
+    row_spec(0, color = 'navy', background = 'orange')
 ```
 

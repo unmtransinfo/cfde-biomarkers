@@ -59,11 +59,13 @@ normal patient criteria.
 
  9. Retrieve all exclusion criteria diagnoses for the initial patient cohort.  Filter the initial patient cohort using the exclusion criteria, to generate the normal patient cohort. Re-generate descriptive statistics for the stratification variables of interest.
 
- 10. Define stratification ranges. Probably age ranges by decade [0-9],
+ 10. Remove extreme values from dataset, based on percentiles. Given that exclusion criteria are unlikely to exclude all non-healthy patients, this can further ensure normal-physiological values.
+
+ 11. Define stratification ranges. Probably age ranges by decade [0-9],
 [10-19], [20-29], ... [80-89], 90+. Generate patient ID sets for each
 sub-cohort.
 
- 11. For each patient sub-cohort, each strata, generate statistics:
+ 12. For each patient sub-cohort, each strata, generate statistics:
 N, mean, median, min, max, stddev.
 
 This workflow should result in data files (and tables) which allow for
