@@ -244,7 +244,7 @@ for (lpm in names(boi)) {
 ```
 
 
-```{r echo=F,message=F}
+```{r echo=F, message=F, warning=F}
 hf_pt[, agegroup := as.factor(agegroup)]
 n_agegroup <- length(levels(hf_pt[, agegroup]))
 report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, median = NaN, sd = NaN, n = NaN)
@@ -280,11 +280,21 @@ for (lpm in names(boi)) {
   }
 }
 report_stratstat <- report_stratstat[!is.na(lab) & n>0]
+report_stratstat[, boxplot := ""]
 #write_delim(report_stratstat, sprintf("oracle_hf_data/stratified_stats_report.tsv"), "\t")
-report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n)] %>%
+vals <- list()
+for (i in 1:report_stratstat[, .N]) {
+  if (!is.na(report_stratstat[, mean][i] & !is.na(report_stratstat[, sd][i]))) {
+    vals[[i]] <- rnorm(100, report_stratstat[, mean][i], report_stratstat[, sd][i])
+  } else {
+    vals[[i]] <- NA
+  }
+}
+report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n, boxplot)] %>%
   kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
   pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
-  kable_styling(c("striped", "hover"), full_width = T, position="left") %>%
-    row_spec(0, color = 'navy', background = 'orange')
+  kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
+  column_spec(9, image = spec_boxplot(vals)) %>%
+  row_spec(0, color = 'navy', background = 'orange')
 ```
 
