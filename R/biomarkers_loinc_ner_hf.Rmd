@@ -1,0 +1,210 @@
+---
+title: Human protein biomarkers, with clinical relevance inferred from Oracle HealthFacts
+  via LOINC terms
+author: "Jeremy Yang"
+output:
+  html_document:
+    number_sections: yes
+    toc: no
+  pdf_document:
+    toc: yes
+editor_options:
+  chunk_output_type: console
+---
+
+# Introduction
+
+The purpose of this preliminary analysis is to investigate likely proteomic
+biomarkers, by associating LOINC codes to human proteins (and genes),
+and thereby, the IDG Pharos/TCRD database.
+
+* [LOINC](https://loinc.org/) _(Logical Observation Identifiers Names and Codes)_
+is developed and maintained by the [Regenstrief Institute](https://www.regenstrief.org/)  and widely used for encoding clinical lab records in EHR systems.
+* [Oracle HealthFacts](https://www.oracle.com/health/population-health/real-world-data/)
+contains over 42 million US patient records from the previous two decades,
+with lab results encoded with LOINC. Formerly from Cerner, acquired by Oracle in 2021.
+* [NextMove](https://www.nextmovesoftware.com/) Leadmine is a leading
+text mining software system providing named entity recognition (NER) for chemical
+and biomedical entities via domain-intelligent term dictionaries, with error
+correction and resolution to controlled vocabularies.
+* [IDG](https://druggablegenome.net/) (Illuminating the Druggable Genome) is an
+NIH Common Fund program dedicated to elucidating the properties and functions of
+understudied proteins in the three most commonly drug-targeted protein families:
+G-protein coupled receptors, ion channels, and protein kinases.
+
+## Biomarkers
+
+The [FDA Biomarker Qualification Program](https://www.fda.gov/drugs/biomarker-qualification-program/about-biomarkers-and-qualification), via its Biomarkers, EndpointS and other Tools [BEST](https://www.ncbi.nlm.nih.gov/books/NBK326791/) glossary, defines biomarker thus: "[A] defined characteristic that is measured as an indicator of normal biological processes, pathogenic processes, or responses to an exposure or intervention, including therapeutic interventions. Molecular, histologic, radiographic, or physiologic characteristics are types of biomarkers." This analysis is concerned with ___molecular___ biomarkers only.
+
+# Workflow
+
+* Download [LOINC](https://loinc.org/) codes.
+* Build local LOINC PostgreSql db. Query for chemical biomarkers, to include proteins.
+* Named Entity Recognition for genes/proteins with [NextMove](https://www.nextmovesoftware.com/) Leadmine in selected fields
+of LOINC.
+* Query Oracle HealthFacts 2019 (licensed at UNM) to find encounter_id and patient_id counts for all LOINC codes, for clinically relevant biomarkers (not just theoretical).
+* Join HF and NER outputs to generate initial list of clinically relevant molecular biomarker candidates.
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(echo=FALSE, message=FALSE)
+base::date()
+```
+
+```{r setup, echo=FALSE, message=FALSE}
+library(readr)
+library(stringr)
+library(data.table)
+library(plotly, quietly=T)
+```
+
+# LOINC version
+
+```{r}
+LOINC_RELEASE <- trimws(read_file("LATEST_RELEASE_LOINC.txt"))
+DATADIR <- sprintf("loinc_data/v%s", LOINC_RELEASE)
+sprintf("LOINC_RELEASE: %s", LOINC_RELEASE)
+```
+
+# LOINC codes for chemical tests
+
+```{r}
+loinc_file <- sprintf("%s/loinc_chem_names.tsv", DATADIR)
+sprintf("LOINC codes for chemical tests: %s", loinc_file)
+loinc_chem <- read_delim(loinc_file, "\t", escape_double=F)
+setDT(loinc_chem)
+sprintf("LOINC codes: %d", loinc_chem[, uniqueN(loinc_num)])
+```
+
+# NextMove LeadMine NER output using GeneAndProtein dictionary.
+
+NER = named entity recognition, a form of text-mining.
+
+## NER on LOINC field: "component".
+
+```{r}
+protein_NER_component_file <- sprintf("%s/loinc_chem_names_component_NM_CFDictGeneAndProtein_leadmine.tsv", DATADIR)
+sprintf("NextMove NER for LOINC-component: %s", protein_NER_component_file)
+protein_NER_component <- read_delim(protein_NER_component_file, "\t")
+setDT(protein_NER_component)
+sprintf("LOINC codes mapped via component text to NER proteins: %d", protein_NER_component[, uniqueN(DocName)])
+```
+
+## NER on LOINC field: "relatedname".
+
+```{r}
+protein_NER_relatedname_file <-  sprintf("%s/loinc_chem_names_relatedname_NM_CFDictGeneAndProtein_leadmine.tsv", DATADIR)
+sprintf("NextMove NER for LOINC-relatedname: %s", protein_NER_relatedname_file)
+protein_NER_relatedname <-  read_delim(protein_NER_relatedname_file, "\t")
+setDT(protein_NER_relatedname)
+sprintf("LOINC codes mapped via relatedname text to NER proteins: %d", protein_NER_relatedname[, uniqueN(DocName)])
+```
+
+# Oracle HealthFacts 2019 counts of encounter\_ids and patient\_ids for all lab procedures, with LOINC codes.
+
+```{r}
+hf_loinc_counts_file <- "oracle_hf_data/hf_lab_loinc_counts_OUT.tsv"
+sprintf("Oracle HealthFacts 2019 counts for labs, with LOINC codes: %s", hf_loinc_counts_file)
+hf_loinc_counts <- read_delim(hf_loinc_counts_file, "\t")
+setDT(hf_loinc_counts)
+sprintf("Lab procedure IDs: %d; LOINC codes: %d", hf_loinc_counts[, uniqueN(lab_procedure_id)], hf_loinc_counts[, uniqueN(loinc_code)])
+```
+
+## Group lab procedures into list; aggregate on LOINC codes.
+
+Some different labs have same LOINC codes. Discarding lab procedures IDs.
+
+```{r}
+hf_loinc_counts <- hf_loinc_counts[, .(
+	lab_procedure_names = paste(c(lab_procedure_name), collapse="; "),
+	lab_procedure_mnemonics = paste(c(lab_procedure_mnemonic), collapse="; "),
+	lab_super_groups = paste(base::unique(c(lab_super_group)), collapse="; "),
+	encounter_id_count = sum(encounter_id_count),
+	patient_id_count = sum(patient_id_count)
+	), by=c("loinc_code")]
+
+```
+
+# LOINC proteins in HF encounters
+
+```{r}
+protein_hr_loincs_component <- merge(protein_NER_component, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
+protein_hr_loincs_relatedname <- merge(protein_NER_relatedname, hf_loinc_counts, by.x="DocName", by.y="loinc_code", all=F)
+protein_hr_loincs <- rbind(protein_hr_loincs_component, protein_hr_loincs_relatedname)
+protein_hr_loincs <- unique(protein_hr_loincs)
+sprintf("LOINC codes for proteins: %d", protein_hr_loincs[, uniqueN(DocName)])
+sprintf("Protein names: %d", protein_hr_loincs[, uniqueN(EntityText)])
+sprintf("GeneOrProtein IDs: %d", protein_hr_loincs[, uniqueN(ResolvedForm)])
+```
+
+Build LOINC to gene-or-protein ID mapping. Save to file.
+
+```{r}
+loinc2geneOrProteinId <- unique(protein_hr_loincs[!is.na(ResolvedForm), .(loinc_code=DocName, geneOrProteinId = ResolvedForm)])
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(geneOrProteinId, "^(\\d+)$", "ENSG\\1")] #Need leading zeroes
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := str_replace(geneOrProteinId, "^([A-Z]\\d+)$", "UNIPROT:\\1")]
+setorder(loinc2geneOrProteinId, "loinc_code", "geneOrProteinId")
+loinc2geneOrProteinId <- loinc2geneOrProteinId[!grepl("^ENSG", geneOrProteinId)] #For now ignore ENSGs.
+loinc2geneOrProteinId <- loinc2geneOrProteinId[, geneOrProteinId := first(geneOrProteinId), by = c("loinc_code")]
+loinc2geneOrProteinId <- unique(loinc2geneOrProteinId)
+write_delim(loinc2geneOrProteinId, sprintf("%s/loinc2gp.tsv", DATADIR), delim="\t")
+```
+
+## Group protein synonyms into list; aggregate on LOINC codes.
+
+```{r}
+protein_hr_loincs_out <- unique(protein_hr_loincs[, .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  encounter_id_count, patient_id_count)])
+protein_hr_loincs_out <- merge(protein_hr_loincs_out, loinc2geneOrProteinId, by="loinc_code", all=F)
+protein_hr_loincs_out <- protein_hr_loincs_out[, .(
+  protein_names = paste(sort(unique(c(protein_name))), collapse="; ")), 
+  by=c("loinc_code",  "lab_procedure_names", "geneOrProteinId", "encounter_id_count", "patient_id_count")]
+protein_hr_loincs_out <- unique(protein_hr_loincs_out)
+setcolorder(protein_hr_loincs_out, c("loinc_code", "geneOrProteinId", "lab_procedure_names", "protein_names", "encounter_id_count", "patient_id_count"))
+```
+
+# Top occurring LOINCs:
+
+```{r}
+protein_hr_loincs_out <- protein_hr_loincs_out[order(-encounter_id_count)]
+write_delim(protein_hr_loincs_out, "oracle_hf_data/biomarkers_loinc_hf_out.tsv", delim="\t")
+knitr::kable(protein_hr_loincs_out[1:min(50, nrow(protein_hr_loincs_out))], caption=sprintf("LOINCs ranked by occurence: %d LOINCs, %d geneOrProteinIds", protein_hr_loincs_out[, uniqueN(loinc_code)], protein_hr_loincs_out[, uniqueN(geneOrProteinId)]))
+```
+
+# LOINCs for biomarkers of particular interest
+
+* PSA (Prostate specific antigen)
+* Troponin
+* CEA (Carcinoembryonic antigen)
+
+```{r}
+protein_hr_loincs_psa <- unique(protein_hr_loincs[grepl("Kallikrein", OriginalText, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_psa)
+```
+
+```{r}
+protein_hr_loincs_troponin <- unique(protein_hr_loincs[grepl("Troponin", OriginalText, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_troponin)
+```
+
+```{r}
+protein_hr_loincs_cea <- unique(protein_hr_loincs[grepl("Carcinoembryonic", lab_procedure_names, ignore.case=T), .(
+  loinc_code=DocName, 
+  lab_procedure_names, 
+  protein_name=EntityText, 
+  ResolvedForm,
+  encounter_id_count, patient_id_count)])
+head(protein_hr_loincs_cea)
+```

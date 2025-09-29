@@ -106,6 +106,10 @@ nthreads="4"
 # 10.	relatedname
 #
 #
+if [ ! -e "${DATADIR}/loinc_chem_names.tsv" ]; then
+	printf "ERROR: File not found: \"${DATADIR}/loinc_chem_names.tsv\". First run Go_loinc_GetData.sh.\n"
+	exit
+fi
 #
 for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
 	#

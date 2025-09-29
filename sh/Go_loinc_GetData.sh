@@ -4,6 +4,7 @@
 # LOINC 2.74 released 2023-02-22
 # LOINC 2.76 released 2023-09-18
 # LOINC 2.80 released 2025-02-26
+# LOINC 2.81 released 2025-08-12
 ###
 DBHOST="localhost"
 
