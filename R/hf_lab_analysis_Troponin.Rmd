@@ -15,7 +15,6 @@ library(kableExtra)
 
 ## Read data file.
 
-
 ```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_out.tsv"
 hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F)
@@ -48,6 +47,8 @@ for (lpm in names(boi)) {
   i <- i + 1
   message(sprintf("%d. Biomarker of interest: \"%s\"", i, lpm))
 }
+# Name of this biomarker group/topic.
+boi_name <- "Troponin"
 ```
 
 ## Describe dataset[s] for biomarker[s] of interest.
@@ -111,6 +112,7 @@ for (lpm in names(boi)) {
 }
 ```
 
+## Plots
 
 ```{r echo=F}
 plots <- list()
@@ -157,6 +159,7 @@ hf_pt <- hf_pt[agegroup != "Unknown"]
 ```
 
 ### Before and after applying exclusion criteria (diagnosis related to heart disease).
+### Before:
 
 ```{r echo=F}
 sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
@@ -171,6 +174,8 @@ tbl %>%
   kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
+### After:
+
 ```{r echo=F}
 hf_pt <- hf_pt[exclusion_flag==F]
 tbl <- data.table(table(hf_pt[, gender]))
@@ -180,6 +185,7 @@ tbl %>%
   kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
   kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
+
 ## Patient type
 
 Note that patient type depends on the encounter, so a single patient can be multiple patient types for different encounters.
@@ -217,14 +223,14 @@ data.table(percentiles = names(qtl), values = qtl) %>%
   kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
-
+## Plot of patient counts by age & sex
 
 ```{r echo=F}
 fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
 	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("Labs: (%s) cohort: Histogram of patient count by age, gender", paste(names(boi), collapse=", ")),
+				 title = sprintf("Labs: (%s) cohort: Histogram of patient count by age & sex", paste(names(boi), collapse=", ")),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
@@ -281,7 +287,6 @@ for (lpm in names(boi)) {
 }
 report_stratstat <- report_stratstat[!is.na(lab) & n>0]
 report_stratstat[, boxplot := ""]
-#write_delim(report_stratstat, sprintf("oracle_hf_data/stratified_stats_report.tsv"), "\t")
 vals <- list()
 for (i in 1:report_stratstat[, .N]) {
   if (!is.na(report_stratstat[, mean][i] & !is.na(report_stratstat[, sd][i]))) {
@@ -296,5 +301,8 @@ report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n, boxplot)] %
   kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
   column_spec(9, image = spec_boxplot(vals)) %>%
   row_spec(0, color = 'navy', background = 'orange')
+ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_name)
+write_delim(report_stratstat, ofile, "\t")
+sprintf("Output file: %s", ofile)
 ```
 
