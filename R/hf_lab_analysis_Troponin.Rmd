@@ -302,7 +302,7 @@ report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n, boxplot)] %
   column_spec(9, image = spec_boxplot(vals)) %>%
   row_spec(0, color = 'navy', background = 'orange')
 ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_name)
-write_delim(report_stratstat, ofile, "\t")
+write_delim(report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n)], ofile, "\t")
 sprintf("Output file: %s", ofile)
 ```
 
