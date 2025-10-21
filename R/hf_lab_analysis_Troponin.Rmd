@@ -253,7 +253,7 @@ for (lpm in names(boi)) {
 ```{r echo=F, message=F, warning=F}
 hf_pt[, agegroup := as.factor(agegroup)]
 n_agegroup <- length(levels(hf_pt[, agegroup]))
-report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, median = NaN, sd = NaN, n = NaN)
+report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, min = NaN, max = NaN, q1 = NaN, q2_median = NaN, q3 = NaN, sd = NaN, n = NaN)
 i <- 0L
 for (lpm in names(boi)) {
   hf_lab_pt_this <- boi[[lpm]]
@@ -279,9 +279,14 @@ for (lpm in names(boi)) {
       report_stratstat$n[i] <- length(values)
       report_stratstat$sex[i] <- g
       report_stratstat$agegroup[i] <- a
+      report_stratstat$min[i] <- min(values, na.rm=T)
+      report_stratstat$max[i] <- max(values, na.rm=T)
       report_stratstat$mean[i] <- mean(values, na.rm=T)
-      report_stratstat$median[i] <- median(values, na.rm=T)
       report_stratstat$sd[i] <- sd(values, na.rm=T)
+      q <- quantile(values, seq(0, 1, .25), na.rm=T)
+      report_stratstat$q1[i] <- q['25%']
+      report_stratstat$q3[i] <- q['75%']
+      report_stratstat$q2_median[i] <- q['50%']
     }
   }
 }
@@ -295,14 +300,14 @@ for (i in 1:report_stratstat[, .N]) {
     vals[[i]] <- NA
   }
 }
-report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n, boxplot)] %>%
+report_stratstat[, .(lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n, boxplot)] %>%
   kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
   pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
   kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
-  column_spec(9, image = spec_boxplot(vals)) %>%
+  column_spec(13, image = spec_boxplot(vals)) %>%
   row_spec(0, color = 'navy', background = 'orange')
 ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_name)
-write_delim(report_stratstat[, .(lab, agegroup, sex, units, mean, median, sd, n)], ofile, "\t")
+write_delim(report_stratstat[, .(lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n)], ofile, "\t")
 sprintf("Output file: %s", ofile)
 ```
 
