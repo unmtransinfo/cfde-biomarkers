@@ -147,6 +147,8 @@ sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 
 ### Remove patients with unknown gender or age
 
+Also remove patients with age < 20 (too few, and normally not relevant to heart injury).
+
 ```{r echo=F}
 sprintf("Excluding patients with unknown gender: %d / %d (%.3f%%) excluded",  
         hf_pt[gender != "Female" & gender != "Male", .N],
@@ -156,6 +158,10 @@ sprintf("Excluding patients with unknown agegroup: %d / %d (%.3f%%) excluded",
         hf_pt[, .N], 100 * hf_pt[agegroup == "Unknown", .N] / hf_pt[, .N])
 hf_pt <- hf_pt[gender == "Female" | gender == "Male"]
 hf_pt <- hf_pt[agegroup != "Unknown"]
+sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded", 
+				hf_pt[age_mid_year < 20.0, .N],
+				hf_pt[, .N], 100 * hf_pt[age_mid_year < 20.0, .N] / hf_pt[, .N])
+hf_pt <- hf_pt[age_mid_year >= 20.0]
 ```
 
 ### Before and after applying exclusion criteria (diagnosis related to heart disease).
@@ -230,7 +236,7 @@ fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>%
 	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("Labs: (%s) cohort: Histogram of patient count by age & sex", paste(names(boi), collapse=", ")),
+				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age & sex", paste(names(boi), collapse=", ")),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
