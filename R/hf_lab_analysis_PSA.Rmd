@@ -13,11 +13,23 @@ library(plotly)
 library(kableExtra)
 ```
 
+## Prerequisites
+
+Before running this workflow, the following steps are required:
+
+ - hf_labs-selected_results_agg-PSA_FULL-2018.sql
+ - hf_labs-selected_results_agg-PSA_FULL-2018_pt_agegroup.sql
+ - hf_labs-selected_results_agg-PSA_FULL-2018_patients.sql
+ - hf_labs-selected_results_agg-PSA_FULL-2018_dx.sql
+ - hf_labs-selected_results_agg-PSA_FULL-2018_pt_exclusion.sql
+ - Export db table hf_f_lab_psa_2018 to hf_f_lab_PSA_2018_out.tsv.
+ - Export db table hf_f_lab_psa_2018_patients to hf_f_lab_PSA_2018_patients_out.tsv.
+
 ## Read data file.
 
 ```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_PSA_2018_out.tsv"
-hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F)
+hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F, col_types = cols(.default = col_character(), age_in_years = col_integer(), age_in_days = col_integer(), numeric_result = col_number()))
 setDT(hf_lab)
 sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
 sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
@@ -129,7 +141,7 @@ for (lpm in names(boi)) {
   i <- i + 1
   plots[[i]] <- p
 }
-subplot(plots, nrows=1, shareX=F, shareY=T, titleX=T, titleY=T, margin=0.03) %>%
+subplot(plots, nrows=2, shareX=T, shareY=F, titleX=T, titleY=T, margin=0.03) %>%
   layout(title=sprintf("Distributions: %s", paste(collapse=", ", names(boi))),
          margin = list(t = 60),
          font = list(family = "Arial", size = 14), showlegend = T)
@@ -138,7 +150,7 @@ subplot(plots, nrows=1, shareX=F, shareY=T, titleX=T, titleY=T, margin=0.03) %>%
 
 ```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_PSA_2018_patients_out.tsv"
-hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F)
+hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F, col_types = cols(.default = col_character(), age_mid_year = col_number(), exclusion_flag = col_logical()))
 setDT(hf_pt)
 sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 ```
@@ -164,7 +176,14 @@ sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded",
 hf_pt <- hf_pt[age_mid_year >= 20.0]
 ```
 
-### Before and after applying exclusion criteria (diagnosis related to heart disease).
+## Include only males, as prostate-cancer relevant.
+
+```{r echo=F}
+hf_pt <- hf_pt[gender == "Male"]
+```
+
+
+### Before and after applying exclusion criteria (diagnosis related to prostate cancer or any cancer).
 ### Before:
 
 ```{r echo=F}
@@ -172,24 +191,13 @@ sprintf("Patients: %d; Not-excluded: %d (%.1f%%)",
         hf_pt[, .N], 
         hf_pt[exclusion_flag==F, .N], 
         100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N])
-tbl <- data.table(table(hf_pt[, gender]))
-names(tbl) <- c("Gender", "n_pt")
-tbl <- tbl[order(-n_pt)]
-tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, pre-exclusion, Gender distribution", paste(collapse=", ", names(boi))), booktabs=T) %>%
-  kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
 ### After:
 
 ```{r echo=F}
 hf_pt <- hf_pt[exclusion_flag==F]
-tbl <- data.table(table(hf_pt[, gender]))
-names(tbl) <- c("Gender", "n_pt")
-tbl <- tbl[order(-n_pt)]
-tbl %>%
-  kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
-  kable_styling(c("striped", "hover"), full_width = F, position="left")
+sprintf("Patients (after exclusion): %d", hf_pt[, .N])
 ```
 
 ## Patient type
@@ -229,23 +237,22 @@ data.table(percentiles = names(qtl), values = qtl) %>%
   kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
-## Plot of patient counts by age & sex
+## Plot of patient counts by age
 
 ```{r echo=F}
 fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
-	add_histogram(x = hf_pt[gender == "Female", age_mid_year], name = "Female", marker = list(color = "deeppink")) %>%
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age & sex", paste(names(boi), collapse=", ")),
+				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age", paste(names(boi), collapse=", ")),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
 fig
 ```
 
-## Stratified statistics and  distributions
+## Stratified statistics and distributions
 
-Initially, for sex and age-group.
+Initially, for age-group.
 First merge lab value table[s] with stratification variables.
 Most common unit of measurement preferred, and if sufficient, others ignored.
 
