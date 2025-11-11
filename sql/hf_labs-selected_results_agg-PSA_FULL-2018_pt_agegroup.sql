@@ -1,6 +1,8 @@
 -- For selected LOINC codes, analysis of empirical distributions.
 ALTER TABLE jjyang.hf_f_lab_psa_2018_patients
-        ADD COLUMN IF NOT EXISTS agegroup VARCHAR(12) DEFAULT NULL ;
+        DROP COLUMN IF EXISTS agegroup ;
+ALTER TABLE jjyang.hf_f_lab_psa_2018_patients
+        ADD COLUMN agegroup VARCHAR(12) DEFAULT NULL ;
 UPDATE jjyang.hf_f_lab_psa_2018_patients jp
         SET agegroup = 
                 CASE WHEN jp.age_mid_year < 10.0 THEN '00-09'
@@ -21,8 +23,6 @@ SELECT
         jp.agegroup
 FROM
         jjyang.hf_f_lab_psa_2018_patients jp
-WHERE
-        jp.exclusion_flag = FALSE
 GROUP BY
         jp.agegroup
 ORDER BY

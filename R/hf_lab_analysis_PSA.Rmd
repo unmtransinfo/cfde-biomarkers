@@ -15,13 +15,13 @@ library(kableExtra)
 
 ## Prerequisites
 
-Before running this workflow, the following steps are required:
+Before running this workflow, the following steps are required, in order:
 
  - hf_labs-selected_results_agg-PSA_FULL-2018.sql
- - hf_labs-selected_results_agg-PSA_FULL-2018_pt_agegroup.sql
  - hf_labs-selected_results_agg-PSA_FULL-2018_patients.sql
  - hf_labs-selected_results_agg-PSA_FULL-2018_dx.sql
  - hf_labs-selected_results_agg-PSA_FULL-2018_pt_exclusion.sql
+ - hf_labs-selected_results_agg-PSA_FULL-2018_pt_agegroup.sql
  - Export db table hf_f_lab_psa_2018 to hf_f_lab_PSA_2018_out.tsv.
  - Export db table hf_f_lab_psa_2018_patients to hf_f_lab_PSA_2018_patients_out.tsv.
 
@@ -187,17 +187,12 @@ hf_pt <- hf_pt[gender == "Male"]
 ### Before:
 
 ```{r echo=F}
-sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
+message(sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
         hf_pt[, .N], 
         hf_pt[exclusion_flag==F, .N], 
-        100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N])
-```
-
-### After:
-
-```{r echo=F}
+        100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N]))
 hf_pt <- hf_pt[exclusion_flag==F]
-sprintf("Patients (after exclusion): %d", hf_pt[, .N])
+message(sprintf("Patients (after exclusion): %d", hf_pt[, .N]))
 ```
 
 ## Patient type
@@ -243,7 +238,7 @@ data.table(percentiles = names(qtl), values = qtl) %>%
 fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
 	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
 	layout(barmode = "group",
-				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age", paste(names(boi), collapse=", ")),
+				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age (N_total=%d)", paste(names(boi), collapse=", "), hf_pt[, .N]),
          xaxis = list(title = "Age", zeroline = F),
          yaxis = list(title = "Patients", zeroline = F),
 				 legend = list(x = .2, y = .7))
@@ -258,12 +253,14 @@ Most common unit of measurement preferred, and if sufficient, others ignored.
 
 ```{r echo=F}
 for (lpm in names(boi)) {
+  message(sprintf("Before merge (%s): %d", lpm, boi[[lpm]][, .N]))
   boi[[lpm]] <- merge(boi[[lpm]], hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
+  message(sprintf("After merge (%s): %d", lpm, boi[[lpm]][, .N]))
 }
 ```
 
 
-```{r echo=F, message=F, warning=F}
+```{r echo=F, message=T, warning=T}
 hf_pt[, agegroup := as.factor(agegroup)]
 n_agegroup <- length(levels(hf_pt[, agegroup]))
 report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, min = NaN, max = NaN, q1 = NaN, q2_median = NaN, q3 = NaN, sd = NaN, n = NaN)
@@ -272,23 +269,23 @@ for (lpm in names(boi)) {
   hf_lab_pt_this <- boi[[lpm]]
   hf_lab_pt_this[, gender := as.factor(gender)]
   hf_lab_pt_this[, agegroup := as.factor(agegroup)]
-  hf_lab_pt_this[, unit_display := as.factor(unit_display)]
   for (a in levels(hf_lab_pt_this[, agegroup])) {
     for (g in levels(hf_lab_pt_this[, gender])) {
       i <- i + 1
       report_stratstat$lab[i] <- lpm
-      ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
-      #message(sprintf("%d. agegroup: %s; gender: %s; N = %d", i, a, g, length(ptid_this)))
-      units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
+      hf_lab_pt_this_this <- hf_lab_pt_this[agegroup == a & gender == g]
+      message(sprintf("%d. agegroup: %s; gender: %s; N = %d", i, a, g, hf_lab_pt_this_this[, .N]))
+      hf_lab_pt_this_this[, unit_display := as.factor(unit_display)]
+      units <- hf_lab_pt_this_this[, unit_display]
       if (length(levels(units))>1) {
-        message(sprintf("WARNING: (a=%s, g=%s) multiple units: (%s); units_preferred: %s", a, g, paste(levels(units), collapse = ", "), units_preferred))
-        tbl <- data.table(table(hf_lab_pt_this[agegroup ==a & gender == g, unit_display]))[order(-N)]
+        tbl <- data.table(table(hf_lab_pt_this_this[, unit_display]))[order(-N)]
         units_preferred <- tbl[["V1"]][1]
+        message(sprintf("WARNING: (a=%s, g=%s) multiple units: (%s); units_preferred: %s (%d / %d)", a, g, paste(levels(units), collapse = ", "), units_preferred,  tbl[["N"]][1], sum(tbl[["N"]])))
       } else {
         units_preferred <- levels(units)[1]
       }
       report_stratstat$units[i] <- units_preferred
-      values <- hf_lab_pt_this[agegroup == a & gender == g & unit_display == units_preferred, numeric_result]
+      values <- hf_lab_pt_this_this[unit_display == units_preferred, numeric_result]
       report_stratstat$n[i] <- length(values)
       report_stratstat$sex[i] <- g
       report_stratstat$agegroup[i] <- a

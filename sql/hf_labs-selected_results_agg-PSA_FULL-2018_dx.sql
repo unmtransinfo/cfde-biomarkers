@@ -1,4 +1,5 @@
 -- For selected LOINC codes, analysis of empirical distributions.
+DROP TABLE IF EXISTS jjyang.hf_f_lab_psa_2018_pt_dx ;
 CREATE TABLE jjyang.hf_f_lab_psa_2018_pt_dx
 AS
 SELECT DISTINCT

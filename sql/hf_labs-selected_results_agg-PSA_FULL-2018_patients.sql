@@ -1,5 +1,6 @@
 -- For selected LOINC codes, analysis of empirical distributions.
 -- EPOCH = number of seconds since 1970-01-01 00:00:00
+DROP TABLE IF EXISTS jjyang.hf_f_lab_psa_2018_patients ;
 CREATE TABLE jjyang.hf_f_lab_psa_2018_patients
 AS
 SELECT DISTINCT
@@ -20,9 +21,6 @@ JOIN
 	public.hf_d_patient dp ON dp.patient_id = jjl.patient_id
 JOIN
         public.hf_d_patient_type dpt ON jjl.patient_type_id = dpt.patient_type_id
-WHERE
-	dp.gender IS NOT NULL
-	AND dpt.patient_type_desc IS NOT NULL
 ORDER BY
 	jjl.patient_id
 	;
