@@ -16,11 +16,11 @@ library(kableExtra)
 
 Before running this workflow, the following steps are required, in order:
 
- - hf_labs-selected_results_agg-creatinine_FULL-2018.sql
- - hf_labs-selected_results_agg-creatinine_FULL-2018_patients.sql
- - hf_labs-selected_results_agg-creatinine_FULL-2018_dx.sql
- - hf_labs-selected_results_agg-creatinine_FULL-2018_pt_exclusion.sql
- - hf_labs-selected_results_agg-creatinine_FULL-2018_pt_agegroup.sql
+ - hf_labs-selected_results_agg-Creatinine_FULL-2018.sql
+ - hf_labs-selected_results_agg-Creatinine_FULL-2018_patients.sql
+ - hf_labs-selected_results_agg-Creatinine_FULL-2018_dx.sql
+ - hf_labs-selected_results_agg-Creatinine_FULL-2018_pt_exclusion.sql
+ - hf_labs-selected_results_agg-Creatinine_FULL-2018_pt_agegroup.sql
  - Export db table hf_f_lab_creatinine_2018 to hf_f_lab_creatinine_2018_out.tsv.
  - Export db table hf_f_lab_creatinine_2018_patients to hf_f_lab_creatinine_2018_patients_out.tsv.
  
@@ -28,7 +28,9 @@ Before running this workflow, the following steps are required, in order:
 
 ```{r echo=F}
 ifile <- "oracle_hf_data/hf_f_lab_creatinine_2018_out.tsv"
-hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F)
+hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F,
+                  col_types = cols(.default = col_character(), 
+                 age_in_years = col_integer(), age_in_days = col_integer(), numeric_result = col_number()))
 setDT(hf_lab)
 sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
 sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
@@ -148,8 +150,10 @@ subplot(plots, nrows=1, shareX=F, shareY=T, titleX=T, titleY=T, margin=0.03) %>%
 
 
 ```{r echo=F}
-ifile <- "oracle_hf_data/hf_f_lab_troponin_2018_patients_out.tsv"
-hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F)
+ifile <- "oracle_hf_data/hf_f_lab_creatinine_2018_patients_out.tsv"
+hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F,
+                   col_types = cols(.default = col_character(), age_mid_year = col_number(),
+                                    exclusion_flag = col_logical()))
 setDT(hf_pt)
 sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 ```
@@ -158,7 +162,7 @@ sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 
 ### Remove patients with unknown gender or age
 
-Also remove patients with age < 20 (too few, and normally not relevant to heart injury).
+Also remove patients with age < 20 (too few, and not focus of this study).
 
 ```{r echo=F}
 sprintf("Excluding patients with unknown gender: %d / %d (%.3f%%) excluded",  
