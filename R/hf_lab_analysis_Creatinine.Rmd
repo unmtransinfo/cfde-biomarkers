@@ -53,6 +53,10 @@ data.table(tbl) %>%
 
 ## Define biomarker[s] of interest.
 
+Also specify:
+ - Entity Type, from BiomarkerKB ontology.
+ - Entity ID and ID-source.
+
 ```{r echo=F}
 boi <- list("Creatinine, Urine-Random" = NULL, "Creatinine, Urine Quant" = NULL, "Creatinine, Urine 24 hr" = NULL)
 i <- 0L
@@ -62,6 +66,12 @@ for (lpm in names(boi)) {
 }
 # Name of this biomarker group/topic.
 boi_name <- "Creatinine"
+
+# Entity metadata
+entity_name <- "Creatinine"
+entity_type <- "Metabolite"
+entity_id <- "16737"
+entity_id_source <- "CHEBI"
 ```
 
 ## Describe dataset[s] for biomarker[s] of interest.
@@ -321,14 +331,16 @@ for (i in 1:report_stratstat[, .N]) {
     vals[[i]] <- NA
   }
 }
-report_stratstat[, .(lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n, boxplot)] %>%
+report_stratstat[, `:=`(entity_name=entity_name, entity_type=entity_type, entity_id=entity_id, entity_id_source=entity_id_source)]
+setcolorder(report_stratstat, c("entity_name", "entity_type", "entity_id", "entity_id_source"), before=1)
+report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n, boxplot)] %>%
   kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
   pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
   kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
   column_spec(13, image = spec_boxplot(vals)) %>%
   row_spec(0, color = 'navy', background = 'orange')
 ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_name)
-write_delim(report_stratstat[, .(lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n)], ofile, "\t")
+write_delim(report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n)], ofile, "\t")
 sprintf("Output file: %s", ofile)
 ```
 
