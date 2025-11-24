@@ -51,7 +51,7 @@ data.table(tbl) %>%
   kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 
-## Define biomarker[s] of interest.
+## Define biomarker entities of interest.
 
 Also specify:
  - Entity Type, from BiomarkerKB ontology.
@@ -59,29 +59,40 @@ Also specify:
 
 ```{r echo=F}
 boi <- list("Creatinine, Urine-Random" = NULL, "Creatinine, Urine Quant" = NULL, "Creatinine, Urine 24 hr" = NULL)
+# Entity metadata
+boi_metadata <- list("Creatinine, Urine-Random" = list("entity_name" = "Creatinine",
+                                         "entity_type" = "Metabolite",
+                                         "entity_id" = "16737",
+                                         "entity_id_source" = "CHEBI"),
+                     "Creatinine, Urine Quant" = list("entity_name" = "Creatinine",
+                                         "entity_type" = "Metabolite",
+                                         "entity_id" = "16737",
+                                         "entity_id_source" = "CHEBI"),
+                     "Creatinine, Urine 24 hr" = list("entity_name" = "Creatinine",
+                                         "entity_type" = "Metabolite",
+                                         "entity_id" = "16737",
+                                         "entity_id_source" = "CHEBI"))
 i <- 0L
 for (lpm in names(boi)) {
   i <- i + 1
   message(sprintf("%d. Biomarker of interest: \"%s\"", i, lpm))
 }
 # Name of this biomarker group/topic.
-boi_name <- "Creatinine"
-
-# Entity metadata
-entity_name <- "Creatinine"
-entity_type <- "Metabolite"
-entity_id <- "16737"
-entity_id_source <- "CHEBI"
+boi_group_name <- "Creatinine"
 ```
 
-## Describe dataset[s] for biomarker[s] of interest.
+## Describe datasets for biomarker entities of interest.
 
 ```{r echo=F}
-report_dt <- data.table(i = 1:length(boi), lab = "", valcount = NaN, all_units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
+report_dt <- data.table(i = 1:length(boi), entity_name="", entity_type="", entity_id="", entity_id_source="", lab = "", valcount = NaN, all_units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
 i <- 0L
 for (lpm in names(boi)) {
   hf_lab_this <- hf_lab[lab_procedure_mnemonic == lpm]
   i <- i + 1
+  report_dt$entity_name[i] <- boi_metadata[[lpm]][["entity_name"]]
+  report_dt$entity_type[i] <- boi_metadata[[lpm]][["entity_type"]]
+  report_dt$entity_id[i] <- boi_metadata[[lpm]][["entity_id"]]
+  report_dt$entity_id_source[i] <- boi_metadata[[lpm]][["entity_id_source"]]
   report_dt$lab[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
   report_dt$valcount[i] <- hf_lab_this[, .N]
   tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
@@ -95,8 +106,8 @@ for (lpm in names(boi)) {
   report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
   boi[[lpm]] <- hf_lab_this
 }
-report_dt[, .(lab, pref_units, mean, median, sd, pref_units_valcount)] %>% 
-  kbl(caption = sprintf("Summary of data for biomarker[s] of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lccccc", col.names = c("lab", "units", "mean", "median", "sd", "n")) %>%
+report_dt[, .(entity_name, entity_type, entity_id, entity_id_source, lab, pref_units, mean, median, sd, pref_units_valcount)] %>% 
+  kbl(caption = sprintf("Summary of data for biomarker entities of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lllllccccc", col.names = c("entity_name", "entity_type", "entity_id", "entity_id_source", "lab", "units", "mean", "median", "sd", "n")) %>%
     kable_styling(c("striped", "hover"), full_width = F, position = "left")
 ```
 ```{r echo=F, results='asis'}
@@ -284,7 +295,7 @@ for (lpm in names(boi)) {
 ```{r echo=F, message=F, warning=F}
 hf_pt[, agegroup := as.factor(agegroup)]
 n_agegroup <- length(levels(hf_pt[, agegroup]))
-report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), lab = "", agegroup = "", sex = "", units = "", mean = NaN, min = NaN, max = NaN, q1 = NaN, q2_median = NaN, q3 = NaN, sd = NaN, n = NaN)
+report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), entity_name = "", entity_type = "", entity_id = "", entity_id_source = "", lab = "", agegroup = "", sex = "", units = "", mean = NaN, min = NaN, max = NaN, q1 = NaN, q2_median = NaN, q3 = NaN, sd = NaN, n = NaN)
 i <- 0L
 for (lpm in names(boi)) {
   hf_lab_pt_this <- boi[[lpm]]
@@ -295,6 +306,10 @@ for (lpm in names(boi)) {
     for (g in levels(hf_lab_pt_this[, gender])) {
       i <- i + 1
       report_stratstat$lab[i] <- lpm
+      report_stratstat$entity_name[i] <- boi_metadata[[lpm]][["entity_name"]]
+      report_stratstat$entity_type[i] <- boi_metadata[[lpm]][["entity_type"]]
+      report_stratstat$entity_id[i] <- boi_metadata[[lpm]][["entity_id"]]
+      report_stratstat$entity_id_source[i] <- boi_metadata[[lpm]][["entity_id_source"]]
       ptid_this <- hf_lab_pt_this[agegroup == a & gender == g, patient_id]
       #message(sprintf("%d. agegroup: %s; gender: %s; N = %d", i, a, g, length(ptid_this)))
       units <- hf_lab_pt_this[agegroup ==a & gender == g, unit_display]
@@ -331,15 +346,13 @@ for (i in 1:report_stratstat[, .N]) {
     vals[[i]] <- NA
   }
 }
-report_stratstat[, `:=`(entity_name=entity_name, entity_type=entity_type, entity_id=entity_id, entity_id_source=entity_id_source)]
-setcolorder(report_stratstat, c("entity_name", "entity_type", "entity_id", "entity_id_source"), before=1)
 report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n, boxplot)] %>%
   kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
   pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
   kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
-  column_spec(13, image = spec_boxplot(vals)) %>%
+  column_spec(17, image = spec_boxplot(vals)) %>%
   row_spec(0, color = 'navy', background = 'orange')
-ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_name)
+ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_group_name)
 write_delim(report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n)], ofile, "\t")
 sprintf("Output file: %s", ofile)
 ```
