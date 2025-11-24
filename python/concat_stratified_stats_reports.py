@@ -16,13 +16,14 @@ def main(ifiles, ofile, csv, debug):
   df_out = None; i_file=0;
   for ifile in ifiles:
     i_file += 1
-    df_in_this = pd.read_csv(ifile, sep=("," if csv else "\t"), dtype=str)
+    df_in_this = pd.read_csv(ifile, sep=("," if csv else "\t"),
+                             dtype=str)
     logging.info(f"Input {i_file}. {ifile}: {df_in_this.shape[0]} x {df_in_this.shape[1]}")
     logging.debug(f"Input {i_file}. {ifile}: columns: {df_in_this.columns}")
     df_out = pd.concat([df_out, df_in_this], axis=0)
 
   fout = open(ofile, "w") if ofile else sys.stdout
-  df_out.to_csv(fout, index=False)
+  df_out.to_csv(fout, sep=("," if csv else "\t"), index=False)
   logging.info(f"Output {ofile}: {df_out.shape[0]} x {df_out.shape[1]}")
   logging.debug(f"Output {ofile}: columns: {df_out.columns}")
 
