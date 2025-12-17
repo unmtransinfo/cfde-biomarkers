@@ -1,0 +1,341 @@
+---
+title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis: Glycosolated Hemoglobin (HGBA1C) biomarkers'
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+```{r echo=F, include=F}
+library(readr)
+library(data.table)
+library(plotly)
+library(kableExtra)
+```
+
+## Prerequisites
+
+Before running this workflow, the following steps are required, in order:
+
+ - hf_labs-selected_results_agg-HgbA1C_FULL-2018.sql
+ - hf_labs-selected_results_agg-HgbA1C_FULL-2018_patients.sql
+ - hf_labs-selected_results_agg-HgbA1C_FULL-2018_dx.sql
+ - hf_labs-selected_results_agg-HgbA1C_FULL-2018_pt_exclusion.sql
+ - hf_labs-selected_results_agg-HgbA1C_FULL-2018_pt_agegroup.sql
+ - Export db table hf_f_lab_psa_2018 to hf_f_lab_hgba1c_2018_out.tsv.
+ - Export db table hf_f_lab_psa_2018_patients to hf_f_lab_hgba1c_2018_patients_out.tsv.
+
+## Read data file.
+
+```{r echo=F}
+ifile <- "oracle_hf_data/hf_f_lab_hgba1c_2018_out.tsv"
+hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F, col_types = cols(.default = col_character(), age_in_years = col_integer(), age_in_days = col_integer(), numeric_result = col_number()))
+setDT(hf_lab)
+sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
+sprintf("Patients: %s; Encounters: %s", hf_lab[, uniqueN(patient_id)], hf_lab[, uniqueN(encounter_id)])
+```
+
+## Lab tests in this dataset.
+
+```{r echo=F}
+hf_lab[, lab_procedure_mnemonic := as.factor(lab_procedure_mnemonic)]
+hf_lab[, unit_display := as.factor(unit_display)]
+tbl <- data.table(table(hf_lab[, lab_procedure_mnemonic]))
+names(tbl) <- c("Lab", "N")
+tbl2 <- hf_lab[, .(units = paste(collapse=", ", unique(unit_display))),  by=lab_procedure_mnemonic]
+tbl <- merge(tbl, tbl2, by.x="Lab", by.y="lab_procedure_mnemonic")
+tbl <- tbl[, .(Lab, units, N)]
+tbl <- tbl[order(-N)]
+data.table(tbl) %>% 
+  kbl(caption = "Lab tests in dataset, with value counts", booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position = "left")
+```
+
+## Define biomarker entities of interest.
+
+```{r echo=F}
+boi <- list("Hgb A1C" = NULL, "Hgb A1C HPLC" = NULL)
+# Entity metadata
+boi_metadata <- list("Hgb A1C" = list("entity_name" = "Glycosylated hemoglobin",
+                                         "entity_type" = "Protein",
+                                         "entity_id" = "3B75",
+                                         "entity_id_source" = "PDB"),
+                     "Hgb A1C HPLC" = list("entity_name" = "Glycosylated hemoglobin",
+                                         "entity_type" = "Protein",
+                                         "entity_id" = "3B75",
+                                         "entity_id_source" = "PDB"))
+i <- 0L
+for (lpm in names(boi)) {
+  i <- i + 1
+  message(sprintf("%d. Biomarker Lab Test of interest: \"%s\"", i, lpm))
+}
+# Name of this biomarker group/topic.
+boi_group_name <- "HgbA1C"
+```
+
+## Describe datasets for biomarker entities of interest.
+
+```{r echo=F}
+report_dt <- data.table(i = 1:length(boi), entity_name="", entity_type="", entity_id="", entity_id_source="", lab = "", valcount = NaN, all_units = "", pref_units = "", pref_units_valcount = NaN, mean = NaN, median = NaN, sd = NaN)
+i <- 0L
+for (lpm in names(boi)) {
+  hf_lab_this <- hf_lab[lab_procedure_mnemonic == lpm]
+  i <- i + 1
+  report_dt$entity_name[i] <- boi_metadata[[lpm]][["entity_name"]]
+  report_dt$entity_type[i] <- boi_metadata[[lpm]][["entity_type"]]
+  report_dt$entity_id[i] <- boi_metadata[[lpm]][["entity_id"]]
+  report_dt$entity_id_source[i] <- boi_metadata[[lpm]][["entity_id_source"]]
+  report_dt$lab[i] <- paste(unique(hf_lab_this[["lab_procedure_mnemonic"]]), collapse=", ")
+  report_dt$valcount[i] <- hf_lab_this[, .N]
+  tbl <- data.table(table(hf_lab_this[["unit_display"]]))[order(-N)]
+  units_preferred <- tbl[["V1"]][1]
+  report_dt$all_units[i] <- paste(unique(hf_lab_this[["unit_display"]]), collapse=", ")
+  report_dt$pref_units[i] <- units_preferred
+  report_dt$pref_units_valcount[i] <- tbl[["N"]][1]
+  hf_lab_this <- hf_lab_this[unit_display == units_preferred]
+  report_dt$mean[i] <- mean(hf_lab_this[["numeric_result"]], na.rm=T)
+  report_dt$median[i] <- median(hf_lab_this[["numeric_result"]], na.rm=T)
+  report_dt$sd[i] <- sd(hf_lab_this[["numeric_result"]], na.rm=T)
+  boi[[lpm]] <- hf_lab_this
+}
+report_dt[, .(entity_name, entity_type, entity_id, entity_id_source, lab, pref_units, mean, median, sd, pref_units_valcount)] %>% 
+  kbl(caption = sprintf("Summary of data for biomarker entities of interest (%d)", length(boi)), booktabs=T, digits=2, align = "lllllccccc", col.names = c("entity_name", "entity_type", "entity_id", "entity_id_source", "lab", "units", "mean", "median", "sd", "n")) %>%
+    kable_styling(c("striped", "hover"), full_width = F, position = "left")
+```
+```{r echo=F, results='asis'}
+for (lpm in names(boi)) {
+  hf_lab_this <- boi[[lpm]]
+  values <- hf_lab_this[["numeric_result"]]
+  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  print(
+  data.table(percentiles = names(qtl), values = qtl) %>%
+  kbl(caption = sprintf("%s: distribution percentiles", lpm), booktabs=T, align = "cc") %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
+  )
+}
+```
+
+# Remove extreme and likely non-healthy or spurious values.
+
+Although exclusion criteria are designed to filter for healthy patients with normal physiological lab values, removing extreme values can further filter to the same purpose.
+
+```{r echo=F}
+for (lpm in names(boi)) {
+  hf_lab_this <- boi[[lpm]]
+  values <- hf_lab_this[, numeric_result]
+  n_before <- length(values)
+  qtl <- quantile(values, probs = seq(0, 1, .05))
+  hf_lab_this <- hf_lab_this[numeric_result>qtl[["10%"]] & numeric_result<qtl[["90%"]]]
+  values <- hf_lab_this[, numeric_result]
+  message(sprintf("%s: Extreme values removed: %d / %d (%.2f%%)", lpm, n_before-length(values), n_before, 100 * (n_before-length(values))/n_before))
+  boi[[lpm]] <- hf_lab_this
+  message(sprintf("%s; N = %d; min = %.4f; max = %.4f; mean = %.4f; median = %.4f; sd = %.4f", lpm, length(values), min(values), max(values), mean(values), median(values), sd(values)))
+  qtl <- quantile(values, probs = seq(0, 1, .1))
+  data.table(percentiles = names(qtl), values = qtl) %>% 
+    kbl(caption = sprintf("%s: distribution percentiles", lpm), booktabs=T) %>%
+    kable_styling(c("striped", "hover"), full_width = F, position="left")
+}
+```
+
+## Plots
+
+```{r echo=F}
+plots <- list()
+i <- 0L
+for (lpm in names(boi)) {
+  values <- boi[[lpm]][, numeric_result]
+  boi[[lpm]][, unit_display := as.factor(unit_display)]
+  units_preferred <- levels(boi[[lpm]][, unit_display])[1]
+  plotname <- sprintf("%s (%s)<br>N = %d", lpm, units_preferred, length(values))
+  p <- plot_ly(type="histogram", x = values, name=plotname, xbins = list(size = 0.01)) %>%
+    layout(annotations=list(text = plotname, x=0.5, y=0.7, xref="paper", yref="paper",
+                yanchor="bottom", xanchor="center", align="center",
+                font=list(family="Courier New", size=12, color="#222222"), showarrow=F))
+  i <- i + 1
+  plots[[i]] <- p
+}
+subplot(plots, nrows=2, shareX=T, shareY=F, titleX=T, titleY=T, margin=0.03) %>%
+  layout(title=sprintf("Distributions: %s", paste(collapse=", ", names(boi))),
+         margin = list(t = 60),
+         font = list(family = "Arial", size = 14), showlegend = T)
+```
+
+
+```{r echo=F}
+ifile <- "oracle_hf_data/hf_f_lab_hgba1c_2018_patients_out.tsv"
+hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F, col_types = cols(.default = col_character(), age_mid_year = col_number(), exclusion_flag = col_logical()))
+setDT(hf_pt)
+sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
+```
+
+## Patient cohort descriptive statistics
+
+### Remove patients with unknown gender or age
+
+Also remove patients with age < 20 (too few, and normally not relevant to prostate/PSA issues).
+
+```{r echo=F}
+sprintf("Excluding patients with unknown gender: %d / %d (%.3f%%) excluded",  
+        hf_pt[gender != "Female" & gender != "Male", .N],
+        hf_pt[, .N], 100 * hf_pt[gender != "Female" & gender != "Male", .N] / hf_pt[, .N])
+sprintf("Excluding patients with unknown agegroup: %d / %d (%.3f%%) excluded", 
+        hf_pt[agegroup == "Unknown", .N], 
+        hf_pt[, .N], 100 * hf_pt[agegroup == "Unknown", .N] / hf_pt[, .N])
+hf_pt <- hf_pt[gender == "Female" | gender == "Male"]
+hf_pt <- hf_pt[agegroup != "Unknown"]
+sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded", 
+				hf_pt[age_mid_year < 20.0, .N],
+				hf_pt[, .N], 100 * hf_pt[age_mid_year < 20.0, .N] / hf_pt[, .N])
+hf_pt <- hf_pt[age_mid_year >= 20.0]
+```
+
+### Before and after applying exclusion criteria (diagnosis related to prostate cancer or any cancer).
+### Before:
+
+```{r echo=F}
+message(sprintf("Patients: %d; Not-excluded: %d (%.1f%%)", 
+        hf_pt[, .N], 
+        hf_pt[exclusion_flag==F, .N], 
+        100 * hf_pt[exclusion_flag==F, .N] / hf_pt[, .N]))
+hf_pt <- hf_pt[exclusion_flag==F]
+message(sprintf("Patients (after exclusion): %d", hf_pt[, .N]))
+tbl <- data.table(table(hf_pt[, gender]))
+names(tbl) <- c("Gender", "n_pt")
+tbl <- tbl[order(-n_pt)]
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Gender distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
+```
+
+## Patient type
+
+Note that patient type depends on the encounter, so a single patient can be multiple patient types for different encounters.
+
+```{r echo=F}
+tbl <- table(hf_pt[, patient_type_desc])
+tbl <- data.table(tbl)
+names(tbl) <- c("Patient_type", "n_pt")
+tbl <- tbl[order(-n_pt)]
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Patient_type distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
+```
+
+## Race
+
+```{r echo=F}
+tbl <- table(hf_pt[, race])
+tbl <- data.table(tbl)
+names(tbl) <- c("Race", "n_pt")
+tbl <- tbl[order(-n_pt)]
+tbl %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Race distribution", paste(names(boi), collapse=", ")), booktabs=T) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
+```
+
+## Age distribution
+
+```{r echo=F}
+values <- hf_pt[!is.na(age_mid_year), age_mid_year]
+sprintf("Age_mid_year: N = %d; min = %.1f; max = %.1f; mean = %.1f; median = %.1f; sd = %.1f", length(values), min(values), max(values), mean(values), median(values), sd(values))
+qtl <- quantile(values, probs = seq(0, 1, .1))
+data.table(percentiles = names(qtl), values = qtl) %>%
+  kbl(caption = sprintf("Labs: (%s) cohort, Age_mid_year: distribution percentiles", paste(names(boi), collapse=", ")), booktabs=T, digits=1) %>%
+  kable_styling(c("striped", "hover"), full_width = F, position="left")
+```
+
+## Plot of patient counts by age
+
+```{r echo=F}
+fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
+	add_histogram(x = hf_pt[gender == "Male", age_mid_year], name = "Male", marker = list(color = "skyblue")) %>%
+	layout(barmode = "group",
+				 title = sprintf("Labs: (%s) cohort:<br>Histogram of patient count by age (N_total=%d)", paste(names(boi), collapse=", "), hf_pt[, .N]),
+         xaxis = list(title = "Age", zeroline = F),
+         yaxis = list(title = "Patients", zeroline = F),
+				 legend = list(x = .2, y = .7))
+fig
+```
+
+## Stratified statistics and distributions
+
+Initially, for age-group.
+First merge lab value table[s] with stratification variables.
+Most common unit of measurement preferred, and if sufficient, others ignored.
+
+```{r echo=F}
+for (lpm in names(boi)) {
+  message(sprintf("Before merge (%s): %d", lpm, boi[[lpm]][, .N]))
+  boi[[lpm]] <- merge(boi[[lpm]], hf_pt[, .(patient_id, gender, race, age_mid_year, agegroup, exclusion_flag)], by = "patient_id", all.x=F, all.y=F)
+  message(sprintf("After merge (%s): %d", lpm, boi[[lpm]][, .N]))
+}
+```
+
+
+```{r echo=F, message=T, warning=T}
+hf_pt[, agegroup := as.factor(agegroup)]
+n_agegroup <- length(levels(hf_pt[, agegroup]))
+report_stratstat <- data.table(i = 1:(2*n_agegroup*length(boi)), entity_name = "", entity_type = "", entity_id = "", entity_id_source = "", lab = "", agegroup = "", sex = "", units = "", mean = NaN, min = NaN, max = NaN, q1 = NaN, q2_median = NaN, q3 = NaN, sd = NaN, n = NaN)
+i <- 0L
+for (lpm in names(boi)) {
+  hf_lab_pt_this <- boi[[lpm]]
+  hf_lab_pt_this[, gender := as.factor(gender)]
+  hf_lab_pt_this[, agegroup := as.factor(agegroup)]
+  for (a in levels(hf_lab_pt_this[, agegroup])) {
+    for (g in levels(hf_lab_pt_this[, gender])) {
+      i <- i + 1
+      report_stratstat$lab[i] <- lpm
+      report_stratstat$entity_name[i] <- boi_metadata[[lpm]][["entity_name"]]
+      report_stratstat$entity_type[i] <- boi_metadata[[lpm]][["entity_type"]]
+      report_stratstat$entity_id[i] <- boi_metadata[[lpm]][["entity_id"]]
+      report_stratstat$entity_id_source[i] <- boi_metadata[[lpm]][["entity_id_source"]]
+      report_stratstat$lab[i] <- lpm
+      hf_lab_pt_this_this <- hf_lab_pt_this[agegroup == a & gender == g]
+      message(sprintf("%d. agegroup: %s; gender: %s; N = %d", i, a, g, hf_lab_pt_this_this[, .N]))
+      hf_lab_pt_this_this[, unit_display := as.factor(unit_display)]
+      units <- hf_lab_pt_this_this[, unit_display]
+      if (length(levels(units))>1) {
+        tbl <- data.table(table(hf_lab_pt_this_this[, unit_display]))[order(-N)]
+        units_preferred <- tbl[["V1"]][1]
+        message(sprintf("WARNING: (a=%s, g=%s) multiple units: (%s); units_preferred: %s (%d / %d)", a, g, paste(levels(units), collapse = ", "), units_preferred,  tbl[["N"]][1], sum(tbl[["N"]])))
+      } else {
+        units_preferred <- levels(units)[1]
+      }
+      report_stratstat$units[i] <- units_preferred
+      values <- hf_lab_pt_this_this[unit_display == units_preferred, numeric_result]
+      report_stratstat$n[i] <- length(values)
+      report_stratstat$sex[i] <- g
+      report_stratstat$agegroup[i] <- a
+      report_stratstat$min[i] <- min(values, na.rm=T)
+      report_stratstat$max[i] <- max(values, na.rm=T)
+      report_stratstat$mean[i] <- mean(values, na.rm=T)
+      report_stratstat$sd[i] <- sd(values, na.rm=T)
+      q <- quantile(values, seq(0, 1, .25), na.rm=T)
+      report_stratstat$q1[i] <- q['25%']
+      report_stratstat$q3[i] <- q['75%']
+      report_stratstat$q2_median[i] <- q['50%']
+    }
+  }
+}
+report_stratstat <- report_stratstat[!is.na(lab) & n>0]
+report_stratstat[, boxplot := ""]
+vals <- list()
+for (i in 1:report_stratstat[, .N]) {
+  if (!is.na(report_stratstat[, mean][i] & !is.na(report_stratstat[, sd][i]))) {
+    vals[[i]] <- rnorm(100, report_stratstat[, mean][i], report_stratstat[, sd][i])
+  } else {
+    vals[[i]] <- NA
+  }
+}
+report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n, boxplot)] %>%
+  kbl(caption = sprintf("Normal-physiological healthy patient cohort, stratified statistics"), booktabs=T, align="c") %>%
+  pack_rows(index=rowSums(table(report_stratstat[, lab], report_stratstat[, i]))) %>%
+  kable_styling(c("striped", "hover"), full_width = T, position="left", fixed_thead=T) %>%
+  column_spec(17, image = spec_boxplot(vals)) %>%
+  row_spec(0, color = 'navy', background = 'orange')
+ofile <- sprintf("oracle_hf_data/stratified_stats_report_%s.tsv", boi_group_name)
+write_delim(report_stratstat[, .(entity_name, entity_type, entity_id, entity_id_source, lab, agegroup, sex, units, min, max, mean, sd, q1, q2_median, q3, n)], ofile, "\t")
+sprintf("Output file: %s", ofile)
+```
+
