@@ -173,7 +173,7 @@ sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
 
 ### Remove patients with unknown gender or age
 
-Also remove patients with age < 20 (too few, and normally not relevant to prostate/PSA issues).
+Also remove patients with age < 20 (too few).
 
 ```{r echo=F}
 sprintf("Excluding patients with unknown gender: %d / %d (%.3f%%) excluded",  
@@ -190,7 +190,7 @@ sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded",
 hf_pt <- hf_pt[age_mid_year >= 20.0]
 ```
 
-### Before and after applying exclusion criteria (diagnosis related to prostate cancer or any cancer).
+### Before and after applying exclusion criteria (diagnosis related to diabetes, hyperglycemia).
 ### Before:
 
 ```{r echo=F}
