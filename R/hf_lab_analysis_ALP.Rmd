@@ -1,5 +1,5 @@
 ---
-title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis: Glycated Hemoglobin (HGBA1C) biomarkers'
+title: 'Oracle HealthFacts: Laboratory molecular biomarker results analysis: Alkaline Phosphatase (ALP) biomarkers'
 output:
   html_document:
     df_print: paged
@@ -17,18 +17,18 @@ library(kableExtra)
 
 Before running this workflow, the following steps are required, in order:
 
- - hf_labs-selected_results_agg-HgbA1C_FULL-2018.sql
- - hf_labs-selected_results_agg-HgbA1C_FULL-2018_patients.sql
- - hf_labs-selected_results_agg-HgbA1C_FULL-2018_dx.sql
- - hf_labs-selected_results_agg-HgbA1C_FULL-2018_pt_exclusion.sql
- - hf_labs-selected_results_agg-HgbA1C_FULL-2018_pt_agegroup.sql
- - Export db table hf_f_lab_hgba1c_2018 to hf_f_lab_hgba1c_2018_out.tsv.
- - Export db table hf_f_lab_hgba1c_2018_patients to hf_f_lab_hgba1c_2018_patients_out.tsv.
+ - hf_labs-selected_results_agg-ALP_FULL-2018.sql
+ - hf_labs-selected_results_agg-ALP_FULL-2018_patients.sql
+ - hf_labs-selected_results_agg-ALP_FULL-2018_dx.sql
+ - hf_labs-selected_results_agg-ALP_FULL-2018_pt_exclusion.sql
+ - hf_labs-selected_results_agg-ALP_FULL-2018_pt_agegroup.sql
+ - Export db table hf_f_lab_alp_2018 to hf_f_lab_alp_2018_out.tsv.
+ - Export db table hf_f_lab_alp_2018_patients to hf_f_lab_alp_2018_patients_out.tsv.
 
 ## Read data file.
 
 ```{r echo=F}
-ifile <- "oracle_hf_data/hf_f_lab_hgba1c_2018_out.tsv"
+ifile <- "oracle_hf_data/hf_f_lab_alp_2018_out.tsv"
 hf_lab <- read_delim(ifile, "\t", escape_double=F, show_col_types = F, col_types = cols(.default = col_character(), age_in_years = col_integer(), age_in_days = col_integer(), numeric_result = col_number()))
 setDT(hf_lab)
 sprintf("Columns: %s", paste(names(hf_lab), collapse=", "))
@@ -54,23 +54,23 @@ data.table(tbl) %>%
 ## Define biomarker entities of interest.
 
 ```{r echo=F}
-boi <- list("Hgb A1C" = NULL, "Hgb A1C HPLC" = NULL)
+boi <- list("Alk Phos, Serum" = NULL, "Alkaline Phosphatase Bone" = NULL)
 # Entity metadata
-boi_metadata <- list("Hgb A1C" = list("entity_name" = "Glycated hemoglobin",
+boi_metadata <- list("Alk Phos, Serum" = list("entity_name" = "Alkaline Phosphatase",
                                          "entity_type" = "Protein",
-                                         "entity_id" = "3B75",
-                                         "entity_id_source" = "PDB"),
-                     "Hgb A1C HPLC" = list("entity_name" = "Glycated hemoglobin",
+                                         "entity_id" = "P10696",
+                                         "entity_id_source" = "UniProt"),
+                     "Alkaline Phosphatase Bone" = list("entity_name" = "Alkaline Phosphatase",
                                          "entity_type" = "Protein",
-                                         "entity_id" = "3B75",
-                                         "entity_id_source" = "PDB"))
+                                         "entity_id" = "P10696",
+                                         "entity_id_source" = "UniProt"))
 i <- 0L
 for (lpm in names(boi)) {
   i <- i + 1
   message(sprintf("%d. Biomarker Lab Test of interest: \"%s\"", i, lpm))
 }
 # Name of this biomarker group/topic.
-boi_group_name <- "HgbA1C"
+boi_group_name <- "ALP"
 ```
 
 ## Describe datasets for biomarker entities of interest.
@@ -163,7 +163,7 @@ subplot(plots, nrows=2, shareX=T, shareY=F, titleX=T, titleY=T, margin=0.03) %>%
 
 
 ```{r echo=F}
-ifile <- "oracle_hf_data/hf_f_lab_hgba1c_2018_patients_out.tsv"
+ifile <- "oracle_hf_data/hf_f_lab_alp_2018_patients_out.tsv"
 hf_pt <- read_delim(ifile, "\t", escape_double=F, show_col_types=F, col_types = cols(.default = col_character(), age_mid_year = col_number(), exclusion_flag = col_logical()))
 setDT(hf_pt)
 sprintf("Columns: %s", paste(names(hf_pt), collapse=", "))
@@ -190,7 +190,7 @@ sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded",
 hf_pt <- hf_pt[age_mid_year >= 20.0]
 ```
 
-### Before and after applying exclusion criteria (diagnosis related to diabetes, hyperglycemia).
+### Before and after applying exclusion criteria (diagnosis related to diabetes, hyperglycemia, cancer).
 ### Before:
 
 ```{r echo=F}
@@ -245,7 +245,7 @@ data.table(percentiles = names(qtl), values = qtl) %>%
   kable_styling(c("striped", "hover"), full_width = F, position="left")
 ```
 
-## Plot of patient counts by age
+## Plot of patient counts by age and sex
 
 ```{r echo=F}
 fig <- plot_ly(alpha = 0.8, xbins = list(size=5)) %>% 
@@ -272,6 +272,18 @@ for (lpm in names(boi)) {
   message(sprintf("After merge (%s): %d", lpm, boi[[lpm]][, .N]))
 }
 ```
+Keep only "Alk Phos, Serum" and remove other labs due to lack of sufficient data.
+
+```{r}
+lpms <- names(boi)
+for (lpm in lpms) {
+  if (boi[[lpm]][, .N] < 1e5) {
+    boi[[lpm]] <- NULL
+    boi_metadata[[lpm]] <- NULL
+  }
+}
+```
+
 
 
 ```{r echo=F, message=T, warning=T}

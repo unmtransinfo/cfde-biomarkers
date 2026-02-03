@@ -1,4 +1,20 @@
 entity_name	entity_type	entity_id	entity_id_source	lab	agegroup	sex	units	min	max	mean	sd	q1	q2_median	q3	n
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	20-29	Female	U/L	53	150	82.65479965407899	23.140657220625705	64	77	96	6938
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	20-29	Male	U/L	53	150	82.65921375921376	21.592646918674458	66	78	96	4070
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	30-39	Female	U/L	53	150	81.1985767206083	22.303547484665163	64	76	94	10258
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	30-39	Male	U/L	53	150	81.19480102695763	21.416172985460474	65	76	92	6232
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	40-49	Female	U/L	53	150	83.56132075471699	22.313725578556753	66	79	97	13144
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	40-49	Male	U/L	53	150	81.51027115858669	21.213999924520344	65	77	93	9736
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	50-59	Female	U/L	53	150	87.39917259957667	22.23730421699349	70	84	101	20788
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	50-59	Male	U/L	53	150	83.26585351052856	21.91492379460985	66	79	96	16479
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	60-69	Female	U/L	53	150	86.90073240369098	21.927740963495623	70	83	100	24167
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	60-69	Male	U/L	53	150	83.50880400269412	21.654728118481987	67	79	96	20786
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	70-79	Female	U/L	53	150	85.40787938197265	21.64710683093596	69	82	98	21423
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	70-79	Male	U/L	53	150	82.64079303094022	21.133584947500903	66	79	95	16645
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	80-89	Female	U/L	53	150	82.9634844101575	21.30869577351038	66	79	95	15555
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	80-89	Male	U/L	53	150	83.55995819080198	21.77266098040373	67	79	96	10524
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	90+	Female	U/L	53	150	83.57716948165405	21.69576215919828	67	79	96	8585
+Alkaline Phosphatase	Protein	P10696	UniProt	Alk Phos, Serum	90+	Male	U/L	53	150	84.4614	21.851874311421994	68	79	95	5000
 Creatinine	Metabolite	16737	CHEBI	Creatinine, Urine-Random	20-29	Female	mg/dL	32	212.9	104.9440170940171	51.00191184738812	57.5	96.4	147	585
 Creatinine	Metabolite	16737	CHEBI	Creatinine, Urine-Random	20-29	Male	mg/dL	32.3	211	117.63014492753624	52.41907989218614	72	107	164	69
 Creatinine	Metabolite	16737	CHEBI	Creatinine, Urine-Random	30-39	Female	mg/dL	32	212	102.40117391304348	46.79789659702506	64.9925	97	135.775	690

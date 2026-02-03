@@ -2,7 +2,6 @@ SELECT *
 FROM hf_d_lab_procedure
 WHERE
         (lab_procedure_name ILIKE '%Tryptophan%'
-        OR lab_procedure_name ILIKE '%Bilirubin%'
         OR lab_procedure_name ILIKE '%Phosphatase%'
         OR lab_procedure_name ILIKE '%Serum or Plasma%'
         OR lab_procedure_name ILIKE '%Blood%'

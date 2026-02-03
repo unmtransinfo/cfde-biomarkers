@@ -1,3 +1,6 @@
+DROP TABLE IF EXISTS jjyang.hf_f_lab_alp_2018 ;
+CREATE TABLE jjyang.hf_f_lab_alp_2018
+AS
 SELECT DISTINCT
         fe.patient_id,
         fe.encounter_id,
@@ -23,6 +26,6 @@ WHERE
         DATE_PART('year',  fe.admitted_dt_tm) = 2018
         AND dlp.lab_procedure_name ILIKE '%Phosphatase%'
         AND flp.numeric_result IS NOT NULL
---        AND du.unit_display IS NOT NULL
---        AND du.unit_display != 'NULL'
+        AND du.unit_display IS NOT NULL
+        AND du.unit_display != 'NULL'
         ;
