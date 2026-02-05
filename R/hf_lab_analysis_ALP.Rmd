@@ -272,7 +272,8 @@ for (lpm in names(boi)) {
   message(sprintf("After merge (%s): %d", lpm, boi[[lpm]][, .N]))
 }
 ```
-Keep only "Alk Phos, Serum" and remove other labs due to lack of sufficient data.
+
+Keep only lab[s] with sufficient data.
 
 ```{r}
 lpms <- names(boi)
