@@ -12,6 +12,9 @@ UPDATE jjyang.hf_f_lab_alb_2018_patients jp
                         jpd.diagnosis_description ILIKE '%liver%disease%'
                         OR jpd.diagnosis_description ILIKE '%liver%failure%'
                         OR jpd.diagnosis_description ILIKE '%cirrosis%'
+                        OR jpd.diagnosis_description ILIKE '%kidney%disease%'
+                        OR jpd.diagnosis_description ILIKE '%kidney%failure%'
+                        OR jpd.diagnosis_description ILIKE '%diabetes%'          
         )
         ;
 SELECT

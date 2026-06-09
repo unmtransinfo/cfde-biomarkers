@@ -11,7 +11,7 @@ library(readr)
 library(data.table)
 library(plotly)
 library(kableExtra)
-```
+``` 
 
 ## Prerequisites
 
@@ -190,7 +190,7 @@ sprintf("Excluding patients with age < 20: %d / %d (%.3f%%) excluded",
 hf_pt <- hf_pt[age_mid_year >= 20.0]
 ```
 
-### Before and after applying exclusion criteria (diagnosis related to diabetes, hyperglycemia, cancer).
+### Before and after applying exclusion criteria (diagnosis related to diabetes, kidney disease, and liver disease).
 ### Before:
 
 ```{r echo=F}
