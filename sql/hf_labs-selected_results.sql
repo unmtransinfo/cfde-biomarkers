@@ -24,9 +24,9 @@ JOIN
 JOIN
 	hf_d_unit du ON du.unit_id = flp.result_units_id
 WHERE
---	DATE_PART('year',  fe.admitted_dt_tm) = 2018
---	AND 
-	dlp.loinc_code IN (
+	DATE_PART('year',  fe.admitted_dt_tm) = 2018
+	AND DATE_PART('month', fe.admitted_dt_tm) = 6
+	AND dlp.loinc_code IN (
 	'1697-2',
 	'1708-7',
 	'1722-8',
