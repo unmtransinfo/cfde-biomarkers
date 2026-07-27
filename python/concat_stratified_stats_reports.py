@@ -4,8 +4,8 @@ import sys,os,io,csv,click,logging
 import pandas as pd
 
 @click.command()
-@click.option("--input_file", "ifiles", required=True, multiple=True, help="Input CSV|TSV files (multiple values allowed).")
-@click.option("--output_file", "ofile", required=False, type=click.Path(file_okay=True, dir_okay=False), help="Output TSV file.")
+@click.option("-i", "--input_file", "ifiles", required=True, multiple=True, help="Input CSV|TSV files (multiple values allowed).")
+@click.option("-o", "--output_file", "ofile", required=False, type=click.Path(file_okay=True, dir_okay=False), help="Output TSV file.")
 @click.option("--csv", is_flag=True, help="Input CSV flag (default is TSV)")
 @click.option("--debug", is_flag=True)
 
