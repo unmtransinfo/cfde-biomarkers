@@ -1,4 +1,4 @@
-<div style="text-align:left">
+<div style="align:left">
 <h2>Case Study Methodology</h2>
 <p>The subject of each case study is a biomarker which may be associated with one or more biomarker entities in the BiomarkerKB.</p>
 <p>The biomarkers that are selected for these case studies are carefully chosen examples sometimes intended to challenge the conventional notion of a biomarker.</p>
