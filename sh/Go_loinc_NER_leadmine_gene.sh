@@ -17,11 +17,13 @@ DATADIR="$cwd/loinc_data/v${LOINC_RELEASE}"
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
 #DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
-DICTDIR="${NM_ROOT}/dictionaries-20250331/Dictionaries"
+#DICTDIR="${NM_ROOT}/dictionaries-20250331/Dictionaries"
+DICTDIR="${NM_ROOT}/dictionaries-20260610/Dictionaries"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
 #BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
-BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.4-SNAPSHOT-jar-with-dependencies.jar"
+#BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.4-SNAPSHOT-jar-with-dependencies.jar"
+BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.5-SNAPSHOT-jar-with-dependencies.jar"
 #
 CFGDIR="${DATADIR}/config"
 if [ ! -e ${CFGDIR} ]; then

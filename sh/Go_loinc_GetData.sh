@@ -5,6 +5,7 @@
 # LOINC 2.76 released 2023-09-18
 # LOINC 2.80 released 2025-02-26
 # LOINC 2.81 released 2025-08-12
+# LOINC 2.83 released 2026-08-19
 ###
 DBHOST="localhost"
 
@@ -24,6 +25,10 @@ DBNAME="loinc_${LOINC_VER}"
 printf "DBNAME: ${DBNAME}\n"
 
 DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
+
+if [ ! -d "${DATADIR}" ]; then
+	mkdir -p $DATADIR
+fi
 
 sql="\
 SELECT

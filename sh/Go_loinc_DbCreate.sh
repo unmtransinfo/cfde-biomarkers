@@ -20,13 +20,19 @@ LOINC_VER=$(echo $LOINC_RELEASE |sed 's/\.//g')
 #
 DATADIR="${cwd}/loinc_data/v${LOINC_RELEASE}"
 #
+if [ ! -e "${DATADIR}" ]; then
+	mkdir -p $DATADIR
+	printf "NOTE: DATADIR created: ${DATADIR}\n"
+fi
+#
 printf "${LOINC_RELEASE}\n" >${DATADIR}/loinc_release.txt
 #
 DBNAME="loinc_${LOINC_VER}"
-DBDIR=$(cd $HOME/../data/LOINC/v${LOINC_RELEASE}; pwd)
+DBDIR="$HOME/data/LOINC/v${LOINC_RELEASE}"
 #
 if [ ! -e "${DBDIR}" ]; then
 	printf "ERROR: DBDIR not found: ${DBDIR}\n"
+	printf "ERROR: LOINC ${LOINC_RELEASE} should be downloaded and unzipped into this directory.\n"
 	exit 1
 fi
 #
@@ -34,7 +40,7 @@ loinc_csvfile="${DBDIR}/LoincTable/Loinc.csv"
 #
 relatednames_tsvfile="$DATADIR/relatednames.tsv"
 ${cwd}/python/relatednames_table.py \
-	-i /home/data/LOINC/v${LOINC_RELEASE}/LoincTable/Loinc.csv \
+	-i $HOME/data/LOINC/v${LOINC_RELEASE}/LoincTable/Loinc.csv \
 	>$relatednames_tsvfile
 #
 psql -c "DROP DATABASE IF EXISTS $DBNAME"
@@ -43,36 +49,29 @@ psql -c "CREATE DATABASE $DBNAME"
 psql -d $DBNAME -c "COMMENT ON DATABASE $DBNAME IS 'LOINC: Logical Observation Identifiers, Names and Codes, from the Regenstrief Institute (v${LOINC_RELEASE}); see loinc.org'";
 #
 ###
-if [ ! "$CONDA_EXE" ]; then
-	CONDA_EXE=$(which conda)
-fi
-if [ ! "$CONDA_EXE" -o ! -e "$CONDA_EXE" ]; then
-	echo "ERROR: conda not found."
-	exit
-fi
 #
-# For bioclients conda config, see https://github.com/jeremyjyang/BioClients
-source $(dirname $CONDA_EXE)/../bin/activate bioclients
+# For bioclients venv config, see https://github.com/jeremyjyang/bioclients
+source $HOME/venv/bioclients/bin/activate
 #
-python3 -m BioClients.util.pandas.Csv2Sql create \
+python3 -m bioclients.util.pandas.Csv2Sql create \
 	--i $loinc_csvfile --tablename "main" --fixtags --nullify --maxchar 2000 \
 	|sed 's/definitiondescription.*$/definitiondescription VARCHAR(5000),/' \
 	|sed 's/exmpl_answers.*$/exmpl_answers VARCHAR(5000),/' \
 	|sed 's/external_copyright_notice.*$/external_copyright_notice VARCHAR(5000),/' \
 	|psql -d $DBNAME
-python3 -m BioClients.util.pandas.Csv2Sql insert \
+python3 -m bioclients.util.pandas.Csv2Sql insert \
 	--i $loinc_csvfile --tablename "main" --fixtags --nullify --maxchar 5000 \
 	|psql -q -d $DBNAME
 #
 ###
-python3 -m BioClients.util.pandas.Csv2Sql create \
+python3 -m bioclients.util.pandas.Csv2Sql create \
 	--i $relatednames_tsvfile --tsv --tablename "relatedname" --fixtags --nullify --maxchar 200 \
 	|psql -d $DBNAME
-python3 -m BioClients.util.pandas.Csv2Sql insert \
+python3 -m bioclients.util.pandas.Csv2Sql insert \
 	--i $relatednames_tsvfile --tsv --tablename "relatedname" --fixtags --nullify --maxchar 200 \
 	|psql -q -d $DBNAME
 #
-conda deactivate
+deactivate
 #
 psql -d $DBNAME -c "COMMENT ON TABLE main IS 'Built from file Loinc.csv'";
 psql -d $DBNAME -c "ALTER TABLE main DROP COLUMN RELATEDNAMES2";
