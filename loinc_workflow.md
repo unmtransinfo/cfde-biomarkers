@@ -28,8 +28,13 @@ The following are fields with names or descriptions suitable for named entity re
  * [Go\_loinc\_NER\_leadmine\_gene.sh](sh/Go_loinc_NER_leadmine_gene.sh) - NER for genes using [NextMove Leadmine](https://nextmovesoftware.com/).
  * [Go\_loinc\_NER\_leadmine\_chem.sh](sh/Go_loinc_NER_leadmine_chem.sh) - NER for chemicals using [NextMove Leadmine](https://nextmovesoftware.com/).
 
+## Named-Entity Recognition (NER)
+
+NER is a form of text-mining, here implemented using [NextMove Software](https://www.nextmovesoftware.com/) [Leadmine](https://www.nextmovesoftware.com/leadmine.htmlz), a leading, advanced, high-performance, open-source, supported, commercial system build with extensive, maintained dictionaries of terms.
+
 ## References
 
  * [CFDE BiomarkerKB Project](https://github.com/biomarker-ontology/biomarker-partnership)
  * [LOINC](https://loinc.org/) | [KB](https://loinc.org/kb/) | [Learn](https://loinc.org/learn/) | [Downloads](https://loinc.org/downloads/)
  * [LOINC Table Structure](https://loinc.org/kb/users-guide/loinc-database-structure/loinc-table-structure) (includes field descriptions)
+ * [NextMove Software](https://www.nextmovesoftware.com/) | [Leadmine](https://www.nextmovesoftware.com/leadmine.html)

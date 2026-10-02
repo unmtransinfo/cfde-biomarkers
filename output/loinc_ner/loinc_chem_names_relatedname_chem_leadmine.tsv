@@ -1,0 +1,890 @@
+DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrectedText	CorrectionDistance	ResolvedForm
+82846-7	E	11-DHC	DictMol	0	11-DHC	11-DHC	0	C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2C(=O)C[C@]4([C@H]3CC[C@@H]4C(=O)CO)C
+11061-9	E	TxB2	DictMol	0	TxB2	TxB2	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@H](CC(O1)O)O)C/C=C\CCCC(=O)O)O
+11061-9	E	Aspirin	DictMol	0	Aspirin	Aspirin	0	CC(=O)OC1C=CC=CC=1C(=O)O
+11061-9	E	Aspirin	DictMol	0	Aspirin	Aspirin	0	CC(=O)OC1C=CC=CC=1C(=O)O
+11061-9	E	Asprin	DictMol	0	Asprin	Asprin	0	CC(=O)OC1=CC=CC=C1C(=O)O
+11061-9	E	Thromboxane b2	DictMol	0	Thromboxane b2	Thromboxane b2	0	CCCCC[C@H](O)/C=C/[C@H]1OC(O)C[C@H](O)[C@@H]1C/C=C\CCCC(=O)O
+104679-6	E	acetal	G	9	acetal	acetal	0	
+104679-6	E	C18:1	DictMol	4	C18:1	C18:1	0	CCCCCCCC/C=C\CCCCCCCC(=O)O
+104677-0	E	C16:0	DictMol	0	C16:0	C16:0	0	CCCCCCCCCCCCCCCC(=O)O
+104677-0	E	acetal	G	9	acetal	acetal	0	
+104677-0	E	C16:0	DictMol	4	C16:0	C16:0	0	CCCCCCCCCCCCCCCC(=O)O
+104678-8	E	C18:0	DictMol	4	C18:0	C18:0	0	CCCCCCCCCCCCCCCCCC(=O)O
+104678-8	E	acetal	G	24	acetal	acetal	0	
+104678-8	E	C18:0	DictMol	0	C18:0	C18:0	0	CCCCCCCCCCCCCCCCCC(=O)O
+1658-4	E	Hydroxy	A	3	Hydroxy	Hydroxy	0	
+62291-0	E	1,25(OH)2D2	DictMol	0	1,25(OH)2D2	1,25-(OH)2D2	0	C[C@H](/C=C/[C@H](C)C(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CC(C3=C)O)O)C
+79471-9	E	diol	G	16	diol	diol	0	
+79471-9	E	Quinitol	DictMol	0	Quinitol	Quinitol	0	C1CC(CCC1O)O
+53835-5	E	1,5-AG	DictMol	0	1,5-AG	1,5-AG	0	C1[C@@H]([C@H]([C@@H]([C@H](O1)CO)O)O)O
+49825-3	E	Estrogen	G	0	Estrogen	Estrogen	0	
+95574-0	E	pregnanolone	DictMol	7	pregnanolone	pregnanolone	0	CC(=O)[C@H]1CC[C@H]2[C@@H]3CC[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+83138-8	E	alpha-triol	DictMol	24	alpha-triol	alphatriol	0	C[C@H]1[C@@H]([C@H](/C=C/[C@H](CCC(=O)O1)O)O)O
+101174-1	E	17-OHP	DictMol	0	17-OHP	17-OHP	0	CC(=O)[C@]1(CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CCC4=CC(=O)CC[C@]34C)C)O
+101174-1	E	17OHP	DictMol	0	17OHP	17OHP	0	CC(=O)[C@]1(CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CCC4=CC(=O)CC[C@]34C)C)O
+101174-1	E	17-OH Progesterone	DictMol	0	17-OH Progesterone	17-OH Progesterone	0	CC(=O)[C@]1(CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CCC4=CC(=O)CC[C@]34C)C)O
+101174-1	E	hydroxy	A	3	hydroxy	hydroxy	0	
+101174-1	E	17-alpha-hydroxyprogesterone	DictMol	0	17-alpha-hydroxyprogesterone	17-alpha-hydroxyprogesterone	0	CCCCCC(=O)O[C@]1(C(C)=O)CC[C@H]2[C@@H]3CCC4=CC(=O)CC[C@]4(C)[C@H]3CC[C@]12C
+6767-8	E	hydroxy	A	3	hydroxy	hydroxy	0	
+6767-8	E	corticosteroids	G	11	corticosteroids	corticosteroids	0	
+6767-8	E	corticosteroids	G	6	corticosteroids	corticosteroids	0	
+11206-0	E	18-Hydroxy deoxycorticosterone	DictMol	0	18-Hydroxy deoxycorticosterone	18-Hydroxydeoxycorticosterone	0	C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2CC[C@]4([C@H]3CC[C@@H]4C(=O)CO)CO
+11206-0	E	18-OH-DOC	DictMol	0	18-OH-DOC	18-OH-DOC	0	C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2CC[C@]4([C@H]3CC[C@@H]4C(=O)CO)CO
+11206-0	E	18OH-DOC	DictMol	0	18OH-DOC	18-OH-DOC	0	C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2CC[C@]4([C@H]3CC[C@@H]4C(=O)CO)CO
+13480-9	E	Hydroxy	A	3	Hydroxy	Hydroxy	0	
+13480-9	E	deoxycortisol	DictMol	11	deoxycortisol	deoxycortisol	0	CC12CCCC=C1CCC3C2C(CC4(C3CCC4(C(=O)CO)O)C)O
+102053-6	E	deoxymethyl-SA	DictMol	0	deoxymethyl-SA	deoxymethyl-SA	0	CCCCCCCCCCCCCCC[C@H](CN)O
+102051-0	E	1-deoxysphinganinium	DictMol	0	1-deoxysphinganinium	1-deoxysphinganinium	0	CCCCCCCCCCCCCCC[C@H]([C@H](C)[NH3+])O
+102051-0	E	1-deoxySa	DictMol	0	1-deoxySa	1-deoxySa	0	CCCCCCCCCCCCCCC[C@H]([C@H](C)[NH3+])O
+13377-7	E	methyl	A	0	methyl	methyl	0	
+1678-2	E	20-Hydroxy progesterone	DictMol	0	20-Hydroxy progesterone	20-Hydroxyprogesterone	0	CC([C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CCC4=CC(=O)CC[C@]34C)C)O
+94381-1	E	9S,11S,15S-Trihydroxy-2,3-dinor-5Z,13E-prostadienoic acid	DictMol	0	9S,11S,15S-Trihydroxy-2,3-dinor-5Z,13E-prostadienoic acid	9S,11S,15S-Trihydroxy-2,3-dinor-5Z,13E-prostadienoic acid	0	CCCCC[C@@H](/C=C/[C@H]1[C@H](C[C@@H]([C@@H]1C/C=C\CC(=O)O)O)O)O
+94381-1	E	2,3-dinor-11b-PGF2alpha	DictMol	0	2,3-dinor-11b-PGF2alpha	2,3-dinor-11b-PGF2alpha	0	CCCCC[C@@H](/C=C/[C@H]1[C@H](C[C@@H]([C@@H]1C/C=C\CC(=O)O)O)O)O
+94381-1	E	Prostaglandin F2a	DictMol	17	Prostaglandin F2a	Prostaglandin F2a	0	CCCCC[C@@H](/C=C/[C@H]1[C@@H](C[C@@H]([C@@H]1C/C=C\CCCC(=O)O)O)O)O
+94381-1	E	2,3-dinor 11B-PG F2a	DictMol	0	2,3-dinor 11B-PG F2a	2,3-dinor-11B-PGF2a	0	CCCCC[C@@H](/C=C/[C@H]1[C@H](C[C@@H]([C@@H]1CC(=O)CCC(=O)O)O)O)O
+9308-8	E	DNPH	DictMol	0	DNPH	DNPH	0	C1=CC(=C(C=C1[N+](=O)[O-])[N+](=O)[O-])NN
+106774-3	E	24,25-Dihydroxyvitamin D	DictMol	0	24,25-Dihydroxyvitamin D	24,25-Dihydroxyvitamin D	0	C[C@H](CCC(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@@H](CCC3=C)O)C
+106774-3	E	Calcidiol	DictMol	3	Calcidiol	Calcidiol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]12.O
+106774-3	E	Hydroxy calcidiol	DictMol	0	Hydroxy calcidiol	Hydroxycalcidiol	0	C[C@H](CCCC(C)(C)O)[C@H]1C(C[C@@H]\2[C@]1(CCC/C2=C\C=C\3/C[C@H](CCC3=C)O)C)O
+106774-3	E	Calcidiol	DictMol	7	Calcidiol	Calcidiol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]12.O
+106774-3	E	Hydroxy calcidiol	DictMol	4	Hydroxy calcidiol	Hydroxycalcidiol	0	C[C@H](CCCC(C)(C)O)[C@H]1C(C[C@@H]\2[C@]1(CCC/C2=C\C=C\3/C[C@H](CCC3=C)O)C)O
+106774-3	E	24,25-Dihydroxyvitamin D2	DictMol	0	24,25-Dihydroxyvitamin D2	24,25-Dihydroxyvitamin D2	0	C[C@H](/C=C/[C@](C)(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+106774-3	E	24,25-Dihydroxyvitamin D3	DictMol	27	24,25-Dihydroxyvitamin D3	24,25-Dihydroxyvitamin D3	0	C[C@H](CCC(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+106774-3	E	24,25-dihydroxy vitamin D	DictMol	0	24,25-dihydroxy vitamin D	24,25-dihydroxyvitamin D	0	C[C@H](CCC(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@@H](CCC3=C)O)C
+106774-3	E	24,25-dihydroxy cholecalciferol	DictMol	0	24,25-dihydroxy cholecalciferol	24,25-dihydroxycholecalciferol	0	C[C@H](CCC(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+106774-3	E	24(R),25-dihydroxycholecalciferol	DictMol	0	24(R),25-dihydroxycholecalciferol	24(R),25-dihydroxycholecalciferol	0	C[C@H](CC[C@H](C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+79475-0	E	dicarboxylic acid	G	10	dicarboxylic acid	dicarboxylic acid	0	
+79475-0	E	dicarboxylic acid	G	10	dicarboxylic acid	dicarboxylic acid	0	
+79475-0	E	dicarboxylate	G	10	dicarboxylate	dicarboxylate	0	
+79475-0	E	dicarboxylate	G	10	dicarboxylate	dicarboxylate	0	
+80159-7	E	Bile alcohol	G	0	Bile alcohol	Bile alcohol	0	
+80159-7	E	hexol	G	33	hexol	hexol	0	
+79680-5	E	amino	A	2	amino	amino	0	
+80165-4	E	Amino	A	2	Amino	Amino	0	
+13669-7	E	HMVA	DictMol	0	HMVA	HMVA	0	CC[C@H](C)[C@H](C(=O)O)O
+13669-7	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13669-7	E	Methyl	A	12	Methyl	Methyl	0	
+13669-7	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13670-5	E	hydroxy	A	2	hydroxy	hydroxy	0	
+59190-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+49826-1	E	2-OHE1	DictMol	0	2-OHE1	2-OHE1	0	C[C@]12CC[C@H]3[C@H]([C@@H]1CCC2=O)CCC4=CC(=C(C=C34)O)O
+49826-1	E	estrone	DictMol	4	estrone	estrone	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CCC1=O
+49826-1	E	2-Hydroxy estrone	DictMol	0	2-Hydroxy estrone	2-Hydroxyestrone	0	C[C@@]12CC[C@@H]3C4C=C(O)C(O)=CC=4CC[C@H]3[C@@H]2CCC1=O
+49827-9	E	16-Alpha hydroxy estrone	DictMol	0	16-Alpha hydroxy estrone	16-Alpha-hydroxy estrone	0	C[C@]12CC[C@H]3[C@H]([C@@H]1C[C@H](C2=O)O)CCC4=C3C=CC(=C4)O
+13673-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13673-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13673-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13674-7	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13675-4	E	methyl	A	2	methyl	methyl	0	
+13675-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13675-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13675-4	E	HMBA	DictMol	0	HMBA	HMBA	0	CC(=O)NCCCCCCNC(=O)C
+13675-4	E	methyl	A	6	methyl	methyl	0	
+13675-4	E	methyl	A	6	methyl	methyl	0	
+13675-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13675-4	E	Methyl	A	12	Methyl	Methyl	0	
+13675-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13675-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13675-4	E	Methyl	A	12	Methyl	Methyl	0	
+13675-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13675-4	E	Methyl	A	2	Methyl	Methyl	0	
+13675-4	E	Hydroxy	A	11	Hydroxy	Hydroxy	0	
+13675-4	E	Methyl	A	2	Methyl	Methyl	0	
+24435-0	E	2-MBG	DictMol	0	2-MBG	2-MBG	0	CCC(C)C(=O)NCC(=O)O
+79608-6	E	Metyrosine	DictMol	0	Metyrosine	Metyrosine	0	C[C@](N)(CC1C=CC(O)=CC=1)C(=O)O
+13676-2	E	3-Methyl-2-oxovaleric	DictMol	0	3-Methyl-2-oxovaleric	3-Methyl-2-oxovaleric	0	CCC(C)C(=O)C(=O)O
+13676-2	E	Methyl	A	2	Methyl	Methyl	0	
+13676-2	E	oxo	A	2	oxo	oxo	0	
+79482-6	E	hMPP	DictMol	0	hMPP	hMPP	0	CC(C)(C(=O)C1=CC=CC=C1)O
+79480-0	E	DHCA	DictMol	4	DHCA	DHCA	0	COC1=C(C=CC(=C1)CCCO)O
+72404-7	E	3-epi-25-Hydroxy vitamin D2	DictMol	0	3-epi-25-Hydroxy vitamin D2	3-epi-25-Hydroxy vitamin D2	0	C[C@H](/C=C/[C@H](C)C(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@@H](CCC3=C)O)C
+72403-9	E	3-epi-25-Hydroxy vitamin D3	DictMol	0	3-epi-25-Hydroxy vitamin D3	3-epi-25-Hydroxy vitamin D3	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@@H](CCC3=C)O)C
+72403-9	E	25(OH)D3	DictMol	6	25(OH)D3	25(OH)D3	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+48082-2	E	lactone	G	16	lactone	lactone	0	
+13683-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+55886-6	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+18442-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18442-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+48755-3	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48755-3	E	hydroxy	A	2	hydroxy	hydroxy	0	
+53182-2	E	C10:1	DictMol	0	C10:1	C10:1	0	CCCCCCC/C=C/C(=O)O
+53182-2	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+48083-0	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+21041-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+21042-7	E	hydroxy	A	2	hydroxy	hydroxy	0	
+21042-7	E	DDDA	DictMol	4	DDDA	DDDA	0	C(CCCCCC(=O)O)CCCCC(=O)O
+21042-7	E	3OH-dodecanoate	DictMol	0	3OH-dodecanoate	3-OH-dodecanoate	0	CCCCCCCCC[C@H](CC(=O)O)O
+48753-8	E	3OH-dodecanoate	DictMol	0	3OH-dodecanoate	3-OH-dodecanoate	0	CCCCCCCCC[C@H](CC(=O)O)O
+30233-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48085-5	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+53188-9	E	C12:1	DictMol	0	C12:1	C12:1	0	CCCCCCCCC/C=C/C(=O)O
+53188-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13685-3	E	hydroxy	A	2	hydroxy	hydroxy	0	
+47818-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+47818-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+30236-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13686-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13686-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13686-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13686-1	E	HIBA	DictMol	2	HIBA	HIBA	0	CC(C)(C(=O)O)O
+82217-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13687-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18444-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+74430-0	E	kynurenin	DictMol	4	kynurenin	kynurenin	0	COC1C=CC(N)=C(C(=O)CC(NC(C)=O)C(=O)O)C=1
+18464-8	E	C18:2-OH	DictMol	0	C18:2-OH	C18:2-OH	0	C[N+](C)(C)C[C@@H](CC(=O)[O-])OC=O
+18464-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48752-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48752-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48752-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48752-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+50273-2	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+48756-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48756-1	E	hydroxy	A	2	hydroxy	hydroxy	0	
+53178-0	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+53178-0	E	octanoylcarnitine	DictMol	10	octanoylcarnitine	octanoylcarnitine	0	CCCCCCCC(=O)O[C@H](CC(=O)O)C[N+](C)(C)C
+18465-5	E	C18:1	DictMol	0	C18:1	C18:1	0	CCCCCCCC/C=C\CCCCCCCC(=O)O
+18465-5	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48751-2	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48751-2	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48751-2	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48751-2	E	hydroxy	A	2	hydroxy	hydroxy	0	
+30235-6	E	C16:1	G	0	C16:1	C16:1	0	
+30235-6	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+30235-6	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18461-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18461-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+13688-7	E	hydroxy	A	2	hydroxy	hydroxy	0	
+101991-8	E	3-HPMA	DictMol	0	3-HPMA	3-HPMA	0	CC(=O)N[C@@H](CSCCCO)C(=O)O
+29626-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+35656-8	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+47819-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18458-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48087-1	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+30238-0	E	hydroxy	A	2	hydroxy	hydroxy	0	
+48088-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+18459-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+18459-8	E	C14:1	G	0	C14:1	C14:1	0	
+79268-9	E	trimethyl-L-lysine	DictMol	4	trimethyl-L-lysine	trimethylLlysine	0	C[N+](C)(C)CCCC[C@@H](C(=O)O)N
+79268-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+79268-9	E	trimethyl-lysine	DictMol	10	trimethyl-lysine	trimethyllysine	0	C[N+](C)(C)CCCC[C@H](N)C(=O)O
+79268-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+79268-9	E	trimethyl-lysine	DictMol	13	trimethyl-lysine	trimethyllysine	0	C[N+](C)(C)CCCC[C@H](N)C(=O)O
+79268-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+79268-9	E	trimethyl-L-lysine	DictMol	19	trimethyl-L-lysine	trimethylLlysine	0	C[N+](C)(C)CCCC[C@@H](C(=O)O)N
+79272-1	E	trimethyl-L-lysine	DictMol	15	trimethyl-L-lysine	trimethylLlysine	0	C[N+](C)(C)CCCC[C@@H](C(=O)O)N
+79272-1	E	6-N-L-trimethyl-L-lysine	DictMol	0	6-N-L-trimethyl-L-lysine	6-N-L-trimethyl-L-lysine	0	C[N+](C)(C)CCCC[C@@H](C(=O)O)N
+79272-1	E	Trimethyllysine	DictMol	8	Trimethyllysine	Trimethyllysine	0	C[N+](C)(C)CCCC[C@H](N)C(=O)O
+13689-5	E	hydroxy	A	2	hydroxy	hydroxy	0	
+101175-8	E	3-MT	DictMol	5	3-MT	3-MT	0	COC1=C(C=CC(=C1)CCN)O
+59192-5	E	Methyl	A	2	Methyl	Methyl	0	
+74296-5	E	Methyl	A	2	Methyl	Methyl	0	
+48137-4	E	Solerol	DictMol	0	Solerol	Solerol	0	C1CC(=O)OCC(C1O)O
+48137-4	E	DHHA	DictMol	4	DHHA	DHHA	0	C1=C[C@@H]([C@H](C(=C1)C(=O)O)N)O
+48106-9	E	4,5-dihydroxy-hexanoic acid lactone	DictMol	0	4,5-dihydroxy-hexanoic acid lactone	4,5-dihydroxy-hexanoic acid lactone	0	CC1C(CCC(=O)O1)O
+79520-3	E	2,3-Threo-dihydroxybutyrate	DictMol	0	2,3-Threo-dihydroxybutyrate	2,3-Threo-dihydroxybutyrate	0	C[C@H]([C@@H](C(=O)O)O)O
+47823-0	E	Vanillactic acid	DictMol	0	Vanillactic acid	Vanillactic acid	0	COC1=C(C=CC(=C1)CC(C(=O)O)O)O
+47823-0	E	Vanillactate	DictMol	0	Vanillactate	Vanillactate	0	COC1=C(C=CC(=C1)CC(C(=O)O)O)O
+29869-5	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+44861-3	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+44861-3	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13697-8	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13698-6	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+1688-1	E	Vitamin B6	DictMol	0	Vitamin B6	Vitamin B6	0	CC1N=CC(CO)=C(CO)C=1O
+1691-5	E	FADH2	DictMol	0	FADH2	FADH2	0	CC1=CC2=C(C=C1C)N(C3=C(N2)C(=O)NC(=O)N3)C[C@@H]([C@@H]([C@@H](COP(=O)(O)OP(=O)(O)OC[C@@H]4[C@H]([C@H]([C@@H](O4)N5C=NC6=C(N=CN=C65)N)O)O)O)O)O
+79682-1	E	Hydrouracil	DictMol	0	Hydrouracil	Hydrouracil	0	C1CNC(=O)NC1=O
+79667-2	E	1-beta-D-ribofuranosylhydrouracil	DictMol	0	1-beta-D-ribofuranosylhydrouracil	1-beta-D-ribofuranosylhydrouracil	0	C1CN(C(=O)NC1=O)[C@H]2[C@@H]([C@@H]([C@H](O2)CO)O)O
+21044-3	E	5A-tetrahydrocortisol	DictMol	0	5A-tetrahydrocortisol	5A-tetrahydrocortisol	0	C[C@]12CC[C@H](C[C@@H]1CC[C@@H]3[C@@H]2[C@H](C[C@]4([C@H]3CC[C@@]4(C(=O)CO)O)C)O)O
+79652-4	E	Amino	A	2	Amino	Amino	0	
+79652-4	E	Amino	A	2	Amino	Amino	0	
+79652-4	E	carboxamide	G	23	carboxamide	carboxamide	0	
+79652-4	E	Diazol-C	DictMol	0	Diazol-C	Diazol-C	0	C1=NC(=C(N1)C(=O)N)N
+79652-4	E	Colahepat	DictMol	0	Colahepat	Colahepat	0	C1=NC(=C(N1)C(=O)N)N
+79652-4	E	AICA	DictMol	0	AICA	AICA	0	C1=NC(=C(N1)C(=O)N)N
+80160-5	E	tetrol	G	24	tetrol	tetrol	0	
+80161-3	E	pentol	G	27	pentol	pentol	0	
+13699-4	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+13699-4	E	5-OH-caproate	DictMol	0	5-OH-caproate	5-OH-caproate	0	CC(CCCC(=O)O)O
+13699-4	E	hydroxy	A	2	hydroxy	hydroxy	0	
+1696-4	E	Hcys	DictMol	6	Hcys	Hcys	0	C(C(C(=O)O)N)S
+13611-9	E	Cortisol	DictMol	6	Cortisol	Cortisol	0	C[C@@]12CCC(=O)C=C2CC[C@@H]2[C@@H]1[C@@H](O)C[C@@]1(C)[C@H]2CC[C@]1(O)C(=O)CO
+100152-8	E	oxo	A	2	oxo	oxo	0	
+100152-8	E	Creatinine	DictMol	24	Creatinine	Creatinine	0	CN1CC(=O)NC1=N
+100153-6	E	oxo	A	7	oxo	oxo	0	
+100153-6	E	Creatinine	DictMol	35	Creatinine	Creatinine	0	CN1CC(=O)NC1=N
+79276-2	E	Dihydrobiopterin	DictMol	0	Dihydrobiopterin	Dihydrobiopterin	0	C[C@@H]([C@@H](C1=NC2=C(NC1)N=C(NC2=O)N)O)O
+79276-2	E	7,8-Dihydro-L-biopterin	DictMol	0	7,8-Dihydro-L-biopterin	7,8-Dihydro-L-biopterin	0	C[C@@H]([C@@H](C1=NC2=C(NC1)N=C(NC2=O)N)O)O
+79323-2	E	7-Biopterin	DictMol	0	7-Biopterin	7-Biopterin	0	C[C@@H]([C@@H](C1=CN=C2C(=O)NC(=NC2=N1)N)O)O
+79323-2	E	Primapterin	DictMol	0	Primapterin	Primapterin	0	CC(C(C1=CN=C2C(=O)NC(=NC2=N1)N)O)O
+79323-2	E	amino	A	2	amino	amino	0	
+92764-0	E	oxo	A	2	oxo	oxo	0	
+92764-0	E	7-one	DictMol	27	7-one	7-one	0	C1C=CC2CC1C(=O)O2
+79277-0	E	beta-ol	DictMol	23	beta-ol	beta-ol	0	C[C@H](/C=C/[C@H](C)C(C)C)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+34671-8	E	8-DHC	DictMol	0	8-DHC	8-DHC	0	C[C@H](CCCC(C)C)[C@H]1CC[C@@H]2[C@@]1(CCC3=C2CC=C4[C@@]3(CC[C@@H](C4)O)C)C
+59265-9	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+59265-9	E	8-OHdG	DictMol	0	8-OHdG	8-OHdG	0	C1[C@@H]([C@H](O[C@H]1N2C3=C(C(=O)NC(=N3)N)NC2=O)CO)O
+79278-8	E	beta-ol	DictMol	26	beta-ol	beta-ol	0	C[C@H](/C=C/[C@H](C)C(C)C)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+24043-2	E	AcCoA	DictMol	0	AcCoA	AcCoA	0	CC(=O)SCCNC(=O)CCNC(=O)[C@@H](C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@H]([C@H]([C@@H](O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O
+24043-2	E	Glucosamine AT	DictMol	6	Glucosamine AT	GlucosaminATe	0	C([C@H]([C@H]([C@@H]([C@H](C(=O)O)N)O)O)O)O
+21536-8	E	Sphingomyelin	G	0	Sphingomyelin	Sphingomyelin	0	
+13702-6	E	1-Propene-1,2,3-tricarboxylic	DictMol	0	1-Propene-1,2,3-tricarboxylic	1-Propene-1,2,3-tricarboxylic	0	C(/C(=C\C(=O)O)/C(=O)O)C(=O)O.C(/C(=C/C(=O)O)/C(=O)O)C(=O)O
+59249-3	E	Acyl	G	0	Acyl	Acyl	0	
+1719-4	E	Vitamin B4	DictMol	0	Vitamin B4	Vitamin B4	0	NC1=C2NCN=C2N=CN1
+1719-4	E	Leuco-4	DictMol	0	Leuco-4	Leuco-4	0	C1=NC2=NC=NC(=C2N1)N
+1732-7	E	Succinyl AMP	DictMol	0	Succinyl AMP	Succinyl AMP	0	C1=NC(=C2C(=N1)N(C=N2)[C@H]3[C@@H]([C@@H]([C@H](O3)COP(=O)(O)O)O)O)N[C@@H](CC(=O)O)C(=O)O
+21056-7	E	Amino Acids	G	0	Amino Acids	Amino Acids	0	
+21056-7	E	Amino acid	G	0	Amino acid	Amino acid	0	
+21057-5	E	Amino Acids	G	0	Amino Acids	Amino Acids	0	
+1766-5	E	Mineralocorticoid	G	0	Mineralocorticoid	Mineralocorticoid	0	
+1771-5	E	Ester	G	16	Ester	Ester	0	
+82220-5	E	Alkyl	G	0	Alkyl	Alkyl	0	
+82220-5	E	DHAP	DictMol	6	DHAP	DHAP	0	C(C(=O)COP(=O)(O)O)O
+82220-5	E	Alkyldihydroxyacetonephosphate	DictMol	0	Alkyldihydroxyacetonephosphate	Alkyldihydroxyacetonephosphate	0	CCCCCCCC(=O)OCC(=O)COP(=O)(O)O
+82220-5	E	acyl	G	0	acyl	acyl	0	
+1784-8	E	Nitrogen	E	5	Nitrogen	Nitrogen	0	
+79279-6	E	Alpha-AASA	DictMol	0	Alpha-AASA	Alpha-AASA	0	C(CC=O)C[C@@H](C(=O)O)N
+92766-5	E	α-AASA	DictMol	0	α-AASA	α-AASA	0	C(CC=O)C[C@@H](C(=O)O)N
+92766-5	E	1-Piperideine-6-carboxylic acid	DictMol	6	1-Piperideine-6-carboxylic acid	1-Piperideine-6-carboxylic acid	0	C1CC=NC(C1)C(=O)O
+92766-5	E	carboxylic acid	G	29	carboxylic acid	carboxylic acid	0	
+13383-5	E	aminobutyric acid	DictMol	2	aminobutyric acid	aminobutyric acid	0	NCCCC(=O)O
+13383-5	E	aminobutyric acid	DictMol	6	aminobutyric acid	aminobutyric acid	0	NCCCC(=O)O
+13383-5	E	amino	A	6	amino	amino	0	
+13383-5	E	amino	A	6	amino	amino	0	
+94718-4	E	defensin	DictMol	6	defensin	defensin	0	C[C@@H](C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CO)C(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](C)C(=O)N[C@@H](CC1=CC=CC=C1)C(=O)N2CCC[C@H]2C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCC(=O)O)C(=O)O)NC(=O)CNC(=O)[C@H](CC(=O)N)NC(=O)[C@@H]3CCCN3C(=O)[C@H](CC4=CC=C(C=C4)O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC(=O)[C@@H]5CCCN5C(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@H](C(C)C)NC(=O)[C@@H]6CCCN6C(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@H](CC7=CNC8=CC=CC=C87)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CC9=CC=CC=C9)N
+94718-4	E	HNP-2	DictMol	0	HNP-2	HNP-2	0	CC[C@H](C)[C@H]1C(=O)N[C@H](C(=O)NCC(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)NCC(=O)N[C@H](C(=O)N[C@H]2CSSC[C@H]3C(=O)N[C@H](C(=O)N[C@H](C(=O)N4CCC[C@H]4C(=O)N[C@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N[C@H](C(=O)N3)CC5=CC=C(C=C5)O)N)C(=O)O)NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)CNC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC2=O)[C@@H](C)CC)CC6=CC=C(C=C6)O)CCC(=O)N)CCCNC(=N)N)CC(C)C)CC7=CNC8=CC=CC=C87)C)CC9=CC=CC=C9)C(=O)N1)C)[C@@H](C)CC)CCCNC(=N)N)[C@@H](C)O)CC1=CC=C(C=C1)O)CCCNC(=N)N)CCCNC(=N)N)CCC(=O)O)C
+94718-4	E	peptide	G	17	peptide	peptide	0	
+94718-4	E	peptide	G	11	peptide	peptide	0	
+94718-4	E	peptides	G	17	peptides	peptides	0	
+94718-4	E	Defensins	DictMol	6	Defensins	Defensins	0	C[C@@H](C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](CO)C(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)O)C(=O)N[C@@H](C)C(=O)N[C@@H](CC1=CC=CC=C1)C(=O)N2CCC[C@H]2C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCC(=O)O)C(=O)O)NC(=O)CNC(=O)[C@H](CC(=O)N)NC(=O)[C@@H]3CCCN3C(=O)[C@H](CC4=CC=C(C=C4)O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCCN)NC(=O)[C@H](C(C)C)NC(=O)[C@@H]5CCCN5C(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@H](C(C)C)NC(=O)[C@@H]6CCCN6C(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@H](CC7=CNC8=CC=CC=C87)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@H](CC9=CC=CC=C9)N
+94718-4	E	HNP-1	DictMol	0	HNP-1	HNP-1	0	CC[C@H](C)[C@H]1C(=O)N[C@H](C(=O)NCC(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)NCC(=O)N[C@H](C(=O)N[C@H]2CSSC[C@H]3C(=O)N[C@H](C(=O)N[C@H](C(=O)N4CCC[C@H]4C(=O)N[C@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N[C@H](C(=O)N3)CC5=CC=C(C=C5)O)NC(=O)[C@H](C)N)C(=O)O)NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)CNC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC2=O)[C@@H](C)CC)CC6=CC=C(C=C6)O)CCC(=O)N)CCCNC(=N)N)CC(C)C)CC7=CNC8=CC=CC=C87)C)CC9=CC=CC=C9)C(=O)N1)C)[C@@H](C)CC)CCCNC(=N)N)[C@@H](C)O)CC1=CC=C(C=C1)O)CCCNC(=N)N)CCCNC(=N)N)CCC(=O)O)C
+13671-3	E	hydroxy	A	6	hydroxy	hydroxy	0	
+35164-3	E	Linolenate	DictMol	2	Linolenate	Linolenate	0	CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)O
+35164-3	E	linolenic acid	DictMol	6	linolenic acid	linolenic acid	0	CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)O
+1820-0	E	A-MSH	DictMol	0	A-MSH	A-MSH	0	CC(C)C(C(=O)N)NC(=O)C1CCCN1C(=O)C(CCCCN)NC(=O)CNC(=O)C(CC2=CNC3=CC=CC=C32)NC(=O)C(CCCNC(=N)N)NC(=O)C(CC4=CC=CC=C4)NC(=O)C(CC5=CN=CN5)NC(=O)C(CCC(=O)O)NC(=O)C(CCSC)NC(=O)C(CO)NC(=O)C(CC6=CC=C(C=C6)O)NC(=O)C(CO)NC(=O)C
+1820-0	E	Alpha MSH	DictMol	0	Alpha MSH	Alpha-MSH	0	CC(C)[C@@H](C(=O)N)NC(=O)[C@@H]1CCCN1C(=O)[C@H](CCCCN)NC(=O)CNC(=O)[C@H](CC1=CNC2C1=CC=CC=2)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](CC1C=CC=CC=1)NC(=O)[C@H](CC1=CNC=N1)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCSC)NC(=O)[C@H](CO)NC(=O)[C@H](CC1C=CC(=CC=1)O)NC(=O)[C@H](CO)NC(=O)C
+104114-4	E	n-acetyl-d-glucosaminidase	DictMol	0	n-acetyl-d-glucosaminidase	n-acetyl-d-glucosaminidase	0	[HH].[HH].[HH]
+14590-4	E	Tocopherol	G	2	Tocopherol	Tocopherol	0	
+44076-8	E	Tocopherol	G	8	Tocopherol	Tocopherol	0	
+1843-2	E	Ammonium	E	0	Ammonium	Ammonium	0	
+1843-2	E	nitrogen	E	9	nitrogen	nitrogen	0	
+16258-6	E	Ammonium	E	0	Ammonium	Ammonium	0	
+16258-6	E	Ammonium	E	0	Ammonium	Ammonium	0	
+101806-8	E	peptide	G	5	peptide	peptide	0	
+101806-8	E	peptide	G	5	peptide	peptide	0	
+43977-8	E	Anabolic steroid	G	0	Anabolic steroid	Anabolic steroid	0	
+24125-7	E	testosterone	DictMol	5	testosterone	testosterone	0	C[C@@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@]34C)[C@@H]2CC[C@@H]1O
+24125-7	E	Androgen	G	0	Androgen	Androgen	0	
+24125-7	E	androgen	G	11	androgen	androgen	0	
+13882-6	E	Androstanolone	DictMol	0	Androstanolone	Androstanolone	0	C[C@@]12CCC(=O)C[C@@H]2CC[C@@H]2[C@@H]1CC[C@]1(C)[C@@H](O)CC[C@@H]21
+12480-0	E	Angiotensin I	DictMol	0	Angiotensin I	Angiotensin I	0	CC[C@H](C)[C@@H](C(=O)N[C@@H](CC1=CN=CN1)C(=O)N2CCC[C@H]2C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N[C@@H](CC4=CN=CN4)C(=O)N[C@@H](CC(C)C)C(=O)O)NC(=O)[C@H](CC5=CC=C(C=C5)O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](CC(=O)O)N
+12480-0	E	Proangiotensin	DictMol	0	Proangiotensin	Proangiotensin	0	CC[C@H](C)[C@@H](C(=O)N[C@@H](CC1=CN=CN1)C(=O)N2CCC[C@H]2C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N[C@@H](CC4=CN=CN4)C(=O)N[C@@H](CC(C)C)C(=O)O)NC(=O)[C@H](CC5=CC=C(C=C5)O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](CC(=O)O)N
+15031-8	E	Angiotensin	DictMol	0	Angiotensin	Angiotensin	0	CC(C)[C@H](NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@@H](N)CC(=O)O)C(=O)N[C@@H](CC1C=CC(O)=CC=1)C(=O)N[C@H](C(=O)N[C@@H](CC1=CN=CN1)C(=O)N1CCC[C@H]1C(=O)N[C@@H](C)C(=O)O)C(C)C
+15032-6	E	Angiotensin 2	DictMol	0	Angiotensin 2	Angiotensin 2	0	CC[C@H](C)[C@@H](C(=O)N[C@@H](CC1=CN=CN1)C(=O)N2CCC[C@H]2C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)O)NC(=O)[C@H](CC4=CC=C(C=C4)O)NC(=O)[C@H](C(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](CC(=O)O)N
+15133-2	E	Amino Acids	G	0	Amino Acids	Amino Acids	0	
+53468-5	E	aminobenzoic acid	DictMol	2	aminobenzoic acid	aminobenzoic acid	0	NC1C=CC(C(=O)O)=CC=1
+53468-5	E	aminobenzoic acid	DictMol	2	aminobenzoic acid	aminobenzoic acid	0	NC1C=CC(C(=O)O)=CC=1
+1888-7	E	Vitamin B12a	DictMol	0	Vitamin B12a	Vitamin B12a	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3[C@@H]([C@@H]([C@H](O3)CO)OP(=O)([O-])O[C@H](C)CNC(=O)CC[C@@]\4([C@H]([C@@H]5[C@]6([C@@]([C@@H](C(=N6)/C(=C\7/[C@@]([C@@H](C(=N7)/C=C\8/C([C@@H](C(=N8)/C(=C4\[N-]5)/C)CCC(=O)N)(C)C)CCC(=O)N)(C)CC(=O)N)/C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.O.[Co+2]
+79281-2	E	Ribose 5-phosphate	DictMol	0	Ribose 5-phosphate	Ribose-5-phosphate	0	C([C@H]([C@H]([C@H](C=O)O)O)O)OP(=O)(O)O
+16811-2	E	C20:0	DictMol	0	C20:0	C20:0	0	CCCCCCCCCCCCCCCCCCCC(=O)O
+15136-5	E	Amino Acids	G	0	Amino Acids	Amino Acids	0	
+1898-6	E	ASAL	DictMol	0	ASAL	ASAL	0	C[C@@H](C(=O)N1CCC[C@H]1C(=O)N[C@@H](CO)C(=O)NCC(=O)N[C@@H](C)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CCCN=C(N)N)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC2=CC=C(C=C2)O)C(=O)NCC(=O)N[C@@H](CC3=CC=CC=C3)C(=O)NCC(=O)N[C@@H](CC(C)C)C(=O)N)N
+100739-2	E	amino	A	10	amino	amino	0	
+15135-7	E	Amino Acids	G	0	Amino Acids	Amino Acids	0	
+86465-2	E	APRI	DictMol	0	APRI	APRI	0	CC[C@]12CC(=C)[C@H]3[C@H]([C@@H]1CC[C@]2(C#C)O)CCC4=CCCC[C@H]34.C[C@]12CC[C@H]3[C@H]([C@@H]1CC[C@]2(C#C)O)CCC4=C3C=CC(=C4)O
+11208-6	E	polypeptide	G	19	polypeptide	polypeptide	0	
+101831-6	E	Pulmicort	DictMol	0	Pulmicort	Pulmicort	0	CCCC1O[C@@H]2C[C@H]3[C@@H]4CCC5=CC(=O)C=C[C@]5(C)[C@H]4[C@@H](O)C[C@]3(C)[C@]2(C(=O)CO)O1
+101831-6	E	Vanceril	DictMol	0	Vanceril	Vanceril	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+101831-6	E	Vancenase	DictMol	0	Vancenase	Vancenase	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+101831-6	E	Qvar	DictMol	0	Qvar	Qvar	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+101831-6	E	Becloforte	DictMol	0	Becloforte	Becloforte	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+101831-6	E	Beclomethasone	DictMol	0	Beclomethasone	Beclomethasone	0	C[C@H]1C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]2(C)[C@@]1(O)C(=O)CO
+101831-6	E	Beclovent	DictMol	0	Beclovent	Beclovent	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+101831-6	E	Beconase	DictMol	0	Beconase	Beconase	0	CCC(=O)OCC(=O)[C@@]1(OC(=O)CC)[C@@H](C)C[C@H]2[C@@H]3CCC4=CC(=O)C=C[C@]4(C)[C@@]3(Cl)[C@@H](O)C[C@]12C
+13368-6	E	B-Alanine	DictMol	0	B-Alanine	B-Alanine	0	C(CN)C(=O)O
+79598-9	E	B-Alanine	DictMol	0	B-Alanine	B-Alanine	0	C(CN)C(=O)O
+11038-7	E	Vitamin E	G	0	Vitamin E	Vitamin E	0	
+11038-7	E	Tocopherols	G	0	Tocopherols	Tocopherols	0	
+104816-4	E	hydroxy	A	5	hydroxy	hydroxy	0	
+104816-4	E	BOHB	DictMol	0	BOHB	BOHB	0	COC1=CC(=C(C=C1C(CN)O)OC)Br
+50099-1	E	Ketone body	G	0	Ketone body	Ketone body	0	
+48493-1	E	Glutathione	DictMol	0	Glutathione	Glutathione	0	C(CC(=O)N[C@@H](CS)C(=O)NCC(=O)O)[C@@H](C(=O)O)N
+48493-1	E	prostaglandin-D	DictMol	15	prostaglandin-D	prostaglandin-D	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@H](CC1=O)O)CCCCCCC(=O)O)O
+48493-1	E	PGD2	DictMol	0	PGD2	PGD2	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@H](CC1=O)O)C/C=C\CCCC(=O)O)O
+48493-1	E	Prostaglandin-H2	DictMol	0	Prostaglandin-H2	Prostaglandin-H2	0	CCCCC[C@H](O)/C=C/[C@@H]1[C@@H](C/C=C\CCCC(=O)O)[C@@H]2C[C@H]1OO2
+48493-1	E	Prostaglandin-D2	DictMol	0	Prostaglandin-D2	Prostaglandin-D2	0	CCCCC[C@H](O)/C=C/[C@H]1C(=O)C[C@H](O)[C@@H]1C/C=C\CCCC(=O)O
+48493-1	E	Cerebrin	DictMol	0	Cerebrin	Cerebrine	0	CCCCCCCCCCCCCCCCC(C(=O)N[C@@H](CO[C@H]1[C@@H]([C@H]([C@H]([C@H](O1)CO)O)O)O)[C@@H](/C=C/CCCCCCCCCCCCC)O)O
+79582-3	E	Beta-Uba	DictMol	0	Beta-Uba	Beta-Uba	0	CC(CNC(=O)N)C(=O)O
+79582-3	E	amino	A	17	amino	amino	0	
+33898-8	E	Bilirubin	DictMol	9	Bilirubin	Bilirubin	0	C=CC1=C(C)C(=C/C2NC(CC3NC(/C=C4\NC(=O)C(C)=C4C=C)=C(C)C=3CCC(=O)O)=C(CCC(=O)O)C=2C)/NC1=O
+1980-2	E	Vitamin H	DictMol	0	Vitamin H	Vitamin H	0	O=C(O)CCCC[C@@H]1SC[C@@H]2NC(=O)N[C@H]12
+79283-8	E	bile acid	G	17	bile acid	bile acid	0	
+49543-2	E	Calcidiol	DictMol	0	Calcidiol	Calcidiol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]12.O
+49543-2	E	Calciferol	DictMol	12	Calciferol	Calciferol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)C)CC[C@@H]12
+94673-1	E	25-Hydroxyvitamin D2	DictMol	0	25-Hydroxyvitamin D2	25-Hydroxyvitamin D2	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)(C)O)CC[C@@H]12
+94673-1	E	25-Hydroxyvitamin D3	DictMol	21	25-Hydroxyvitamin D3	25-Hydroxyvitamin D3	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+94673-1	E	24,25 Dihydroxyvitamin D	DictMol	42	24,25 Dihydroxyvitamin D	24,25-Dihydroxyvitamin D	0	C[C@H](CCC(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@@H](CCC3=C)O)C
+94673-1	E	25-Hydroxyvitamin D2	DictMol	0	25-Hydroxyvitamin D2	25-Hydroxyvitamin D2	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)(C)O)CC[C@@H]12
+94673-1	E	25-Hydroxyvitamin D3	DictMol	21	25-Hydroxyvitamin D3	25-Hydroxyvitamin D3	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+94673-1	E	24,25 Dihydroxyvitamin D2	DictMol	42	24,25 Dihydroxyvitamin D2	24,25-Dihydroxyvitamin D2	0	C[C@H](/C=C/[C@](C)(C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+94673-1	E	24,25 Dihydroxyvitamin D3	DictMol	68	24,25 Dihydroxyvitamin D3	24,25 Dihydroxyvitamin D3	0	C[C@H](CC[C@H](C(C)(C)O)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+94673-1	E	Ercalcidiol	DictMol	0	Ercalcidiol	Ercalcidiol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)(C)O)CC[C@@H]12
+94673-1	E	calcidiol	DictMol	12	calcidiol	calcidiol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]12.O
+94673-1	E	Hydroxycalcidiol	DictMol	26	Hydroxycalcidiol	Hydroxycalcidiol	0	C[C@H](CCCC(C)(C)O)[C@H]1C(C[C@@H]\2[C@]1(CCC/C2=C\C=C\3/C[C@H](CCC3=C)O)C)O
+107221-4	E	Pro vitamin D	DictMol	0	Pro vitamin D	Provitamin-D	0	CC(C)CCC[C@@H](C)[C@H]1CC[C@H]2[C@@H]3CC=C4C[C@@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+107221-4	E	hydroxy	A	11	hydroxy	hydroxy	0	
+107221-4	E	ergosterol	DictMol	10	ergosterol	ergosterol	0	CC(C)[C@@H](C)/C=C/[C@@H](C)[C@H]1CC[C@H]2C3=CC=C4C[C@@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+107221-4	E	Vitamin D2	DictMol	0	Vitamin D2	Vitamin D2	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)C)CC[C@@H]12
+107221-4	E	Viosterol	DictMol	0	Viosterol	Viosterol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)C)CC[C@@H]12
+107221-4	E	Ercalciol	DictMol	0	Ercalciol	Ercalciol	0	C[C@H](/C=C/[C@H](C)C(C)C)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+107221-4	E	Ergocalciferol	DictMol	0	Ergocalciferol	Ergocalciferol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)C)CC[C@@H]12
+1991-9	E	Calciferol	DictMol	0	Calciferol	Calciferol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)/C=C/[C@H](C)C(C)C)CC[C@@H]12
+1991-9	E	Vitamin D	G	0	Vitamin D	Vitamin D	0	
+14566-4	E	1,25-Dihydroxyvitamin D3	DictMol	0	1,25-Dihydroxyvitamin D3	1,25-Dihydroxyvitamin D3	0	C=C1C(=C\C=C2/CCC[C@]3(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]23)/C[C@@H](O)C[C@@H]1O
+14566-4	E	1,25-Dihydroxyvitamin D	DictMol	0	1,25-Dihydroxyvitamin D	1,25-Dihydroxyvitamin D	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](C[C@@H](C3=C)O)O)C
+14566-4	E	1,25-Dihydroxycholecalciferol	DictMol	0	1,25-Dihydroxycholecalciferol	1,25-Dihydroxycholecalciferol	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](C[C@@H](C3=C)O)O)C
+14566-4	E	Calcitriol	DictMol	5	Calcitriol	Calcitriol	0	C=C1C(=C\C=C2/CCC[C@]3(C)[C@@H]([C@H](C)CCCC(C)(C)O)CC[C@@H]23)/C[C@@H](O)C[C@@H]1O
+14566-4	E	1,25(OH)2D3	DictMol	0	1,25(OH)2D3	1,25(OH)2D3	0	C[C@H](CCCC(C)(C)O)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](C[C@@H](C3=C)O)O)C
+101736-7	E	CHPD	DictMol	0	CHPD	CHPD	0	CCN(CCOC1=CC=C(C=C1)C2CCCCC2)C3=CC(=C(C=C3)C=C(C#N)C#N)C
+63550-8	E	Whitlockite	DictMol	0	Whitlockite	Whitlockite	0	OP(=O)([O-])[O-].OP(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[Mg+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Fe+2]
+16263-6	E	Weddellite	DictMol	0	Weddellite	Weddellite	0	C(=O)(C(=O)[O-])[O-].O.O.[Ca+2]
+10334-1	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+10334-1	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+2011-5	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+17842-6	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+2013-1	E	Ag50	DictMol	7	Ag50	Ag50	0	C[C@@]12CC[C@H]([C@@]([C@H]1CCC(=C)[C@H]2C/C=C/3\[C@@H](COC3=O)O)(C)OC(C4=CC=CC=C4)(C5=CC=CC=C5)C6=CC=CC=C6)O
+2013-1	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+19189-0	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+17843-4	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+13127-6	E	Dianon	DictMol	0	Dianon	Dianon	0	C1CCC(=C2CCCCC2=O)CC1
+2017-2	E	ammonia	E	5	ammonia	ammonia	0	
+16550-6	E	Carbohydrate	G	0	Carbohydrate	Carbohydrate	0	
+32159-6	E	Calcium	E	0	Calcium	Calcium	0	
+11211-0	E	tCO2	DictMol	0	tCO2	tCO2	0	O=[Tc]=O
+11211-0	E	anhydride	G	9	anhydride	anhydride	0	
+2029-7	E	Carbon monoxide	DictMol	0	Carbon monoxide	Carbon monoxide	0	[C-]#[O+]
+2029-7	E	carbon dioxide	DictMol	22	carbon dioxide	carbondioxide	0	C(=O)=O
+2041-2	E	acyl	G	10	acyl	acyl	0	
+27078-5	E	A-Carotene	DictMol	0	A-Carotene	A-Carotene	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C=C/C=C(\C)/C=C/C=C(\C)/C=C/[C@H]2C(=CCCC2(C)C)C)/C)/C
+102090-8	E	Copper	E	0	Copper	Copper	0	
+103784-5	E	IMAC	DictMol	13	IMAC	IMAC	0	C1=C(NC=N1)CC(=O)O
+98110-0	E	MCP-3	DictMol	0	MCP-3	MCP-3	0	CC(=O)NC1C(C(C(OC1OC2C(C(C(OC2OCC3C(C(C(C(O3)OC4C(OC(C(C4O)NC(=O)C)OC(C(CO)O)C(C(C=O)NC(=O)C)O)CO)O)OC5C(C(C(C(O5)CO)O)O)OC6C(C(C(C(O6)CO)OC7C(C(C(C(O7)CO)O)O)O)O)NC(=O)C)O)CO)O)O)CO)OC8C(C(C(C(O8)CO)O)O)O)O
+98237-1	E	NAP-3	DictMol	0	NAP-3	NAP-3	0	C1CCN(CC1)C2=C(C3=C(C=CC4=C3C=C5C=CC6=C(C5=N4)N=CC=C6)C(=C2)C7=CC=C(C=C7)Br)C#N
+103710-0	E	Chenodeoxycholic acid	DictMol	0	Chenodeoxycholic acid	Chenodeoxycholic acid	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+103710-0	E	Bile acid	G	0	Bile acid	Bile acid	0	
+103710-0	E	Cholic acid	DictMol	0	Cholic acid	Cholic acid	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3C[C@H](O)[C@]12C
+103710-0	E	Bile salt	G	0	Bile salt	Bile salt	0	
+103710-0	E	CDCA	DictMol	0	CDCA	CDCA	0	C[C@H](CCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+103710-0	E	CDCA	DictMol	0	CDCA	CDCA	0	C[C@H](CCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+1990-1	E	Vitamin D3	DictMol	0	Vitamin D3	Vitamin D3	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)C)CC[C@@H]12
+1990-1	E	Colecalciferol	DictMol	0	Colecalciferol	Colecalciferol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)C)CC[C@@H]12
+1990-1	E	Calciol	DictMol	0	Calciol	Calciol	0	C[C@H](CCCC(C)C)[C@H]1CC[C@@H]\2[C@@]1(CCC/C2=C\C=C/3\C[C@H](CCC3=C)O)C
+2082-6	E	Dihydrocholesterol	DictMol	0	Dihydrocholesterol	Dihydrocholesterol	0	C=C1CC[C@H](O)C/C1=C/C=C1\CCC[C@]2(C)[C@@H]([C@H](C)CCCC(C)C)CC[C@@H]12
+2083-4	E	ester	G	19	ester	ester	0	
+2084-2	E	Ester	G	8	Ester	Ester	0	
+2096-6	E	Triacylglycerol	G	0	Triacylglycerol	Triacylglycerol	0	
+39357-9	E	Chloride	E	0	Chloride	Chloride	0	
+39354-6	E	dibucaine	DictMol	0	dibucaine	dibucaine	0	CCCCOC1C=C(C(=O)NCCN(CC)CC)C2=CC=CC=C2N=1
+39355-3	E	Fluoride	E	0	Fluoride	Fluoride	0	
+39356-1	E	Scoline	DictMol	0	Scoline	Scoline	0	C[N+](C)(C)CCOC(=O)CCC(=O)OCC[N+](C)(C)C.[Cl-].[Cl-]
+2100-6	E	Glycocholic acid	DictMol	0	Glycocholic acid	Glycocholic acid	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3C[C@H](O)[C@]12C
+2100-6	E	Glycocholate	DictMol	0	Glycocholate	Glycocholate	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3C[C@H](O)[C@]12C
+2101-4	E	Cholylglycine	DictMol	0	Cholylglycine	Cholylglycine	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3C[C@H](O)[C@]12C
+94690-5	E	Chondroitin sulfate C	DictMol	0	Chondroitin sulfate C	Chondroitin sulfate C	0	CC(=O)N[C@@H]1[C@H]([C@H]([C@H](O[C@H]1O)OS(=O)(=O)O)O)O[C@H]2[C@@H]([C@H]([C@@H]([C@H](O2)C(=O)O)O)O)O
+79702-7	E	Paullinic acid	DictMol	0	Paullinic acid	Paullinic acid	0	CCCCCC/C=C\CCCCCCCCCCCC(=O)O
+13392-6	E	Citr	DictMol	0	Citr	Citr	0	C(C(=O)O)C(CC(=O)O)(C(=O)O)O
+15052-4	E	Cyanocobalamin	DictMol	0	Cyanocobalamin	Cyanocobalamin	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3[C@@H]([C@@H]([C@H](O3)CO)OP(=O)([O-])O[C@H](C)CNC(=O)CC[C@@]4([C@H]([C@@H]5[C@]6([C@@]([C@@H](/C(=C(/C7=N/C(=C\C8=N/C(=C(\C4=N5)/C)/[C@H](C8(C)C)CCC(=O)N)/[C@H]([C@]7(C)CC(=O)N)CCC(=O)N)\C)/[N-]6)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.[C-]#N.[Co+3]
+96256-3	E	Copper	E	0	Copper	Copper	0	
+14667-0	E	Coproporphyrin	G	0	Coproporphyrin	Coproporphyrin	0	
+14671-2	E	Coproporphyrin III	DictMol	0	Coproporphyrin III	CoproporphyrinIII	0	CC1=C(C2=CC3=C(C(=C(N3)C=C4C(=C(C(=N4)C=C5C(=C(C(=N5)C=C1N2)C)CCC(=O)O)C)CCC(=O)O)C)CCC(=O)O)CCC(=O)O
+16649-6	E	COPROgen	DictMol	0	COPROgen	COPROgen	0	C/C(=C\C(=O)N(CCC[C@H]1C(=O)N[C@H](C(=O)N1)CCCN(C(=O)/C=C(\C)/CCOC(=O)[C@H](CCCN(C(=O)/C=C(\C)/CCO)[O-])NC(=O)C)[O-])[O-])/CCO.[Fe+3]
+106796-6	E	BCA1	DictMol	0	BCA1	BCA1	0	CC(CCCC(C)C1=CCC(C1CC2=C(C(CCC2=O)O)O)(C)O)CO
+10969-4	E	Cys-Cys	DictMol	0	Cys-Cys	Cys-Cys	0	C([C@@H](C(=O)N[C@@H](CS)C(=O)O)N)S
+10969-4	E	HCys	DictMol	4	HCys	HCys	0	C(C(C(=O)O)N)S
+16711-4	E	Hcys	DictMol	5	Hcys	Hcys	0	C(C(C(=O)O)N)S
+79671-4	E	amino	A	2	amino	amino	0	
+79671-4	E	pyrimidin-2	DictMol	68	pyrimidin-2	pyrimidine-2	0	C1C(=O)NC(=O)NC1=O
+79671-4	E	Cytosine Riboside	DictMol	0	Cytosine Riboside	Cytosine Riboside	0	C1=CN(C(=O)N=C1N)[C@H]2[C@@H]([C@@H]([C@H](O2)CO)O)O
+79671-4	E	beta-D	DictMol	2	beta-D	beta-D	0	[2H]C([2H])(CN)C1=CC(=C(C(=C1)OC)OC)OC
+79304-2	E	D-2-HG	DictMol	0	D-2-HG	D-2-HG	0	C(C[C@](C(=O)O)(N)O)C(=O)O
+35146-0	E	C10:0	DictMol	0	C10:0	C10:0	0	CCCCCCCCCC(=O)O
+13727-3	E	acyl	G	13	acyl	acyl	0	
+30328-9	E	C10:1	DictMol	0	C10:1	C10:1	0	CCCCCCC/C=C/C(=O)O
+107494-7	E	DHEAS	DictMol	0	DHEAS	DHEAS	0	C[C@]12CC[C@H]3[C@H]([C@@H]1CCC2=O)CC=C4[C@@]3(CC[C@@H](C4)OS(=O)(=O)O)C
+107494-7	E	SO4-2	DictMol	0	SO4-2	SO4-2	0	[O-]S(=O)(=O)[O-]
+107494-7	E	Prasterone	DictMol	0	Prasterone	Prasterone	0	C[C@@]12CC[C@H](O)CC2=CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+107494-7	E	DHEA	DictMol	0	DHEA	DHEA	0	C[C@@]12CC[C@H](O)CC2=CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+107494-7	E	DHEA-S	DictMol	0	DHEA-S	DHEA-S	0	C[C@]12CC[C@H]3[C@H]([C@@H]1CCC2=O)CC=C4[C@@]3(CC[C@@H](C4)OS(=O)(=O)O)C
+107494-7	E	DHEA	DictMol	0	DHEA	DHEA	0	C[C@@]12CC[C@H](O)CC2=CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+16731-2	E	dehydroepiandrosterone	DictMol	5	dehydroepiandrosterone	dehydroepiandrosterone	0	C[C@@]12CC[C@H](O)CC2=CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+16731-2	E	DHEA	DictMol	2	DHEA	DHEA	0	C[C@@]12CC[C@H](O)CC2=CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+53211-9	E	C10:1	DictMol	0	C10:1	C10:1	0	CCCCCCC/C=C/C(=O)O
+18214-7	E	D5Pregnanetriol	DictMol	0	D5Pregnanetriol	D5-Pregnanetriol	0	[2H][C@]1([C@]2(CC[C@H]3[C@H]([C@@H]2CC1([2H])[2H])CCC4[C@@]3(CCCC4)C)C)C([2H])([2H])C(O)(O)O
+13970-9	E	D-Tocopherol	DictMol	0	D-Tocopherol	D-Tocopherol	0	CC1=CC(=CC2=C1O[C@](CC2)(C)CCC[C@H](C)CCC[C@H](C)CCCC(C)C)O
+2201-2	E	cholate	DictMol	3	cholate	cholate	0	C[C@H](CCC(=O)O)[C@H]1CC[C@@H]2[C@]1(C)[C@@H](O)C[C@@H]1[C@@]3(C)CC[C@@H](O)C[C@H]3C[C@@H](O)[C@@]21C
+2201-2	E	Deoxycholic acid	DictMol	0	Deoxycholic acid	Deoxycholic acid	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3CC[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3C[C@H](O)[C@]12C
+2203-8	E	Dermatin	DictMol	0	Dermatin	Dermatin	0	C[C@]12C[C@@H]([C@]3([C@H]([C@@H]1C[C@@H]4[C@]2(OC(O4)(C)C)C(=O)CO)C[C@@H](C5=CC(=O)C=C[C@@]53C)F)F)O
+79506-2	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+60438-9	E	Amine	G	0	Amine	Amine	0	
+22754-6	E	Nupercainal	DictMol	0	Nupercainal	Nupercainal	0	CCCCOC1C=C(C(=O)NCCN(CC)CC)C2=CC=CC=C2N=1.Cl
+53213-5	E	C12:1-DC	DictMol	0	C12:1-DC	C12:1-DC	0	C(=O)O.C(=O)O
+74529-9	E	hydroxy	A	2	hydroxy	hydroxy	0	
+74529-9	E	coenzyme A	DictMol	27	coenzyme A	coenzymeA	0	CC(C)(COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@H]([C@H](C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)C(C(=O)NCCC(=O)NCCS)O
+2206-1	E	Dicarboxylic acid	G	0	Dicarboxylic acid	Dicarboxylic acid	0	
+18466-3	E	C18:1-DC	DictMol	0	C18:1-DC	C18:1-DC	0	C(=O)O.C(=O)O
+53217-6	E	C16:1	G	0	C16:1	C16:1	0	
+53215-0	E	Very long-chain acyl-CoA	G	0	Very long-chain acyl-CoA	Very long-chain acyl-CoA	0	
+2210-3	E	Dihydrolipoamide	DictMol	0	Dihydrolipoamide	Dihydrolipoamide	0	C(CCC(=O)N)CC(CCS)S
+78694-7	E	carboxylate	G	26	carboxylate	carboxylate	0	
+78694-7	E	Hydroorotic acid	DictMol	0	Hydroorotic acid	Hydroorotic acid	0	C1C(NC(=O)NC1=O)C(=O)O
+78693-9	E	methyl	A	2	methyl	methyl	0	
+100425-8	E	sterol	G	34	sterol	sterol	0	
+24081-2	E	DHAP	DictMol	0	DHAP	DHAP	0	C(C(=O)COP(=O)(O)O)O
+24081-2	E	DHAP	DictMol	0	DHAP	DHAP	0	C(C(=O)COP(=O)(O)O)O
+53479-2	E	DHCA	DictMol	0	DHCA	DHCA	0	COC1=C(C=CC(=C1)CCCO)O
+49837-8	E	DMPE	DictMol	0	DMPE	DMPE	0	CCCCCCCCCCCCCC(=O)OCC(COP(=O)(O)OCCN)OC(=O)CCCCCCCCCCCCC
+2215-2	E	DPPC	DictMol	0	DPPC	DPPC	0	CCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)CCCCCCCCCCCCCCC
+47853-7	E	DPGP	DictMol	0	DPGP	DPGP	0	CC(C)CCCC(C)CCCC(C)CCCC(C)CCOCC(COP(=O)(O)OCCCOP(=O)(O)O)OCCC(C)CCCC(C)CCCC(C)CCCC(C)C
+35174-2	E	Cervonate	DictMol	0	Cervonate	Cervonate	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCC(=O)O
+35174-2	E	Cervonic acid	DictMol	0	Cervonic acid	Cervonic acid	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCC(=O)O
+35174-2	E	Docosahexaenoic acid	DictMol	0	Docosahexaenoic acid	Docosahexaenoic acid	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCC(=O)O
+35182-5	E	Adrenate	DictMol	0	Adrenate	Adrenate	0	CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCCCC(=O)[O-]
+35182-5	E	Adrenic acid	DictMol	0	Adrenic acid	Adrenic acid	0	CCCCC/C=C\C/C=C\C/C=C\C/C=C\CCCCCC(=O)O
+35160-1	E	C22:1	G	0	C22:1	C22:1	0	
+13732-3	E	DDDA	DictMol	0	DDDA	DDDA	0	C(CCCCCC(=O)O)CCCCC(=O)O
+18454-9	E	C12:1	DictMol	0	C12:1	C12:1	0	CCCCCCCCC/C=C/C(=O)O
+35124-7	E	fer-1	DictMol	21	fer-1	fer-1	0	CCOC(=O)C1=CC(=C(C=C1)NC2CCCCC2)N
+35173-4	E	Eicosapentaenoic acid	DictMol	0	Eicosapentaenoic acid	Eicosapentaenoic acid	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O
+35173-4	E	Timnodonic Acid	DictMol	0	Timnodonic Acid	Timnodonic Acid	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O
+35173-4	E	Timnodonate	DictMol	0	Timnodonate	Timnodonate	0	CC/C=C\C/C=C\C/C=C\C/C=C\C/C=C\CCCC(=O)O
+100976-0	E	Eosin	DictMol	0	Eosin	Eosin	0	O=C1OC2(C3C=CC=CC1=3)C1C=C(Br)C(O)=C(Br)C=1OC1C2=CC(Br)=C(O)C=1Br
+2229-3	E	epiandrosterone	DictMol	7	epiandrosterone	epiandrosterone	0	C[C@@]12CC[C@H](O)C[C@@H]2CC[C@@H]2[C@@H]1CC[C@]1(C)C(=O)CC[C@@H]21
+2229-3	E	3-epiandrosterone	DictMol	0	3-epiandrosterone	3-epiandrosterone	0	C[C@]12CC[C@@H](C[C@@H]1CC[C@@H]3[C@@H]2CC[C@]4([C@H]3CCC4=O)C)O
+17844-2	E	Estradiol	DictMol	0	Estradiol	Estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+13883-4	E	Estradiol	DictMol	0	Estradiol	Estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+14960-9	E	Estradiol	DictMol	0	Estradiol	Estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+14960-9	E	Estradiol	DictMol	0	Estradiol	Estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+15063-1	E	Estriol	DictMol	0	Estriol	Estriol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2C[C@@H](O)[C@@H]1O
+14051-7	E	Estrogen	G	0	Estrogen	Estrogen	0	
+14051-7	E	Estrogen	G	0	Estrogen	Estrogen	0	
+14970-8	E	Estrone	DictMol	0	Estrone	Estrone	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CCC1=O
+14160-6	E	Estrone	DictMol	2	Estrone	Estrone	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CCC1=O
+14160-6	E	Estrone	DictMol	0	Estrone	Estrone	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CCC1=O
+90782-4	E	8-iso-prostaglandin F2alpha	DictMol	0	8-iso-prostaglandin F2alpha	8-iso-prostaglandin F2alpha	0	CCCCC[C@@H](/C=C/[C@H]1[C@@H](C[C@@H]([C@H]1C/C=C\CCCC(=O)O)O)O)O
+15066-4	E	Aliphatic	G	0	Aliphatic	Aliphatic	0	
+15066-4	E	carboxylate	G	10	carboxylate	carboxylate	0	
+15066-4	E	Fatty Acids	G	5	Fatty Acids	Fatty Acids	0	
+35177-5	E	PUFA	G	0	PUFA	PUFA	0	
+12215-0	E	Aliphatic	G	0	Aliphatic	Aliphatic	0	
+12215-0	E	carboxylate	G	10	carboxylate	carboxylate	0	
+12215-0	E	VLCFA	G	0	VLCFA	VLCFA	0	
+30194-5	E	C22:0	DictMol	0	C22:0	C22:0	0	CCCCCCCCCCCCCCCCCCCCCC(=O)O
+30194-5	E	VLCFA	G	0	VLCFA	VLCFA	0	
+30194-5	E	C22:0	DictMol	6	C22:0	C22:0	0	CCCCCCCCCCCCCCCCCCCCCC(=O)O
+54445-2	E	VLCFA	G	0	VLCFA	VLCFA	0	
+54445-2	E	C22:1n9	DictMol	6	C22:1n9	C22:1n9	0	CCCCCCCC/C=C\CCCCCCCCCCCC(=O)O
+1773-1	E	C24:0	DictMol	0	C24:0	C24:0	0	CCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1773-1	E	VLCFA	G	0	VLCFA	VLCFA	0	
+1773-1	E	C24:0	DictMol	6	C24:0	C24:0	0	CCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1773-1	E	C22:0	DictMol	12	C22:0	C22:0	0	CCCCCCCCCCCCCCCCCCCCCC(=O)O
+1773-1	E	VLCFA	G	0	VLCFA	VLCFA	0	
+1773-1	E	C24:0	DictMol	6	C24:0	C24:0	0	CCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1774-9	E	VLCFA	G	0	VLCFA	VLCFA	0	
+1774-9	E	C26:0	DictMol	6	C26:0	C26:0	0	CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1774-9	E	C26:0	DictMol	0	C26:0	C26:0	0	CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1774-9	E	VLCFA	G	0	VLCFA	VLCFA	0	
+1774-9	E	C26:0	DictMol	6	C26:0	C26:0	0	CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+1774-9	E	C22:0	DictMol	12	C22:0	C22:0	0	CCCCCCCCCCCCCCCCCCCCCC(=O)O
+33036-5	E	VLCFA	G	0	VLCFA	VLCFA	0	
+38538-5	E	VLCFA	G	0	VLCFA	VLCFA	0	
+38538-5	E	C22:0	DictMol	12	C22:0	C22:0	0	CCCCCCCCCCCCCCCCCCCCCC(=O)O
+33478-9	E	VLCFA	G	0	VLCFA	VLCFA	0	
+98117-5	E	HBGF	DictMol	0	HBGF	HBGF	0	CCCCN(CCCC)C(=[N+](CCCC)CCCC)N(CCCC)CCCC.[F-]
+98117-5	E	Heparin-binding growth factor 2	DictMol	0	Heparin-binding growth factor 2	Heparin-binding growth factor 2	0	C1CCN(CC1)CCN2C(=O)CN=C(C3=C2C=CC(=C3)Cl)C4=CC=CC=C4.C(=C\C(=O)O)\C(=O)O
+53165-7	E	FIGLU	DictMol	0	FIGLU	FIGLU	0	C(CC(=O)O)[C@@H](C(=O)O)N=CN
+79492-5	E	Pyromucuric acid	DictMol	0	Pyromucuric acid	Pyromucuric acid	0	C1=COC(=C1)C(=O)NCC(=O)O
+79492-5	E	Pyromucurate	DictMol	0	Pyromucurate	Pyromucurate	0	C1=COC(=C1)C(=O)NCC(=O)O
+80095-3	E	Amino	A	2	Amino	Amino	0	
+80095-3	E	Amino	A	2	Amino	Amino	0	
+80095-3	E	D-GalN	DictMol	0	D-GalN	D-GalN	0	C([C@@H]1[C@@H]([C@@H]([C@H](C(O1)O)N)O)O)O
+80095-3	E	Chondrosamine	DictMol	0	Chondrosamine	Chondrosamine	0	C([C@H]([C@@H]([C@@H]([C@H](C=O)N)O)O)O)O
+80095-3	E	2-Amino-2-Deoxy-Galactopyranoside	DictMol	0	2-Amino-2-Deoxy-Galactopyranoside	2-Amino-2-Deoxy-Galactopyranoside	0	C([C@@H]1[C@@H]([C@@H]([C@H](C(O1)O)N)O)O)O
+80095-3	E	amino	A	16	amino	amino	0	
+80095-3	E	triol	G	51	triol	triol	0	
+10970-2	E	Galactose 1 Phosphate	DictMol	0	Galactose 1 Phosphate	Galactose-1-Phosphate	0	C([C@@H]1[C@@H]([C@@H]([C@H]([C@H](O1)OP(=O)(O)O)O)O)O)O
+10970-2	E	GAL-1	DictMol	0	GAL-1	GAL-1	0	C1=CC=C(C=C1)C(=O)N[C@@H](CC2=CC(=C(C=C2)O)[N+](=O)[O-])C(=O)O
+2316-8	E	UDP-GalNAc	DictMol	0	UDP-GalNAc	UDP-GalNAc	0	CC(=O)N[C@@H]1[C@H]([C@H]([C@H](O[C@@H]1OP(=O)(O)OP(=O)(O)OC[C@@H]2[C@H]([C@H]([C@@H](O2)N3C=CC(=O)NC3=O)O)O)CO)O)O
+79308-3	E	butyrobetaine	DictMol	2	butyrobetaine	butyrobetaine	0	C[N+](C)(C)CCCC(=O)[O-]
+79308-3	E	Trimethyllysine	DictMol	0	Trimethyllysine	Trimethyllysine	0	C[N+](C)(C)CCCC[C@H](N)C(=O)O
+35163-5	E	Gamoleic acid	DictMol	0	Gamoleic acid	Gamoleic acid	0	CCCCC/C=C\C/C=C\C/C=C\CCCCC(=O)O
+35163-5	E	Linolenate	DictMol	2	Linolenate	Linolenate	0	CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)O
+35163-5	E	Gamma linolenic acid	DictMol	0	Gamma linolenic acid	Gamma-llnolenic acid	0	CCCCC/C=C\C/C=C\C/C=C\CCCCC(=O)O
+14162-2	E	Gamma MSH	DictMol	0	Gamma MSH	Gamma-MSH	0	CC(C)C(C(=O)NC(CCSC)C(=O)NCC(=O)NC(CC1=CNC=N1)C(=O)NC(CC2=CC=CC=C2)C(=O)NC(CCCNC(=N)N)C(=O)NC(CC3=CNC4=CC=CC=C43)C(=O)NC(CC(=O)O)C(=O)NC(CCCNC(=N)N)C(=O)NC(CC5=CC=CC=C5)C(=O)NCC(=O)O)NC(=O)C(CC6=CC=C(C=C6)O)N
+2332-5	E	Gastrin14	DictMol	0	Gastrin14	Gastrin14	0	C[C@@H](C(=O)N[C@@H](CC1=CC=C(C=C1)O)C(=O)NCC(=O)N[C@@H](CC2=CNC3=CC=CC=C32)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC4=CC=CC=C4)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC5=CNC6=CC=CC=C65)N
+2332-5	E	Minigastrin	DictMol	0	Minigastrin	Minigastrin	0	C[C@@H](C(=O)N[C@@H](CC1C=CC(=CC=1)O)C(=O)NCC(=O)N[C@@H](CC1=CNC2C1=CC=CC=2)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC1C=CC=CC=1)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)N
+2331-7	E	gastrin I	DictMol	7	gastrin I	gastrin I	0	CC(C(=O)NC(CC1=CC=C(C=C1)O)C(=O)NCC(=O)NC(CC2=CNC3=CC=CC=C32)C(=O)NC(CCSC)C(=O)NC(CC(=O)O)C(=O)NC(CC4=CC=CC=C4)C(=O)N)NC(=O)C(CCC(=O)O)NC(=O)C(CCC(=O)O)NC(=O)C(CCC(=O)O)NC(=O)C(CCC(=O)O)NC(=O)C(CCC(=O)O)NC(=O)C(CCSC)NC(=O)C5CCCN5C(=O)C6CCCN6C(=O)C(CCCNC(=N)N)NC(=O)C7CCC(=O)N7
+2331-7	E	Gastrin17	DictMol	0	Gastrin17	Gastrin17	0	C[C@@H](C(=O)N[C@@H](CC1=CC=C(C=C1)O)C(=O)NCC(=O)N[C@@H](CC2=CNC3=CC=CC=C32)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC4=CC=CC=C4)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC5=CNC6=CC=CC=C65)NC(=O)[C@@H]7CCCN7C(=O)CNC(=O)[C@@H]8CCC(=O)N8
+2331-7	E	Gastrin-17	DictMol	0	Gastrin-17	Gastrin-17	0	C[C@@H](C(=O)N[C@@H](CC1=CC=C(C=C1)O)C(=O)NCC(=O)N[C@@H](CC2=CNC3=CC=CC=C32)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC4=CC=CC=C4)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC5=CNC6=CC=CC=C65)NC(=O)[C@@H]7CCCN7C(=O)CNC(=O)[C@@H]8CCC(=O)N8
+2331-7	E	Gastrin	DictMol	0	Gastrin	Gastrin	0	C[C@@H](C(=O)N[C@@H](CC1C=CC(=CC=1)O)C(=O)NCC(=O)N[C@@H](CC1=CNC2C1=CC=CC=2)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC1C=CC=CC=1)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC1=CNC2C1=CC=CC=2)NC(=O)[C@@H]1CCCN1C(=O)CNC(=O)[C@@H]1CCC(N1)=O
+2331-7	E	Gastrin I human	DictMol	0	Gastrin I human	Gastrin I human	0	C[C@@H](C(=O)N[C@@H](CC1=CC=C(C=C1)O)C(=O)NCC(=O)N[C@@H](CC2=CNC3=CC=CC=C32)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC4=CC=CC=C4)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC5=CNC6=CC=CC=C65)NC(=O)[C@@H]7CCCN7C(=O)CNC(=O)[C@@H]8CCC(=O)N8
+102111-2	E	Gastrin	DictMol	4	Gastrin	Gastrin	0	C[C@@H](C(=O)N[C@@H](CC1C=CC(=CC=1)O)C(=O)NCC(=O)N[C@@H](CC1=CNC2C1=CC=CC=2)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC1C=CC=CC=1)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC1=CNC2C1=CC=CC=2)NC(=O)[C@@H]1CCCN1C(=O)CNC(=O)[C@@H]1CCC(N1)=O
+102111-2	E	Gastrin-34	DictMol	0	Gastrin-34	Gastrin-34	0	C[C@@H](C(=O)NCC(=O)NCC(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N)NC(=O)CNC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)CNC(=O)CNC(=O)[C@@H]4CCCN4C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)CNC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]5CCCN5C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)CNC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@@H]6CCC(=O)N6
+102111-2	E	Gastrin 71	DictMol	0	Gastrin 71	Gastrin 71	0	C[C@@H](C(=O)NCC(=O)NCC(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N)NC(=O)CNC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)CNC(=O)CNC(=O)[C@@H]4CCCN4C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)CNC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]5CCCN5C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)CNC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@@H]6CCC(=O)N6
+102111-2	E	Gastrin 52	DictMol	0	Gastrin 52	Gastrin 52	0	C[C@@H](C(=O)NCC(=O)NCC(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N)NC(=O)CNC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)CNC(=O)CNC(=O)[C@@H]4CCCN4C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)CNC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]5CCCN5C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)CNC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@@H]6CCC(=O)N6
+102111-2	E	Pro-gastrin	DictMol	0	Pro-gastrin	Pro-gastrin	0	C[C@@H](C(=O)NCC(=O)NCC(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N)NC(=O)CNC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)CNC(=O)CNC(=O)[C@@H]4CCCN4C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)CNC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]5CCCN5C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)CNC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@@H]6CCC(=O)N6
+2330-9	E	Gastrin	DictMol	0	Gastrin	Gastrin	0	C[C@@H](C(=O)N[C@@H](CC1C=CC(=CC=1)O)C(=O)NCC(=O)N[C@@H](CC1=CNC2C1=CC=CC=2)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC1C=CC=CC=1)C(=O)N)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC1=CNC2C1=CC=CC=2)NC(=O)[C@@H]1CCCN1C(=O)CNC(=O)[C@@H]1CCC(N1)=O
+2330-9	E	Gastrin34	DictMol	0	Gastrin34	Gastrin34	0	C[C@@H](C(=O)NCC(=O)NCC(=O)N[C@@H](CC1=CNC2=CC=CC=C21)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CC3=CC=CC=C3)C(=O)N)NC(=O)CNC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CCC(=O)O)NC(=O)CNC(=O)CNC(=O)[C@@H]4CCCN4C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CCCCN)NC(=O)[C@H](CCCCN)NC(=O)CNC(=O)CNC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)CNC(=O)CNC(=O)CNC(=O)CNC(=O)[C@@H]5CCCN5C(=O)CNC(=O)[C@H](CCC(=O)N)NC(=O)CNC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@@H]6CCC(=O)N6
+2327-5	E	Gastrin releasing peptide	DictMol	0	Gastrin releasing peptide	Gastrin releasing peptide	0	CC(C)CC(C(=O)NC(CCSC)C(=O)N)NC(=O)C(CC1=CNC=N1)NC(=O)CNC(=O)C(C(C)C)NC(=O)C(C)NC(=O)C(CC2=CNC3=CC=CC=C32)NC(=O)C(CC4=CNC=N4)NC(=O)C(CC(=O)N)NC(=O)CNC(=O)C(CCCNC(=N)N)NC(=O)C5CCCN5C(=O)C(CC6=CC=C(C=C6)O)NC(=O)C(CCSC)NC(=O)C(CCCCN)NC(=O)C(C(C)O)NC(=O)C(CC(C)C)NC(=O)C(C(C)C)NC(=O)C(C(C)O)NC(=O)CNC(=O)CNC(=O)CNC(=O)C(C)NC(=O)C7CCCN7C(=O)C(CC(C)C)NC(=O)C8CCCN8C(=O)C(C(C)C)N
+2327-5	E	bombesin	DictMol	10	bombesin	bombesin	0	C[C@@H](C(=O)N[C@@H](C(C)C)C(=O)NCC(=O)N[C@@H](CC1=CNC=N1)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCSC)C(=O)N)NC(=O)[C@H](CC1=CNC2C1=CC=CC=2)NC(=O)[C@H](CCC(=O)N)NC(=O)[C@H](CC(=O)N)NC(=O)CNC(=O)[C@H](CC(C)C)NC(=O)[C@H](CCCN=C(N)N)NC(=O)[C@H](CCC(=O)N)NC(=O)[C@@H]1CCC(N1)=O
+96461-9	E	peptide	G	21	peptide	peptide	0	
+90234-6	E	Globotriaosyl lysosphingolipid	DictMol	0	Globotriaosyl lysosphingolipid	Globotriaosyl lysosphingolipid	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO[C@H]1[C@@H]([C@H]([C@@H]([C@H](O1)CO)O[C@H]2[C@@H]([C@H]([C@H]([C@H](O2)CO)O[C@@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)O)O)O)O)O)O)O)N)O
+90234-6	E	Lysogb3	DictMol	0	Lysogb3	Lysogb3	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO[C@H]1[C@@H]([C@H]([C@@H]([C@H](O1)CO)O[C@H]2[C@@H]([C@H]([C@H]([C@H](O2)CO)O[C@@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)O)O)O)O)O)O)O)N)O
+90234-6	E	Lyso-Gb3	DictMol	0	Lyso-Gb3	Lyso-Gb3	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO[C@H]1[C@@H]([C@H]([C@@H]([C@H](O1)CO)O[C@H]2[C@@H]([C@H]([C@H]([C@H](O2)CO)O[C@@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)O)O)O)O)O)O)O)N)O
+92750-9	E	glucosyl psychosine	DictMol	0	glucosyl psychosine	glucosyl psychosine	0	CCCCCCCCCCCCC/C=C/[C@H](C(CO[C@H]1[C@H]([C@H]([C@@H]([C@H](O1)CO)O)O)O)N)O
+92750-9	E	Amino	A	9	Amino	Amino	0	
+92750-9	E	triol	G	70	triol	triol	0	
+104645-7	E	GL-1	DictMol	0	GL-1	GL-1	0	CCCCCCCC/C=C\CCCCCCCC(=O)O[C@@H](CO[C@@H]1[C@@H]([C@H]([C@@H]([C@H](O1)CO)O)O)O)COC(=O)CCCCCCCC2CC2CCCCCCCC
+80094-6	E	Gamma-Glu-Phe	DictMol	0	Gamma-Glu-Phe	Gamma-Glu-Phe	0	C1=CC=C(C=C1)C[C@@H](C(=O)O)NC(=O)CC[C@@H](C(=O)O)N
+80094-6	E	H-gamma-glu-phe-oh	DictMol	0	H-gamma-glu-phe-oh	H-gamma-glu-phe-oh	0	C1=CC=C(C=C1)C[C@@H](C(=O)O)NC(=O)CC[C@@H](C(=O)O)N
+2376-2	E	GSH-PX	DictMol	0	GSH-PX	GSH-PX	0	CCC1=C2C=C3C(=C(C(=CC4=C(C5=C([N-]4)C(=C6C(C(C(=CC(=C1C)[N-]2)[N-]6)C)CCC(=O)OCC=C(C)CCCC(C)CCCC(C)CCCC(C)C)C(C5=O)C(=O)OC)C)[N-]3)CC)C=O.[Mg+2]
+2376-2	E	Glutathione	DictMol	0	Glutathione	Glutathione	0	C(CC(=O)N[C@@H](CS)C(=O)NCC(=O)O)[C@@H](C(=O)O)N
+2380-4	E	Glutathione	DictMol	0	Glutathione	Glutathione	0	C(CC(=O)N[C@@H](CS)C(=O)NCC(=O)O)[C@@H](C(=O)O)N
+93335-8	E	GCDCA	DictMol	0	GCDCA	GCDCA	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+93333-3	E	GDCA	DictMol	0	GDCA	GDCA	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@@H]2[C@@]1([C@H](C[C@H]3[C@H]2CC[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+93331-7	E	GLCA	DictMol	0	GLCA	GLCA	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@H]4[C@@]3(CC[C@H](C4)O)C)C
+93330-9	E	GUDCA	DictMol	0	GUDCA	GUDCA	0	C[C@H](CCC(=O)NCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+80092-0	E	dipeptide	G	23	dipeptide	dipeptide	0	
+80092-0	E	Gly-Hyp	DictMol	0	Gly-Hyp	Gly-Hyp	0	C1[C@H](CN([C@@H]1C(=O)O)C(=O)CN)O
+79594-8	E	carboxylic acid	G	31	carboxylic acid	carboxylic acid	0	
+10336-6	E	peptide	G	21	peptide	peptide	0	
+12284-6	E	Somatoliberin	DictMol	0	Somatoliberin	Somatoliberin	0	CC[C@H](C)[C@@H](C(=O)N[C@@H](CC1=CC=CC=C1)C(=O)N[C@@H]([C@@H](C)O)C(=O)N[C@@H](CC(=O)N)C(=O)N[C@@H](CO)C(=O)N[C@@H](CC2=CC=C(C=C2)O)C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](C(C)C)C(=O)N[C@@H](CC(C)C)C(=O)NCC(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CO)C(=O)N[C@@H](C)C(=O)N[C@@H](CCCNC(=N)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H](CCC(=O)N)C(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H]([C@@H](C)CC)C(=O)N[C@@H](CCSC)C(=O)N[C@@H](CO)C(=O)N[C@@H](CCCNC(=N)N)C(=O)N)NC(=O)[C@H](C)NC(=O)[C@H](CC(=O)O)NC(=O)[C@H](C)NC(=O)[C@H](CC3=CC=C(C=C3)O)N
+2400-0	E	amino	A	2	amino	amino	0	
+2402-6	E	Amino	A	2	Amino	Amino	0	
+2402-6	E	Beta-D	DictMol	10	Beta-D	Beta-D	0	[2H]C([2H])(CN)C1=CC(=C(C(=C1)OC)OC)OC
+2402-6	E	Cyclic GMP	DictMol	0	Cyclic GMP	Cyclic GMP	0	C1[C@@H]2[C@H]([C@H]([C@@H](O2)N3C=NC4=C3N=C(NC4=O)N)O)OP(=O)(O1)O
+104115-1	E	D-glucosaminide	DictMol	21	D-glucosaminide	D-glucosaminide	0	C([C@@H]1[C@H]([C@@H]([C@H]([C@@H](O1)OC2[C@H](OC([C@@H]([C@H]2O)N)O[C@@H]3[C@H](O[C@H]([C@@H]([C@H]3O)N)O)CO)CO)N)O)O)O
+71386-7	E	Hepcidin-25	DictMol	0	Hepcidin-25	Hepcidin-25	0	CC[C@H](C)[C@H]1C(=O)N[C@H](C(=O)N[C@H]2CSSC[C@H]3C(=O)N[C@H]4CSSC[C@@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N1)NC(=O)[C@H]([C@@H](C)CC)NC(=O)[C@@H]5CCCN5C(=O)[C@H](CC6=CC=CC=C6)NC(=O)[C@H](CC7=CNC=N7)NC(=O)[C@H]([C@@H](C)O)NC(=O)[C@H](CC(=O)O)N)C(=O)N[C@@H](CCCCN)C(=O)N[C@@H]([C@@H](C)O)C(=O)O)NC(=O)[C@@H](NC(=O)CNC(=O)[C@H](CSSC[C@@H](C(=O)NCC(=O)N3)NC2=O)NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC(=O)[C@@H](NC4=O)CC8=CNC=N8)CCCNC(=N)N)CO)CCCCN)CCSC)CC9=CC=CC=C9
+23872-5	E	Heptaporphyrine I	DictMol	0	Heptaporphyrine I	Heptaporphyrine I	0	CC1=C(C2=NC1=CC3=NC(=CC4=C(C(=C(N4)C=C5C(=C(C(=C2)N5)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O)C(=C3CCC(=O)O)CC(=O)O)CCC(=O)O
+23874-1	E	Hexacarboxylic acid	G	0	Hexacarboxylic acid	Hexacarboxylic acid	0	
+23874-1	E	Hexacarboxyporphyrin I	DictMol	0	Hexacarboxyporphyrin I	Hexacarboxyporphyrin I	0	CC1=C(C2=NC1=CC3=C(C(=C(N3)C=C4C(=C(C(=N4)C=C5C(=C(C(=C2)N5)CC(=O)O)CCC(=O)O)C)CCC(=O)O)CC(=O)O)CCC(=O)O)CCC(=O)O
+48114-3	E	Hexadecanedioic	DictMol	0	Hexadecanedioic	Hexadecanedioic	0	C(CCCCCCCC(=O)O)CCCCCCC(=O)O
+2425-7	E	ammonium	E	10	ammonium	ammonium	0	
+72160-5	E	vitamin B12	DictMol	7	vitamin B12	vitamin B12	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3[C@@H]([C@@H]([C@H](O3)CO)OP(=O)([O-])O[C@H](C)CNC(=O)CC[C@@]4([C@H]([C@@H]5[C@]6([C@@]([C@@H](/C(=C(/C7=N/C(=C\C8=N/C(=C(\C4=N5)/C)/[C@H](C8(C)C)CCC(=O)N)/[C@H]([C@]7(C)CC(=O)N)CCC(=O)N)\C)/[N-]6)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.[C-]#N.[Co+3]
+32615-7	E	Disulfide	G	9	Disulfide	Disulfide	0	
+32615-7	E	amino	A	2	amino	amino	0	
+32615-7	E	amino	A	14	amino	amino	0	
+32615-7	E	Cys-homo-Cys-mixed disulfide	DictMol	0	Cys-homo-Cys-mixed disulfide	Cys-homo-Cys-mixed disulfide	0	C(CSSCC(C(=O)O)N)C(C(=O)O)N
+32615-7	E	Cysteine-homocysteine mixed disulfide	DictMol	0	Cysteine-homocysteine mixed disulfide	Cysteine-homocysteine mixed disulfide	0	C(CSSCC(C(=O)O)N)C(C(=O)O)N
+32615-7	E	Cysteinylhomocysteine mixed disulfide	DictMol	0	Cysteinylhomocysteine mixed disulfide	Cysteinylhomocysteine mixed disulfide	0	C(CSSCC(C(=O)O)N)C(C(=O)O)N
+32615-7	E	Homocysteine-cysteine mixed disulfide	DictMol	0	Homocysteine-cysteine mixed disulfide	Homocysteine-cysteine mixed disulfide	0	C(CSSCC(C(=O)O)N)C(C(=O)O)N
+48115-0	E	Hcys	DictMol	0	Hcys	Hcys	0	C(C(C(=O)O)N)S
+13372-8	E	Hcys	DictMol	1	Hcys	Hcys	0	C(C(C(=O)O)N)S
+35171-8	E	Linolenate	DictMol	7	Linolenate	Linolenate	0	CC/C=C\C/C=C\C/C=C\CCCCCCCC(=O)O
+35171-8	E	Homo-gamma linolenic acid	DictMol	0	Homo-gamma linolenic acid	Homo-gamma-linolenic acid	0	CCCCC/C=C\C/C=C\C/C=C\CCCCCCC(=O)O
+35171-8	E	dihomo-g-linolenic acid	DictMol	0	dihomo-g-linolenic acid	dihomo-γ-linolenic acid	0	CCCCC/C=C\C/C=C\C/C=C\CCCCCCC(=O)O
+55180-4	E	disulfide	G	9	disulfide	disulfide	0	
+2440-6	E	Vitamin B12b	DictMol	0	Vitamin B12b	Vitamin B12b	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3C(C([C@H](O3)CO)OP(=O)([O-])OC(C)CNC(=O)CC[C@@]\4([C@H](C5[C@]6([C@@]([C@@H](C(=N6)/C(=C\7/[C@@]([C@@H](C(=N7)/C=C\8/C([C@@H](C(=N8)/C(=C4\[N-]5)/C)CCC(=O)N)(C)C)CCC(=O)N)(C)CC(=O)N)/C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.O.[Co+2]
+2440-6	E	Hydroxycobalamin	DictMol	0	Hydroxycobalamin	Hydroxycobalamin	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3[C@@H]([C@@H]([C@H](O3)CO)OP(=O)([O-])O[C@H](C)CNC(=O)CC[C@@]\4([C@H]([C@@H]5[C@]6([C@@]([C@@H](C(=N6)/C(=C\7/[C@@]([C@@H](C(=N7)/C=C\8/C([C@@H](C(=N8)/C(=C4\[N-]5)/C)CCC(=O)N)(C)C)CCC(=O)N)(C)CC(=O)N)/C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.[OH-].[Co+3]
+2440-6	E	B12b	DictMol	4	B12b	B12b	0	CC1=CC2=C(C=C1C)N(C=N2)[C@@H]3[C@@H]([C@@H]([C@H](O3)CO)OP(=O)([O-])O[C@H](C)CNC(=O)CC[C@@]\4([C@H]([C@@H]5[C@]6([C@@]([C@@H](C(=N6)/C(=C\7/[C@@]([C@@H](C(=N7)/C=C\8/C([C@@H](C(=N8)/C(=C4\[N-]5)/C)CCC(=O)N)(C)C)CCC(=O)N)(C)CC(=O)N)/C)CCC(=O)N)(C)CC(=O)N)C)CC(=O)N)C)O.[OH3+].[Co]
+101933-0	E	Hydroxylapatite	DictMol	0	Hydroxylapatite	Hydroxylapatite	0	[OH-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[O-]P(=O)([O-])[O-].[Ca+2].[Ca+2].[Ca+2].[Ca+2].[Ca+2]
+13761-2	E	Hydroxy	A	0	Hydroxy	Hydroxy	0	
+13373-6	E	Hydroxy	A	0	Hydroxy	Hydroxy	0	
+2444-8	E	Hydroxy	A	2	Hydroxy	Hydroxy	0	
+2444-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+2444-8	E	coenzyme A	DictMol	27	coenzyme A	coenzymeA	0	CC(C)(COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@H]([C@H](C(O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)C(C(=O)NCCC(=O)NCCS)O
+2444-8	E	hydroxy	A	2	hydroxy	hydroxy	0	
+2444-8	E	HMG-CoA	DictMol	0	HMG-CoA	HMG-CoA	0	C[C@](CC(=O)O)(CC(=O)SCCNC(=O)CCNC(=O)[C@@H](C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@H]([C@H]([C@@H](O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O)O
+74295-7	E	HMG-CoA	DictMol	0	HMG-CoA	HMG-CoA	0	C[C@](CC(=O)O)(CC(=O)SCCNC(=O)CCNC(=O)[C@@H](C(C)(C)COP(=O)(O)OP(=O)(O)OC[C@@H]1[C@H]([C@H]([C@@H](O1)N2C=NC3=C(N=CN=C32)N)O)OP(=O)(O)O)O)O
+93329-1	E	6alpha-Hydroxylithocholate	DictMol	0	6alpha-Hydroxylithocholate	6alpha-Hydroxylithocholate	0	C[C@H](CCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2C[C@@H]([C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+93329-1	E	5-beta-cholan	DictMol	26	5-beta-cholan	5-beta-cholane	0	CCC[C@@H](C)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@H]4[C@@]3(CCCC4)C)C
+2479-4	E	Hypoxanthosine	DictMol	0	Hypoxanthosine	Hypoxanthosine	0	O=C1NC=NC2=C1N=CN2[C@@H]1O[C@H](CO)[C@@H](O)[C@H]1O
+80424-5	E	Nucleoside	G	0	Nucleoside	Nucleoside	0	
+80424-5	E	Nucleoside	G	0	Nucleoside	Nucleoside	0	
+2480-2	E	myo-inositol	DictMol	0	myo-inositol	myo-inositol	0	O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O
+2480-2	E	Inositol	DictMol	0	Inositol	Inositol	0	O[C@H]1[C@H](O)[C@@H](O)[C@H](O)[C@@H](O)[C@H]1O
+2480-2	E	Myoinositol	DictMol	0	Myoinositol	Myoinositol	0	C1(C(C(C(C(C1O)O)O)O)O)O
+33211-4	E	Peptide	G	30	Peptide	Peptide	0	
+33211-4	E	Peptides	G	22	Peptides	Peptides	0	
+33211-4	E	Peptide	G	22	Peptide	Peptide	0	
+33211-4	E	Peptide	G	22	Peptide	Peptide	0	
+11220-1	E	Iodine	E	0	Iodine	Iodine	0	
+17024-1	E	Iodine	E	6	Iodine	Iodine	0	
+10878-7	E	Iodine	E	3	Iodine	Iodine	0	
+2503-1	E	Iron	E	0	Iron	Iron	0	
+14801-5	E	Iron	E	0	Iron	Iron	0	
+14801-5	E	Iron	E	5	Iron	Iron	0	
+14801-5	E	Iron	E	0	Iron	Iron	0	
+24463-2	E	Chondroitin sulfate B	DictMol	0	Chondroitin sulfate B	Chondroitin sulfate B	0	CC(=O)N[C@@H]1[C@H]([C@H]([C@H](O[C@H]1O)CO)OS(=O)(=O)[O-])O[C@H]2[C@@H]([C@H]([C@@H]([C@@H](O2)C(=O)[O-])O)O)O
+101993-4	E	Kynurenic acid	DictMol	0	Kynurenic acid	Kynurenic acid	0	O=C(O)C1=CC(=O)C2C=CC=CC=2N1
+101993-4	E	KYNA	DictMol	0	KYNA	KYNA	0	C1=CC=C2C(=C1)C(=O)C=C(N2)C(=O)O
+53470-1	E	Kynurenine	DictMol	0	Kynurenine	Kynurenine	0	NC1C=CC=CC=1C(=O)CC(N)C(=O)O
+104814-9	E	LD-1	DictMol	0	LD-1	LD-1	0	CCN(CC)C1=CC=CC2=C1OC3=C(C(=N)N4C5=CC=CC=C5N=C4C3=C2)C#N
+13887-5	E	LD-2	DictMol	0	LD-2	LD-2	0	C1CC2=C3C(=C4C(=C2)C=C5C(=C(C(=N)N6C5=NC7=CC=CC=C76)C#N)O4)CCCN3C1
+100742-6	E	hydroxy	A	2	hydroxy	hydroxy	0	
+100742-6	E	hydroxy	A	2	hydroxy	hydroxy	0	
+35150-2	E	C12:0	DictMol	0	C12:0	C12:0	0	CCCCCCCCCCCC(=O)O
+35131-2	E	L-amino acid	G	9	L-amino acid	L-amino acid	0	
+2555-1	E	sterol	G	20	sterol	sterol	0	
+14976-5	E	phosphoglyceride	G	8	phosphoglyceride	phosphoglyceride	0	
+12726-6	E	Leu-Enkephalin	DictMol	0	Leu-Enkephalin	Leu-Enkephalin	0	CC(C)C[C@@H](C(=O)O)NC(=O)[C@H](CC1C=CC=CC=1)NC(=O)CNC(=O)CNC(=O)[C@H](CC1C=CC(=CC=1)O)N
+32783-3	E	amino acids	G	13	amino acids	amino acids	0	
+104671-3	E	LTB4	DictMol	0	LTB4	LTB4	0	CCCCC/C=C\C[C@H](/C=C/C=C/C=C\[C@H](CCCC(=O)O)O)O
+101115-4	E	LTE4	DictMol	0	LTE4	LTE4	0	CCCCC/C=C\C/C=C\C=C\C=C\[C@H]([C@H](CCCC(=O)O)O)SC[C@@H](C(=O)O)N
+101115-4	E	amino	A	39	amino	amino	0	
+101115-4	E	hydroxy	A	68	hydroxy	hydroxy	0	
+79587-2	E	Amino	A	6	Amino	Amino	0	
+79587-2	E	Homo-L-arginine	DictMol	0	Homo-L-arginine	Homo-L-arginine	0	C(CCN=C(N)N)C[C@@H](C(=O)O)N
+79631-8	E	amino	A	6	amino	amino	0	
+79631-8	E	Isothreonine	DictMol	0	Isothreonine	Isothreonine	0	N[C@@H](CCO)C(=O)O
+79631-8	E	Amino	A	2	Amino	Amino	0	
+18462-2	E	C18:2	DictMol	0	C18:2	C18:2	0	CCCCC/C=C\C/C=C\CCCCCCCC(=O)O
+39804-0	E	Platelet-activating factor	DictMol	0	Platelet-activating factor	Platelet-activating factor	0	CCCCCCCCCCCCCCCCOC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)OC(=O)C
+2572-6	E	Diacylglycerol	G	0	Diacylglycerol	Diacylglycerol	0	
+42178-4	E	Lp-X	DictMol	0	Lp-X	Lp-X	0	CC(C1=CC=C(C=C1)CC2CCCC2=O)C(=O)[O-].[Na+]
+2577-5	E	Lithocholic acid	DictMol	0	Lithocholic acid	Lithocholic acid	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3CC[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+79626-8	E	amino	A	15	amino	amino	0	
+79626-8	E	carboxylic acid	G	53	carboxylic acid	carboxylic acid	0	
+79626-8	E	L-leu	DictMol	0	L-leu	L-leu	0	CC(C)C[C@@H](C(=O)O)N
+79626-8	E	L-pro	DictMol	6	L-pro	L-pro	0	C1C[C@H]([NH2+]C1)C(=O)[O-]
+2588-2	E	Lysolecithin	G	0	Lysolecithin	Lysolecithin	0	
+75736-9	E	LysoPC(16:0)	DictMol	0	LysoPC(16:0)	LysoPC(16:0)	0	CCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+75737-7	E	LysoPC(18:0)	DictMol	0	LysoPC(18:0)	LysoPC(18:0)	0	CCCCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+90920-0	E	LysoPC(20:0)	DictMol	0	LysoPC(20:0)	LysoPC(20:0)	0	CCCCCCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+90921-8	E	LysoPC(22:0)	DictMol	0	LysoPC(22:0)	LysoPC(22:0)	0	CCCCCCCCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+90922-6	E	LysoPC(24:0)	DictMol	0	LysoPC(24:0)	LysoPC(24:0)	0	CCCCCCCCCCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+79320-8	E	LysoPC(26:0)	DictMol	0	LysoPC(26:0)	LysoPC(26:0)	0	CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)OC[C@H](COP(=O)([O-])OCC[N+](C)(C)C)O
+79320-8	E	C26:0	DictMol	0	C26:0	C26:0	0	CCCCCCCCCCCCCCCCCCCCCCCCCC(=O)O
+76614-7	E	4-MUO	DictMol	0	4-MUO	4-MUO	0	CCCCCCCC/C=C\CCCCCCCC(=O)OC1=CC2=C(C=C1)C(=CC(=O)O2)C
+76615-4	E	4-MUP	DictMol	0	4-MUP	4-MUP	0	CC1=CC(=O)OC2=C1C=CC(=C2)OP(=O)(O)O
+2600-5	E	magnesium	E	8	magnesium	magnesium	0	
+2600-5	E	IMg2	DictMol	0	IMg2	IMg2	0	CC1=C(N2C(=O)C3=C(N=C2N1)N(C=N3)[C@H]4[C@@H]([C@@H]([C@H](O4)CO)O)O)C
+17234-6	E	Magnesium	E	0	Magnesium	Magnesium	0	
+17234-6	E	Magnesium	E	0	Magnesium	Magnesium	0	
+74891-3	E	Acyl	G	0	Acyl	Acyl	0	
+74891-3	E	Acyl	G	0	Acyl	Acyl	0	
+3129-4	E	Menaquinones	G	0	Menaquinones	Menaquinones	0	
+3129-4	E	Phylloquinones	G	0	Phylloquinones	Phylloquinones	0	
+3129-4	E	Vitamin K	G	0	Vitamin K	Vitamin K	0	
+101177-4	E	metanephrine	DictMol	13	metanephrine	metanephrine	0	CNCC(O)C1C=CC(O)=C(OC)C=1
+104630-9	E	Metanephrine	DictMol	0	Metanephrine	Metanephrine	0	CNCC(O)C1C=CC(O)=C(OC)C=1
+104630-9	E	normetanephrine	DictMol	13	normetanephrine	normetanephrine	0	COC1C=C(C(O)CN)C=CC=1O
+112916-2	E	Methotrexat	DictMol	0	Methotrexat	Methotrexate	0	CN(CC1C=NC2=NC(N)=NC(N)=C2N=1)C1C=CC(C(=O)N[C@@H](CCC(=O)O)C(=O)O)=CC=1
+112916-2	E	Amethopterin	DictMol	0	Amethopterin	Amethopterin	0	CN(CC1C=NC2=NC(N)=NC(N)=C2N=1)C1C=CC(C(=O)N[C@@H](CCC(=O)O)C(=O)O)=CC=1
+43289-8	E	C5:1	G	1	C5:1	C5:1	0	
+43289-8	E	C5:1	G	0	C5:1	C5:1	0	
+48145-7	E	Mevalonic acid lactone	DictMol	0	Mevalonic acid lactone	Mevalonic acid lactone	0	C[C@]1(CCOC(=O)C1)O
+76619-6	E	succ	DictMol	8	succ	succ	0	C(CC(=O)O)C(=O)O
+104190-4	E	cmnt	DictMol	0	cmnt	cmnt	0	C1=CC(=C(C=C1C(F)(F)F)[N+](=O)[O-])Cl
+104190-4	E	cmmt	DictMol	0	cmmt	cmmt	0	CNC1=NC(=NC(=N1)Cl)N2CCOCC2
+35157-7	E	C14:0	DictMol	0	C14:0	C14:0	0	CCCCCCCCCCCCCC(=O)O
+79578-1	E	(2S)-6	DictMol	0	(2S)-6	(2S)-6	0	CC(=O)N1C[C@@H](C[C@H]1C(=O)N[C@@H](CCCN=C(N)N)C(=O)C2=NC3=CC=CC=C3S2)O
+79578-1	E	L-lys	DictMol	6	L-lys	L-lys	0	C(CCN)C[C@@H](C(=O)O)N
+79578-1	E	N(6)-acetyllsine	DictMol	0	N(6)-acetyllsine	N(6)-acetyllsine	0	CC(=O)NCCCC[C@@H](C(=O)O)N
+79578-1	E	(2S)-6	DictMol	0	(2S)-6	(2S)-6	0	CC(=O)N1C[C@@H](C[C@H]1C(=O)N[C@@H](CCCN=C(N)N)C(=O)C2=NC3=CC=CC=C3S2)O
+78964-4	E	NAAG	DictMol	0	NAAG	NAAG	0	CC(=O)N[C@@H](CC(=O)O)C(=O)N[C@@H](CCC(=O)O)C(=O)O
+21413-0	E	GalNAc6S	DictMol	0	GalNAc6S	GalNAc-6S	0	CC(=O)N[C@@H]1[C@H]([C@H]([C@H](OC1O)COS(=O)(=O)[O-])O)O.[Na+]
+21413-0	E	Aryl	G	0	Aryl	Aryl	0	
+24095-2	E	Galactose-6-sulfate	DictMol	0	Galactose-6-sulfate	Galactose-6-sulfate	0	C([C@H]([C@@H]([C@@H]([C@H](C=O)O)O)O)O)OS(=O)(=O)O
+13779-4	E	N-Ac-L-Asp	DictMol	0	N-Ac-L-Asp	N-Ac-L-Asp	0	CC(=O)N[C@@H](CC(=O)O)C(=O)O
+79395-0	E	Coenzyme Q	G	0	Coenzyme Q	Coenzyme Q	0	
+79395-0	E	Dihydronicotinamide adenine dinucleotide	DictMol	0	Dihydronicotinamide adenine dinucleotide	Dihydronicotinamide adenine dinucleotide	0	C1C=CN(C=C1C(=O)N)[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)OP(=O)(O)OC[C@@H]3[C@H]([C@H]([C@@H](O3)N4C=NC5=C(N=CN=C54)N)O)O)O)O
+79395-0	E	coenzyme Q	G	41	coenzyme Q	coenzyme Q	0	
+79395-0	E	coenzyme Q	G	5	coenzyme Q	coenzyme Q	0	
+79395-0	E	ubiquinone	DictMol	5	ubiquinone	ubiquinone	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+79395-0	E	Coenzyme Q	G	5	Coenzyme Q	Coenzyme Q	0	
+106735-4	E	Peptide	G	17	Peptide	Peptide	0	
+106735-4	E	Peptide	G	18	Peptide	Peptide	0	
+106735-4	E	peptide	G	19	peptide	peptide	0	
+106735-4	E	peptide	G	13	peptide	peptide	0	
+106735-4	E	peptide	G	22	peptide	peptide	0	
+59251-9	E	B-alanine	DictMol	12	B-alanine	B-alanine	0	C(CN)C(=O)O
+35170-0	E	C24:1	G	0	C24:1	C24:1	0	
+16262-8	E	Magnesium hydrogen phosphate trihydrate	DictMol	0	Magnesium hydrogen phosphate trihydrate	Magnesiumhydrogenphosphatetrihydrate	0	O.O.O.OP(=O)([O-])[O-].[Mg+2]
+10836-5	E	Vitamin B3	DictMol	0	Vitamin B3	Vitamin B3	0	O=C(O)C1C=CC=NC=1
+2661-7	E	Nitrogen	E	0	Nitrogen	Nitrogen	0	
+32548-0	E	nitroprusside	DictMol	8	nitroprusside	nitroprusside	0	[C-]#N.[C-]#N.[C-]#N.[C-]#N.[C-]#N.[N-]=O.[Fe+4]
+32548-0	E	Nitroprusside	DictMol	0	Nitroprusside	Nitroprusside	0	[C-]#N.[C-]#N.[C-]#N.[C-]#N.[C-]#N.[N-]=O.[Fe+4]
+14167-1	E	MIAA	DictMol	2	MIAA	MIAA	0	CN1C=C(N=C1)CC(=O)O
+79597-1	E	L-NMMA	DictMol	0	L-NMMA	L-NMMA	0	CNC(=N)NCCC[C@H](N)C(=O)O
+79597-1	E	N(G)-Monomethyl-L-arginine	DictMol	0	N(G)-Monomethyl-L-arginine	N(G)-Monomethyl-L-arginine	0	CN=C(N)NCCC[C@@H](C(=O)O)N
+79597-1	E	L-targinine	DictMol	0	L-targinine	L-targinine	0	CN=C(N)NCCC[C@@H](C(=O)O)N
+79597-1	E	L-Monomethylarginine	DictMol	0	L-Monomethylarginine	L-Monomethylarginine	0	CN=C(N)NCCC[C@@H](C(=O)O)N
+79597-1	E	amino	A	7	amino	amino	0	
+74363-3	E	SDMA	DictMol	0	SDMA	SDMA	0	CNC(=NC)NCCC[C@@H](C(=O)O)N
+74363-3	E	N(G1),N(G2)-dimethylarginine	DictMol	0	N(G1),N(G2)-dimethylarginine	N(G1),N(G2)-dimethylarginine	0	CNC(=NC)NCCC[C@@H](C(=O)O)N
+74363-3	E	N(G1),N(G1)-dimethylarginine	DictMol	0	N(G1),N(G1)-dimethylarginine	N(G1),N(G1)-dimethylarginine	0	CN(C)C(=NCCC[C@@H](C(=O)O)N)N
+74363-3	E	N(G)-dimethylarginine	DictMol	0	N(G)-dimethylarginine	N(G)-dimethylarginine	0	CN(C)C(=NCCC[C@@H](C(=O)O)N)N
+74363-3	E	Asymmetric Dimethylarginine	DictMol	0	Asymmetric Dimethylarginine	Asymmetric Dimethylarginine	0	CN(C)C(=NCCC[C@@H](C(=O)O)N)N
+74363-3	E	ADMA	DictMol	0	ADMA	ADMA	0	CN(C)C(=NCCC[C@@H](C(=O)O)N)N
+74363-3	E	sDMA	DictMol	0	sDMA	sDMA	0	CNC(=NC)NCCC[C@@H](C(=O)O)N
+93877-9	E	C24:1 ceramide	DictMol	0	C24:1 ceramide	C24:1 ceramide	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO)NC(=O)CCCCCCCCCCCCC/C=C\CCCCCCCC)O
+93877-9	E	C24 ceramide	DictMol	0	C24 ceramide	C24 ceramide	0	CCCCCCCCCCCCCCCCCCCCCCCC(=O)N[C@@H](CO)[C@@H](/C=C/CCCCCCCCCCCCC)O
+101176-6	E	normetanephrine	DictMol	13	normetanephrine	normetanephrine	0	COC1C=C(C(O)CN)C=CC=1O
+93879-5	E	C16 ceramide	DictMol	0	C16 ceramide	C16 ceramide	0	CCCCCCCCCCCCCCCC(=O)N[C@@H](CO)[C@@H](/C=C/CCCCCCCCCCCCC)O
+93878-7	E	C18 Cer	DictMol	0	C18 Cer	C18 Cer	0	CCCCCCCCCCCCCCCCCC(=O)N[C@@H](CO)[C@@H](/C=C/CCCCCCCCCCCCC)O
+93878-7	E	C18 ceramide	DictMol	0	C18 ceramide	C18 ceramide	0	CCCCCCCCCCCCCCCCCC(=O)N[C@@H](CO)[C@@H](/C=C/CCCCCCCCCCCCC)O
+77362-2	E	MIAA	DictMol	6	MIAA	MIAA	0	CN1C=C(N=C1)CC(=O)O
+13784-4	E	C8:0	DictMol	0	C8:0	C8:0	0	CCCCCCCC(=O)O
+18463-0	E	C18:1	DictMol	0	C18:1	C18:1	0	CCCCCCCC/C=C\CCCCCCCC(=O)O
+33875-6	E	Oligosaccharide	G	0	Oligosaccharide	Oligosaccharide	0	
+91670-0	E	Hypocretin-1	DictMol	0	Hypocretin-1	Hypocretin-1	0	CC[C@H](C)[C@@H](C(=O)N[C@@H](CC(C)C)C(=O)N[C@@H]([C@@H](C)O)C(=O)N[C@@H](CC(C)C)C(=O)N)NC(=O)CNC(=O)[C@H](C)NC(=O)[C@H](C)NC(=O)[C@H](CC1=CN=CN1)NC(=O)[C@H](CC(=O)N)NC(=O)CNC(=O)[C@H](C)NC(=O)CNC(=O)[C@H](CC2=CN=CN2)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CCC(=O)O)NC(=O)[C@H](CC3=CC=C(C=C3)O)NC(=O)[C@H](CC(C)C)NC(=O)[C@H](CCCNC(=N)N)NC(=O)[C@@H]4CSSC[C@H]5C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N5)NC(=O)[C@H](CC(=O)O)NC(=O)[C@@H]6CCCN6C(=O)[C@H](CC(C)C)NC(=O)[C@@H]7CCCN7C(=O)[C@@H]8CCC(=O)N8)C(=O)N[C@H](C(=O)N4)CO)[C@@H](C)O)CCCCN)CCC(=O)N)CCCNC(=N)N
+102109-6	E	Glyox	DictMol	9	Glyox	Glyox	0	C(=O)C(=O)O
+102107-0	E	Glyox	DictMol	9	Glyox	Glyox	0	C(=O)C(=O)O
+2713-6	E	oxygen	E	10	oxygen	oxygen	0	
+11559-2	E	Oxygen	E	0	Oxygen	Oxygen	0	
+2718-5	E	Ocytocin	DictMol	0	Ocytocin	Ocytocin	0	CC[C@H](C)[C@H]1C(=O)N[C@H](C(=O)N[C@H](C(=O)N[C@@H](CSSC[C@@H](C(=O)N[C@H](C(=O)N1)CC2=CC=C(C=C2)O)N)C(=O)N3CCC[C@H]3C(=O)N[C@@H](CC(C)C)C(=O)NCC(=O)N)CC(=O)N)CCC(=O)N
+14168-9	E	Disaccharide	G	0	Disaccharide	Disaccharide	0	
+14168-9	E	Sucrose	DictMol	0	Sucrose	Sucrose	0	OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O
+14168-9	E	Sucrose	DictMol	11	Sucrose	Sucrose	0	OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O
+30357-8	E	C16:1	G	0	C16:1	C16:1	0	
+2722-7	E	Vitamin B5	DictMol	0	Vitamin B5	Vitamin B5	0	CC(C)(CO)[C@@H](O)C(=O)NCCC(=O)O
+15087-0	E	peptide	G	28	peptide	peptide	0	
+10881-1	E	porphyrins	G	14	porphyrins	porphyrins	0	
+2761-5	E	ketones	G	7	ketones	ketones	0	
+58793-1	E	Vitamin K1	DictMol	0	Vitamin K1	Vitamin K1	0	CC1=C(C/C=C(\C)CCC[C@H](C)CCC[C@H](C)CCCC(C)C)C(=O)C2C=CC=CC=2C1=O
+12810-8	E	Uroporphyrinogen I	DictMol	0	Uroporphyrinogen I	Uroporphyrinogen I	0	C1C2=C(C(=C(N2)CC3=C(C(=C(N3)CC4=C(C(=C(N4)CC5=C(C(=C1N5)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O)CC(=O)O)CCC(=O)O
+96291-0	E	PREGS	DictMol	0	PREGS	PREGS	0	CC(=O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC=C4[C@@]3(CC[C@@H](C4)OS(=O)(=O)O)C)C
+12599-7	E	C15:0	DictMol	0	C15:0	C15:0	0	CCCCCCCCCCCCCCC(=O)O
+12600-3	E	C16:0	DictMol	0	C16:0	C16:0	0	CCCCCCCCCCCCCCCC(=O)O
+79588-0	E	hydroxy	A	10	hydroxy	hydroxy	0	
+79588-0	E	carboxylic acid	G	63	carboxylic acid	carboxylic acid	0	
+79588-0	E	H-Pro-Hyp-OH	DictMol	0	H-Pro-Hyp-OH	H-Pro-Hyp-OH	0	C1C[C@H](NC1)C(=O)N2C[C@@H](C[C@H]2C(=O)O)O
+79588-0	E	L-Pro	DictMol	0	L-Pro	L-Pro	0	C1C[C@H]([NH2+]C1)C(=O)[O-]
+79588-0	E	Proline-hydroxyproline	DictMol	0	Proline-hydroxyproline	Proline-hydroxyproline	0	C1C[C@H](NC1)C(=O)N2C[C@@H](C[C@H]2C(=O)O)O
+2850-6	E	PCCA	DictMol	0	PCCA	PCCA	0	CCCC1=CC2=C(C=C1)OC(=CC2=O)C(=O)O
+12838-9	E	PGD2	DictMol	0	PGD2	PGD2	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@H](CC1=O)O)C/C=C\CCCC(=O)O)O
+12837-1	E	Alprostadil	DictMol	0	Alprostadil	Alprostadil	0	CCCCC[C@H](O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)O
+12837-1	E	PGE1	DictMol	0	PGE1	PGE1	0	CCCCC[C@H](O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1CCCCCCC(=O)O
+12836-3	E	PGE2	DictMol	0	PGE2	PGE2	0	CCCCC[C@@H](/C=C/[C@H]1[C@@H](CC(=O)[C@@H]1C/C=C\CCCC(=O)O)O)O
+12836-3	E	Dinoprostone	DictMol	0	Dinoprostone	Dinoprostone	0	CCCCC[C@H](O)/C=C/[C@H]1[C@H](O)CC(=O)[C@@H]1C/C=C\CCCC(=O)O
+10583-3	E	PGF1alpha	DictMol	0	PGF1alpha	PGF1alpha	0	CCCCC[C@@H](/C=C/[C@H]1[C@@H](C[C@@H]([C@@H]1CCCCCCC(=O)O)O)O)O
+10583-3	E	Prostaglandin F1A	DictMol	0	Prostaglandin F1A	Prostaglandin F1A	0	CCCCC[C@@H](/C=C/[C@H]1[C@@H](C[C@@H]([C@@H]1CCCCCCC(=O)O)O)O)O
+10583-3	E	PGF1A	DictMol	0	PGF1A	PGF1A	0	CCCCC[C@@H](/C=C/C1[C@@H](C[C@@H]([C@@H]1CCCCCCC(=O)O)O)O)O
+33667-7	E	cPSA	DictMol	0	cPSA	cPSA	0	C1=CC=C(C=C1)C2=CC(=C(C(=C2)Cl)O)C(=O)O
+53525-2	E	Sulfosalicylic	DictMol	0	Sulfosalicylic	Sulfosalicylic	0	O=C(O)C1C=C(S(=O)(=O)O)C=CC=1O
+2860-5	E	Nitrogen	E	5	Nitrogen	Nitrogen	0	
+15093-8	E	protoporphyrin	DictMol	17	protoporphyrin	protoporphyrin	0	C=CC1=C(C)C2C=C3NC(=CC4=NC(=CC5NC(C=C1N=2)=C(C)C=5CCC(=O)O)C(CCC(=O)O)=C4C)C(C)=C3C=C
+93686-4	E	1-beta-D-galactosphingosine	DictMol	0	1-beta-D-galactosphingosine	1-beta-D-galactosphingosine	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO[C@H]1[C@@H]([C@H]([C@H]([C@H](O1)CO)O)O)O)N)O
+93686-4	E	Sphingosine galactoside	DictMol	0	Sphingosine galactoside	Sphingosine galactoside	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO[C@H]1[C@@H]([C@H]([C@H]([C@H](O1)CO)O)O)O)N)O
+35647-7	E	Pyridinoline	DictMol	0	Pyridinoline	Pyridinoline	0	C1=C(C(=C(C=[N+]1C[C@@H](CC[C@@H](C(=O)[O-])N)O)O)C[C@@H](C(=O)O)N)CC[C@@H](C(=O)O)N
+35647-7	E	Deoxypyridinoline	DictMol	15	Deoxypyridinoline	Deoxypyridinoline	0	C1=C(C(=C(C=[N+]1CCCC[C@@H](C(=O)[O-])N)O)C[C@@H](C(=O)O)N)CC[C@@H](C(=O)O)N
+30552-4	E	Pyridoxaldehyde	DictMol	0	Pyridoxaldehyde	Pyridoxaldehyde	0	CC1N=CC(CO)=C(C=O)C=1O
+30552-4	E	Vitamin B6 hydrochloride	DictMol	0	Vitamin B6 hydrochloride	Vitamin B6 hydrochloride	0	CC1N=CC(CO)=C(CO)C=1O.Cl
+30552-4	E	Vitamin B6	DictMol	0	Vitamin B6	Vitamin B6	0	CC1N=CC(CO)=C(CO)C=1O
+30552-4	E	Pyridoxal 5-Phosphate	DictMol	0	Pyridoxal 5-Phosphate	Pyridoxal 5-Phosphate	0	CC1N=CC(COP(=O)(O)O)=C(C=O)C=1O
+30552-4	E	Codecarboxylase	DictMol	0	Codecarboxylase	Codecarboxylase	0	CC1=NC=C(C(=C1O)C=O)COP(=O)(O)O
+2911-6	E	Lipoamide	DictMol	4	Lipoamide	Lipoamide	0	NC(=O)CCCCC1CCSS1
+75632-0	E	ADSF	DictMol	0	ADSF	ADSF	0	C[C@]12CCC(=O)C=C1CC[C@@H]3[C@@H]2[C@H](C[C@]4([C@H]3CC[C@@H]4CCO)C=O)O
+17525-7	E	Retinoic acid	DictMol	0	Retinoic acid	Retinoic acid	0	CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C(=O)O)C(C)(C)CCC1
+17525-7	E	tretinoin	DictMol	0	tretinoin	tretinoin	0	CC1=C(/C=C/C(C)=C/C=C/C(C)=C/C(=O)O)C(C)(C)CCC1
+17525-7	E	Vitamin A1 acid	DictMol	0	Vitamin A1 acid	Vitamin A1 acid	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C(=O)O)/C)/C
+17525-7	E	Vitamin A acid	DictMol	0	Vitamin A acid	Vitamin A acid	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/C(=O)O)/C)/C
+17526-5	E	Ester	G	6	Ester	Ester	0	
+38496-6	E	Vitamin A palmitate	DictMol	0	Vitamin A palmitate	Vitamin A palmitate	0	CCCCCCCCCCCCCCCC(=O)OC/C=C(C)/C=C/C=C(C)/C=C/C1=C(C)CCCC1(C)C
+38496-6	E	Retinol	DictMol	0	Retinol	Retinol	0	CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1
+47884-2	E	Adonitol	DictMol	0	Adonitol	Adonitol	0	OC[C@@H](O)[C@@H](O)[C@@H](O)CO
+79580-7	E	BAIB	DictMol	7	BAIB	BAIB	0	CC(CN)C(=O)O
+79580-7	E	L-ser	DictMol	19	L-ser	L-ser	0	C([C@@H](C(=O)O)N)O
+48428-7	E	isolinoleate	DictMol	5	isolinoleate	isolinoleate	0	CCCCCCCC/C=C\C/C=C\CCCCC(=O)O
+48428-7	E	isolinoleic acid	DictMol	5	isolinoleic acid	isolinoleic acid	0	CCCCCC/C=C/C=C/CCCCCCCC(=O)O
+48428-7	E	C18:2	DictMol	0	C18:2	C18:2	0	CCCCC/C=C\C/C=C\CCCCCCCC(=O)O
+48428-7	E	fatty acid	G	21	fatty acid	fatty acid	0	
+48428-7	E	Rumenic acid	DictMol	0	Rumenic acid	Rumenic acid	0	CCCCCC/C=C/C=C\CCCCCCCC(=O)O
+78966-9	E	SAM-e	DictMol	0	SAM-e	SAM-e	0	C[S+](CC[C@H](N)C(=O)[O-])C[C@H]1O[C@@H](N2C=NC3C(N)=NC=NC2=3)[C@H](O)[C@@H]1O
+13967-5	E	Androgen	G	0	Androgen	Androgen	0	
+13967-5	E	Estradiol	DictMol	0	Estradiol	Estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+13967-5	E	steroid	G	4	steroid	steroid	0	
+13967-5	E	steroid	G	4	steroid	steroid	0	
+13967-5	E	Testosterone	DictMol	0	Testosterone	Testosterone	0	C[C@@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@]34C)[C@@H]2CC[C@@H]1O
+13967-5	E	Testosterone	DictMol	0	Testosterone	Testosterone	0	C[C@@]12CC[C@H]3[C@@H](CCC4=CC(=O)CC[C@]34C)[C@@H]2CC[C@@H]1O
+13967-5	E	estradiol	DictMol	13	estradiol	estradiol	0	C[C@@]12CC[C@@H]3C4C=CC(O)=CC=4CC[C@H]3[C@@H]2CC[C@@H]1O
+26031-5	E	sialic acid	G	12	sialic acid	sialic acid	0	
+26031-5	E	sialic acid	G	17	sialic acid	sialic acid	0	
+101734-2	E	Uric acid	DictMol	0	Uric acid	Uricacid	0	C12=C(NC(=O)N1)NC(=O)NC2=O
+95850-4	E	Macimorelin	DictMol	6	Macimorelin	Macimorelin	0	CC(C)(N)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)NC=O
+95849-6	E	Macimorelin	DictMol	6	Macimorelin	Macimorelin	0	CC(C)(N)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)NC=O
+95848-8	E	Macimorelin	DictMol	6	Macimorelin	Macimorelin	0	CC(C)(N)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)NC=O
+95847-0	E	Macimorelin	DictMol	6	Macimorelin	Macimorelin	0	CC(C)(N)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)C(=O)N[C@H](CC1=CNC2C=CC=CC1=2)NC=O
+114470-8	E	SPMA	DictMol	0	SPMA	SPMA	0	CC(=O)N[C@@H](CSC1=CC=CC=C1)C(=O)O
+102055-1	E	D-erythro-Sphinganine	DictMol	0	D-erythro-Sphinganine	D-erythro-Sphinganine	0	CCCCCCCCCCCCCCC[C@H]([C@H](CO)N)O
+102056-9	E	D-erythro-Sphingosine	DictMol	0	D-erythro-Sphingosine	D-erythro-Sphingosine	0	CCCCCCCCCCCCC/C=C/[C@H]([C@H](CO)N)O
+74887-1	E	Fucostanol	DictMol	0	Fucostanol	Fucostanol	0	CC[C@H](CC[C@@H](C)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@@H]4[C@@]3(CC[C@@H](C4)O)C)C)C(C)C
+74887-1	E	Sitostanol	DictMol	0	Sitostanol	Sitostanol	0	CC[C@H](CC[C@@H](C)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@@H]4[C@@]3(CC[C@@H](C4)O)C)C)C(C)C
+74887-1	E	beta Sitostanol	DictMol	0	beta Sitostanol	beta-Sitostanol	0	CC[C@H](CC[C@@H](C)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@@H]4[C@@]3(CC[C@@H](C4)O)C)C)C(C)C
+63553-2	E	SAICAR	DictMol	0	SAICAR	SAICAR	0	C1=NC(=C(N1[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)O)O)O)N)C(=O)N[C@@H](CC(=O)O)C(=O)O
+14178-8	E	Sucrose	DictMol	0	Sucrose	Sucrose	0	OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O
+14178-8	E	Sucrose	DictMol	0	Sucrose	Sucrose	0	OC[C@H]1O[C@@](CO)(O[C@H]2O[C@H](CO)[C@@H](O)[C@H](O)[C@H]2O)[C@@H](O)[C@@H]1O
+93328-3	E	TCDCA	DictMol	0	TCDCA	TCDCA	0	C[C@H](CCC(=O)NCCS(=O)(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+93326-7	E	TDCA	DictMol	0	TDCA	TDCA	0	C1C(NC(S1)C(=O)O)C(=O)O
+93325-9	E	THDCA	DictMol	0	THDCA	THDCA	0	C[C@H](CCC(=O)NCCS(=O)(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2C[C@@H]([C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+93324-2	E	TLCA	DictMol	0	TLCA	TLCA	0	C[C@H](CCC(=O)NCCS(=O)(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2CC[C@H]4[C@@]3(CC[C@H](C4)O)C)C
+93323-4	E	TUDCA	DictMol	0	TUDCA	TUDCA	0	C[C@H](CCC(=O)NCCS(=O)(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+18457-2	E	C14:1	G	0	C14:1	C14:1	0	
+95569-0	E	corticosterone	DictMol	6	corticosterone	corticosterone	0	C[C@@]12C[C@H](O)[C@H]3[C@@H](CCC4=CC(=O)CC[C@]34C)[C@@H]2CC[C@@H]1C(=O)CO
+33877-2	E	Biopterin	DictMol	0	Biopterin	Biopterin	0	C[C@H]([C@H](C1=CN=C2C(=N1)C(=O)NC(=N2)N)O)O
+33877-2	E	Biopterin	DictMol	0	Biopterin	Biopterin	0	C[C@H]([C@H](C1=CN=C2C(=N1)C(=O)NC(=N2)N)O)O
+2997-5	E	THFA	DictMol	0	THFA	THFA	0	C1CC(OC1)CO
+49115-9	E	Vit B1	DictMol	0	Vit B1	Vit B1	0	CC1N=CC(C[N+]2=CSC(CCO)=C2C)=C(N)N=1.Cl.[Cl-]
+3000-7	E	ThPP	DictMol	0	ThPP	ThPP	0	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCOP(=O)(O)OP(=O)(O)O
+3000-7	E	Thiamine diphosphate	DictMol	0	Thiamine diphosphate	Thiamine diphosphate	0	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCOP(=O)(O)OP(=O)(O)O
+3000-7	E	Vit B1	DictMol	0	Vit B1	Vit B1	0	CC1N=CC(C[N+]2=CSC(CCO)=C2C)=C(N)N=1.Cl.[Cl-]
+3000-7	E	ThDP	DictMol	0	ThDP	ThDP	0	CC1=C(SC=[N+]1CC2=CN=C(N=C2N)C)CCOP(=O)(O)OP(=O)(O)O
+91141-2	E	6-MMP	DictMol	14	6-MMP	6-MMP	0	CSC1=NC=NC2=C1NC=N2
+91142-0	E	6-MMP	DictMol	14	6-MMP	6-MMP	0	CSC1=NC=NC2=C1NC=N2
+91142-0	E	riboside	G	20	riboside	riboside	0	
+91143-8	E	riboside	G	20	riboside	riboside	0	
+3011-4	E	TxA2	DictMol	0	TxA2	TxA2	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@@H]2C[C@@H](O2)O1)C/C=C\CCCC(=O)O)O
+3011-4	E	Thromboxane a2	DictMol	0	Thromboxane a2	Thromboxane a2	0	CCCCC[C@@H](/C=C/[C@@H]1[C@H]([C@@H]2C[C@@H](O2)O1)C/C=C\CCCC(=O)O)O
+3018-9	E	Thyroliberin	DictMol	0	Thyroliberin	Thyroliberin	0	NC(=O)[C@@H]1CCCN1C(=O)[C@H](CC1=CNC=N1)NC(=O)[C@@H]1CCC(=O)N1
+100978-6	E	Levothyroxine	DictMol	0	Levothyroxine	Levothyroxine	0	N[C@@H](CC1C=C(I)C(OC2C=C(I)C(O)=C(I)C=2)=C(I)C=1)C(=O)O
+100978-6	E	Levo-thyroxine	DictMol	0	Levo-thyroxine	Levothyroxine	0	N[C@@H](CC1C=C(I)C(OC2C=C(I)C(O)=C(I)C=2)=C(I)C=1)C(=O)O
+100978-6	E	thyroid hormone	G	0	thyroid hormone	thyroid hormone	0	
+100978-6	E	Thyrox	DictMol	0	Thyrox	Thyrox	0	C1=C(C=C(C(=C1I)OC2=CC(=C(C(=C2)I)O)I)I)C[C@@H](C(=O)O)N
+14014-5	E	TBPA	DictMol	0	TBPA	TBPA	0	CCCCOP(=O)(OCCCC)OCCCC
+69573-4	E	C5:1	G	12	C5:1	C5:1	0	
+14179-6	E	Polypeptides	G	0	Polypeptides	Polypeptides	0	
+18378-0	E	Cortisol	DictMol	0	Cortisol	Cortisol	0	C[C@@]12CCC(=O)C=C2CC[C@@H]2[C@@H]1[C@@H](O)C[C@@]1(C)[C@H]2CC[C@]1(O)C(=O)CO
+18378-0	E	Corticosteroid	G	0	Corticosteroid	Corticosteroid	0	
+33620-6	E	Harderoporphyrin	DictMol	0	Harderoporphyrin	Harderoporphyrin	0	CC1=C(C2=CC3=NC(=CC4=C(C(=C(N4)C=C5C(=C(C(=N5)C=C1N2)CCC(=O)O)C)C=C)C)C(=C3CCC(=O)O)C)CCC(=O)O
+3044-5	E	Ester	G	10	Ester	Ester	0	
+3045-2	E	Ester	G	10	Ester	Ester	0	
+3046-0	E	Ester	G	10	Ester	Ester	0	
+3047-8	E	Ester	G	11	Ester	Ester	0	
+35360-7	E	Triglyceride	G	4	Triglyceride	Triglyceride	0	
+35360-7	E	Triglyceride	G	6	Triglyceride	Triglyceride	0	
+17748-5	E	Trimet	DictMol	0	Trimet	Trimet	0	CC(CO)(CO)CO
+17748-5	E	amine	G	7	amine	amine	0	
+90360-9	E	TMAO	DictMol	0	TMAO	TMAO	0	C[N+](C)(C)[O-]
+34674-2	E	Tripeptide	G	0	Tripeptide	Tripeptide	0	
+13496-5	E	Magnesium	E	0	Magnesium	Magnesium	0	
+13496-5	E	ammonium	E	10	ammonium	ammonium	0	
+104604-4	E	Coenzyme Q10	DictMol	0	Coenzyme Q10	Coenzyme Q10	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+104604-4	E	Ubiquinone10	DictMol	0	Ubiquinone10	Ubiquinone10	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+104604-4	E	CoQ10	DictMol	0	CoQ10	CoQ10	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+81156-2	E	Ubiquinol	DictMol	0	Ubiquinol	Ubiquinol	0	CC1=C(C(=C(C(=C1O)OC)OC)O)C/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CC/C=C(\C)/CCC=C(C)C
+81156-2	E	Ubiquinone10	DictMol	0	Ubiquinone10	Ubiquinone10	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+81156-2	E	CoQ10	DictMol	8	CoQ10	CoQ10	0	COC1=C(OC)C(=O)C(C/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CC/C=C(\C)CCC=C(C)C)=C(C)C1=O
+19158-5	E	Cmnt	DictMol	9	Cmnt	Cmnt	0	C1=CC(=C(C=C1C(F)(F)F)[N+](=O)[O-])Cl
+3099-9	E	UDP-glucose	DictMol	0	UDP-glucose	UDPglucose	0	C1=CN(C(=O)NC1=O)[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)OP(=O)(O)O[C@@H]3[C@@H]([C@H]([C@@H]([C@H](O3)CO)O)O)O)O)O
+3099-9	E	Uridine diphosphate galactose	DictMol	0	Uridine diphosphate galactose	Uridine diphosphategalactose	0	C1=CN(C(=O)NC1=O)[C@H]2[C@@H]([C@@H]([C@H](O2)COP(=O)(O)OP(=O)(O)O[C@@H]3[C@@H]([C@H]([C@H]([C@H](O3)CO)O)O)O)O)O
+3110-4	E	Uronic acid	G	0	Uronic acid	Uronic acid	0	
+3110-4	E	Uronates	G	0	Uronates	Uronates	0	
+14940-1	E	Uroporphyrin	G	0	Uroporphyrin	Uroporphyrin	0	
+14943-5	E	Uroporphyrin	G	0	Uroporphyrin	Uroporphyrin	0	
+55159-8	E	Ursodiol	DictMol	0	Ursodiol	Ursodiol	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+55159-8	E	UDCA	DictMol	0	UDCA	UDCA	0	C[C@H](CCC(=O)O)[C@H]1CC[C@@H]2[C@@]1(CC[C@H]3[C@H]2[C@H](C[C@H]4[C@@]3(CC[C@H](C4)O)C)O)C
+55159-8	E	Ursodeoxycholic acid	DictMol	0	Ursodeoxycholic acid	Ursodeoxycholic acid	0	C[C@H](CCC(=O)O)[C@H]1CC[C@H]2[C@@H]3[C@@H](O)C[C@@H]4C[C@H](O)CC[C@]4(C)[C@H]3CC[C@]12C
+100839-0	E	Axerophthol	DictMol	0	Axerophthol	Axerophthol	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/CO)/C)/C
+100839-0	E	Vitamin A1	DictMol	0	Vitamin A1	Vitamin A1	0	CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1
+100839-0	E	Vitamin A	G	0	Vitamin A	Vitamin A	0	
+100839-0	E	Vitamin A alcohol	DictMol	0	Vitamin A alcohol	Vitamin A alcohol	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/CO)/C)/C
+100839-0	E	Vitamin A	G	0	Vitamin A	Vitamin A	0	
+100839-0	E	Biosterol	DictMol	0	Biosterol	Biosterol	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/CO)/C)/C
+100839-0	E	Retinol	DictMol	0	Retinol	Retinol	0	CC1=C(/C=C/C(C)=C/C=C/C(C)=C/CO)C(C)(C)CCC1
+100839-0	E	alcohol	G	7	alcohol	alcohol	0	
+100839-0	E	alcohol	G	6	alcohol	alcohol	0	
+100839-0	E	Axerol	DictMol	0	Axerol	Axerol	0	CC1=C(C(CCC1)(C)C)/C=C/C(=C/C=C/C(=C/CO)/C)/C
+35365-6	E	Vitamin D	G	0	Vitamin D	Vitamin D	0	
+35365-6	E	Vitamin D	G	6	Vitamin D	Vitamin D	0	
+80183-7	E	Amino	A	2	Amino	Amino	0	
+80183-7	E	Ksantopterin	DictMol	0	Ksantopterin	Ksantopterin	0	C1=NC2=C(C(=O)NC(=N2)N)NC1=O
+80183-7	E	Uropterin	DictMol	0	Uropterin	Uropterin	0	C1=NC2=C(C(=O)NC(=N2)N)NC1=O
