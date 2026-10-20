@@ -213,17 +213,18 @@ java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 #
 #
 #
-source $HOME/venv/bioclients/bin/activate
-#
-for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
-	python -m bioclients.util.pandas.App --i $f selectcols \
-		--coltags "DocName,EntityType,OriginalText,EntityText,ResolvedForm" \
-		--o $DATADIR/tmp.tsv
-	sleep 1
-	mv $DATADIR/tmp.tsv $f
-	python -m bioclients.util.pandas.App --i $f set_header \
-		--coltags "LOINC_code,EntityType,OriginalText,EntityText,SMILES" \
-		--o $DATADIR/tmp.tsv
-	sleep 1
-	mv $DATADIR/tmp.tsv $f
-done
+#source $HOME/venv/bioclients/bin/activate
+##
+#for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
+#	python -m bioclients.util.pandas.App --i $f selectcols \
+#		--coltags "DocName,EntityType,OriginalText,EntityText,ResolvedForm" \
+#		--o $DATADIR/tmp.tsv
+#	sleep 1
+#	mv $DATADIR/tmp.tsv $f
+#	python -m bioclients.util.pandas.App --i $f set_header \
+#		--coltags "LOINC_code,EntityType,OriginalText,EntityText,SMILES" \
+#		--o $DATADIR/tmp.tsv
+#	sleep 1
+#	mv $DATADIR/tmp.tsv $f
+#done
+#deactivate

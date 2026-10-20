@@ -22,7 +22,7 @@ dictname="chem"
 # Filter lines missing SMILES.
 for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
 	smifile=$(echo $f |sed 's/.tsv$/.smiles/')
-	cat $f |awk -F '\t' '{print $5 "\t" $1}' |sed '1d' \
+	cat $f |awk -F '\t' '{print $9 "\t" $1}' |sed '1d' \
 	|grep '^[A-Za-z]' \
 	|sort -u >$smifile
 	printf "$smifile (%s lines)\n" "$(cat $smifile |wc -l)"
@@ -36,4 +36,6 @@ for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.smiles) ; do
 	ofile=$(echo $f |sed 's/.smiles$/_pubchem.tsv/')
 	python -m bioclients.pubchem.Client get_smi2cid --i $f --o $ofile
 done
+#
+deactivate
 #
