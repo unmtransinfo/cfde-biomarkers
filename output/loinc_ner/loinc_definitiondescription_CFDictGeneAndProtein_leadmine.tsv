@@ -19,11 +19,11 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 94381-1	E	alpha (2	GeneOrProtein	48	alpha (2	alpha v2	1	
 94381-1	E	systemic	GeneOrProtein	183	systemic	systemin	1	P27058
 94381-1	E	systemic	GeneOrProtein	306	systemic	systemin	1	P27058
-74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	829549
-74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	829549
-74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	829549
-74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	829549
-74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	829549
+74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	I6YDK7
+74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	I6YDK7
+74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	I6YDK7
+74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	I6YDK7
+74296-5	E	3-Methylcrotonyl-CoA carboxylase	GeneOrProtein	111	3-Methylcrotonyl-CoA carboxylase	3-Methylcrotonyl-CoA carboxylase	0	I6YDK7
 93772-2	E	kidney	GeneOrProtein	216	kidney	kidney1	1	24522
 88993-1	E	kidney	GeneOrProtein	94	kidney	kidney1	1	24522
 88993-1	E	insulin-like growth factor binding protein 7	GeneOrProtein	129	insulin-like growth factor binding protein 7	insulin-like growth factor binding protein 7	0	
@@ -53,35 +53,35 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 88993-1	E	TIMP-2	GeneOrProtein	229	TIMP-2	TIMP-2	0	
 88993-1	E	IGFBP-7	GeneOrProtein	243	IGFBP-7	IGFBP-7	0	HGNC:5476
 88993-1	E	TIMP-2	GeneOrProtein	255	TIMP-2	TIMP-2	0	
-78358-9	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	35	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	
-78359-7	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	12	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	
+78358-9	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	35	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	25319244
+78359-7	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	12	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	25319244
 78359-7	E	medium chain acyl-CoA dehydrogenase	GeneOrProtein	220	medium chain acyl-CoA dehydrogenase	medium chain acyl-CoA dehydrogenase	0	38864
-78359-7	E	VLCAD	GeneOrProtein	359	VLCAD	mVLCAD	1	P50544
-78359-7	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	12	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	
+78359-7	E	VLCAD	GeneOrProtein	359	VLCAD	mVLCAD	1	11370
+78359-7	E	long-chain acyl CoA dehydrogenase	GeneOrProtein	12	long-chain acyl CoA dehydrogenase	long-chain-acyl-CoA dehydrogenase	0	25319244
 78359-7	E	medium chain acyl-CoA dehydrogenase	GeneOrProtein	220	medium chain acyl-CoA dehydrogenase	medium chain acyl-CoA dehydrogenase	0	38864
-78359-7	E	VLCAD	GeneOrProtein	359	VLCAD	mVLCAD	1	P50544
+78359-7	E	VLCAD	GeneOrProtein	359	VLCAD	mVLCAD	1	11370
 21052-6	E	minus	GeneOrProtein	26	minus	minmus	1	17884
 21052-6	E	minus	GeneOrProtein	26	minus	minmus	1	17884
 77158-4	E	Albumin	GeneOrProtein	75	Albumin	Albumin	0	HGNC:399
 77158-4	E	Albumin	GeneOrProtein	75	Albumin	Albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 1756-6	E	albumin	GeneOrProtein	4	albumin	albumin	0	HGNC:399
 1756-6	E	albumin	GeneOrProtein	30	albumin	albumin	0	HGNC:399
-1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	
+1756-6	E	plasma albumin	GeneOrProtein	47	plasma albumin	plasma albumin	0	103091717
 106530-9	E	albumin	GeneOrProtein	28	albumin	albumin	0	HGNC:399
 106530-9	E	glucose	GeneOrProtein	52	glucose	glucose1	1	
 106530-9	E	albumin	GeneOrProtein	88	albumin	albumin	0	HGNC:399
@@ -100,96 +100,96 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 48669-6	E	Albumin	GeneOrProtein	13	Albumin	Albumin	0	HGNC:399
 48669-6	E	Albumin	GeneOrProtein	13	Albumin	Albumin	0	HGNC:399
 48669-6	E	Albumin	GeneOrProtein	13	Albumin	Albumin	0	HGNC:399
-50385-4	E	alpha-1-microglobulin	GeneOrProtein	26	alpha-1-microglobulin	alpha-1-microglobulin	0	103183099
+50385-4	E	alpha-1-microglobulin	GeneOrProtein	26	alpha-1-microglobulin	alpha-1-microglobulin	0	
 50385-4	E	membrane	GeneOrProtein	86	membrane	membrane7	1	35899
-50385-4	E	alpha-1-microglobulin	GeneOrProtein	26	alpha-1-microglobulin	alpha-1-microglobulin	0	103183099
+50385-4	E	alpha-1-microglobulin	GeneOrProtein	26	alpha-1-microglobulin	alpha-1-microglobulin	0	
 50385-4	E	membrane	GeneOrProtein	86	membrane	membrane7	1	35899
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	P32194
-94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	B3EWP3
-94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	393572
-94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	
-94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	393572
-94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	393572
-98487-2	E	Amyloid 42	GeneOrProtein	39	Amyloid 42	Amyloid 2	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+94718-4	E	neutrophil peptide-1	GeneOrProtein	31	neutrophil peptide-1	neutrophil peptide-1	0	100144483
+94718-4	E	defensins 1	GeneOrProtein	85	defensins 1	defensin 1	1	
+94718-4	E	ELISA	GeneOrProtein	150	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	423	ELISA	ELIpSA	1	
+94718-4	E	peptide	GeneOrProtein	523	peptide	peptide9	1	P0DRK9
+94718-4	E	ELISA	GeneOrProtein	538	ELISA	ELIpSA	1	
+94718-4	E	ELISA	GeneOrProtein	655	ELISA	ELIpSA	1	
+98487-2	E	Amyloid 42	GeneOrProtein	39	Amyloid 42	Amyloid 2	1	122773148
 77620-3	E	Arginase-1	GeneOrProtein	0	Arginase-1	Arginase-1	0	HGNC:663
 77620-3	E	Arg-1	GeneOrProtein	14	Arg-1	Arg-1	0	Q9NH76
-77620-3	E	Liver-type	GeneOrProtein	21	Liver-type	Liver type	1	
+77620-3	E	Liver-type	GeneOrProtein	21	Liver-type	Liver type	1	105103995
 77620-3	E	suppressor	GeneOrProtein	360	suppressor	suppressor2	1	
 77620-3	E	arginase-1	GeneOrProtein	400	arginase-1	arginase-1	0	HGNC:663
 77620-3	E	Arginase-1	GeneOrProtein	0	Arginase-1	Arginase-1	0	HGNC:663
 77620-3	E	Arg-1	GeneOrProtein	14	Arg-1	Arg-1	0	Q9NH76
-77620-3	E	Liver-type	GeneOrProtein	21	Liver-type	Liver type	1	
+77620-3	E	Liver-type	GeneOrProtein	21	Liver-type	Liver type	1	105103995
 77620-3	E	suppressor	GeneOrProtein	360	suppressor	suppressor2	1	
 77620-3	E	arginase-1	GeneOrProtein	400	arginase-1	arginase-1	0	HGNC:663
 104801-6	E	Beta globulin	GeneOrProtein	11	Beta globulin	Beta-globulin	0	
 104801-6	E	Beta globulin	GeneOrProtein	11	Beta globulin	Beta-globulin	0	
 53587-2	E	beta bglobulin	GeneOrProtein	35	beta bglobulin	beta-globulin	1	
-21328-0	E	HEX B	GeneOrProtein	57	HEX B	HEXs B	1	
-21328-0	E	HEX B	GeneOrProtein	57	HEX B	HEXs B	1	
+21328-0	E	HEX B	GeneOrProtein	57	HEX B	HEXs B	1	O66129
+21328-0	E	HEX B	GeneOrProtein	57	HEX B	HEXs B	1	O66129
 58941-6	E	light	GeneOrProtein	83	light	lightr	1	HGNC:11912
 18264-2	E	light	GeneOrProtein	37	light	lightr	1	HGNC:11912
 18264-2	E	albumin	GeneOrProtein	100	albumin	albumin	0	HGNC:399
-33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	
+33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	12039
 33359-1	E	leucine	GeneOrProtein	110	leucine	leupin	1	HGNC:10570
-33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	
+33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	12039
 33359-1	E	leucine	GeneOrProtein	110	leucine	leupin	1	HGNC:10570
-33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	
+33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	12039
 33359-1	E	leucine	GeneOrProtein	110	leucine	leupin	1	HGNC:10570
-33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	
+33359-1	E	BCKAD	GeneOrProtein	0	BCKAD	BCKAD	0	12039
 33359-1	E	leucine	GeneOrProtein	110	leucine	leupin	1	HGNC:10570
 56469-0	E	HDL) - 1	GeneOrProtein	243	HDL) - 1	HDL-1	1	P34751
 56469-0	E	HDL) - 2	GeneOrProtein	313	HDL) - 2	HDL-2	1	182464
-79339-8	E	X-linked	GeneOrProtein	132	X-linked	X-linked2	1	
+79339-8	E	X-linked	GeneOrProtein	132	X-linked	X-linked2	1	105098810
 79339-8	E	trimethyllysine hydroxylase	GeneOrProtein	141	trimethyllysine hydroxylase	trimethyllysine hydroxylase	0	
 79339-8	E	TMLHE	GeneOrProtein	170	TMLHE	TMLHE	0	HGNC:18308
 78958-6	E	Cathepsin A	GeneOrProtein	0	Cathepsin A	Cathepsin A	0	HGNC:9251
@@ -198,11 +198,11 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 78958-6	E	Cathepsin A	GeneOrProtein	0	Cathepsin A	Cathepsin A	0	HGNC:9251
 78958-6	E	β-galactosidase	GeneOrProtein	235	β-galactosidase	β-galactosidase	0	
 78958-6	E	CTSA gene	GeneOrProtein	314	CTSA gene	CTSA gene	0	P27660
-1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	
-1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	
-1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	
-1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	
-1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	
+1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	38023
+1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	38023
+1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	38023
+1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	38023
+1990-1	E	Vitamin D	GeneOrProtein	0	Vitamin D	Vitamin D[	1	38023
 55440-2	E	Lp(a)	GeneOrProtein	84	Lp(a)	Lp(a)	0	HGNC:6667
 55440-2	E	Lp(a)	GeneOrProtein	84	Lp(a)	Lp(a)	0	HGNC:6667
 55440-2	E	Lp(a)	GeneOrProtein	84	Lp(a)	Lp(a)	0	HGNC:6667
@@ -216,50 +216,50 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 74585-1	E	citrate synthase	GeneOrProtein	53	citrate synthase	citrate synthase	0	HGNC:2422
 74585-1	E	citrate synthase	GeneOrProtein	53	citrate synthase	citrate synthase	0	HGNC:2422
 74585-1	E	citrate synthase	GeneOrProtein	53	citrate synthase	citrate synthase	0	HGNC:2422
-46757-1	E	Duplicate	GeneOrProtein	0	Duplicate	Duplicate3	1	
+46757-1	E	Duplicate	GeneOrProtein	0	Duplicate	Duplicate3	1	130564507
 14149-9	E	of ACTH	GeneOrProtein	27	of ACTH	ofACT	1	100035567
 14149-9	E	of ACTH	GeneOrProtein	27	of ACTH	ofACT	1	100035567
-14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	Q52QW3
+14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	7200580
 14679-5	E	point	GeneOrProtein	62	point	point2	1	42757
 14679-5	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14679-5	E	circadian	GeneOrProtein	317	circadian	circadian1	1	833700
-14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	Q52QW3
+14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	7200580
 14679-5	E	point	GeneOrProtein	62	point	point2	1	42757
 14679-5	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14679-5	E	circadian	GeneOrProtein	317	circadian	circadian1	1	833700
-14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	Q52QW3
+14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	7200580
 14679-5	E	point	GeneOrProtein	62	point	point2	1	42757
 14679-5	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14679-5	E	circadian	GeneOrProtein	317	circadian	circadian1	1	833700
-14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	Q52QW3
+14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	7200580
 14679-5	E	point	GeneOrProtein	62	point	point2	1	42757
 14679-5	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14679-5	E	circadian	GeneOrProtein	317	circadian	circadian1	1	833700
-14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	Q52QW3
+14679-5	E	cortisol	GeneOrProtein	35	cortisol	crtiso1	1	7200580
 14679-5	E	point	GeneOrProtein	62	point	point2	1	42757
 14679-5	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14679-5	E	circadian	GeneOrProtein	317	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
-14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	Q52QW3
+14678-7	E	cortisol	GeneOrProtein	36	cortisol	crtiso1	1	7200580
 14678-7	E	point	GeneOrProtein	62	point	point2	1	42757
 14678-7	E	circadian	GeneOrProtein	73	circadian	circadian1	1	833700
 14678-7	E	circadian	GeneOrProtein	334	circadian	circadian1	1	833700
@@ -280,16 +280,16 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 79411-5	E	creatine	GeneOrProtein	481	creatine	crestin	1	30186
 96420-5	E	multiple myeloma	GeneOrProtein	51	multiple myeloma	multiple myeloma2	1	
 96420-5	E	M protein	GeneOrProtein	147	M protein	M protein	0	
-96420-5	E	spike	GeneOrProtein	245	spike	spike1	1	
-96420-5	E	M-protein	GeneOrProtein	288	M-protein	M-protein	0	P54296
+96420-5	E	spike	GeneOrProtein	245	spike	spike1	1	827328
+96420-5	E	M-protein	GeneOrProtein	288	M-protein	M-protein	0	9172
 96420-5	E	multiple myeloma.	GeneOrProtein	301	multiple myeloma.	multiple myeloma2	1	
-96420-5	E	M-protein	GeneOrProtein	472	M-protein	M-protein	0	P54296
-79343-0	E	DMA 16	GeneOrProtein	49	DMA 16	vMA 16	1	
-79343-0	E	chondrodysplasia punctata	GeneOrProtein	287	chondrodysplasia punctata	chondrodysplasia punctata1	1	
-79343-0	E	DMA 16	GeneOrProtein	448	DMA 16	vMA 16	1	
-79343-0	E	X-linked	GeneOrProtein	528	X-linked	X-linked2	1	
-88998-0	E	swings	GeneOrProtein	452	swings	swingn	1	
-88998-0	E	fatty acid metabolism	GeneOrProtein	1072	fatty acid metabolism	fatty acid metabolism1	1	
+96420-5	E	M-protein	GeneOrProtein	472	M-protein	M-protein	0	9172
+79343-0	E	DMA 16	GeneOrProtein	49	DMA 16	vMA 16	1	3880589
+79343-0	E	chondrodysplasia punctata	GeneOrProtein	287	chondrodysplasia punctata	chondrodysplasia punctata1	1	HGNC:719
+79343-0	E	DMA 16	GeneOrProtein	448	DMA 16	vMA 16	1	3880589
+79343-0	E	X-linked	GeneOrProtein	528	X-linked	X-linked2	1	105098810
+88998-0	E	swings	GeneOrProtein	452	swings	swingn	1	HGNC:43709
+88998-0	E	fatty acid metabolism	GeneOrProtein	1072	fatty acid metabolism	fatty acid metabolism1	1	Q9NEQ0
 77350-7	E	erythropoietin	GeneOrProtein	85	erythropoietin	erythropoietin	0	HGNC:3415
 77350-7	E	kidney	GeneOrProtein	251	kidney	kidney1	1	24522
 20403-2	E	fibronectin	GeneOrProtein	17	fibronectin	fibronectin	0	
@@ -323,13 +323,13 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 81637-1	E	glucose	GeneOrProtein	444	glucose	glucose1	1	
 81637-1	E	glucose	GeneOrProtein	610	glucose	glucose1	1	
 81637-1	E	meters	GeneOrProtein	618	meters	metrs	1	HGNC:6898
-17856-6	E	HbA1c	GeneOrProtein	332	HbA1c	HbAe1c	1	
-17856-6	E	HbA1c	GeneOrProtein	332	HbA1c	HbAe1c	1	
-100709-5	E	alpha-fetoprotein	GeneOrProtein	147	alpha-fetoprotein	alpha-fetoprotein	0	
+17856-6	E	HbA1c	GeneOrProtein	332	HbA1c	HbAe1c	1	100334599
+17856-6	E	HbA1c	GeneOrProtein	332	HbA1c	HbAe1c	1	100334599
+100709-5	E	alpha-fetoprotein	GeneOrProtein	147	alpha-fetoprotein	alpha-fetoprotein	0	HGNC:317
 100709-5	E	prothrombin	GeneOrProtein	194	prothrombin	prothrombin	0	
 100709-5	E	PIVKA-II	GeneOrProtein	224	PIVKA-II	PIKAII	1	Q9ZGI4
 100709-5	E	factor	GeneOrProtein	307	factor	factor9	1	2158
-71386-7	E	ELISA	GeneOrProtein	163	ELISA	ELIpSA	1	393572
+71386-7	E	ELISA	GeneOrProtein	163	ELISA	ELIpSA	1	
 72160-5	E	transcobalamin II	GeneOrProtein	37	transcobalamin II	transcobalamin II	0	
 72160-5	E	transcobalamin II	GeneOrProtein	37	transcobalamin II	transcobalamin II	0	
 72160-5	E	transcobalamin II	GeneOrProtein	37	transcobalamin II	transcobalamin II	0	
@@ -360,7 +360,7 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 50986-9	E	oxygen	GeneOrProtein	32	oxygen	oxy gene	1	18429
 50986-9	E	oxygen	GeneOrProtein	110	oxygen	oxy gene	1	18429
 50986-9	E	SAPS III	GeneOrProtein	362	SAPS III	APS III	1	P49268
-74295-7	E	Hydroxymethylglutaryl CoA lyase	GeneOrProtein	111	Hydroxymethylglutaryl CoA lyase	Hydroxymethylglutaryl-CoA lyase	0	P13703
+74295-7	E	Hydroxymethylglutaryl CoA lyase	GeneOrProtein	111	Hydroxymethylglutaryl CoA lyase	Hydroxymethylglutaryl-CoA lyase	0	HGNC:5005
 74869-9	E	Kappa	GeneOrProtein	366	Kappa	iKappa	1	34969
 14117-6	E	albumin	GeneOrProtein	28	albumin	albumin	0	HGNC:399
 14117-6	E	albumin	GeneOrProtein	58	albumin	albumin	0	HGNC:399
@@ -416,7 +416,7 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 88055-9	E	Fibrosis	GeneOrProtein	68	Fibrosis	Fibrosin	1	HGNC:20442
 88055-9	E	fibrosis	GeneOrProtein	163	fibrosis	fibrosin	1	HGNC:20442
 88055-9	E	Fibrosis	GeneOrProtein	253	Fibrosis	Fibrosin	1	HGNC:20442
-88055-9	E	procollagen	GeneOrProtein	370	procollagen	procollagen	0	
+88055-9	E	procollagen	GeneOrProtein	370	procollagen	procollagen	0	9941315
 88055-9	E	PIIINP	GeneOrProtein	383	PIIINP	PIIINP	0	478835
 88055-9	E	tissue inhibitor of metalloproteinase 1	GeneOrProtein	396	tissue inhibitor of metalloproteinase 1	tissue inhibitor of metalloproteinase 1	0	
 88055-9	E	TIMP-1	GeneOrProtein	437	TIMP-1	TIMP-1	0	
@@ -426,21 +426,21 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 67708-8	E	the C3	GeneOrProtein	216	the C3	the C-1	1	
 67708-8	E	the C3	GeneOrProtein	216	the C3	the C-1	1	
 67708-8	E	the C3	GeneOrProtein	216	the C3	the C-1	1	
-74639-6	E	Protein Peak 2	GeneOrProtein	11	Protein Peak 2	Protein Peak3	1	
+74639-6	E	Protein Peak 2	GeneOrProtein	11	Protein Peak 2	Protein Peak3	1	Q6ZS72
 74639-6	E	immunoglobulin heavy chain	GeneOrProtein	141	immunoglobulin heavy chain	immunoglobulin heavy chain	0	
-74638-8	E	Protein Peak 3	GeneOrProtein	11	Protein Peak 3	Protein Peak3	0	
+74638-8	E	Protein Peak 3	GeneOrProtein	11	Protein Peak 3	Protein Peak3	0	Q6ZS72
 74638-8	E	immunoglobulin heavy chain	GeneOrProtein	141	immunoglobulin heavy chain	immunoglobulin heavy chain	0	
-80154-8	E	X-linked	GeneOrProtein	132	X-linked	X-linked2	1	
+80154-8	E	X-linked	GeneOrProtein	132	X-linked	X-linked2	1	105098810
 69969-4	E	commas	GeneOrProtein	410	commas	commad	1	4286
 69969-4	E	commas	GeneOrProtein	499	commas	commad	1	4286
 59275-8	E	Oxygen	GeneOrProtein	0	Oxygen	Oxy gene	1	18429
 59275-8	E	oxygen	GeneOrProtein	30	oxygen	oxy gene	1	18429
 59275-8	E	methemoglobin	GeneOrProtein	83	methemoglobin	methemoglobin	0	3048
-59275-8	E	MetHb)	GeneOrProtein	174	MetHb)	MetHba	1	
+59275-8	E	MetHb)	GeneOrProtein	174	MetHb)	MetHba	1	3039
 59275-8	E	Oxygen	GeneOrProtein	0	Oxygen	Oxy gene	1	18429
 59275-8	E	oxygen	GeneOrProtein	30	oxygen	oxy gene	1	18429
 59275-8	E	methemoglobin	GeneOrProtein	83	methemoglobin	methemoglobin	0	3048
-59275-8	E	MetHb)	GeneOrProtein	174	MetHb)	MetHba	1	
+59275-8	E	MetHb)	GeneOrProtein	174	MetHb)	MetHba	1	3039
 10226-9	E	oxygen	GeneOrProtein	94	oxygen	oxy gene	1	18429
 10226-9	E	oxygen	GeneOrProtein	94	oxygen	oxy gene	1	18429
 10226-9	E	oxygen	GeneOrProtein	94	oxygen	oxy gene	1	18429
@@ -472,9 +472,9 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 10248-3	E	oxygen	GeneOrProtein	94	oxygen	oxy gene	1	18429
 88888-3	E	pancreatic stone protein	GeneOrProtein	23	pancreatic stone protein	pancreatic stone protein	0	HGNC:9951
 88888-3	E	pancreatic stone protein	GeneOrProtein	23	pancreatic stone protein	pancreatic stone protein	0	HGNC:9951
-70664-8	E	glands	GeneOrProtein	78	glands	gands	1	
-70664-8	E	glands	GeneOrProtein	107	glands	gands	1	
-70664-8	E	glands	GeneOrProtein	300	glands	gands	1	
+70664-8	E	glands	GeneOrProtein	78	glands	gands	1	57459
+70664-8	E	glands	GeneOrProtein	107	glands	gands	1	57459
+70664-8	E	glands	GeneOrProtein	300	glands	gands	1	57459
 80828-7	E	gastric	GeneOrProtein	16	gastric	gastrin	1	HGNC:4164
 80828-7	E	pepsin A	GeneOrProtein	24	pepsin A	pepsin A	0	
 80828-7	E	gastric	GeneOrProtein	160	gastric	gastrin	1	HGNC:4164
@@ -522,127 +522,127 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 2796-1	E	phosphofructokinase	GeneOrProtein	98	phosphofructokinase	phosphofructokinase	0	
 2796-1	E	phosphofructokinase	GeneOrProtein	98	phosphofructokinase	phosphofructokinase	0	
 98238-9	E	PDGF-B	GeneOrProtein	64	PDGF-B	PDGF-B	0	
-98238-9	E	PDGF-BB	GeneOrProtein	83	PDGF-BB	PDGFBB	0	796490
+98238-9	E	PDGF-BB	GeneOrProtein	83	PDGF-BB	PDGFBB	0	
 32046-5	E	PAPPA	GeneOrProtein	12	PAPPA	PAPPA	0	HGNC:8602
 32046-5	E	PAPPA	GeneOrProtein	12	PAPPA	PAPPA	0	HGNC:8602
 32046-5	E	PAPPA	GeneOrProtein	12	PAPPA	PAPPA	0	HGNC:8602
 32046-5	E	PAPPA	GeneOrProtein	12	PAPPA	PAPPA	0	HGNC:8602
 101662-5	E	prions	GeneOrProtein	24	prions	prins	1	HGNC:34235
-101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	HGNC:9449
+101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	
 101662-5	E	prions	GeneOrProtein	219	prions	prins	1	HGNC:34235
 101662-5	E	prions	GeneOrProtein	24	prions	prins	1	HGNC:34235
-101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	HGNC:9449
+101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	
 101662-5	E	prions	GeneOrProtein	219	prions	prins	1	HGNC:34235
 101662-5	E	prions	GeneOrProtein	24	prions	prins	1	HGNC:34235
-101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	HGNC:9449
+101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	
 101662-5	E	prions	GeneOrProtein	219	prions	prins	1	HGNC:34235
 101662-5	E	prions	GeneOrProtein	24	prions	prins	1	HGNC:34235
-101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	HGNC:9449
+101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	
 101662-5	E	prions	GeneOrProtein	219	prions	prins	1	HGNC:34235
 101662-5	E	prions	GeneOrProtein	24	prions	prins	1	HGNC:34235
-101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	HGNC:9449
+101662-5	E	prion protein	GeneOrProtein	87	prion protein	prion protein	0	
 101662-5	E	prions	GeneOrProtein	219	prions	prins	1	HGNC:34235
-71796-7	E	promyelocytic leukemia 	GeneOrProtein	39	promyelocytic leukemia 	promyelocytic leukemia l	1	
-71796-7	E	promyelocytic leukemia 	GeneOrProtein	39	promyelocytic leukemia 	promyelocytic leukemia l	1	
+71796-7	E	promyelocytic leukemia 	GeneOrProtein	39	promyelocytic leukemia 	promyelocytic leukemia l	1	415302
+71796-7	E	promyelocytic leukemia 	GeneOrProtein	39	promyelocytic leukemia 	promyelocytic leukemia l	1	415302
 53525-2	E	albumin	GeneOrProtein	118	albumin	albumin	0	HGNC:399
 53525-2	E	albumin	GeneOrProtein	118	albumin	albumin	0	HGNC:399
 76665-9	E	tube 1	GeneOrProtein	167	tube 1	tube1	0	HGNC:20775
 76665-9	E	protein is	GeneOrProtein	269	protein is	protein iss	1	P19592
 76665-9	E	CSF protein	GeneOrProtein	403	CSF protein	CSF protein	0	
-76665-9	E	protein are	GeneOrProtein	470	protein are	protein areb	1	
+76665-9	E	protein are	GeneOrProtein	470	protein are	protein areb	1	2870811
 70267-0	E	protein in	GeneOrProtein	106	protein in	protein inh	1	P18058
 33050-6	E	Pseudocholinesterase	GeneOrProtein	0	Pseudocholinesterase	Pseudocholinesterase	0	
 33050-6	E	Pseudocholinesterase	GeneOrProtein	0	Pseudocholinesterase	Pseudocholinesterase	0	
-79659-9	E	purine	GeneOrProtein	69	purine	purin7	1	821663
-79659-9	E	purine	GeneOrProtein	192	purine	purin7	1	821663
+79659-9	E	purine	GeneOrProtein	69	purine	purin7	1	
+79659-9	E	purine	GeneOrProtein	192	purine	purin7	1	
 69569-2	E	CA125	GeneOrProtein	73	CA125	CA125	0	Q8WXI7
 69569-2	E	CA125	GeneOrProtein	73	CA125	CA125	0	Q8WXI7
 80180-3	E	dementia	GeneOrProtein	272	dementia	dementin	1	
 80180-3	E	vacuolar	GeneOrProtein	282	vacuolar	vacuolar8	1	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 82937-4	E	signaling lymphocytic activation molecule	GeneOrProtein	18	signaling lymphocytic activation molecule	signaling lymphocytic activation molecule	0	
 82937-4	E	X-linked inhibitor of apoptosis protein	GeneOrProtein	90	X-linked inhibitor of apoptosis protein	X-linked inhibitor of apoptosis protein	0	
-82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	
-82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	
+82937-4	E	X-linked	GeneOrProtein	203	X-linked	X-linked2	1	105098810
+82937-4	E	X-linked	GeneOrProtein	250	X-linked	X-linked2	1	105098810
 82937-4	E	SAP protein	GeneOrProtein	313	SAP protein	SAP protein	0	
 82937-4	E	SH2D1A	GeneOrProtein	525	SH2D1A	SH2D1A	0	HGNC:10820
 82937-4	E	BIRC4	GeneOrProtein	546	BIRC4	BIRC4	0	
 94554-3	E	soluble CD14	GeneOrProtein	35	soluble CD14	soluble CD44	1	960
-94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	100033906
+94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	
 94554-3	E	systemic	GeneOrProtein	429	systemic	systemin	1	P27058
 94554-3	E	soluble CD14	GeneOrProtein	35	soluble CD14	soluble CD44	1	960
-94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	100033906
+94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	
 94554-3	E	systemic	GeneOrProtein	429	systemic	systemin	1	P27058
 94554-3	E	soluble CD14	GeneOrProtein	35	soluble CD14	soluble CD44	1	960
-94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	100033906
+94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	
 94554-3	E	systemic	GeneOrProtein	429	systemic	systemin	1	P27058
 94554-3	E	soluble CD14	GeneOrProtein	35	soluble CD14	soluble CD44	1	960
-94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	100033906
+94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	
 94554-3	E	systemic	GeneOrProtein	429	systemic	systemin	1	P27058
 94554-3	E	soluble CD14	GeneOrProtein	35	soluble CD14	soluble CD44	1	960
-94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	100033906
+94554-3	E	procalcitonin	GeneOrProtein	356	procalcitonin	procalcitonin	0	
 94554-3	E	systemic	GeneOrProtein	429	systemic	systemin	1	P27058
 74756-8	E	sFlt-1	GeneOrProtein	88	sFlt-1	sFlt1	0	
 74756-8	E	sFlt-1	GeneOrProtein	331	sFlt-1	sFlt1	0	
@@ -650,10 +650,10 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 74756-8	E	sFlt-1	GeneOrProtein	331	sFlt-1	sFlt1	0	
 74757-6	E	sFlt-1	GeneOrProtein	0	sFlt-1	sFlt1	0	
 74757-6	E	sFlt-1	GeneOrProtein	123	sFlt-1	sFlt1	0	
-74757-6	E	PIGF 	GeneOrProtein	275	PIGF 	PIGF l	1	
+74757-6	E	PIGF 	GeneOrProtein	275	PIGF 	PIGF l	1	121871059
 74757-6	E	placental growth factor	GeneOrProtein	287	placental growth factor	placental growth factor	0	HGNC:8893
 74757-6	E	sFlt-1	GeneOrProtein	316	sFlt-1	sFlt1	0	
-74443-3	E	sucrose	GeneOrProtein	15	sucrose	sucrose1	1	P49175
+74443-3	E	sucrose	GeneOrProtein	15	sucrose	sucrose1	1	100383472
 74541-4	E	Surfactant pulmonary-associated protein D	GeneOrProtein	28	Surfactant pulmonary-associated protein D	Surfactant pulmonary-associated protein D	0	
 74541-4	E	SFTPD	GeneOrProtein	71	SFTPD	SFTPD	0	HGNC:10803
 74541-4	E	SFTPD	GeneOrProtein	146	SFTPD	SFTPD	0	HGNC:10803
@@ -707,10 +707,10 @@ DocName	SectionType	OriginalText	EntityType	BegIndex	EntityText	PossiblyCorrecte
 3022-1	E	thyroxine binding globulin	GeneOrProtein	78	thyroxine binding globulin	thyroxine-binding globulin	0	HGNC:11583
 3022-1	E	thyroxine binding globulin	GeneOrProtein	78	thyroxine binding globulin	thyroxine-binding globulin	0	HGNC:11583
 94865-3	E	glycerol kinase	GeneOrProtein	216	glycerol kinase	glycerol kinase	0	HGNC:4289
-35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	
-35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	
-35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	
-35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	
-35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	
-76651-9	E	ELISA	GeneOrProtein	154	ELISA	ELIpSA	1	393572
-76651-9	E	ELISA	GeneOrProtein	154	ELISA	ELIpSA	1	393572
+35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	38023
+35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	38023
+35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	38023
+35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	38023
+35365-6	E	vitamin D 	GeneOrProtein	6	vitamin D 	vitamin D[	1	38023
+76651-9	E	ELISA	GeneOrProtein	154	ELISA	ELIpSA	1	
+76651-9	E	ELISA	GeneOrProtein	154	ELISA	ELIpSA	1	

@@ -33,13 +33,13 @@ fi
 #############################################################################
 # Chemical dictionaries and config files.
 #
-PREFIX="NM"
-#
 ###
 # CONFIG: Create LeadMine config file:
 ###
 #
-CFGFILE="$CFGDIR/chem.cfg"
+CFGFILE="$CFGDIR/Chemical.cfg"
+#
+DICTNAME=$(basename $CFGFILE |perl -pe 's/^(.*)\.cfg$/$1/')
 #
 (cat <<__EOF__
 [resolver]
@@ -154,15 +154,17 @@ nthreads="4"
 # 9.	consumer_name,
 # 10.	relatedname
 #
+###
+# Input file for all NER
+IFILE="${DATADIR}/loinc_chem_names.tsv"
 #
-if [ ! -e "${DATADIR}/loinc_chem_names.tsv" ]; then
-	printf "ERROR: File not found: \"${DATADIR}/loinc_chem_names.tsv\". First run Go_loinc_GetData.sh.\n"
+if [ ! -e "${IFILE}" ]; then
+	printf "ERROR: File not found: \"${IFILE}\". First run Go_loinc_GetData.sh.\n"
 	exit
 fi
 #
 echo "Chemical NER (ANALYTE_TEXTs)..."
 #
-dictname=$(basename $CFGFILE |perl -pe 's/^(.*)\.cfg$/$1/')
 #
 idcol="1"
 #
@@ -170,61 +172,45 @@ col="2"
 colname="component"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
-	-i ${DATADIR}/loinc_chem_names.tsv \
+	-i ${IFILE} \
 	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+	-o ${DATADIR}/loinc_${colname}_${DICTNAME}_leadmine.tsv \
 	-v
 #
 col="6"
 colname="shortname"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
-	-i ${DATADIR}/loinc_chem_names.tsv \
+	-i ${IFILE} \
 	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+	-o ${DATADIR}/loinc_${colname}_${DICTNAME}_leadmine.tsv \
 	-v
 #
 col="4"
 colname="definitiondescription"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
-	-i ${DATADIR}/loinc_chem_names.tsv \
+	-i ${IFILE} \
 	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+	-o ${DATADIR}/loinc_${colname}_${DICTNAME}_leadmine.tsv \
 	-v
 #
 col="7"
 colname="long_common_name"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
-	-i ${DATADIR}/loinc_chem_names.tsv \
+	-i ${IFILE} \
 	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+	-o ${DATADIR}/loinc_${colname}_${DICTNAME}_leadmine.tsv \
 	-v
 #
 col="10"
 colname="relatedname"
 java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 	-config ${CFGFILE} \
-	-i ${DATADIR}/loinc_chem_names.tsv \
+	-i ${IFILE} \
 	-textcol $col -unquote -idcol $idcol \
-	-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+	-o ${DATADIR}/loinc_${colname}_${DICTNAME}_leadmine.tsv \
 	-v
 #
 #
-#
-#source $HOME/venv/bioclients/bin/activate
-##
-#for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
-#	python -m bioclients.util.pandas.App --i $f selectcols \
-#		--coltags "DocName,EntityType,OriginalText,EntityText,ResolvedForm" \
-#		--o $DATADIR/tmp.tsv
-#	sleep 1
-#	mv $DATADIR/tmp.tsv $f
-#	python -m bioclients.util.pandas.App --i $f set_header \
-#		--coltags "LOINC_code,EntityType,OriginalText,EntityText,SMILES" \
-#		--o $DATADIR/tmp.tsv
-#	sleep 1
-#	mv $DATADIR/tmp.tsv $f
-#done
-#deactivate

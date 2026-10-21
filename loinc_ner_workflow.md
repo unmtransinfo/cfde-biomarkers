@@ -1,10 +1,14 @@
-# LOINC Workflow
+# LOINC NER Workflow
 
 __CFDE BiomarkerKB Project__
 
-_LOINC is the international standard for identifying health observations, measurements, and documents._ As such, this project employs LOINC codes as a key identifier for integration of datasets, including genomic, proteomic, chemical, biological, medical, and regulatory.
+## Named-Entity Recognition (NER)
+
+Named entity recognition (NER) refers to a form of text mining whereby substrings in free text are recognized and mapped to well defined entities, and preferably resolved and identified by community standard identifiers. NER is implemented herein using [NextMove Software](https://www.nextmovesoftware.com/) [Leadmine](https://www.nextmovesoftware.com/leadmine.htmlz), a leading, advanced, high-performance, open-source, supported, commercial system build with extensive, maintained dictionaries of terms.
 
 ## LOINC Database
+
+_LOINC is the international standard for identifying health observations, measurements, and documents._ As such, this project employs LOINC codes as a key identifier for integration of datasets, including genomic, proteomic, chemical, biological, medical, and regulatory.
 
 The following are fields with names or descriptions suitable for named entity recognition.
 
@@ -27,10 +31,9 @@ The following are fields with names or descriptions suitable for named entity re
  * [Go\_loinc\_GetData.sh](sh/Go_loinc_GetData.sh) - Query db for chemicals with names, relatednames.
  * [Go\_loinc\_NER\_leadmine\_gene.sh](sh/Go_loinc_NER_leadmine_gene.sh) - NER for genes using [NextMove Leadmine](https://nextmovesoftware.com/).
  * [Go\_loinc\_NER\_leadmine\_chem.sh](sh/Go_loinc_NER_leadmine_chem.sh) - NER for chemicals using [NextMove Leadmine](https://nextmovesoftware.com/).
-
-## Named-Entity Recognition (NER)
-
-NER is a form of text-mining, here implemented using [NextMove Software](https://www.nextmovesoftware.com/) [Leadmine](https://www.nextmovesoftware.com/leadmine.htmlz), a leading, advanced, high-performance, open-source, supported, commercial system build with extensive, maintained dictionaries of terms.
+ * [combine\_leadmine\_results.py](python/combine_leadmine_results.py) - Combine NER results from multiple LOINC fields.
+ * [Go\_loinc\_NER\_leadmine\_chem\_pubchem.sh](sh/Go_loinc_NER_leadmine_chem_pubchem.sh) - query PubChem REST API to map SMILES to CIDs.
+ * [Go\_loinc\_NER\_leadmine\_chem\_pubchem\_merge.sh](sh/Go_loinc_NER_leadmine_chem_pubchem_merge.sh) - merge PubChem CIDs with NER results, using [merge\_leadmine\_pubchem.py](python/merge_leadmine_pubchem.py).
 
 ## References
 

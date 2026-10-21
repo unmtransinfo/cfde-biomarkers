@@ -17,10 +17,10 @@ DATADIR="$cwd/loinc_data/v${LOINC_RELEASE}"
 #
 ###
 #
-dictname="chem"
+dictname="Chemical"
 #
 # Merge PubChem files via SMILES to add CIDs.
-for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
+for f in $(ls $DATADIR/loinc_*_${dictname}_leadmine.tsv) ; do
 	printf "NOTE: LeadMine chemical NER file: ${f}\n"
 	pubchem_file=$(echo $f |sed 's/.tsv$/_pubchem.tsv/')
 	ofile=$(echo $pubchem_file |sed 's/.tsv$/_merged.tsv/')
@@ -36,4 +36,20 @@ for f in $(ls $DATADIR/loinc_chem_names_*_${dictname}_leadmine.tsv) ; do
 	printf "NOTE: Merged output file: ${ofile}\n"
 done
 #
+###
+# Combine results into one file.
+#
+cols="2:component 4:definitiondescription 7:long_common_name 10:relatedname"
+args=""
+for col in $cols ; do
+	colname=$(echo $col |sed -e 's/^.*://')
+	args="${args} -i ${DATADIR}/loinc_${colname}_${dictname}_leadmine_pubchem_merged.tsv"
+done
+#
+set -x
+#
+${cwd}/python/combine_leadmine_results.py ${args} \
+	--docname_tag "LOINC_code" --resolvedform_tag "SMILES" \
+	--include_tag "PubChem_CID" \
+	-o ${DATADIR}/loinc_${dictname}_leadmine_COMBINED.tsv
 #

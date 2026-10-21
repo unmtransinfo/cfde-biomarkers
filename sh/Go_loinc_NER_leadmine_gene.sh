@@ -16,9 +16,9 @@ printf "LOINC release: ${LOINC_RELEASE}\n"
 DATADIR="$cwd/loinc_data/v${LOINC_RELEASE}"
 #
 NM_ROOT="$(cd $HOME/../app/nextmove; pwd)"
-#DICTDIR="${NM_ROOT}/dictionaries-20231222/Dictionaries"
-#DICTDIR="${NM_ROOT}/dictionaries-20250331/Dictionaries"
-DICTDIR="${NM_ROOT}/dictionaries-20260610/Dictionaries"
+#DICTDIR="${NM_ROOT}/dictionaries-20231222"
+#DICTDIR="${NM_ROOT}/dictionaries-20250331"
+DICTDIR="${NM_ROOT}/dictionaries-20260610"
 #
 LIBDIR="$(cd $HOME/../app/lib; pwd)"
 #BIOCOMP_NEXTMOVE_JARFILE="${LIBDIR}/unm_biocomp_nextmove-0.0.3-SNAPSHOT-jar-with-dependencies.jar"
@@ -33,15 +33,13 @@ fi
 #############################################################################
 # GeneAndProtein dictionaries and config files.
 #
-PREFIX="NM"
-#
 ###
 # CONFIG: Create LeadMine config file:
 ###
-dict="${DICTDIR}/CFDictGeneAndProtein.cfx"
+dict="${DICTDIR}/Dictionaries/CFDictGeneAndProtein.cfx"
 #
 printf "CFG: %s\n" $(basename $dict)
-DICTNAME="${PREFIX}_$(basename $dict|sed -e 's/\.cfx$//')"
+DICTNAME="$(basename $dict|sed -e 's/\.cfx$//')"
 #
 caseSens="false"
 minEntLen="5"
@@ -50,8 +48,6 @@ spelCor="true"
 maxCorDist="1"
 minCorEntLen="5"
 #
-#  location  loinc_data/Resolvers/entrez.dict
-# location /home/app/nextmove/dictionaries-20231222/Resolvers/entrez.dict
 #
 (cat <<__EOF__
 [dictionary]
@@ -64,7 +60,7 @@ minCorEntLen="5"
   minimumCorrectedEntityLength ${minCorEntLen}
 
 [resolver]
-  location /home/app/nextmove/dictionaries-20231222/Resolvers/hgnc.dict
+  location ${DICTDIR}/Resolvers/hgnc.dict
   mmap  true
   validate false
   caseSensitive  false
@@ -72,7 +68,7 @@ minCorEntLen="5"
   outputType  HGNC
 
 [resolver]
-  location /home/app/nextmove/dictionaries-20231222/Resolvers/uniprot.dict
+  location ${DICTDIR}/Resolvers/uniprot.dict
   mmap  true
   validate false
   caseSensitive  false
@@ -80,7 +76,7 @@ minCorEntLen="5"
   outputType  UniProt
 
 [resolver]
-  location /home/app/nextmove/dictionaries-20231222/Resolvers/entrez.dict
+  location ${DICTDIR}/Resolvers/entrez.dict
   mmap true
   validate false
   caseSensitive false
@@ -108,56 +104,42 @@ nthreads="4"
 # 10.	relatedname
 #
 #
-if [ ! -e "${DATADIR}/loinc_chem_names.tsv" ]; then
-	printf "ERROR: File not found: \"${DATADIR}/loinc_chem_names.tsv\". First run Go_loinc_GetData.sh.\n"
+###
+# Input file for all NER:
+IFILE="${DATADIR}/loinc_chem_names.tsv"
+if [ ! -e "${IFILE}" ]; then
+	printf "ERROR: File not found: \"${IFILE}\". First run Go_loinc_GetData.sh.\n"
 	exit
 fi
 #
-for cfgfile in $(ls $CFGDIR/${PREFIX}_*.cfg) ; do
-	#
-	dictname=$(basename $cfgfile |perl -pe 's/^(.*)\.cfg$/$1/')
-	printf "Leadmine: $(basename $cfgfile) (${dictname})\n"
-	#
-	col="2"
-	colname="component"
-	echo "Gene+protein NER (${colname})..."
+cfgfile="$CFGDIR/${DICTNAME}.cfg"
+#
+dictname=$(basename $cfgfile |perl -pe 's/^(.*)\.cfg$/$1/')
+printf "Leadmine: $(basename $cfgfile) (${dictname})\n"
+#
+cols="2:component 4:definitiondescription 7:long_common_name 10:relatedname"
+#
+for col in $cols ; do
+	colnum=$(echo $col |sed -e 's/:.*$//')
+	colname=$(echo $col |sed -e 's/^.*://')
+	printf "Gene+protein NER (${colnum}:${colname})...\n"
 	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
 		-config $cfgfile \
-		-i ${DATADIR}/loinc_chem_names.tsv \
-		-textcol $col -unquote -idcol 1 \
-		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
+		-i ${IFILE} \
+		-textcol $colnum -unquote -idcol 1 \
+		-o ${DATADIR}/loinc_${colname}_${dictname}_leadmine.tsv \
 		-v
-	#
-	col="4"
-	colname="definitiondescription"
-	echo "Gene+protein NER (${colname})..."
-	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
-		-config $cfgfile \
-		-i ${DATADIR}/loinc_chem_names.tsv \
-		-textcol $col -unquote -idcol 1 \
-		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
-		-v
-	#
-	col="7"
-	colname="long_common_name"
-	echo "Gene+protein NER (${colname})..."
-	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
-		-config $cfgfile \
-		-i ${DATADIR}/loinc_chem_names.tsv \
-		-textcol $col -unquote -idcol 1 \
-		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
-		-v
-	#
-	#
-	col="10"
-	colname="relatedname"
-	echo "Gene+protein NER (${colname})..."
-	java -jar ${BIOCOMP_NEXTMOVE_JARFILE} \
-		-config $cfgfile \
-		-i ${DATADIR}/loinc_chem_names.tsv \
-		-textcol $col -unquote -idcol 1 \
-		-o ${DATADIR}/loinc_chem_names_${colname}_${dictname}_leadmine.tsv \
-		-v
-	#
 done
+#
+#
+###
+# Combine results into one file.
+args=""
+for col in $cols ; do
+	colname=$(echo $col |sed -e 's/^.*://')
+	args="${args} -i ${DATADIR}/loinc_${colname}_${dictname}_leadmine.tsv"
+done
+#
+${cwd}/python/combine_leadmine_results.py ${args} \
+	-o ${DATADIR}/loinc_${dictname}_leadmine_COMBINED.tsv
 #
